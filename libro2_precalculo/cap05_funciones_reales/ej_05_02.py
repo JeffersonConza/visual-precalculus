@@ -4,9 +4,9 @@ Capítulo 5: Funciones reales
 Sección 5.1.4: Regla del Máximo Dominio (RMD)
 Ejercicio 5.2 (Página 27 del libro / Página 46 del PDF)
 
-Enunciado:
-Encuentre la función (dominio de definición) determinada por la fórmula:
-    h(x) = ln((x^3 + 1) / (x + 1))
+Estructura de dos columnas:
+- Columna Izquierda: Desarrollo algebraico con resaltado de términos modificados.
+- Columna Derecha: Justificación ("¿qué se hizo en este paso?").
 """
 from manim import *
 import sys
@@ -20,9 +20,9 @@ from common.styles import THEME
 class Ejercicio05_02(BaseExerciseScene):
     def construct(self):
         # ==========================================================
-        # ACTO 1: Encabezado y Enunciado
+        # 1. Encabezado y Enunciado
         # ==========================================================
-        header = self.show_header(
+        self.show_header(
             chapter="5",
             exercise_num=2,
             topic="Regla del Máximo Dominio (RMD)"
@@ -36,226 +36,194 @@ class Ejercicio05_02(BaseExerciseScene):
         )
         enunciado_grp = VGroup(enunciado_line, enunciado_math).arrange(DOWN, buff=0.25)
         
-        # Presentar y minimizar
-        stmt_card = self.present_statement(enunciado_grp, read_time=4.5)
+        # Presentar y minimizar arriba
+        self.present_statement(enunciado_grp, read_time=4.0)
 
         # ==========================================================
-        # ACTO 2: Condiciones de la Regla del Máximo Dominio (RMD)
+        # 2. Estructura de Dos Columnas (Ecuaciones | Justificación)
         # ==========================================================
-        paso1_title = Text("Paso 1: Restricciones de existencia en ℝ", font_size=21, color=THEME["header_color"])
-        paso1_title.to_edge(LEFT, buff=1.0).shift(UP * 1.5)
-        self.play(FadeIn(paso1_title, shift=RIGHT * 0.2), run_time=0.7)
+        col_x = 0.2  # Posición de la línea divisoria vertical
+        
+        # Encabezados de columnas
+        head_izq = Text("Desarrollo Matemático", font_size=18, color=THEME["header_color"], weight=BOLD)
+        head_izq.move_to([-3.4, 2.1, 0])
+        
+        head_der = Text("Justificación / Procedimiento", font_size=18, color=THEME["header_color"], weight=BOLD)
+        head_der.move_to([3.6, 2.1, 0])
 
-        c1_desc = Text("1) Denominador no nulo:", font_size=18, color=THEME["statement_text"])
-        c1_math = MathTex(r"x + 1 \neq 0 \iff x \neq -1", font_size=22, color=THEME["secondary"])
-        c1_grp = VGroup(c1_desc, c1_math).arrange(RIGHT, buff=0.3)
+        # Divisor vertical y horizontal de encabezados
+        v_divider = Line(UP * 2.3, DOWN * 3.0, color=THEME["axes"], stroke_width=1.5).move_to([col_x, -0.4, 0])
+        h_divider = Line(LEFT * 6.5, RIGHT * 6.5, color=THEME["axes"], stroke_width=1.5).move_to([0, 1.8, 0])
 
-        c2_desc = Text("2) Argumento del logaritmo estrictamente positivo:", font_size=18, color=THEME["statement_text"])
-        c2_math = MathTex(r"\frac{x^3 + 1}{x + 1} > 0", font_size=24, color=THEME["highlight"])
-        c2_grp = VGroup(c2_desc, c2_math).arrange(RIGHT, buff=0.3)
+        self.play(
+            Create(v_divider),
+            Create(h_divider),
+            FadeIn(head_izq, shift=DOWN * 0.1),
+            FadeIn(head_der, shift=DOWN * 0.1),
+            run_time=0.9
+        )
+        self.wait(1.0)
 
-        conds_grp = VGroup(c1_grp, c2_grp).arrange(DOWN, aligned_edge=LEFT, buff=0.35)
-        conds_grp.next_to(paso1_title, DOWN, buff=0.3, aligned_edge=LEFT)
+        # Helper para crear fila de dos columnas
+        def make_row(y_pos, eq_mobj, just_text_str, just_tex=None):
+            eq_mobj.move_to([-3.4, y_pos, 0])
+            txt = Text(just_text_str, font_size=15, color=THEME["statement_text"], line_spacing=1.2)
+            if just_tex:
+                grp_der = VGroup(txt, just_tex).arrange(DOWN, aligned_edge=LEFT, buff=0.15)
+            else:
+                grp_der = txt
+            grp_der.next_to(v_divider, RIGHT, buff=0.4).set_y(y_pos)
+            return eq_mobj, grp_der
 
-        self.play(FadeIn(c1_grp, shift=UP * 0.1), run_time=0.9)
-        self.wait(1.2)
-        self.play(FadeIn(c2_grp, shift=UP * 0.1), run_time=0.9)
+        # ----------------------------------------------------------
+        # BLOQUE 1: Condiciones RMD y Factorización
+        # ----------------------------------------------------------
+        # Fila 1: Condiciones RMD
+        eq_1 = MathTex(
+            r"\begin{cases} x + 1 \neq 0 \implies x \neq -1 \\ \dfrac{x^3 + 1}{x + 1} > 0 \end{cases}",
+            font_size=23,
+            color=WHITE
+        )
+        eq_1_m, just_1 = make_row(
+            1.0,
+            eq_1,
+            "1. RMD (Regla del Máximo Dominio):\nEl denominador no puede anularse\ny el argumento de ln debe ser > 0."
+        )
+
+        self.play(FadeIn(eq_1_m, shift=RIGHT * 0.2), FadeIn(just_1, shift=LEFT * 0.2), run_time=1.2)
+        # Resaltado en x != -1
+        hl_1 = SurroundingRectangle(eq_1_m, color=THEME["secondary"], buff=0.12, stroke_width=2)
+        self.play(Create(hl_1), run_time=0.6)
         self.wait(2.2)
 
-        # Limpiar Paso 1 para dar espacio al desarrollo algebraico
-        self.play(FadeOut(paso1_title), FadeOut(conds_grp), run_time=0.6)
-
-        # ==========================================================
-        # ACTO 3: Desarrollo Algebraico Intermedio Detallado
-        # ==========================================================
-        paso2_title = Text("Paso 2: Factorización y Simplificación del Argumento", font_size=21, color=THEME["header_color"])
-        paso2_title.to_edge(LEFT, buff=1.0).shift(UP * 1.5)
-        self.play(FadeIn(paso2_title, shift=RIGHT * 0.2), run_time=0.7)
-
-        # Recordar identidad notable
-        ident_text = Text("Aplicamos la identidad de suma de cubos  a³ + b³ = (a + b)(a² - ab + b²):", font_size=17, color=THEME["statement_text"])
-        ident_text.next_to(paso2_title, DOWN, buff=0.25, aligned_edge=LEFT)
-
-        cubo_math = MathTex(
-            r"x^3 + 1 = x^3 + 1^3 = (x + 1)(x^2 - x + 1)",
+        # Fila 2: Factorización suma de cubos
+        eq_2 = MathTex(
+            r"x^3 + 1 = (x + 1)(x^2 - x + 1)",
             font_size=23,
             color=THEME["highlight"]
-        ).next_to(ident_text, DOWN, buff=0.2, aligned_edge=LEFT)
+        )
+        eq_2_m, just_2 = make_row(
+            -0.6,
+            eq_2,
+            "2. Factorización de suma de cubos:\nAplicamos la identidad notable\na³ + b³ = (a + b)(a² - ab + b²)."
+        )
 
-        self.play(FadeIn(ident_text), Write(cubo_math), run_time=1.3)
-        self.wait(2.0)
-
-        # Fracción factorizada
-        frac_text = Text("Sustituyendo en el cociente para  x ≠ -1:", font_size=17, color=THEME["statement_text"])
-        frac_text.next_to(cubo_math, DOWN, buff=0.3, aligned_edge=LEFT)
-
-        frac_math = MathTex(
-            r"\frac{x^3 + 1}{x + 1} = \frac{(x + 1)(x^2 - x + 1)}{x + 1}",
-            font_size=24,
-            color=WHITE
-        ).next_to(frac_text, DOWN, buff=0.2, aligned_edge=LEFT)
-
-        self.play(FadeIn(frac_text), Write(frac_math), run_time=1.2)
-        self.wait(1.5)
-
-        # Simplificación directa
-        simpl_math = MathTex(
-            r"= x^2 - x + 1 \quad (\text{para todo } x \neq -1)",
-            font_size=24,
-            color=THEME["secondary"]
-        ).next_to(frac_math, DOWN, buff=0.25, aligned_edge=LEFT)
-
-        self.play(Write(simpl_math), run_time=1.0)
+        self.play(FadeIn(eq_2_m, shift=RIGHT * 0.2), FadeIn(just_2, shift=LEFT * 0.2), run_time=1.2)
+        hl_2 = SurroundingRectangle(eq_2_m, color=THEME["highlight"], buff=0.12, stroke_width=2)
+        self.play(Create(hl_2), run_time=0.6)
         self.wait(2.5)
 
-        # Limpiar Paso 2
+        # Transición al siguiente bloque (limpiar filas 1 y 2 para mantener espacio amplio)
         self.play(
-            FadeOut(paso2_title),
-            FadeOut(ident_text),
-            FadeOut(cubo_math),
-            FadeOut(frac_text),
-            FadeOut(frac_math),
-            FadeOut(simpl_math),
+            FadeOut(eq_1_m), FadeOut(just_1), FadeOut(hl_1),
+            FadeOut(eq_2_m), FadeOut(just_2), FadeOut(hl_2),
             run_time=0.6
         )
 
-        # ==========================================================
-        # ACTO 4: Análisis del Trinomio (Completando Cuadrados)
-        # ==========================================================
-        paso3_title = Text("Paso 3: Análisis de Signo del Trinomio  x² - x + 1", font_size=21, color=THEME["header_color"])
-        paso3_title.to_edge(LEFT, buff=1.0).shift(UP * 1.5)
-        self.play(FadeIn(paso3_title, shift=RIGHT * 0.2), run_time=0.7)
-
-        trin_intro = Text("Completamos el trinomio cuadrado perfecto:", font_size=18, color=THEME["statement_text"])
-        trin_intro.next_to(paso3_title, DOWN, buff=0.25, aligned_edge=LEFT)
-
-        paso_cuad1 = MathTex(
-            r"x^2 - x + 1 = \left(x^2 - 2 \cdot \frac{1}{2}x + \frac{1}{4}\right) + \left(1 - \frac{1}{4}\right)",
-            font_size=23,
+        # ----------------------------------------------------------
+        # BLOQUE 2: Simplificación y Completación de Cuadrados
+        # ----------------------------------------------------------
+        # Fila 3: Simplificación fraccionaria
+        eq_3 = MathTex(
+            r"\frac{x^3 + 1}{x + 1} = \frac{(x+1)(x^2 - x + 1)}{x+1} = x^2 - x + 1",
+            font_size=21,
             color=WHITE
-        ).next_to(trin_intro, DOWN, buff=0.25, aligned_edge=LEFT)
+        )
+        eq_3_m, just_3 = make_row(
+            1.0,
+            eq_3,
+            "3. Simplificación de la fracción:\nCancelamos el factor común (x + 1)\nya que x ≠ -1 garantiza división válida."
+        )
 
-        paso_cuad2 = MathTex(
-            r"= \left(x - \frac{1}{2}\right)^2 + \frac{3}{4}",
-            font_size=24,
+        self.play(FadeIn(eq_3_m, shift=RIGHT * 0.2), FadeIn(just_3, shift=LEFT * 0.2), run_time=1.2)
+        # Resaltado en el resultado simplificado x^2 - x + 1
+        hl_3 = SurroundingRectangle(eq_3_m, color=THEME["secondary"], buff=0.12, stroke_width=2)
+        self.play(Create(hl_3), run_time=0.6)
+        self.wait(2.5)
+
+        # Fila 4: Completación del cuadrado del trinomio
+        eq_4 = MathTex(
+            r"x^2 - x + 1 = \left(x - \frac{1}{2}\right)^2 + \frac{3}{4} \ge \frac{3}{4} > 0",
+            font_size=21,
             color=THEME["highlight"]
-        ).next_to(paso_cuad1, DOWN, buff=0.2, aligned_edge=LEFT)
+        )
+        eq_4_m, just_4 = make_row(
+            -0.6,
+            eq_4,
+            "4. Completando cuadrados:\nTodo cuadrado es ≥ 0 y 3/4 > 0.\nEl argumento siempre es > 0 (∀ x ∈ ℝ)."
+        )
 
-        self.play(FadeIn(trin_intro), Write(paso_cuad1), run_time=1.4)
-        self.wait(1.5)
-        self.play(Write(paso_cuad2), run_time=1.1)
-        self.wait(1.8)
-
-        # Justificación de positividad
-        just_1 = MathTex(r"\text{Como } \left(x - \frac{1}{2}\right)^2 \ge 0 \quad \text{y} \quad \frac{3}{4} > 0:", font_size=20, color=WHITE)
-        just_1.next_to(paso_cuad2, DOWN, buff=0.3, aligned_edge=LEFT)
-
-        just_2 = MathTex(
-            r"\implies x^2 - x + 1 \ge \frac{3}{4} > 0 \quad (\forall x \in \mathbb{R})",
-            font_size=23,
-            color=THEME["curve"]
-        ).next_to(just_1, DOWN, buff=0.2, aligned_edge=LEFT)
-
-        concl_box = Text("¡El argumento siempre es estrictamente positivo! La única exclusión es x = -1.", font_size=17, color=THEME["statement_text"])
-        concl_box.next_to(just_2, DOWN, buff=0.3, aligned_edge=LEFT)
-
-        self.play(Write(just_1), run_time=1.0)
-        self.play(Write(just_2), run_time=1.0)
-        self.play(FadeIn(concl_box), run_time=0.8)
+        self.play(FadeIn(eq_4_m, shift=RIGHT * 0.2), FadeIn(just_4, shift=LEFT * 0.2), run_time=1.2)
+        hl_4 = SurroundingRectangle(eq_4_m, color=THEME["curve"], buff=0.12, stroke_width=2)
+        self.play(Create(hl_4), run_time=0.6)
         self.wait(3.0)
 
-        # Limpiar Paso 3
+        # Limpiar filas 3 y 4
         self.play(
-            FadeOut(paso3_title),
-            FadeOut(trin_intro),
-            FadeOut(paso_cuad1),
-            FadeOut(paso_cuad2),
-            FadeOut(just_1),
-            FadeOut(just_2),
-            FadeOut(concl_box),
+            FadeOut(eq_3_m), FadeOut(just_3), FadeOut(hl_3),
+            FadeOut(eq_4_m), FadeOut(just_4), FadeOut(hl_4),
             run_time=0.6
         )
 
-        # ==========================================================
-        # ACTO 5: Representación en la Recta Numérica Real (ℝ)
-        # ==========================================================
-        paso4_title = Text("Paso 4: Representación Geométrica en la Recta Real", font_size=21, color=THEME["header_color"])
-        paso4_title.to_edge(LEFT, buff=1.0).shift(UP * 1.5)
-        self.play(FadeIn(paso4_title, shift=RIGHT * 0.2), run_time=0.7)
-
-        # Eje de números reales
-        linea_real = NumberLine(
-            x_range=[-4, 3, 1],
-            length=8.5,
-            color=THEME["axes"],
-            include_numbers=True,
-            font_size=18
-        ).shift(UP * 0.1)
-
-        self.play(Create(linea_real), run_time=1.2)
-
-        # Rayos coloreados (intervalos válidos)
-        # De -4 a -1
-        izq_ray = Line(
-            start=linea_real.n2p(-4),
-            end=linea_real.n2p(-1),
-            color=THEME["curve"],
-            stroke_width=6
-        )
-        # De -1 a 3
-        der_ray = Line(
-            start=linea_real.n2p(-1),
-            end=linea_real.n2p(3),
-            color=THEME["curve"],
-            stroke_width=6
-        )
-
-        # Punto abierto en -1
-        punto_abierto = Dot(
-            point=linea_real.n2p(-1),
-            radius=0.12,
-            color=THEME["poncho_red"],
-            fill_opacity=0,
-            stroke_width=3
-        )
-        punto_label = Text("x = -1 (excluido)", font_size=16, color=THEME["poncho_red"]).next_to(punto_abierto, UP, buff=0.35)
-
-        self.play(Create(izq_ray), Create(der_ray), run_time=1.0)
-        self.play(Create(punto_abierto), FadeIn(punto_label, shift=DOWN * 0.1), run_time=0.9)
-        self.wait(2.5)
-
-        # Limpiar para la respuesta final
-        self.play(
-            FadeOut(paso4_title),
-            FadeOut(linea_real),
-            FadeOut(izq_ray),
-            FadeOut(der_ray),
-            FadeOut(punto_abierto),
-            FadeOut(punto_label),
-            run_time=0.6
-        )
-
-        # ==========================================================
-        # ACTO 6: Solución y Definición Formal de la Función
-        # ==========================================================
-        concl_header = Text("Conjunto Dominio de Definición:", font_size=23, color=THEME["header_color"]).shift(UP * 1.0)
-
-        dom_math = MathTex(
-            r"\operatorname{Dom}(h) = \mathbb{R} \setminus \{-1\} = (-\infty, -1) \cup (-1, +\infty)",
-            font_size=29,
-            color=THEME["highlight"]
-        ).next_to(concl_header, DOWN, buff=0.35)
-
-        func_def = MathTex(
-            r"h: \mathbb{R} \setminus \{-1\} \longrightarrow \mathbb{R}, \quad x \longmapsto \ln(x^2 - x + 1)",
+        # ----------------------------------------------------------
+        # BLOQUE 3: Conclusión y Conjunto Solución
+        # ----------------------------------------------------------
+        eq_5 = MathTex(
+            r"\operatorname{Dom}(h) = \mathbb{R} \setminus \{-1\}",
             font_size=26,
             color=THEME["success"]
-        ).next_to(dom_math, DOWN, buff=0.45)
+        )
+        eq_5_m, just_5 = make_row(
+            0.9,
+            eq_5,
+            "5. Conclusión del Dominio:\nComo el argumento siempre es positivo,\nla única exclusión es el cero del denominador."
+        )
 
-        self.play(FadeIn(concl_header), Write(dom_math), run_time=1.2)
-        self.wait(1.5)
-        self.play(Write(func_def), run_time=1.2)
+        self.play(FadeIn(eq_5_m, shift=RIGHT * 0.2), FadeIn(just_5, shift=LEFT * 0.2), run_time=1.2)
+        hl_5 = SurroundingRectangle(eq_5_m, color=THEME["success"], buff=0.15, stroke_width=2.5)
+        self.play(Create(hl_5), run_time=0.6)
+        self.wait(2.0)
 
-        # Destacar la conclusión final con recuadro verde andino y pausar
-        resp_box = VGroup(dom_math, func_def)
-        self.conclude_solution(resp_box, wait_time=4.5)
+        # Definición formal en la parte inferior
+        formal_def = MathTex(
+            r"h: \mathbb{R} \setminus \{-1\} \longrightarrow \mathbb{R}, \quad x \longmapsto \ln(x^2 - x + 1)",
+            font_size=23,
+            color=THEME["highlight"]
+        ).move_to([-3.4, -0.6, 0])
+
+        formal_desc = Text(
+            "Función bien definida por RMD\ncon codominio en ℝ.",
+            font_size=15,
+            color=THEME["statement_text"],
+            line_spacing=1.2
+        ).next_to(v_divider, RIGHT, buff=0.4).set_y(-0.6)
+
+        self.play(FadeIn(formal_def, shift=UP * 0.1), FadeIn(formal_desc, shift=UP * 0.1), run_time=1.0)
+        self.wait(3.5)
+
+        # Limpiar todo para la pantalla final de conclusión
+        self.play(
+            FadeOut(v_divider),
+            FadeOut(h_divider),
+            FadeOut(head_izq),
+            FadeOut(head_der),
+            FadeOut(eq_5_m),
+            FadeOut(just_5),
+            FadeOut(hl_5),
+            FadeOut(formal_def),
+            FadeOut(formal_desc),
+            run_time=0.7
+        )
+
+        # ==========================================================
+        # 3. Pantalla Final Destacada
+        # ==========================================================
+        concl_title = Text("Resultado Final:", font_size=24, color=THEME["header_color"]).shift(UP * 0.8)
+        concl_res = MathTex(
+            r"\operatorname{Dom}(h) = \mathbb{R} \setminus \{-1\} = (-\infty, -1) \cup (-1, +\infty)",
+            font_size=30,
+            color=THEME["success"]
+        ).next_to(concl_title, DOWN, buff=0.4)
+
+        self.play(FadeIn(concl_title), Write(concl_res), run_time=1.2)
+        self.conclude_solution(concl_res, wait_time=4.0)
