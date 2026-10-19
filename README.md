@@ -79,3 +79,11 @@ pip install -r requirements.txt
 ## 📋 Catálogo y Progreso de Ejercicios
 
 Consulta [TRACKING.md](TRACKING.md) para ver la lista completa de ejercicios pares cubiertos, en desarrollo y planificados.
+
+### Muestra: Capítulo 5 · Ejercicio 5.2 (Par)
+> **Tema:** Regla del Máximo Dominio (RMD)  
+> **Problema:** Encontrar el dominio de $h(x) = \ln\left(\frac{x^3+1}{x+1}\right)$  
+> **Resultado:** $\operatorname{Dom}(h) = \mathbb{R} \setminus \{-1\}$  
+
+![Ejercicio 5.2](docs/previews/ej_05_02.gif)
+
