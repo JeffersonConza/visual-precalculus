@@ -4,11 +4,11 @@ Capítulo 5: Funciones reales
 Sección 5.1.4: Regla del Máximo Dominio (RMD)
 Ejercicio 5.2 (Página 27 del libro / Página 46 del PDF)
 
-Modo: Metamorfosis 3Blue1Brown con ritmo pausado y pedagógico (~55 segundos)
+Modo: Metamorfosis 3Blue1Brown con ritmo pausado y descansado (~68 segundos)
 - Enunciado permanente en la parte superior.
 - Sin "(Par)" en el título.
 - Sin etiquetas de columnas.
-- Transiciones más suaves y tiempos de lectura generosos para asimilación.
+- Transiciones suaves (2.0s) y pausas de lectura amplias (5.0s - 7.0s).
 - Resaltados sincronizados.
 """
 from manim import *
@@ -54,8 +54,8 @@ class Ejercicio05_02(Scene):
         )
         permanent_statement = VGroup(stmt_box, stmt_content).move_to([0, 2.5, 0])
 
-        self.play(Create(stmt_box), Write(stmt_content), run_time=1.4)
-        self.wait(3.5)  # Pausa cómoda para leer y asimilar el problema
+        self.play(Create(stmt_box), Write(stmt_content), run_time=1.5)
+        self.wait(5.0)  # Pausa amplia para asimilar bien el problema planteado
 
         # Helper para posicionar explicaciones a la derecha
         def make_just(text_str):
@@ -85,12 +85,12 @@ class Ejercicio05_02(Scene):
         self.play(
             FadeIn(eq_actual, shift=DOWN * 0.3),
             FadeIn(just_actual, shift=DOWN * 0.3),
-            run_time=1.2
+            run_time=1.3
         )
         
         hl_box = SurroundingRectangle(eq_actual, color=THEME["secondary"], buff=0.15, stroke_width=2.0)
-        self.play(Create(hl_box), run_time=0.6)
-        self.wait(3.5)  # Tiempo de lectura de las dos condiciones
+        self.play(Create(hl_box), run_time=0.8)
+        self.wait(4.5)  # Tiempo pausado para leer ambas condiciones
 
         # ==========================================================
         # PASO 2: Aislamiento del argumento a simplificar
@@ -112,11 +112,11 @@ class Ejercicio05_02(Scene):
             ReplacementTransform(eq_actual, eq_next),
             FadeOut(just_actual, shift=DOWN * 0.2),
             FadeIn(just_next, shift=DOWN * 0.2),
-            run_time=1.5  # Transición suave
+            run_time=1.8  # Transición suave
         )
         eq_actual = eq_next
         just_actual = just_next
-        self.wait(2.5)
+        self.wait(3.5)
 
         # ==========================================================
         # PASO 3: Metamorfosis - Expansión de suma de cubos
@@ -140,12 +140,12 @@ class Ejercicio05_02(Scene):
             ReplacementTransform(eq_actual, eq_next),
             FadeOut(just_actual, shift=DOWN * 0.2),
             FadeIn(just_next, shift=DOWN * 0.2),
-            run_time=1.8  # Movimiento pausado de los términos
+            run_time=2.0  # Movimiento pausado de los términos
         )
-        self.play(Create(hl_box), run_time=0.6)
+        self.play(Create(hl_box), run_time=0.8)
         eq_actual = eq_next
         just_actual = just_next
-        self.wait(4.0)  # Pausa generosa para revisar la factorización
+        self.wait(5.5)  # Pausa tranquila para leer la identidad y ver la sustitución
 
         # ==========================================================
         # PASO 4: Metamorfosis - Cancelación del factor común
@@ -170,13 +170,13 @@ class Ejercicio05_02(Scene):
             ReplacementTransform(eq_actual, eq_next),
             FadeOut(just_actual, shift=DOWN * 0.2),
             FadeIn(just_next, shift=DOWN * 0.2),
-            run_time=1.8
+            run_time=2.0
         )
-        self.play(Create(hl_next), run_time=0.6)
+        self.play(Create(hl_next), run_time=0.8)
         eq_actual = eq_next
         just_actual = just_next
         hl_box = hl_next
-        self.wait(3.8)
+        self.wait(5.0)
 
         # ==========================================================
         # PASO 5: Metamorfosis - Completando el cuadrado
@@ -201,13 +201,13 @@ class Ejercicio05_02(Scene):
             ReplacementTransform(eq_actual, eq_next),
             FadeOut(just_actual, shift=DOWN * 0.2),
             FadeIn(just_next, shift=DOWN * 0.2),
-            run_time=1.8
+            run_time=2.0
         )
-        self.play(Create(hl_next), run_time=0.6)
+        self.play(Create(hl_next), run_time=0.8)
         eq_actual = eq_next
         just_actual = just_next
         hl_box = hl_next
-        self.wait(4.0)
+        self.wait(5.5)
 
         # ==========================================================
         # PASO 6: Metamorfosis - Demostración de positividad estricta
@@ -232,13 +232,13 @@ class Ejercicio05_02(Scene):
             ReplacementTransform(eq_actual, eq_next),
             FadeOut(just_actual, shift=DOWN * 0.2),
             FadeIn(just_next, shift=DOWN * 0.2),
-            run_time=1.8
+            run_time=2.0
         )
-        self.play(Create(hl_next), run_time=0.6)
+        self.play(Create(hl_next), run_time=0.8)
         eq_actual = eq_next
         just_actual = just_next
         hl_box = hl_next
-        self.wait(4.5)
+        self.wait(6.0)
 
         # ==========================================================
         # PASO 7: Metamorfosis hacia la Conclusión Final
@@ -271,10 +271,10 @@ class Ejercicio05_02(Scene):
             ReplacementTransform(eq_actual, final_eq_grp),
             FadeOut(just_actual, shift=DOWN * 0.2),
             FadeIn(just_next, shift=DOWN * 0.2),
-            run_time=2.0  # Transición final muy elegante
+            run_time=2.2
         )
-        self.play(Create(hl_final), run_time=0.7)
-        self.wait(5.0)  # Tiempo final para asimilar la respuesta
+        self.play(Create(hl_final), run_time=0.9)
+        self.wait(7.0)  # Tiempo de contemplación final para asimilar la conclusión formal
 
         # ==========================================================
         # Cierre suave
@@ -285,5 +285,5 @@ class Ejercicio05_02(Scene):
             FadeOut(hl_final, shift=DOWN * 0.3),
             FadeOut(permanent_statement, shift=DOWN * 0.3),
             FadeOut(header, shift=DOWN * 0.3),
-            run_time=1.4
+            run_time=1.6
         )
