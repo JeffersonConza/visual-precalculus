@@ -4,13 +4,12 @@ Capítulo 5: Funciones reales
 Sección 5.1.4: Regla del Máximo Dominio (RMD)
 Ejercicio 5.2 (Página 27 del libro / Página 46 del PDF)
 
-Modo: Metamorfosis 3Blue1Brown (Transformaciones fluidas sin solapamiento)
+Modo: Metamorfosis 3Blue1Brown con ritmo pausado y pedagógico (~55 segundos)
 - Enunciado permanente en la parte superior.
 - Sin "(Par)" en el título.
 - Sin etiquetas de columnas.
-- Zona izquierda: Metamorfosis fluida con ReplacementTransform.
-- Zona derecha: Evolución de justificaciones con transición limpia y nítida.
-- Resaltados sincronizados en cada transformación.
+- Transiciones más suaves y tiempos de lectura generosos para asimilación.
+- Resaltados sincronizados.
 """
 from manim import *
 import sys
@@ -33,7 +32,7 @@ class Ejercicio05_02(Scene):
             color=THEME["header_color"],
             weight=BOLD
         ).to_edge(UP, buff=0.25)
-        self.play(FadeIn(header, shift=DOWN * 0.2), run_time=0.6)
+        self.play(FadeIn(header, shift=DOWN * 0.2), run_time=0.8)
 
         # ==========================================================
         # 2. Enunciado Permanente (Fijo durante todo el video)
@@ -55,8 +54,8 @@ class Ejercicio05_02(Scene):
         )
         permanent_statement = VGroup(stmt_box, stmt_content).move_to([0, 2.5, 0])
 
-        self.play(Create(stmt_box), Write(stmt_content), run_time=1.2)
-        self.wait(2.0)
+        self.play(Create(stmt_box), Write(stmt_content), run_time=1.4)
+        self.wait(3.5)  # Pausa cómoda para leer y asimilar el problema
 
         # Helper para posicionar explicaciones a la derecha
         def make_just(text_str):
@@ -64,7 +63,7 @@ class Ejercicio05_02(Scene):
                 text_str,
                 font_size=16,
                 color=THEME["statement_text"],
-                line_spacing=1.3
+                line_spacing=1.35
             ).move_to([3.1, 0.2, 0])
 
         # ==========================================================
@@ -78,7 +77,7 @@ class Ejercicio05_02(Scene):
 
         just_actual = make_just(
             "1. Por Regla del Máximo Dominio:\n"
-            "El denominador no puede ser 0 (x ≠ -1)\n"
+            "El denominador no puede anularse (x ≠ -1)\n"
             "y el argumento del logaritmo natural\n"
             "debe ser estrictamente positivo."
         )
@@ -86,12 +85,12 @@ class Ejercicio05_02(Scene):
         self.play(
             FadeIn(eq_actual, shift=DOWN * 0.3),
             FadeIn(just_actual, shift=DOWN * 0.3),
-            run_time=1.0
+            run_time=1.2
         )
         
         hl_box = SurroundingRectangle(eq_actual, color=THEME["secondary"], buff=0.15, stroke_width=2.0)
-        self.play(Create(hl_box), run_time=0.5)
-        self.wait(2.4)
+        self.play(Create(hl_box), run_time=0.6)
+        self.wait(3.5)  # Tiempo de lectura de las dos condiciones
 
         # ==========================================================
         # PASO 2: Aislamiento del argumento a simplificar
@@ -113,11 +112,11 @@ class Ejercicio05_02(Scene):
             ReplacementTransform(eq_actual, eq_next),
             FadeOut(just_actual, shift=DOWN * 0.2),
             FadeIn(just_next, shift=DOWN * 0.2),
-            run_time=1.0
+            run_time=1.5  # Transición suave
         )
         eq_actual = eq_next
         just_actual = just_next
-        self.wait(1.8)
+        self.wait(2.5)
 
         # ==========================================================
         # PASO 3: Metamorfosis - Expansión de suma de cubos
@@ -141,12 +140,12 @@ class Ejercicio05_02(Scene):
             ReplacementTransform(eq_actual, eq_next),
             FadeOut(just_actual, shift=DOWN * 0.2),
             FadeIn(just_next, shift=DOWN * 0.2),
-            run_time=1.1
+            run_time=1.8  # Movimiento pausado de los términos
         )
-        self.play(Create(hl_box), run_time=0.5)
+        self.play(Create(hl_box), run_time=0.6)
         eq_actual = eq_next
         just_actual = just_next
-        self.wait(2.6)
+        self.wait(4.0)  # Pausa generosa para revisar la factorización
 
         # ==========================================================
         # PASO 4: Metamorfosis - Cancelación del factor común
@@ -171,13 +170,13 @@ class Ejercicio05_02(Scene):
             ReplacementTransform(eq_actual, eq_next),
             FadeOut(just_actual, shift=DOWN * 0.2),
             FadeIn(just_next, shift=DOWN * 0.2),
-            run_time=1.1
+            run_time=1.8
         )
-        self.play(Create(hl_next), run_time=0.5)
+        self.play(Create(hl_next), run_time=0.6)
         eq_actual = eq_next
         just_actual = just_next
         hl_box = hl_next
-        self.wait(2.6)
+        self.wait(3.8)
 
         # ==========================================================
         # PASO 5: Metamorfosis - Completando el cuadrado
@@ -202,13 +201,13 @@ class Ejercicio05_02(Scene):
             ReplacementTransform(eq_actual, eq_next),
             FadeOut(just_actual, shift=DOWN * 0.2),
             FadeIn(just_next, shift=DOWN * 0.2),
-            run_time=1.1
+            run_time=1.8
         )
-        self.play(Create(hl_next), run_time=0.5)
+        self.play(Create(hl_next), run_time=0.6)
         eq_actual = eq_next
         just_actual = just_next
         hl_box = hl_next
-        self.wait(2.6)
+        self.wait(4.0)
 
         # ==========================================================
         # PASO 6: Metamorfosis - Demostración de positividad estricta
@@ -233,13 +232,13 @@ class Ejercicio05_02(Scene):
             ReplacementTransform(eq_actual, eq_next),
             FadeOut(just_actual, shift=DOWN * 0.2),
             FadeIn(just_next, shift=DOWN * 0.2),
-            run_time=1.1
+            run_time=1.8
         )
-        self.play(Create(hl_next), run_time=0.5)
+        self.play(Create(hl_next), run_time=0.6)
         eq_actual = eq_next
         just_actual = just_next
         hl_box = hl_next
-        self.wait(3.0)
+        self.wait(4.5)
 
         # ==========================================================
         # PASO 7: Metamorfosis hacia la Conclusión Final
@@ -272,13 +271,13 @@ class Ejercicio05_02(Scene):
             ReplacementTransform(eq_actual, final_eq_grp),
             FadeOut(just_actual, shift=DOWN * 0.2),
             FadeIn(just_next, shift=DOWN * 0.2),
-            run_time=1.2
+            run_time=2.0  # Transición final muy elegante
         )
-        self.play(Create(hl_final), run_time=0.5)
-        self.wait(4.0)
+        self.play(Create(hl_final), run_time=0.7)
+        self.wait(5.0)  # Tiempo final para asimilar la respuesta
 
         # ==========================================================
-        # Cierre final elegante
+        # Cierre suave
         # ==========================================================
         self.play(
             FadeOut(final_eq_grp, shift=DOWN * 0.3),
@@ -286,5 +285,5 @@ class Ejercicio05_02(Scene):
             FadeOut(hl_final, shift=DOWN * 0.3),
             FadeOut(permanent_statement, shift=DOWN * 0.3),
             FadeOut(header, shift=DOWN * 0.3),
-            run_time=1.0
+            run_time=1.4
         )
