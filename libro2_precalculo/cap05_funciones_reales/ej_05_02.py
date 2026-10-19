@@ -4,12 +4,13 @@ Capítulo 5: Funciones reales
 Sección 5.1.4: Regla del Máximo Dominio (RMD)
 Ejercicio 5.2 (Página 27 del libro / Página 46 del PDF)
 
-Estructura de dos columnas con desplazamiento vertical real:
-- Enunciado permanente en la parte superior durante todo el video.
+Modo: Metamorfosis 3Blue1Brown (Transformaciones fluidas sin solapamiento)
+- Enunciado permanente en la parte superior.
 - Sin "(Par)" en el título.
-- Sin etiquetas de columnas ("Desarrollo Matemático" / "Qué se hizo").
-- Desplazamiento físico en vertical de cada bloque (entra desde arriba, sale hacia abajo).
-- Resaltados en los términos modificados.
+- Sin etiquetas de columnas.
+- Zona izquierda: Metamorfosis fluida con ReplacementTransform.
+- Zona derecha: Evolución de justificaciones con transición limpia y nítida.
+- Resaltados sincronizados en cada transformación.
 """
 from manim import *
 import sys
@@ -35,7 +36,7 @@ class Ejercicio05_02(Scene):
         self.play(FadeIn(header, shift=DOWN * 0.2), run_time=0.6)
 
         # ==========================================================
-        # 2. Enunciado Permanente (Se mantiene durante todo el video)
+        # 2. Enunciado Permanente (Fijo durante todo el video)
         # ==========================================================
         stmt_desc = Text("Determinar el dominio de definición de la función:", font_size=18, color=THEME["statement_text"])
         stmt_math = MathTex(
@@ -54,199 +55,236 @@ class Ejercicio05_02(Scene):
         )
         permanent_statement = VGroup(stmt_box, stmt_content).move_to([0, 2.5, 0])
 
-        # Entrada del enunciado permanente
         self.play(Create(stmt_box), Write(stmt_content), run_time=1.2)
-        self.wait(2.5)
+        self.wait(2.0)
 
-        # Helper para crear pares [Ecuación (Izquierda) | Justificación (Derecha)]
-        def make_row(y_pos, eq_mobj, just_text_str):
-            eq_mobj.move_to([-3.4, y_pos, 0])
-            just_mobj = Text(
-                just_text_str,
-                font_size=15,
+        # Helper para posicionar explicaciones a la derecha
+        def make_just(text_str):
+            return Text(
+                text_str,
+                font_size=16,
                 color=THEME["statement_text"],
-                line_spacing=1.2
-            ).move_to([3.1, y_pos, 0])
-            return eq_mobj, just_mobj
+                line_spacing=1.3
+            ).move_to([3.1, 0.2, 0])
 
         # ==========================================================
-        # DIAPOSITIVA 1: Condiciones RMD y Factorización de Cubos
+        # PASO 1: Condiciones de RMD
         # ==========================================================
-        eq_1 = MathTex(
+        eq_actual = MathTex(
             r"\begin{cases} x + 1 \neq 0 \implies x \neq -1 \\ \dfrac{x^3 + 1}{x + 1} > 0 \end{cases}",
-            font_size=23,
+            font_size=24,
             color=WHITE
-        )
-        eq_1_m, just_1 = make_row(
-            0.8,
-            eq_1,
-            "1. Por Regla del Máximo Dominio:\nEl denominador no puede ser 0\ny el argumento de ln debe ser > 0."
+        ).move_to([-3.4, 0.2, 0])
+
+        just_actual = make_just(
+            "1. Por Regla del Máximo Dominio:\n"
+            "El denominador no puede ser 0 (x ≠ -1)\n"
+            "y el argumento del logaritmo natural\n"
+            "debe ser estrictamente positivo."
         )
 
-        eq_2 = MathTex(
-            r"x^3 + 1 = (x + 1)(x^2 - x + 1)",
-            font_size=23,
-            color=THEME["highlight"]
+        self.play(
+            FadeIn(eq_actual, shift=DOWN * 0.3),
+            FadeIn(just_actual, shift=DOWN * 0.3),
+            run_time=1.0
         )
-        eq_2_m, just_2 = make_row(
-            -1.0,
-            eq_2,
-            "2. Suma de cubos notables:\na³ + b³ = (a + b)(a² - ab + b²)\naplicado con a = x  y  b = 1."
-        )
-
-        slide_1 = VGroup(eq_1_m, just_1, eq_2_m, just_2)
         
-        # Desplazamiento vertical de entrada (desde arriba hacia su posición)
-        slide_1.shift(UP * 4.5)
-        self.play(slide_1.animate.shift(DOWN * 4.5), run_time=1.0)
-
-        # Resaltado en la restricción x != -1
-        hl_1 = SurroundingRectangle(eq_1_m, color=THEME["secondary"], buff=0.12, stroke_width=2)
-        self.play(Create(hl_1), run_time=0.5)
-        self.wait(2.2)
-
-        # Resaltado en la factorización
-        hl_2 = SurroundingRectangle(eq_2_m, color=THEME["highlight"], buff=0.12, stroke_width=2)
-        self.play(Create(hl_2), run_time=0.5)
-        self.wait(2.5)
-
-        # Desplazamiento vertical de salida (se desplaza físicamente hacia abajo)
-        self.play(
-            slide_1.animate.shift(DOWN * 5.0),
-            hl_1.animate.shift(DOWN * 5.0),
-            hl_2.animate.shift(DOWN * 5.0),
-            run_time=0.8
-        )
-        self.remove(slide_1, hl_1, hl_2)
+        hl_box = SurroundingRectangle(eq_actual, color=THEME["secondary"], buff=0.15, stroke_width=2.0)
+        self.play(Create(hl_box), run_time=0.5)
+        self.wait(2.4)
 
         # ==========================================================
-        # DIAPOSITIVA 2: Simplificación Fraccionaria y Cuadrados
+        # PASO 2: Aislamiento del argumento a simplificar
         # ==========================================================
-        eq_3 = MathTex(
-            r"\frac{x^3 + 1}{x + 1} = \frac{(x+1)(x^2 - x + 1)}{x+1} = x^2 - x + 1",
-            font_size=21,
+        eq_next = MathTex(
+            r"\frac{x^3 + 1}{x + 1}",
+            font_size=32,
             color=WHITE
-        )
-        eq_3_m, just_3 = make_row(
-            0.8,
-            eq_3,
-            "3. Simplificación de la fracción:\nCancelamos el factor común (x + 1)\nya que x ≠ -1 garantiza división válida."
-        )
+        ).move_to([-3.4, 0.2, 0])
 
-        eq_4 = MathTex(
-            r"x^2 - x + 1 = \left(x - \frac{1}{2}\right)^2 + \frac{3}{4} \ge \frac{3}{4} > 0",
-            font_size=21,
-            color=THEME["highlight"]
-        )
-        eq_4_m, just_4 = make_row(
-            -1.0,
-            eq_4,
-            "4. Completando el cuadrado:\nTodo cuadrado es ≥ 0  y  3/4 > 0.\nEl argumento siempre es > 0 (∀ x ∈ ℝ)."
+        just_next = make_just(
+            "2. Analizamos el argumento:\n"
+            "Buscamos simplificar la expresión\n"
+            "factorizando el numerador."
         )
 
-        slide_2 = VGroup(eq_3_m, just_3, eq_4_m, just_4)
-
-        # Desplazamiento vertical de entrada (desde arriba)
-        slide_2.shift(UP * 4.5)
-        self.play(slide_2.animate.shift(DOWN * 4.5), run_time=1.0)
-
-        # Resaltado en el trinomio simplificado
-        hl_3 = SurroundingRectangle(eq_3_m, color=THEME["secondary"], buff=0.12, stroke_width=2)
-        self.play(Create(hl_3), run_time=0.5)
-        self.wait(2.2)
-
-        # Resaltado en la completación de cuadrado y positividad
-        hl_4 = SurroundingRectangle(eq_4_m, color=THEME["curve"], buff=0.12, stroke_width=2)
-        self.play(Create(hl_4), run_time=0.5)
-        self.wait(2.8)
-
-        # Desplazamiento vertical de salida (hacia abajo)
         self.play(
-            slide_2.animate.shift(DOWN * 5.0),
-            hl_3.animate.shift(DOWN * 5.0),
-            hl_4.animate.shift(DOWN * 5.0),
-            run_time=0.8
+            FadeOut(hl_box),
+            ReplacementTransform(eq_actual, eq_next),
+            FadeOut(just_actual, shift=DOWN * 0.2),
+            FadeIn(just_next, shift=DOWN * 0.2),
+            run_time=1.0
         )
-        self.remove(slide_2, hl_3, hl_4)
+        eq_actual = eq_next
+        just_actual = just_next
+        self.wait(1.8)
 
         # ==========================================================
-        # DIAPOSITIVA 3: Conclusión del Dominio y Función Formal
+        # PASO 3: Metamorfosis - Expansión de suma de cubos
         # ==========================================================
-        eq_5 = MathTex(
-            r"\operatorname{Dom}(h) = \mathbb{R} \setminus \{-1\}",
-            font_size=26,
-            color=THEME["success"]
-        )
-        eq_5_m, just_5 = make_row(
-            0.8,
-            eq_5,
-            "5. Conclusión del Dominio:\nAl ser el argumento siempre positivo,\nla única exclusión es el cero del denominador."
-        )
-
-        eq_6 = MathTex(
-            r"h: \mathbb{R} \setminus \{-1\} \longrightarrow \mathbb{R}, \quad x \longmapsto \ln(x^2 - x + 1)",
-            font_size=21,
+        eq_next = MathTex(
+            r"\frac{(x + 1)(x^2 - x + 1)}{x + 1}",
+            font_size=28,
             color=THEME["highlight"]
+        ).move_to([-3.4, 0.2, 0])
+
+        just_next = make_just(
+            "Suma de cubos notables:\n"
+            "a³ + b³ = (a + b)(a² - ab + b²)\n"
+            "con a = x  y  b = 1:\n"
+            "x³ + 1 = (x + 1)(x² - x + 1)."
         )
-        eq_6_m, just_6 = make_row(
-            -1.0,
-            eq_6,
-            "6. Función Formal (RMD):\nDefinida con su dominio de definición\ny su regla simplificada correspondiente."
+
+        hl_box = SurroundingRectangle(eq_next, color=THEME["highlight"], buff=0.15, stroke_width=2.0)
+
+        self.play(
+            ReplacementTransform(eq_actual, eq_next),
+            FadeOut(just_actual, shift=DOWN * 0.2),
+            FadeIn(just_next, shift=DOWN * 0.2),
+            run_time=1.1
+        )
+        self.play(Create(hl_box), run_time=0.5)
+        eq_actual = eq_next
+        just_actual = just_next
+        self.wait(2.6)
+
+        # ==========================================================
+        # PASO 4: Metamorfosis - Cancelación del factor común
+        # ==========================================================
+        eq_next = MathTex(
+            r"x^2 - x + 1 \quad (\text{para } x \neq -1)",
+            font_size=25,
+            color=THEME["secondary"]
+        ).move_to([-3.4, 0.2, 0])
+
+        just_next = make_just(
+            "3. Simplificación fraccionaria:\n"
+            "Cancelamos el factor común (x + 1)\n"
+            "en numerador y denominador,\n"
+            "válido para todo x ≠ -1."
         )
 
-        slide_3 = VGroup(eq_5_m, just_5, eq_6_m, just_6)
+        hl_next = SurroundingRectangle(eq_next, color=THEME["secondary"], buff=0.15, stroke_width=2.0)
 
-        # Desplazamiento vertical de entrada (desde arriba)
-        slide_3.shift(UP * 4.5)
-        self.play(slide_3.animate.shift(DOWN * 4.5), run_time=1.0)
+        self.play(
+            FadeOut(hl_box),
+            ReplacementTransform(eq_actual, eq_next),
+            FadeOut(just_actual, shift=DOWN * 0.2),
+            FadeIn(just_next, shift=DOWN * 0.2),
+            run_time=1.1
+        )
+        self.play(Create(hl_next), run_time=0.5)
+        eq_actual = eq_next
+        just_actual = just_next
+        hl_box = hl_next
+        self.wait(2.6)
 
-        hl_5 = SurroundingRectangle(eq_5_m, color=THEME["success"], buff=0.15, stroke_width=2.5)
-        self.play(Create(hl_5), run_time=0.5)
-        self.wait(2.2)
+        # ==========================================================
+        # PASO 5: Metamorfosis - Completando el cuadrado
+        # ==========================================================
+        eq_next = MathTex(
+            r"\left(x - \frac{1}{2}\right)^2 + \frac{3}{4}",
+            font_size=28,
+            color=THEME["curve"]
+        ).move_to([-3.4, 0.2, 0])
 
-        hl_6 = SurroundingRectangle(eq_6_m, color=THEME["highlight"], buff=0.12, stroke_width=2)
-        self.play(Create(hl_6), run_time=0.5)
+        just_next = make_just(
+            "4. Completamos el cuadrado:\n"
+            "x² - x + 1 =\n"
+            "(x² - 2·½x + ¼) + (1 - ¼) =\n"
+            "(x - ½)² + ¾."
+        )
+
+        hl_next = SurroundingRectangle(eq_next, color=THEME["curve"], buff=0.15, stroke_width=2.0)
+
+        self.play(
+            FadeOut(hl_box),
+            ReplacementTransform(eq_actual, eq_next),
+            FadeOut(just_actual, shift=DOWN * 0.2),
+            FadeIn(just_next, shift=DOWN * 0.2),
+            run_time=1.1
+        )
+        self.play(Create(hl_next), run_time=0.5)
+        eq_actual = eq_next
+        just_actual = just_next
+        hl_box = hl_next
+        self.wait(2.6)
+
+        # ==========================================================
+        # PASO 6: Metamorfosis - Demostración de positividad estricta
+        # ==========================================================
+        eq_next = MathTex(
+            r"\left(x - \frac{1}{2}\right)^2 + \frac{3}{4} \ge \frac{3}{4} > 0",
+            font_size=26,
+            color=THEME["highlight"]
+        ).move_to([-3.4, 0.2, 0])
+
+        just_next = make_just(
+            "Propiedad de no negatividad:\n"
+            "Como (x - ½)² ≥ 0  y  ¾ > 0,\n"
+            "el argumento siempre es > 0 (∀ x ∈ ℝ).\n"
+            "¡No hay restricciones adicionales!"
+        )
+
+        hl_next = SurroundingRectangle(eq_next, color=THEME["highlight"], buff=0.15, stroke_width=2.0)
+
+        self.play(
+            FadeOut(hl_box),
+            ReplacementTransform(eq_actual, eq_next),
+            FadeOut(just_actual, shift=DOWN * 0.2),
+            FadeIn(just_next, shift=DOWN * 0.2),
+            run_time=1.1
+        )
+        self.play(Create(hl_next), run_time=0.5)
+        eq_actual = eq_next
+        just_actual = just_next
+        hl_box = hl_next
         self.wait(3.0)
 
-        # Desplazamiento de salida hacia abajo
-        self.play(
-            slide_3.animate.shift(DOWN * 5.0),
-            hl_5.animate.shift(DOWN * 5.0),
-            hl_6.animate.shift(DOWN * 5.0),
-            run_time=0.8
-        )
-        self.remove(slide_3, hl_5, hl_6)
-
         # ==========================================================
-        # 4. Pantalla de Conclusión Final (Desplazamiento vertical)
+        # PASO 7: Metamorfosis hacia la Conclusión Final
         # ==========================================================
-        res_label = Text("Dominio de Definición Obtenido:", font_size=21, color=THEME["header_color"])
-        res_math = MathTex(
-            r"\operatorname{Dom}(h) = \mathbb{R} \setminus \{-1\} = (-\infty, -1) \cup (-1, +\infty)",
+        eq_dom = MathTex(
+            r"\operatorname{Dom}(h) = \mathbb{R} \setminus \{-1\}",
             font_size=28,
             color=THEME["success"]
-        )
-        final_group = VGroup(res_label, res_math).arrange(DOWN, buff=0.35).move_to([0, -0.4, 0])
-        
-        final_box = SurroundingRectangle(
-            final_group,
-            color=THEME["success"],
-            buff=0.25,
-            corner_radius=0.12,
-            stroke_width=2.5
+        ).move_to([-3.4, 0.6, 0])
+
+        eq_form = MathTex(
+            r"h: \mathbb{R} \setminus \{-1\} \longrightarrow \mathbb{R}, \quad x \longmapsto \ln(x^2 - x + 1)",
+            font_size=20,
+            color=WHITE
+        ).move_to([-3.4, -0.4, 0])
+
+        final_eq_grp = VGroup(eq_dom, eq_form)
+
+        just_next = make_just(
+            "5. Conclusión:\n"
+            "La única restricción real proviene\n"
+            "del denominador inicial.\n"
+            "El dominio excluye únicamente a x = -1."
         )
 
-        final_scene = VGroup(final_group, final_box)
-        final_scene.shift(UP * 4.5)
+        hl_final = SurroundingRectangle(eq_dom, color=THEME["success"], buff=0.18, stroke_width=2.5)
 
-        # Entrada vertical desde arriba hacia el centro
-        self.play(final_scene.animate.shift(DOWN * 4.5), run_time=1.0)
+        self.play(
+            FadeOut(hl_box),
+            ReplacementTransform(eq_actual, final_eq_grp),
+            FadeOut(just_actual, shift=DOWN * 0.2),
+            FadeIn(just_next, shift=DOWN * 0.2),
+            run_time=1.2
+        )
+        self.play(Create(hl_final), run_time=0.5)
         self.wait(4.0)
 
-        # Cierre final deslizándose hacia abajo
+        # ==========================================================
+        # Cierre final elegante
+        # ==========================================================
         self.play(
-            final_scene.animate.shift(DOWN * 5.0),
-            permanent_statement.animate.shift(DOWN * 5.0),
-            header.animate.shift(DOWN * 5.0),
+            FadeOut(final_eq_grp, shift=DOWN * 0.3),
+            FadeOut(just_next, shift=DOWN * 0.3),
+            FadeOut(hl_final, shift=DOWN * 0.3),
+            FadeOut(permanent_statement, shift=DOWN * 0.3),
+            FadeOut(header, shift=DOWN * 0.3),
             run_time=1.0
         )
