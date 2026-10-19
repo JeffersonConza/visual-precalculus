@@ -1,6 +1,6 @@
 """
 Clase base reutilizable para ejercicios de precálculo animados.
-Controla el ritmo, temporización y estructura visual unificada.
+Controla el ritmo, temporización y estructura visual unificada sin solapamientos.
 """
 from manim import *
 from .styles import THEME, TIMINGS
@@ -9,58 +9,65 @@ class BaseExerciseScene(Scene):
     def setup(self):
         self.camera.background_color = THEME["bg_color"]
 
-    def show_header(self, chapter: str, exercise_num: int, topic: str):
-        """Muestra la barra superior con el número de ejercicio par y tema."""
-        title_text = f"Precálculo 2 · Cap. {chapter} · Ejercicio {exercise_num} (Par)"
-        subtitle_text = topic
+    def show_top_bar(self, chapter: str, exercise_num: int, topic: str):
+        """Muestra una barra superior compacta y limpia que nunca colisiona con el contenido."""
+        bar_text = Text(
+            f"Precálculo 2  ·  Capítulo {chapter}  ·  Ejercicio {exercise_num} (Par)  —  {topic}",
+            font_size=17,
+            color=THEME["header_color"],
+            weight=BOLD
+        ).to_edge(UP, buff=0.25)
         
-        header = Text(title_text, font_size=22, color=THEME["header_color"], weight=BOLD)
-        subtitle = Text(subtitle_text, font_size=18, color=THEME["highlight"])
-        
-        header_group = VGroup(header, subtitle).arrange(DOWN, buff=0.1).to_edge(UP, buff=0.3)
-        self.play(FadeIn(header_group, shift=DOWN * 0.2), run_time=TIMINGS["header_appear"])
-        return header_group
+        self.play(FadeIn(bar_text, shift=DOWN * 0.2), run_time=0.6)
+        return bar_text
 
-    def present_statement(self, statement: VMobject, read_time: float = None):
+    def present_initial_statement(self, statement_content: VMobject, formula_badge: VMobject, read_time: float = 3.5):
         """
-        Presenta el enunciado centrado en pantalla, ofrece tiempo de lectura
-        y luego lo minimiza a la esquina superior izquierda.
+        1. Presenta el enunciado completo centrado en pantalla.
+        2. Pausa para asimilación.
+        3. Sale hacia abajo y la pastilla compacta entra desde arriba hacia abajo.
         """
         box = SurroundingRectangle(
-            statement,
+            statement_content,
             color=THEME["statement_box"],
             buff=0.3,
             corner_radius=0.15,
             stroke_width=2.5
         )
-        statement_group = VGroup(box, statement).move_to(ORIGIN)
+        full_group = VGroup(box, statement_content).move_to(ORIGIN)
         
-        # 1. Aparición
-        self.play(Create(box), Write(statement), run_time=TIMINGS["statement_write"])
+        # Entrada centrada desplazándose hacia abajo
+        self.play(FadeIn(full_group, shift=DOWN * 0.4), run_time=1.1)
+        self.wait(read_time)
         
-        # 2. Pausa prudente para asimilar el enunciado
-        duration = read_time if read_time is not None else TIMINGS["statement_read_base"]
-        self.wait(duration)
-        
-        # 3. Minimizar y mover a la esquina
-        self.play(
-            statement_group.animate.scale(0.65).to_corner(UL, buff=0.6),
-            run_time=TIMINGS["statement_minimize"]
+        # Posición de la pastilla compacta superior
+        formula_badge.to_edge(UP, buff=0.7)
+        badge_box = SurroundingRectangle(
+            formula_badge,
+            color=THEME["statement_box"],
+            buff=0.15,
+            corner_radius=0.1,
+            stroke_width=1.5
         )
-        return statement_group
+        compact_group = VGroup(badge_box, formula_badge)
+        
+        # Salida del enunciado hacia abajo y entrada de la pastilla compacta hacia abajo
+        self.play(
+            FadeOut(full_group, shift=DOWN * 0.4),
+            FadeIn(compact_group, shift=DOWN * 0.3),
+            run_time=0.8
+        )
+        return compact_group
 
-    def conclude_solution(self, final_answer: VMobject, wait_time: float = None):
+    def conclude_solution(self, final_answer: VMobject, wait_time: float = 4.0):
         """Destaca la respuesta final con un marco de éxito y pausa antes de cerrar."""
         rect = SurroundingRectangle(
             final_answer,
             color=THEME["success"],
-            buff=0.2,
-            corner_radius=0.1,
-            stroke_width=3
+            buff=0.22,
+            corner_radius=0.12,
+            stroke_width=2.5
         )
         self.play(Create(rect), run_time=TIMINGS["highlight_answer"])
-        
-        pause = wait_time if wait_time is not None else TIMINGS["final_pause"]
-        self.wait(pause)
-        
-        self.play(FadeOut(*self.mobjects), run_time=1.0)
+        self.wait(wait_time)
+        self.play(FadeOut(*self.mobjects, shift=DOWN * 0.5), run_time=0.9)
