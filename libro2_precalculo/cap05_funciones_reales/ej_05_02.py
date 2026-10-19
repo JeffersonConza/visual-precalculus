@@ -6,13 +6,15 @@ Ejercicio 5.2 (Página 27 del libro / Página 46 del PDF)
 
 Modo: Metamorfosis 3Blue1Brown con:
 - Tachado explícito en color rojo poncho al cancelar el factor común.
-- Barra de progreso interactiva en la parte inferior (5 pasos).
+- Barra de progreso interactiva en la parte inferior (6 pasos).
+- Gráfico cartesiano de la función al final con punto abierto en x = -1.
 - Enunciado permanente en la parte superior.
 - Sin "(Par)" en el título.
 - Sin etiquetas de columnas.
-- Ritmo calibrado (~56 segundos).
+- Ritmo pedagógico óptimo.
 """
 from manim import *
+import numpy as np
 import sys
 import os
 
@@ -59,17 +61,18 @@ class Ejercicio05_02(Scene):
         self.wait(4.5)
 
         # ==========================================================
-        # 3. Barra de Progreso Inferior (5 Pasos)
+        # 3. Barra de Progreso Inferior (6 Pasos)
         # ==========================================================
-        num_steps = 5
+        num_steps = 6
         step_labels = [
-            "1/5: Condiciones RMD",
-            "2/5: Factorización de Cubos",
-            "3/5: Cancelación de Factores",
-            "4/5: Análisis de Signo",
-            "5/5: Conclusión del Dominio"
+            "1/6: Condiciones RMD",
+            "2/6: Factorización de Cubos",
+            "3/6: Cancelación de Factores",
+            "4/6: Análisis de Signo",
+            "5/6: Conclusión del Dominio",
+            "6/6: Interpretación Gráfica"
         ]
-        dot_spacing = 1.1
+        dot_spacing = 1.05
         start_x = - (num_steps - 1) * dot_spacing / 2
         y_prog = -3.55
 
@@ -302,15 +305,130 @@ class Ejercicio05_02(Scene):
             run_time=1.9
         )
         self.play(Create(hl_final), run_time=0.7)
-        self.wait(8.2)
+        self.wait(5.0)
+
+        # ==========================================================
+        # PASO 6: Interpretación Gráfica (Curva con punto abierto en x = -1)
+        # ==========================================================
+        prog_anims, prog_label = advance_progress(4, 5)
+
+        # Panel izquierdo con resumen geométrico
+        info_title = Text("6. Interpretación Gráfica", font_size=18, color=THEME["header_color"], weight=BOLD).move_to([-3.4, 1.2, 0])
+        info_pts = VGroup(
+            MathTex(r"\bullet \quad h(x) = \ln(x^2 - x + 1)", font_size=20, color=WHITE),
+            MathTex(r"\bullet \quad \operatorname{Dom}(h) = \mathbb{R} \setminus \{-1\}", font_size=20, color=THEME["success"]),
+            MathTex(r"\bullet \quad \text{Punto abierto en } (-1, \ln 3)", font_size=19, color=THEME["poncho_red"]),
+            MathTex(r"\bullet \quad \text{Mínimo en } \left(\frac{1}{2}, \ln\frac{3}{4}\right)", font_size=19, color=THEME["highlight"]),
+            MathTex(r"\bullet \quad \text{Cortes con eje } X \text{ en } 0 \text{ y } 1", font_size=19, color=THEME["curve"])
+        ).arrange(DOWN, aligned_edge=LEFT, buff=0.28).next_to(info_title, DOWN, buff=0.32)
+        info_grp = VGroup(info_title, info_pts)
+
+        # Panel derecho: Ejes y gráfica de la función
+        axes = Axes(
+            x_range=[-3.2, 3.2, 1],
+            y_range=[-1.0, 3.2, 1],
+            x_length=5.6,
+            y_length=3.8,
+            tips=True,
+            axis_config={
+                "color": THEME["axes"],
+                "stroke_width": 2,
+                "include_numbers": True,
+                "font_size": 14,
+            }
+        ).move_to([2.7, -0.45, 0])
+
+        axes_labels = axes.get_axis_labels(
+            x_label=MathTex("x", font_size=18, color=THEME["statement_text"]),
+            y_label=MathTex("y", font_size=18, color=THEME["statement_text"])
+        )
+
+        # Curva en dos ramas para exhibir el punto abierto en x = -1
+        curve_left = axes.plot(
+            lambda x: np.log(x**2 - x + 1),
+            x_range=[-2.8, -1.04],
+            color=THEME["curve"],
+            stroke_width=3
+        )
+        curve_right = axes.plot(
+            lambda x: np.log(x**2 - x + 1),
+            x_range=[-0.96, 2.8],
+            color=THEME["curve"],
+            stroke_width=3
+        )
+
+        # Punto abierto (agujero) en (-1, ln 3)
+        hole_pt = axes.c2p(-1, np.log(3))
+        hole_outer = Circle(
+            radius=0.08,
+            color=THEME["poncho_red"],
+            stroke_width=3,
+            fill_color=THEME["bg_color"],
+            fill_opacity=1.0
+        ).move_to(hole_pt)
+
+        hole_lbl = MathTex(
+            r"(-1, \ln 3) \notin \operatorname{Dom}(h)",
+            font_size=15,
+            color=THEME["poncho_red"]
+        ).next_to(hole_outer, UP + LEFT, buff=0.15)
+
+        hole_arrow = Arrow(
+            hole_lbl.get_bottom(),
+            hole_outer.get_top(),
+            buff=0.05,
+            stroke_width=2,
+            max_tip_length_to_length_ratio=0.25,
+            color=THEME["poncho_red"]
+        )
+
+        # Puntos clave destacados: raíces y vértice mínimo
+        p_min = Dot(axes.c2p(0.5, np.log(0.75)), radius=0.06, color=THEME["highlight"])
+        p_r1 = Dot(axes.c2p(0, 0), radius=0.05, color=THEME["success"])
+        p_r2 = Dot(axes.c2p(1, 0), radius=0.05, color=THEME["success"])
+
+        # Transición hacia el paso 6
+        self.play(
+            FadeOut(hl_final),
+            FadeOut(final_eq_grp, shift=DOWN * 0.2),
+            FadeOut(just_final, shift=DOWN * 0.2),
+            FadeIn(info_grp, shift=DOWN * 0.2),
+            Create(axes),
+            Write(axes_labels),
+            *prog_anims,
+            run_time=1.8
+        )
+
+        # Trazado de la curva continua con salto en x = -1
+        self.play(
+            Create(curve_left),
+            Create(curve_right),
+            run_time=1.8
+        )
+
+        # Resaltado del punto abierto, raíces y mínimo
+        self.play(
+            FadeIn(hole_outer),
+            Write(hole_lbl),
+            GrowArrow(hole_arrow),
+            FadeIn(p_min),
+            FadeIn(p_r1),
+            FadeIn(p_r2),
+            run_time=1.2
+        )
+        self.wait(7.0)
 
         # ==========================================================
         # Cierre suave
         # ==========================================================
+        graph_mobs = VGroup(
+            info_grp, axes, axes_labels,
+            curve_left, curve_right,
+            hole_outer, hole_lbl, hole_arrow,
+            p_min, p_r1, p_r2
+        )
         self.play(
-            FadeOut(final_eq_grp, shift=DOWN * 0.3),
-            FadeOut(just_final, shift=DOWN * 0.3),
-            FadeOut(hl_final, shift=DOWN * 0.3),
+            FadeOut(graph_mobs, shift=DOWN * 0.3),
             FadeOut(progress_ui, shift=DOWN * 0.3),
             FadeOut(permanent_statement, shift=DOWN * 0.3),
             FadeOut(header, shift=DOWN * 0.3),
