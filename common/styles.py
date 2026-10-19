@@ -3,16 +3,25 @@ Paletas de colores y constantes de diseño visual para las animaciones.
 """
 
 THEME = {
-    "bg_color": "#0f172a",         # Fondo oscuro azulado (Slate 900)
-    "header_color": "#38bdf8",     # Cyan 400
-    "statement_box": "#0284c7",    # Cyan 600
-    "statement_text": "#f8fafc",   # Blanco suave (Slate 50)
-    "highlight": "#facc15",        # Amarillo ámbar 400
-    "secondary": "#a855f7",        # Púrpura 500
-    "success": "#22c55e",          # Verde esmeralda 500
-    "error": "#ef4444",            # Rojo 500
-    "axes": "#64748b",             # Slate 500
-    "curve": "#38bdf8",            # Cyan 400
+    # Fondos y neutros (inspirados en el tejido del poncho)
+    "bg_color": "#151212",         # Carbón noche andino (base oscura cálida)
+    "statement_text": "#fdfbf7",   # Blanco lana de alpaca / marfil suave
+    
+    # Identidad Editorial Amarun (verdes azulados y pizarras)
+    "amarun_teal": "#7da3a1",      # Turquesa pizarra distintivo del logo Amarun
+    "header_color": "#8ec3c0",     # Turquesa claro Amarun para títulos
+    "axes": "#5d7876",             # Pizarra Amarun para ejes matemáticos
+    "curve": "#5ce1e6",            # Turquesa luminoso para curvas de funciones
+
+    # Identidad Poncho Yachay Tech (rojo carmesí, terracota y dorado)
+    "poncho_red": "#9e2a2b",       # Rojo granate / carmesí del poncho
+    "statement_box": "#a32f30",    # Recuadro de enunciado en rojo poncho
+    "highlight": "#f6b840",        # Oro andino / maíz para fórmulas matemáticas clave
+    "secondary": "#db5a38",        # Terracota cálido para transiciones intermedias
+    
+    # Estados y utilidades
+    "success": "#48bb78",          # Verde esmeralda andino para resultado final
+    "error": "#e53e3e",            # Rojo de advertencia
 }
 
 # Constantes de tiempo estándar (segundos)
