@@ -2,24 +2,66 @@
 
 Animaciones matemáticas rigurosas y didácticas desarrolladas con [Manim Community Edition](https://www.manim.community/), basadas en la colección de libros de texto de Precálculo (**Colección Yachay Tech / Editorial Amarun**, Dr. Juan Mayorga-Zambrano).
 
-El objetivo de este repositorio es resolver y visualizar los **ejercicios pares** de cada capítulo, proporcionando explicaciones animadas con una duración prudente y un ritmo pedagógico equilibrado.
+El objetivo de este repositorio es resolver y visualizar los **ejercicios pares** de cada capítulo, proporcionando explicaciones animadas con una duración prudente, ritmo pedagógico equilibrado e identidad gráfica andina.
 
 ---
 
-## ⏱️ Metodología de Animación y Ritmo (Pacing)
+## 🎨 Principios de Diseño e Identidad Visual
 
-Cada animación está estructurada bajo la **regla de los 3 actos** para garantizar claridad y una duración óptima (~45 a 90 segundos):
+Las animaciones siguen un estándar pedagógico y estético unificado mediante la clase base [`AmarunExerciseScene`](common/base_scene.py):
 
-1. **Acto 1: Enunciado y Asimilación (~10–14 s):**
-   * Encabezado con capítulo, número de ejercicio par y tema.
-   * Presentación del enunciado en $\LaTeX$ dentro de un marco destacado.
-   * Pausa calculada proporcionalmente a la longitud del problema para lectura completa.
-2. **Acto 2: Planteamiento Conceptual (~15–30 s):**
-   * El enunciado se minimiza a la esquina superior.
-   * Construcción de ejes, curvas, transformaciones o condiciones analíticas.
-3. **Acto 3: Resolución Paso a Paso (~20–35 s):**
-   * Desarrollo algebraico fluido con transiciones matemáticas.
-   * Destacado de la respuesta final con recuadro verde y pausa final de contemplación antes del cierre.
+* **Enunciado Permanente:** Fijado en la parte superior en un recuadro institucional rojo poncho (`#a32f30`), visible durante todo el video sin desaparecer.
+* **Metamorfosis Algebraica (Estilo 3Blue1Brown):** En el panel izquierdo, las expresiones matemáticas mutan directamente en su lugar (`ReplacementTransform`), mientras el panel derecho actualiza la justificación teórica paso a paso.
+* **Tachado Explícito:** Al simplificar factores fraccionarios, se trazan líneas diagonales en rojo poncho sobre los términos cancelados, con pausas de asimilación antes de la reducción.
+* **Barra de Progreso Interactiva:** En la parte inferior ($y = -3.55$), una línea con nodos dinámicos indica la etapa activa (amarillo inca), las etapas superadas (verde andino) y el rótulo de la fase actual.
+* **Interpretación Gráfica Cartesiana:** Cada ejercicio concluye con la visualización de la curva en el plano cartesiano, destacando puntos abiertos (discontinuidades evitables), asíntotas, vértices y cortes con los ejes.
+* **Paleta Andina Institucional ([common/styles.py](common/styles.py)):**
+  * Fondo: Carbón noche andino (`#151212`)
+  * Enunciado / Títulos: Blanco alpaca (`#fdfbf7`) y Turquesa Amarun (`#8ec3c0`)
+  * Énfasis algebraico: Oro Inca (`#f6b840`) y Terracota (`#db5a38`)
+  * Conclusiones: Verde esmeralda andino (`#48bb78`)
+  * Exclusiones / Tachado: Rojo Poncho Yachay (`#a32f30`)
+
+---
+
+## 🎬 Niveles de Calidad y Resolución de Renderizado
+
+Manim permite compilar cualquier ejercicio en 5 niveles de resolución y tasa de cuadros mediante la bandera `-q` (`--quality`):
+
+| Bandera | Perfil | Resolución | Tasa de Cuadros | Carpeta de Salida | Propósito Recomendado |
+| :---: | :--- | :---: | :---: | :--- | :--- |
+| **`-ql`** | *Low* (Baja) | **854 × 480** (480p) | 15 fps | `media/.../480p15/` | **Desarrollo y pruebas rápidas** (renderiza en ~15–20 s) |
+| **`-qm`** | *Medium* (Media) | **1280 × 720** (720p HD) | 30 fps | `media/.../720p30/` | Revisiones intermedias y dispositivos móviles |
+| **`-qh`** | *High* (Alta) | **1920 × 1080** (1080p FHD) | 60 fps | `media/.../1080p60/` | **Estándar para YouTube, clases virtuales y proyectores** |
+| **`-qp`** | *Production* (2K) | **2560 × 1440** (1440p QHD) | 60 fps | `media/.../1440p60/` | Monitores de alta densidad y edición de video |
+| **`-qk`** | *FourK* (Ultra Alta) | **3840 × 2160** (4K UHD) | 60 fps | `media/.../2160p60/` | **Máxima calidad cinematográfica / Máster de archivo** |
+
+### Comandos de Renderizado
+
+#### 1. Previsualización Rápida (480p15)
+Ideal para desarrollo iterativo:
+```bash
+manim -ql libro2_precalculo/cap05_funciones_reales/ej_05_02.py Ejercicio05_02
+```
+
+#### 2. Calidad Alta Estándar (Full HD 1080p a 60 fps)
+Recomendado para publicación en plataformas de video:
+```bash
+manim -qh libro2_precalculo/cap05_funciones_reales/ej_05_02.py Ejercicio05_02
+```
+
+#### 3. Máxima Resolución (4K Ultra HD a 60 fps)
+Renderiza todos los vectores y fórmulas tipográficas con definición absoluta:
+```bash
+manim -qk libro2_precalculo/cap05_funciones_reales/ej_05_02.py Ejercicio05_02
+```
+
+#### 4. Generar Vista Previa GIF optimizada (para documentación)
+```bash
+ffmpeg -y -i media/videos/ej_05_02/480p15/Ejercicio05_02.mp4 \
+       -vf "fps=10,scale=480:-1:flags=lanczos" \
+       docs/previews/ej_05_02.gif
+```
 
 ---
 
@@ -27,52 +69,48 @@ Cada animación está estructurada bajo la **regla de los 3 actos** para garanti
 
 ```text
 visual-precalculus/
-├── common/                             # Módulos compartidos y estilos
-│   ├── base_scene.py                  # Clase BaseExerciseScene con temporización estándar
-│   └── styles.py                      # Paleta de colores consistente y tiempos base
+├── common/                             # Módulos compartidos y arquitectura
+│   ├── base_scene.py                  # AmarunExerciseScene (clase base reutilizable)
+│   ├── styles.py                      # Paleta de colores andina e identitaria
+│   └── __init__.py
+├── docs/                               # Previews y material de documentación
+│   └── previews/                      # GIFs optimizados para README
+├── images/                             # Activos gráficos institucionales
+│   ├── Fondo_Poncho.jpg               # Muestra textil del poncho Yachay Tech
+│   └── logo_Amarun.jpg                # Isotipo oficial de Editorial Amarun
 ├── libro2_precalculo/                 # Libro 2: Precálculo 2
 │   ├── cap05_funciones_reales/        # Capítulo 5: Funciones reales
-│   │   └── ej_05_02.py                # Ejercicio 5.2 (RMD y dominio)
+│   │   └── ej_05_02.py                # Ejercicio 5.2 (RMD, dominio y gráfico)
 │   ├── cap06_funciones_trigonometricas/
 │   ├── cap07_numeros_complejos/
 │   ├── cap08_polinomios_racionales/
 │   └── cap09_sucesiones_reales/
 ├── TRACKING.md                         # Hoja de ruta y checklist de ejercicios pares
 ├── requirements.txt                   # Dependencias de Python
-└── .gitignore                         # Exclusión de archivos pesados y renders locales
+└── .gitignore                         # Exclusión de renders pesados locales
 ```
 
 ---
 
-## 🚀 Instalación y Uso
+## 🚀 Instalación y Requisitos
 
-### 1. Requisitos Previos
+### 1. Dependencias del Sistema
 
-Se requiere Python 3.10+ y las dependencias multimedia del sistema para Manim:
+Se requiere Python 3.10+ junto con FFmpeg y LaTeX para la rasterización de fórmulas:
 
 ```bash
 # En Ubuntu / Debian / WSL:
 sudo apt update
-sudo apt install -y ffmpeg texlive-full
+sudo apt install -y libcairo2-dev libpango1.0-dev pkg-config \
+                    ffmpeg texlive-latex-base texlive-latex-extra \
+                    texlive-fonts-recommended dvisvgm
 ```
 
-### 2. Instalar dependencias de Python
+### 2. Dependencias de Python
 
 ```bash
 pip install -r requirements.txt
 ```
-
-### 3. Renderizar una animación
-
-* **Previsualización rápida (baja resolución, render en segundos):**
-  ```bash
-  manim -ql -p libro2_precalculo/cap05_funciones_reales/ej_05_02.py Ejercicio05_02
-  ```
-
-* **Render final en alta calidad (1080p 60fps):**
-  ```bash
-  manim -qh libro2_precalculo/cap05_funciones_reales/ej_05_02.py Ejercicio05_02
-  ```
 
 ---
 
@@ -80,10 +118,10 @@ pip install -r requirements.txt
 
 Consulta [TRACKING.md](TRACKING.md) para ver la lista completa de ejercicios pares cubiertos, en desarrollo y planificados.
 
-### Muestra: Capítulo 5 · Ejercicio 5.2 (Par)
+### Muestra: Capítulo 5 · Ejercicio 5.2
 > **Tema:** Regla del Máximo Dominio (RMD)  
 > **Problema:** Encontrar el dominio de $h(x) = \ln\left(\frac{x^3+1}{x+1}\right)$  
 > **Resultado:** $\operatorname{Dom}(h) = \mathbb{R} \setminus \{-1\}$  
+> **Comportamiento Gráfico:** Curva $y = \ln(x^2 - x + 1)$ con discontinuidad evitable (punto abierto) en $(-1, \ln 3)$.
 
 ![Ejercicio 5.2](docs/previews/ej_05_02.gif)
-
