@@ -98,7 +98,9 @@ visual-precalculus/
 │   └── logo_Amarun.jpg                # Isotipo oficial de Editorial Amarun
 ├── libro2_precalculo/                 # Libro 2: Precálculo 2
 │   ├── cap05_funciones_reales/        # Capítulo 5: Funciones reales
-│   │   └── ej_05_02.py                # Ejercicio 5.2 (RMD, dominio y gráfico)
+│   │   ├── ej_05_02.py                # Ejercicio 5.2 (RMD, dominio y gráfico)
+│   │   ├── ej_05_04.py                # Ejercicio 5.4 (Paridad de funciones y simetría)
+│   │   └── ej_05_06.py                # Ejercicio 5.6 (Propiedades del valor absoluto y dilatación)
 │   ├── cap06_funciones_trigonometricas/
 │   ├── cap07_numeros_complejos/
 │   ├── cap08_polinomios_racionales/
@@ -137,10 +139,26 @@ pip install -r requirements.txt
 
 Consulta [TRACKING.md](TRACKING.md) para ver la lista completa de ejercicios pares cubiertos, en desarrollo y planificados.
 
-### Muestra: Capítulo 5 · Ejercicio 5.2
+### Muestra 1: Capítulo 5 · Ejercicio 5.2
 > **Tema:** Regla del Máximo Dominio (RMD)  
 > **Problema:** Encontrar el dominio de $h(x) = \ln\left(\frac{x^3+1}{x+1}\right)$  
 > **Resultado:** $\operatorname{Dom}(h) = \mathbb{R} \setminus \{-1\}$  
 > **Comportamiento Gráfico:** Curva $y = \ln(x^2 - x + 1)$ con discontinuidad evitable (punto abierto) en $(-1, \ln 3)$.
 
 ![Ejercicio 5.2](docs/previews/ej_05_02.gif)
+
+### Muestra 2: Capítulo 5 · Ejercicio 5.4
+> **Tema:** Paridad de Funciones (Teorema 5.4)  
+> **Problema:** Demostrar paridad para $f \cdot g$, $f/g$, $f_1 + f_2$ y $g_1 + g_2$.  
+> **Resultado:** $f \cdot g$ y $f/g$ son impares; $f_1 + f_2$ es par; $g_1 + g_2$ es impar.  
+> **Comportamiento Gráfico:** Simetría axial (eje Y) vs. simetría central (origen).
+
+![Ejercicio 5.4](docs/previews/ej_05_04.gif)
+
+### Muestra 3: Capítulo 5 · Ejercicio 5.6
+> **Tema:** Propiedades del Valor Absoluto (Teorema 5.6)  
+> **Problema:** Demostrar $|a \cdot b| = |a| \cdot |b|$ para todo $a, b \in \mathbb{R}$ usando la definición $|x| = \sqrt{x^2}$.  
+> **Resultado:** Radicando $(ab)^2 = a^2 b^2 \implies \sqrt{a^2}\sqrt{b^2} = |a||b|$. Corolario: $|a/b| = |a|/|b|$ si $b \neq 0$.  
+> **Comportamiento Gráfico:** Dilatación y contracción métrica en la familia de curvas $f_k(x) = |k \cdot x| = |k||x|$.
+
+![Ejercicio 5.6](docs/previews/ej_05_06.gif)
