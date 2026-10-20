@@ -233,6 +233,9 @@ class Ejercicio05_04(AmarunExerciseScene):
             *prog_anims,
             run_time=1.8
         )
+        self.active_box = None
+        self.active_math = None
+        self.active_just = None
 
         # Trazado de las curvas par e impar
         self.play(

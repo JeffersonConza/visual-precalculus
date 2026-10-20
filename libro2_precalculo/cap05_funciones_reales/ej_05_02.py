@@ -214,6 +214,9 @@ class Ejercicio05_02(AmarunExerciseScene):
             *prog_anims,
             run_time=1.8
         )
+        self.active_box = None
+        self.active_math = None
+        self.active_just = None
         self.play(Create(curve_left), Create(curve_right), run_time=1.8)
         self.play(
             FadeIn(hole_outer),

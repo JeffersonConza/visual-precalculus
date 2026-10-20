@@ -108,12 +108,12 @@ class AmarunExerciseScene(Scene):
 
         self.dots_grp = VGroup(*self.prog_dots)
         self.prog_label = Text(step_labels[0], font_size=13, color=THEME["header_color"]).next_to(self.dots_grp, UP, buff=0.14)
-        self.progress_ui = VGroup(self.prog_track, self.dots_grp, self.prog_label)
+        self.progress_ui = VGroup(self.prog_track, self.dots_grp)
 
         # Activar el paso 0
         self.prog_dots[0].set_color(THEME["highlight"]).scale(1.25)
         self.current_step = 0
-        self.play(FadeIn(self.progress_ui, shift=UP * 0.2), run_time=run_time)
+        self.play(FadeIn(self.progress_ui, shift=UP * 0.2), FadeIn(self.prog_label, shift=UP * 0.2), run_time=run_time)
         return self.progress_ui
 
     def get_advance_progress_anims(self, next_idx: int) -> list:
@@ -123,7 +123,8 @@ class AmarunExerciseScene(Scene):
         anims = [
             self.prog_dots[current_idx].animate.set_color(THEME["success"]).scale(1.0 / 1.25),
             self.prog_dots[next_idx].animate.set_color(THEME["highlight"]).scale(1.25),
-            FadeTransform(self.prog_label, new_lbl)
+            FadeOut(self.prog_label, shift=DOWN * 0.1),
+            FadeIn(new_lbl, shift=DOWN * 0.1)
         ]
         self.prog_label = new_lbl
         self.current_step = next_idx
@@ -288,21 +289,34 @@ class AmarunExerciseScene(Scene):
     # 6. Cierre Suave
     # ==========================================================
     def finish_exercise(self, extra_mobjects: list = None, run_time: float = 1.4):
-        """Desvanece suavemente todos los componentes activos de la escena."""
+        """Desvanece suavemente todos los componentes activos de la escena sin re-introducir objetos ausentes."""
         to_fade = []
+        candidates = []
         if self.active_math:
-            to_fade.append(self.active_math)
+            candidates.append(self.active_math)
         if self.active_just:
-            to_fade.append(self.active_just)
+            candidates.append(self.active_just)
         if self.active_box:
-            to_fade.append(self.active_box)
+            candidates.append(self.active_box)
         if extra_mobjects:
-            to_fade.extend(extra_mobjects)
+            candidates.extend(extra_mobjects)
         if self.progress_ui:
-            to_fade.append(self.progress_ui)
+            candidates.append(self.progress_ui)
+        if self.prog_label:
+            candidates.append(self.prog_label)
         if self.permanent_statement:
-            to_fade.append(self.permanent_statement)
+            candidates.append(self.permanent_statement)
         if self.header:
-            to_fade.append(self.header)
+            candidates.append(self.header)
 
-        self.play(*[FadeOut(m, shift=DOWN * 0.3) for m in to_fade], run_time=run_time)
+        # Filtrar únicamente los mobjects que están actualmente presentes en la escena
+        for m in candidates:
+            if m is not None and m in self.mobjects and m not in to_fade:
+                to_fade.append(m)
+
+        if to_fade:
+            self.play(*[FadeOut(m, shift=DOWN * 0.3) for m in to_fade], run_time=run_time)
+
+        self.active_math = None
+        self.active_just = None
+        self.active_box = None
