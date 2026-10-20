@@ -62,12 +62,13 @@ class AmarunExerciseScene(Scene):
         math_tex: str,
         read_time: float = 4.5,
         math_font_size: int = 26,
+        desc_font_size: int = 18,
         box_pos: np.ndarray = np.array([0.0, 2.5, 0.0])
     ) -> VGroup:
         """Presenta el enunciado permanente en un recuadro rojo poncho en la parte superior."""
-        stmt_desc = Text(desc_text, font_size=18, color=THEME["statement_text"])
+        stmt_desc = Text(desc_text, font_size=desc_font_size, color=THEME["statement_text"])
         stmt_math = MathTex(math_tex, font_size=math_font_size, color=THEME["highlight"])
-        stmt_content = VGroup(stmt_desc, stmt_math).arrange(RIGHT, buff=0.35)
+        stmt_content = VGroup(stmt_desc, stmt_math).arrange(RIGHT, buff=0.3)
         
         stmt_box = SurroundingRectangle(
             stmt_content,

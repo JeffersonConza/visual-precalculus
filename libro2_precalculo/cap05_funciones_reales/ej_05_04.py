@@ -35,9 +35,10 @@ class Ejercicio05_04(AmarunExerciseScene):
         # 2. Enunciado Permanente
         # ==========================================================
         self.setup_statement(
-            desc_text="Teorema 5.4: Sean f par y g impar en un dominio simétrico I. Probar:",
-            math_tex=r"f \cdot g \text{ e } f/g \text{ (impares)}, \quad f_1+f_2 \text{ (par)}, \quad g_1+g_2 \text{ (impar)}",
-            math_font_size=20,
+            desc_text="Teorema 5.4: Sean f par y g impar (dominio simétrico I). Probar:",
+            math_tex=r"f \cdot g, \; f/g \text{ (impares)}; \quad f_1+f_2 \text{ (par)}; \quad g_1+g_2 \text{ (impar)}",
+            desc_font_size=16,
+            math_font_size=18,
             read_time=4.5
         )
 
@@ -205,7 +206,7 @@ class Ejercicio05_04(AmarunExerciseScene):
 
         # Curva Impar: y = 0.5 * x^3 (color curve)
         curve_impar = axes.plot(lambda x: 0.5 * (x**3), x_range=[-1.6, 1.6], color=THEME["curve"], stroke_width=3)
-        lbl_impar = MathTex(r"g(x) \text{ [Impar]}", font_size=15, color=THEME["curve"]).next_to(axes.c2p(-1.6, -2.05), LEFT, buff=0.1)
+        lbl_impar = MathTex(r"g(x) \text{ [Impar]}", font_size=15, color=THEME["curve"]).next_to(axes.c2p(-1.6, -2.05), UP + LEFT, buff=0.1)
 
         # Puntos simétricos para la función par: (1.2, f(1.2)) y (-1.2, f(1.2))
         x_val = 1.2
