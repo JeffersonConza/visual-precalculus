@@ -36,32 +36,50 @@ Manim permite compilar cualquier ejercicio en 5 niveles de resolución y tasa de
 | **`-qp`** | *Production* (2K) | **2560 × 1440** (1440p QHD) | 60 fps | `media/.../1440p60/` | Monitores de alta densidad y edición de video |
 | **`-qk`** | *FourK* (Ultra Alta) | **3840 × 2160** (4K UHD) | 60 fps | `media/.../2160p60/` | **Máxima calidad cinematográfica / Máster de archivo** |
 
-### Comandos de Renderizado
+### ⚡ Automatización con `render.py` (Recomendado)
 
-#### 1. Previsualización Rápida (480p15)
-Ideal para desarrollo iterativo:
+El repositorio incluye un script CLI inteligente (`render.py`) que detecta automáticamente los ejercicios, ejecuta Manim en la resolución deseada y genera de forma inmediata la vista previa GIF optimizada:
+
 ```bash
-manim -ql libro2_precalculo/cap05_funciones_reales/ej_05_02.py Ejercicio05_02
+# 1. Previsualización rápida (480p15 + GIF automático):
+python render.py 5.2
+python render.py 5.4
+
+# 2. Renderizado en Alta Calidad (Full HD 1080p a 60 fps):
+python render.py 5.2 --high
+
+# 3. Renderizado en Máxima Calidad (4K Ultra HD a 60 fps):
+python render.py 5.4 --4k
+
+# 4. Listar todos los ejercicios disponibles y su estado:
+python render.py --list
+
+# 5. Renderizar todos los ejercicios en bloque:
+python render.py all --low
 ```
 
-#### 2. Calidad Alta Estándar (Full HD 1080p a 60 fps)
-Recomendado para publicación en plataformas de video:
-```bash
-manim -qh libro2_precalculo/cap05_funciones_reales/ej_05_02.py Ejercicio05_02
-```
+### Comandos Manuales de Manim
 
-#### 3. Máxima Resolución (4K Ultra HD a 60 fps)
-Renderiza todos los vectores y fórmulas tipográficas con definición absoluta:
-```bash
-manim -qk libro2_precalculo/cap05_funciones_reales/ej_05_02.py Ejercicio05_02
-```
+Si prefieres invocar directamente las herramientas del sistema:
 
-#### 4. Generar Vista Previa GIF optimizada (para documentación)
-```bash
-ffmpeg -y -i media/videos/ej_05_02/480p15/Ejercicio05_02.mp4 \
-       -vf "fps=10,scale=480:-1:flags=lanczos" \
-       docs/previews/ej_05_02.gif
-```
+* **Desarrollo rápido (480p15):**
+  ```bash
+  manim -ql libro2_precalculo/cap05_funciones_reales/ej_05_02.py Ejercicio05_02
+  ```
+* **Calidad alta (1080p60):**
+  ```bash
+  manim -qh libro2_precalculo/cap05_funciones_reales/ej_05_02.py Ejercicio05_02
+  ```
+* **Máxima resolución (4K UHD 60fps):**
+  ```bash
+  manim -qk libro2_precalculo/cap05_funciones_reales/ej_05_02.py Ejercicio05_02
+  ```
+* **Generar GIF optimizado manualmente:**
+  ```bash
+  ffmpeg -y -i media/videos/ej_05_02/480p15/Ejercicio05_02.mp4 \
+         -vf "fps=10,scale=480:-1:flags=lanczos" \
+         docs/previews/ej_05_02.gif
+  ```
 
 ---
 
@@ -87,6 +105,7 @@ visual-precalculus/
 │   └── cap09_sucesiones_reales/
 ├── TRACKING.md                         # Hoja de ruta y checklist de ejercicios pares
 ├── requirements.txt                   # Dependencias de Python
+├── render.py                          # CLI inteligente de automatización de renders
 └── .gitignore                         # Exclusión de renders pesados locales
 ```
 
