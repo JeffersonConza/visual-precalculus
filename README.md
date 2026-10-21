@@ -112,7 +112,8 @@ visual-precalculus/
 │   │   ├── ej_05_22.py                # Ejercicio 5.22 (Ecuaciones con valor absoluto)
 │   │   ├── ej_05_24.py                # Ejercicio 5.24 (Inecuación con valor absoluto anidado)
 │   │   ├── ej_05_26.py                # Ejercicio 5.26 (Inecuación de doble acotación |3|x|-1| ≤ 5)
-│   │   └── ej_05_28.py                # Ejercicio 5.28 (Desigualdad triangular inversa)
+│   │   ├── ej_05_28.py                # Ejercicio 5.28 (Desigualdad triangular inversa)
+│   │   └── ej_05_30.py                # Ejercicio 5.30 (Inecuaciones con radicales y método integrador)
 │   ├── cap06_funciones_trigonometricas/
 │   ├── cap07_numeros_complejos/
 │   ├── cap08_polinomios_racionales/
