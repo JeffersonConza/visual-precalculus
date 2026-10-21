@@ -42,14 +42,15 @@ class Ejercicio05_06(AmarunExerciseScene):
         )
 
         # ==========================================================
-        # 3. Barra de Progreso Inferior (5 pasos)
+        # 3. Barra de Progreso Inferior (6 pasos mínimos)
         # ==========================================================
         self.setup_progress_bar([
-            "1/5: Definición vía Raíz (5.28)",
-            "2/5: Distributividad de Potencia",
-            "3/5: Distributividad del Radical",
-            "4/5: Conclusión y Cociente",
-            "5/5: Interpretación Geométrica"
+            "1/6: Definición vía Raíz (5.28)",
+            "2/6: Distributividad de Potencia",
+            "3/6: Distributividad del Radical",
+            "4/6: Conclusión del Producto",
+            "5/6: Demostración del Cociente",
+            "6/6: Interpretación Geométrica"
         ])
 
         # ==========================================================
@@ -69,7 +70,7 @@ class Ejercicio05_06(AmarunExerciseScene):
             "|a · b| = √((a · b)²)."
         )
 
-        self.morph_step(eq1, just1, box_color=THEME["highlight"], wait_time=6.2)
+        self.morph_step(eq1, just1, box_color=THEME["highlight"], wait_time=4.8)
 
         # ==========================================================
         # PASO 2: Distributividad de Potencia en Factores Reales
@@ -88,7 +89,7 @@ class Ejercicio05_06(AmarunExerciseScene):
             "El radicando resulta a² · b²."
         )
 
-        self.morph_step(eq2, just2, box_color=THEME["secondary"], advance_to_step=1, wait_time=6.2)
+        self.morph_step(eq2, just2, box_color=THEME["secondary"], advance_to_step=1, wait_time=4.8)
 
         # ==========================================================
         # PASO 3: Distributividad del Radical sobre Factores No Negativos
@@ -107,10 +108,10 @@ class Ejercicio05_06(AmarunExerciseScene):
             "√(a² · b²) = √(a²) · √(b²)."
         )
 
-        self.morph_step(eq3, just3, box_color=THEME["curve"], advance_to_step=2, wait_time=6.8)
+        self.morph_step(eq3, just3, box_color=THEME["curve"], advance_to_step=2, wait_time=5.2)
 
         # ==========================================================
-        # PASO 4: Conclusión Formal y Corolario del Cociente
+        # PASO 4: Conclusión Formal del Producto (5.30)
         # ==========================================================
         eq4 = MathTex(
             r"\begin{aligned}"
@@ -124,17 +125,40 @@ class Ejercicio05_06(AmarunExerciseScene):
         just4 = self.create_justification(
             "4. Conclusión formal (5.30):\n"
             "Reaplicando (5.28): √(a²) = |a| y √(b²) = |b|.\n"
-            "Se concluye: |a · b| = |a| · |b| (∀ a, b ∈ ℝ).\n\n"
-            "Corolario (5.31): Si b ≠ 0,\n"
-            "|a / b| = |a · b⁻¹| = |a| · |b|⁻¹ = |a| / |b|."
+            "Por transitividad de la igualdad:\n"
+            "|a · b| = |a| · |b| (∀ a, b ∈ ℝ).\n"
+            "Queda demostrado el punto (5.30)."
         )
 
-        self.morph_step(eq4, just4, box_color=THEME["success"], advance_to_step=3, wait_time=7.2)
+        self.morph_step(eq4, just4, box_color=THEME["success"], advance_to_step=3, wait_time=5.5)
 
         # ==========================================================
-        # PASO 5: Interpretación Geométrica y Funcional
+        # PASO 5: Demostración del Cociente (Punto 5.31)
         # ==========================================================
-        prog_anims = self.get_advance_progress_anims(4)
+        eq5 = MathTex(
+            r"\begin{aligned}"
+            r"\left|\frac{a}{b}\right| &= |a \cdot b^{-1}| = |a| \cdot |b^{-1}| \\"
+            r"&= |a| \cdot \frac{1}{|b|} = \frac{|a|}{|b|} \quad (b \neq 0)"
+            r"\end{aligned}",
+            font_size=23,
+            color=THEME["highlight"]
+        ).move_to([-3.4, 0.2, 0])
+
+        just5 = self.create_justification(
+            "5. Cociente de valores absolutos (5.31):\n"
+            "Para b ≠ 0, a/b = a · b⁻¹.\n"
+            "Por la propiedad multiplicativa (5.30):\n"
+            "|a · b⁻¹| = |a| · |b⁻¹|.\n"
+            "Dado que |b⁻¹| = 1/|b|, concluimos:\n"
+            "|a / b| = |a| / |b|."
+        )
+
+        self.morph_step(eq5, just5, box_color=THEME["highlight"], advance_to_step=4, wait_time=5.5)
+
+        # ==========================================================
+        # PASO 6: Interpretación Geométrica y Funcional
+        # ==========================================================
+        prog_anims = self.get_advance_progress_anims(5)
 
         # Panel izquierdo: Explicación conceptual
         t_title = Text("Interpretación geométrica:", font_size=16, color=THEME["header_color"], weight=BOLD)

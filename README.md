@@ -13,6 +13,7 @@ Las animaciones siguen un estándar pedagógico y estético unificado mediante l
 * **Enunciado Permanente:** Fijado en la parte superior en un recuadro institucional rojo poncho (`#a32f30`), visible durante todo el video sin desaparecer.
 * **Metamorfosis Algebraica (Estilo 3Blue1Brown):** En el panel izquierdo, las expresiones matemáticas mutan directamente en su lugar (`ReplacementTransform`), mientras el panel derecho actualiza la justificación teórica paso a paso.
 * **Tachado Explícito:** Al simplificar factores fraccionarios, se trazan líneas diagonales en rojo poncho sobre los términos cancelados, con pausas de asimilación antes de la reducción.
+* **Estructura Pedagógica (Mínimo 6 Pasos):** Cada ejercicio desglosa su resolución en al menos 6 fases progresivas bien delimitadas en la barra interactiva, garantizando una explicación exhaustiva sin saltos deductivos.
 * **Barra de Progreso Interactiva:** En la parte inferior ($y = -3.55$), una línea con nodos dinámicos indica la etapa activa (amarillo inca), las etapas superadas (verde andino) y el rótulo de la fase actual.
 * **Interpretación Gráfica Cartesiana:** Cada ejercicio concluye con la visualización de la curva en el plano cartesiano, destacando puntos abiertos (discontinuidades evitables), asíntotas, vértices y cortes con los ejes.
 * **Paleta Andina Institucional ([common/styles.py](common/styles.py)):**
