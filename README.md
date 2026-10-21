@@ -102,7 +102,8 @@ visual-precalculus/
 │   │   ├── ej_05_02.py                # Ejercicio 5.2 (RMD, dominio y gráfico)
 │   │   ├── ej_05_04.py                # Ejercicio 5.4 (Paridad de funciones y simetría)
 │   │   ├── ej_05_06.py                # Ejercicio 5.6 (Propiedades del valor absoluto y dilatación)
-│   │   └── ej_05_08.py                # Ejercicio 5.8 (Desigualdad triangular y función distancia)
+│   │   ├── ej_05_08.py                # Ejercicio 5.8 (Desigualdad triangular y función distancia)
+│   │   └── ej_05_10.py                # Ejercicio 5.10 (Inyectividad y prueba de recta horizontal)
 │   ├── cap06_funciones_trigonometricas/
 │   ├── cap07_numeros_complejos/
 │   ├── cap08_polinomios_racionales/
@@ -172,3 +173,11 @@ Consulta [TRACKING.md](TRACKING.md) para ver la lista completa de ejercicios par
 > **Comportamiento Gráfico:** Función cuenca $g(a) = |x - a| + |a - y|$ con piso mínimo en $|x - y| = 3$ e intervalo de igualdad $a \in [-1, 2]$.
 
 ![Ejercicio 5.8](docs/previews/ej_05_08.gif)
+
+### Muestra 5: Capítulo 5 · Ejercicio 5.10
+> **Tema:** Inyectividad de Funciones (Sección 5.5)  
+> **Problema:** Probar que $g: \mathbb{R} \to \mathbb{R}$ con $g(x) = 2x^3 - 1$ es inyectiva y graficar en el plano cartesiano.  
+> **Resultado:** $(x_1 - x_2)(x_1^2 + x_1 x_2 + x_2^2) = 0 \implies x_1 = x_2$ pues $(x_1 + x_2/2)^2 + \frac{3}{4}x_2^2 > 0$ si $(x_1, x_2) \neq (0, 0)$.  
+> **Comportamiento Gráfico:** Curva cúbica $g(x) = 2x^3 - 1$ con corte en $(0, -1)$, verificando el test de la recta horizontal con preimagen única en $(1, 1)$.
+
+![Ejercicio 5.10](docs/previews/ej_05_10.gif)
