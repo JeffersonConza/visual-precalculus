@@ -115,7 +115,8 @@ visual-precalculus/
 │   │   ├── ej_05_28.py                # Ejercicio 5.28 (Desigualdad triangular inversa)
 │   │   ├── ej_05_30.py                # Ejercicio 5.30 (Inecuaciones con radicales y método integrador)
 │   │   ├── ej_05_32.py                # Ejercicio 5.32 (Ecuación con radicales simétricos y conjugado)
-│   │   └── ej_05_34.py                # Ejercicio 5.34 (Ecuación con radicales de distinto orden ⁵√ y ⁴√)
+│   │   ├── ej_05_34.py                # Ejercicio 5.34 (Ecuación con radicales de distinto orden ⁵√ y ⁴√)
+│   │   └── ej_05_36.py                # Ejercicio 5.36 (Inecuaciones cuadráticas y fraccionarias con valor absoluto)
 │   ├── cap06_funciones_trigonometricas/
 │   ├── cap07_numeros_complejos/
 │   ├── cap08_polinomios_racionales/

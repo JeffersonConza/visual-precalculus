@@ -30,7 +30,7 @@ Repositorio de animaciones matemáticas con Manim basadas en los libros de texto
 - [x] **Ej. 5.30** — Inecuaciones con radicales $\sqrt{x^2 - 5x + 4} \ge x - 3$ → `libro2_precalculo/cap05_funciones_reales/ej_05_30.py`
 - [x] **Ej. 5.32** — Ecuaciones con radicales: $\sqrt{2x^2+3x+5} + \sqrt{2x^2-3x+5} = 3x$ → `libro2_precalculo/cap05_funciones_reales/ej_05_32.py`
 - [x] **Ej. 5.34** — Ecuación con radicales dobles: $\sqrt[5]{x^2-34x+64} - \sqrt[4]{x^2-34x+33} = 1$ → `libro2_precalculo/cap05_funciones_reales/ej_05_34.py`
-- [ ] **Ej. 5.36** — Inecuaciones cuadráticas y fraccionarias
+- [x] **Ej. 5.36** — Inecuaciones cuadráticas y fraccionarias → `libro2_precalculo/cap05_funciones_reales/ej_05_36.py`
 - [ ] **Ej. 5.38** — Inecuación con cociente de valores absolutos y polinomios
 - [ ] **Ej. 5.40** — Inecuaciones cuadráticas y racionales variadas
 - [ ] **Ej. 5.42** — Sistemas de ecuaciones reales
