@@ -104,7 +104,8 @@ visual-precalculus/
 │   │   ├── ej_05_06.py                # Ejercicio 5.6 (Propiedades del valor absoluto y dilatación)
 │   │   ├── ej_05_08.py                # Ejercicio 5.8 (Desigualdad triangular y función distancia)
 │   │   ├── ej_05_10.py                # Ejercicio 5.10 (Inyectividad y prueba de recta horizontal)
-│   │   └── ej_05_12.py                # Ejercicio 5.12 (Paridad de la función inversa y simetría)
+│   │   ├── ej_05_12.py                # Ejercicio 5.12 (Paridad de la función inversa y simetría)
+│   │   └── ej_05_14.py                # Ejercicio 5.14 (Monotonía de la suma y tasa de variación)
 │   ├── cap06_funciones_trigonometricas/
 │   ├── cap07_numeros_complejos/
 │   ├── cap08_polinomios_racionales/
@@ -190,3 +191,11 @@ Consulta [TRACKING.md](TRACKING.md) para ver la lista completa de ejercicios par
 > **Comportamiento Gráfico:** Simetría axial respecto a la diagonal $y = x$ y simetría central respecto al origen $(0, 0)$ en las curvas $f(x) = x^3$ y $f^{-1}(x) = \sqrt[3]{x}$.
 
 ![Ejercicio 5.12](docs/previews/ej_05_12.gif)
+
+### Muestra 7: Capítulo 5 · Ejercicio 5.14
+> **Tema:** Monotonía de la Suma de Funciones (Teorema 5.18)  
+> **Problema:** Probar que la suma de crecientes es creciente, y que creciente más estrictamente creciente es estrictamente creciente.  
+> **Resultado:** $f(x_1) \le f(x_2) \land g(x_1) < g(x_2) \implies (f+g)(x_1) < (f+g)(x_2)$. Aditividad de la tasa de variación $\alpha_{f+g} = \alpha_f + \alpha_g > 0$.  
+> **Comportamiento Gráfico:** Superposición cartesiana de $f(x) = x$ y $g(x) = x^3$ generando la curva más inclinada $(f+g)(x) = x + x^3$, evaluada en $x = 1$.
+
+![Ejercicio 5.14](docs/previews/ej_05_14.gif)

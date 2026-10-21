@@ -17,7 +17,7 @@ Repositorio de animaciones matemáticas con Manim basadas en los libros de texto
 - [x] **Ej. 5.8** (Pág. 52 / PDF 71) — Desigualdad triangular inversa y punto intermedio (Corolario 5.11) → `libro2_precalculo/cap05_funciones_reales/ej_05_08.py`
 - [x] **Ej. 5.10** (Pág. 62 / PDF 81) — Inyectividad de $g(x) = 2x^3 - 1$ y test de la recta horizontal → `libro2_precalculo/cap05_funciones_reales/ej_05_10.py`
 - [x] **Ej. 5.12** (Pág. 64 / PDF 83) — Paridad de la función inversa (Teorema 5.15) → `libro2_precalculo/cap05_funciones_reales/ej_05_12.py`
-- [ ] **Ej. 5.14** (Pág. 74 / PDF 93) — Monotonía y tasa de variación
+- [x] **Ej. 5.14** (Pág. 74 / PDF 93) — Monotonía de la suma de funciones (Teorema 5.18) → `libro2_precalculo/cap05_funciones_reales/ej_05_14.py`
 - [ ] **Ej. 5.16** (Pág. 75 / PDF 94) — Monotonía de $f(x) = x^3 + 1$
 - [ ] **Ej. 5.18** (Pág. 85 / PDF 104) — Funciones exponenciales y logarítmicas
 
