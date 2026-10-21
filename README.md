@@ -105,7 +105,8 @@ visual-precalculus/
 │   │   ├── ej_05_08.py                # Ejercicio 5.8 (Desigualdad triangular y función distancia)
 │   │   ├── ej_05_10.py                # Ejercicio 5.10 (Inyectividad y prueba de recta horizontal)
 │   │   ├── ej_05_12.py                # Ejercicio 5.12 (Paridad de la función inversa y simetría)
-│   │   └── ej_05_14.py                # Ejercicio 5.14 (Monotonía de la suma y tasa de variación)
+│   │   ├── ej_05_14.py                # Ejercicio 5.14 (Monotonía de la suma y tasa de variación)
+│   │   └── ej_05_16.py                # Ejercicio 5.16 (Monotonía e inyectividad de x³ + 1)
 │   ├── cap06_funciones_trigonometricas/
 │   ├── cap07_numeros_complejos/
 │   ├── cap08_polinomios_racionales/
