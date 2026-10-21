@@ -114,7 +114,8 @@ visual-precalculus/
 │   │   ├── ej_05_26.py                # Ejercicio 5.26 (Inecuación de doble acotación |3|x|-1| ≤ 5)
 │   │   ├── ej_05_28.py                # Ejercicio 5.28 (Desigualdad triangular inversa)
 │   │   ├── ej_05_30.py                # Ejercicio 5.30 (Inecuaciones con radicales y método integrador)
-│   │   └── ej_05_32.py                # Ejercicio 5.32 (Ecuación con radicales simétricos y conjugado)
+│   │   ├── ej_05_32.py                # Ejercicio 5.32 (Ecuación con radicales simétricos y conjugado)
+│   │   └── ej_05_34.py                # Ejercicio 5.34 (Ecuación con radicales de distinto orden ⁵√ y ⁴√)
 │   ├── cap06_funciones_trigonometricas/
 │   ├── cap07_numeros_complejos/
 │   ├── cap08_polinomios_racionales/
