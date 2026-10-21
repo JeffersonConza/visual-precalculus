@@ -103,7 +103,8 @@ visual-precalculus/
 │   │   ├── ej_05_04.py                # Ejercicio 5.4 (Paridad de funciones y simetría)
 │   │   ├── ej_05_06.py                # Ejercicio 5.6 (Propiedades del valor absoluto y dilatación)
 │   │   ├── ej_05_08.py                # Ejercicio 5.8 (Desigualdad triangular y función distancia)
-│   │   └── ej_05_10.py                # Ejercicio 5.10 (Inyectividad y prueba de recta horizontal)
+│   │   ├── ej_05_10.py                # Ejercicio 5.10 (Inyectividad y prueba de recta horizontal)
+│   │   └── ej_05_12.py                # Ejercicio 5.12 (Paridad de la función inversa y simetría)
 │   ├── cap06_funciones_trigonometricas/
 │   ├── cap07_numeros_complejos/
 │   ├── cap08_polinomios_racionales/
@@ -181,3 +182,11 @@ Consulta [TRACKING.md](TRACKING.md) para ver la lista completa de ejercicios par
 > **Comportamiento Gráfico:** Curva cúbica $g(x) = 2x^3 - 1$ con corte en $(0, -1)$, verificando el test de la recta horizontal con preimagen única en $(1, 1)$.
 
 ![Ejercicio 5.10](docs/previews/ej_05_10.gif)
+
+### Muestra 6: Capítulo 5 · Ejercicio 5.12
+> **Tema:** Paridad de la Función Inversa (Teorema 5.15)  
+> **Problema:** Probar que si $f: \mathbb{R} \to \mathbb{R}$ es biyectiva e impar, entonces $f^{-1}$ es también impar.  
+> **Resultado:** $-y = -f(x) = f(-x) \implies f^{-1}(-y) = -x = -f^{-1}(y)$ para todo $y \in \mathbb{R}$.  
+> **Comportamiento Gráfico:** Simetría axial respecto a la diagonal $y = x$ y simetría central respecto al origen $(0, 0)$ en las curvas $f(x) = x^3$ y $f^{-1}(x) = \sqrt[3]{x}$.
+
+![Ejercicio 5.12](docs/previews/ej_05_12.gif)
