@@ -110,7 +110,8 @@ visual-precalculus/
 │   │   ├── ej_05_18.py                # Ejercicio 5.18 (Propiedades de logaritmos e isomorfismo)
 │   │   ├── ej_05_20.py                # Ejercicio 5.20 (Inecuación racional y conjunto solución)
 │   │   ├── ej_05_22.py                # Ejercicio 5.22 (Ecuaciones con valor absoluto)
-│   │   └── ej_05_24.py                # Ejercicio 5.24 (Inecuación con valor absoluto anidado)
+│   │   ├── ej_05_24.py                # Ejercicio 5.24 (Inecuación con valor absoluto anidado)
+│   │   └── ej_05_26.py                # Ejercicio 5.26 (Inecuación de doble acotación |3|x|-1| ≤ 5)
 │   ├── cap06_funciones_trigonometricas/
 │   ├── cap07_numeros_complejos/
 │   ├── cap08_polinomios_racionales/

@@ -25,7 +25,7 @@ Repositorio de animaciones matemáticas con Manim basadas en los libros de texto
 - [x] **Ej. 5.20** — Inecuación racional $\frac{x+5}{x+4} \ge \frac{x-6}{x+4}$ → `libro2_precalculo/cap05_funciones_reales/ej_05_20.py`
 - [x] **Ej. 5.22** — Ecuaciones con valor absoluto: $|x+3| - |2x-5| = 7$ → `libro2_precalculo/cap05_funciones_reales/ej_05_22.py`
 - [x] **Ej. 5.24** — Inecuación con valor absoluto anidado: $||x| - 5| \ge 3$ → `libro2_precalculo/cap05_funciones_reales/ej_05_24.py`
-- [ ] **Ej. 5.26** — Inecuaciones racionales
+- [x] **Ej. 5.26** — Inecuación con valor absoluto anidado: $|3|x| - 1| \le 5$ → `libro2_precalculo/cap05_funciones_reales/ej_05_26.py`
 - [ ] **Ej. 5.28** — Desigualdad triangular inversa: $||x| - |y|| \le |x - y|$
 - [ ] **Ej. 5.30** — Inecuaciones con radicales $\sqrt{x^2 - 5x + 4} \ge x - 3$
 - [ ] **Ej. 5.32** — Ecuaciones con radicales
