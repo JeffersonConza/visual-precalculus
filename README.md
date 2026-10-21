@@ -101,7 +101,8 @@ visual-precalculus/
 │   ├── cap05_funciones_reales/        # Capítulo 5: Funciones reales
 │   │   ├── ej_05_02.py                # Ejercicio 5.2 (RMD, dominio y gráfico)
 │   │   ├── ej_05_04.py                # Ejercicio 5.4 (Paridad de funciones y simetría)
-│   │   └── ej_05_06.py                # Ejercicio 5.6 (Propiedades del valor absoluto y dilatación)
+│   │   ├── ej_05_06.py                # Ejercicio 5.6 (Propiedades del valor absoluto y dilatación)
+│   │   └── ej_05_08.py                # Ejercicio 5.8 (Desigualdad triangular y función distancia)
 │   ├── cap06_funciones_trigonometricas/
 │   ├── cap07_numeros_complejos/
 │   ├── cap08_polinomios_racionales/
@@ -163,3 +164,11 @@ Consulta [TRACKING.md](TRACKING.md) para ver la lista completa de ejercicios par
 > **Comportamiento Gráfico:** Dilatación y contracción métrica en la familia de curvas $f_k(x) = |k \cdot x| = |k||x|$.
 
 ![Ejercicio 5.6](docs/previews/ej_05_06.gif)
+
+### Muestra 4: Capítulo 5 · Ejercicio 5.8
+> **Tema:** Desigualdad Triangular (Corolario 5.11)  
+> **Problema:** Demostrar $||x| - |y|| \le |x - y|$ y $|x - y| \le |x - a| + |a - y|$ para todo $x, y, a \in \mathbb{R}$.  
+> **Resultado:** Acotamiento doble $-|x - y| \le |x| - |y| \le |x - y| \implies ||x| - |y|| \le |x - y|$. Descomposición con punto intermedio.  
+> **Comportamiento Gráfico:** Función cuenca $g(a) = |x - a| + |a - y|$ con piso mínimo en $|x - y| = 3$ e intervalo de igualdad $a \in [-1, 2]$.
+
+![Ejercicio 5.8](docs/previews/ej_05_08.gif)
