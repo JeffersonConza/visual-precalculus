@@ -108,7 +108,8 @@ visual-precalculus/
 │   │   ├── ej_05_14.py                # Ejercicio 5.14 (Monotonía de la suma y tasa de variación)
 │   │   ├── ej_05_16.py                # Ejercicio 5.16 (Monotonía e inyectividad de x³ + 1)
 │   │   ├── ej_05_18.py                # Ejercicio 5.18 (Propiedades de logaritmos e isomorfismo)
-│   │   └── ej_05_20.py                # Ejercicio 5.20 (Inecuación racional y conjunto solución)
+│   │   ├── ej_05_20.py                # Ejercicio 5.20 (Inecuación racional y conjunto solución)
+│   │   └── ej_05_22.py                # Ejercicio 5.22 (Ecuaciones con valor absoluto)
 │   ├── cap06_funciones_trigonometricas/
 │   ├── cap07_numeros_complejos/
 │   ├── cap08_polinomios_racionales/
