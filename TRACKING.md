@@ -32,7 +32,7 @@ Repositorio de animaciones matemáticas con Manim basadas en los libros de texto
 - [x] **Ej. 5.34** — Ecuación con radicales dobles: $\sqrt[5]{x^2-34x+64} - \sqrt[4]{x^2-34x+33} = 1$ → `libro2_precalculo/cap05_funciones_reales/ej_05_34.py`
 - [x] **Ej. 5.36** — Inecuaciones cuadráticas y fraccionarias → `libro2_precalculo/cap05_funciones_reales/ej_05_36.py`
 - [x] **Ej. 5.38** — Inecuación con cociente de valores absolutos y polinomios → `libro2_precalculo/cap05_funciones_reales/ej_05_38.py`
-- [ ] **Ej. 5.40** — Inecuaciones cuadráticas y racionales variadas
+- [x] **Ej. 5.40** — Inecuaciones cuadráticas y racionales variadas → `libro2_precalculo/cap05_funciones_reales/ej_05_40.py`
 - [ ] **Ej. 5.42** — Sistemas de ecuaciones reales
 
 ---
