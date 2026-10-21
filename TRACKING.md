@@ -28,7 +28,7 @@ Repositorio de animaciones matemáticas con Manim basadas en los libros de texto
 - [x] **Ej. 5.26** — Inecuación con valor absoluto anidado: $|3|x| - 1| \le 5$ → `libro2_precalculo/cap05_funciones_reales/ej_05_26.py`
 - [x] **Ej. 5.28** — Desigualdad triangular inversa: $||x| - |y|| \le |x - y|$ → `libro2_precalculo/cap05_funciones_reales/ej_05_28.py`
 - [x] **Ej. 5.30** — Inecuaciones con radicales $\sqrt{x^2 - 5x + 4} \ge x - 3$ → `libro2_precalculo/cap05_funciones_reales/ej_05_30.py`
-- [ ] **Ej. 5.32** — Ecuaciones con radicales
+- [x] **Ej. 5.32** — Ecuaciones con radicales: $\sqrt{2x^2+3x+5} + \sqrt{2x^2-3x+5} = 3x$ → `libro2_precalculo/cap05_funciones_reales/ej_05_32.py`
 - [ ] **Ej. 5.34** — Ecuación con radicales dobles
 - [ ] **Ej. 5.36** — Inecuaciones cuadráticas y fraccionarias
 - [ ] **Ej. 5.38** — Inecuación con cociente de valores absolutos y polinomios
