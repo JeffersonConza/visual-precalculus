@@ -34,7 +34,7 @@ Repositorio de animaciones matemáticas con Manim basadas en los libros de texto
 - [x] **Ej. 5.38** — Inecuación con cociente de valores absolutos y polinomios → `libro2_precalculo/cap05_funciones_reales/ej_05_38.py`
 - [x] **Ej. 5.40** — Inecuaciones cuadráticas y racionales variadas → `libro2_precalculo/cap05_funciones_reales/ej_05_40.py`
 - [x] **Ej. 5.42** — Sistemas de ecuaciones reales y clasificación en ℝ³ → `libro2_precalculo/cap05_funciones_reales/ej_05_42.py`
-- [ ] **Ej. 5.44** — Regla del Máximo Dominio (RMD) en funciones racionales y radicales
+- [x] **Ej. 5.44** — Regla del Máximo Dominio (RMD) en funciones racionales y radicales → `libro2_precalculo/cap05_funciones_reales/ej_05_44.py`
 - [ ] **Ej. 5.46** — Composición de funciones reales ($g \circ f$ y $h \circ f$)
 - [ ] **Ej. 5.48** — Composición de funciones con valor absoluto y radicales
 - [ ] **Ej. 5.50** — Única función real que es simultáneamente par e impar ($f(x) = 0$)
