@@ -33,7 +33,24 @@ Repositorio de animaciones matemáticas con Manim basadas en los libros de texto
 - [x] **Ej. 5.36** — Inecuaciones cuadráticas y fraccionarias → `libro2_precalculo/cap05_funciones_reales/ej_05_36.py`
 - [x] **Ej. 5.38** — Inecuación con cociente de valores absolutos y polinomios → `libro2_precalculo/cap05_funciones_reales/ej_05_38.py`
 - [x] **Ej. 5.40** — Inecuaciones cuadráticas y racionales variadas → `libro2_precalculo/cap05_funciones_reales/ej_05_40.py`
-- [ ] **Ej. 5.42** — Sistemas de ecuaciones reales
+- [x] **Ej. 5.42** — Sistemas de ecuaciones reales y clasificación en ℝ³ → `libro2_precalculo/cap05_funciones_reales/ej_05_42.py`
+- [ ] **Ej. 5.44** — Regla del Máximo Dominio (RMD) en funciones racionales y radicales
+- [ ] **Ej. 5.46** — Composición de funciones reales ($g \circ f$ y $h \circ f$)
+- [ ] **Ej. 5.48** — Composición de funciones con valor absoluto y radicales
+- [ ] **Ej. 5.50** — Única función real que es simultáneamente par e impar ($f(x) = 0$)
+- [ ] **Ej. 5.52** — Análisis integral de funciones (RMD, Rango, Monotonía, Inyectividad)
+- [ ] **Ej. 5.54** — Análisis y propiedades de funciones reales
+- [ ] **Ej. 5.56** — Asociación de fórmulas y cálculo de dominio
+- [ ] **Ej. 5.58** — Estudio analítico y geométrico de funciones
+- [ ] **Ej. 5.60** — Propiedades funcionales y fórmulas reales
+- [ ] **Ej. 5.62** — Biyectividad de funciones acotadas $f: \mathbb{R} \to ]-1, 1[$
+- [ ] **Ej. 5.64** — Invertibilidad y rango de funciones reales
+- [ ] **Ej. 5.66** — Funciones hiperbólicas: Seno hiperbólico y coseno hiperbólico
+- [ ] **Ej. 5.68** — Propiedades operativas y cotas de funciones
+- [ ] **Ej. 5.72** — Sistemas y desigualdades algebraicas
+- [ ] **Ej. 5.74** — Resolución de ecuaciones algebraicas y radicales
+- [ ] **Ej. 5.76** — Sistemas no lineales simétricos
+- [ ] **Ej. 5.78** — Resolución de ecuaciones trascendentes y radicales
 
 ---
 

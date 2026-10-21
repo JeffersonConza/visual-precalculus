@@ -118,7 +118,8 @@ visual-precalculus/
 │   │   ├── ej_05_34.py                # Ejercicio 5.34 (Ecuación con radicales de distinto orden ⁵√ y ⁴√)
 │   │   ├── ej_05_36.py                # Ejercicio 5.36 (Inecuaciones cuadráticas y fraccionarias con valor absoluto)
 │   │   ├── ej_05_38.py                # Ejercicio 5.38 (Inecuación con cociente de valores absolutos y polinomios)
-│   │   └── ej_05_40.py                # Ejercicio 5.40 (Inecuaciones cuadráticas y racionales variadas)
+│   │   ├── ej_05_40.py                # Ejercicio 5.40 (Inecuaciones cuadráticas y racionales variadas)
+│   │   └── ej_05_42.py                # Ejercicio 5.42 (Sistemas de ecuaciones reales y clasificación en ℝ³)
 │   ├── cap06_funciones_trigonometricas/
 │   ├── cap07_numeros_complejos/
 │   ├── cap08_polinomios_racionales/
