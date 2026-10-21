@@ -109,7 +109,8 @@ visual-precalculus/
 │   │   ├── ej_05_16.py                # Ejercicio 5.16 (Monotonía e inyectividad de x³ + 1)
 │   │   ├── ej_05_18.py                # Ejercicio 5.18 (Propiedades de logaritmos e isomorfismo)
 │   │   ├── ej_05_20.py                # Ejercicio 5.20 (Inecuación racional y conjunto solución)
-│   │   └── ej_05_22.py                # Ejercicio 5.22 (Ecuaciones con valor absoluto)
+│   │   ├── ej_05_22.py                # Ejercicio 5.22 (Ecuaciones con valor absoluto)
+│   │   └── ej_05_24.py                # Ejercicio 5.24 (Inecuación con valor absoluto anidado)
 │   ├── cap06_funciones_trigonometricas/
 │   ├── cap07_numeros_complejos/
 │   ├── cap08_polinomios_racionales/
