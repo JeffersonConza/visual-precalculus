@@ -24,6 +24,24 @@ from pathlib import Path
 # Directorio raíz del proyecto
 ROOT_DIR = Path(__file__).resolve().parent
 
+# Asegurar que rutas de usuarios en Linux/WSL están en PATH
+home_bin = str(Path.home() / ".local" / "bin")
+if home_bin not in os.environ.get("PATH", ""):
+    os.environ["PATH"] = f"{home_bin}:{os.environ.get('PATH', '')}"
+
+def find_binary(name: str) -> str:
+    """Busca un ejecutable en PATH, ~/.local/bin o .venv."""
+    found = shutil.which(name)
+    if found:
+        return found
+    home_candidate = Path.home() / ".local" / "bin" / name
+    if home_candidate.exists():
+        return str(home_candidate)
+    venv_candidate = ROOT_DIR / ".venv" / "bin" / name
+    if venv_candidate.exists():
+        return str(venv_candidate)
+    return name
+
 # Configuración de perfiles de calidad de Manim
 QUALITY_PROFILES = {
     "low": {"flag": "-ql", "res": "480p15", "desc": "480p @ 15fps (Desarrollo rápido)"},
@@ -107,7 +125,7 @@ def render_exercise(
     print(f"⚙️  Calidad: {profile['desc']}")
     print("=" * 65)
 
-    manim_bin = shutil.which("manim") or "manim"
+    manim_bin = find_binary("manim")
     cmd = [manim_bin, profile["flag"], file_rel, class_name]
     if preview:
         cmd.append("-p")
@@ -141,7 +159,7 @@ def render_exercise(
         gif_path = gif_dir / f"{info['stem']}.gif"
 
         print(f"🖼️  Generando GIF de previsualización en: {gif_path.relative_to(ROOT_DIR)}")
-        ffmpeg_bin = shutil.which("ffmpeg") or "ffmpeg"
+        ffmpeg_bin = find_binary("ffmpeg")
         ffmpeg_cmd = [
             ffmpeg_bin, "-y", "-i", str(video_path),
             "-vf", "fps=10,scale=480:-1:flags=lanczos",
@@ -156,13 +174,14 @@ def render_exercise(
     return True
 
 def main():
-    # Detección inteligente Windows/WSL: si manim no está en Windows pero WSL está instalado, delegar a WSL
+    # Detección inteligente Windows/WSL: si manim no está en Windows pero WSL está instalado, delegar a WSL con shell de login
     if sys.platform == "win32" and not shutil.which("manim"):
         wsl_bin = shutil.which("wsl")
         if wsl_bin:
-            wsl_cmd = ["wsl", "python3", "render.py"] + sys.argv[1:]
+            args_escaped = " ".join(f'"{a}"' if " " in a else a for a in sys.argv[1:])
+            wsl_cmd = ["wsl", "bash", "-l", "-c", f"python3 render.py {args_escaped}".strip()]
             print(f"⚡ 'manim' no está instalado en el entorno de Windows nativo.")
-            print(f"🚀 Reenviando ejecución automáticamente a WSL (Linux):\n   {' '.join(wsl_cmd)}\n")
+            print(f"🚀 Reenviando ejecución automáticamente a WSL (Linux con entorno Manim):\n   {' '.join(wsl_cmd)}\n")
             res = subprocess.run(wsl_cmd)
             sys.exit(res.returncode)
         else:
