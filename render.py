@@ -16,6 +16,7 @@ Uso:
 import argparse
 import os
 import re
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -36,36 +37,47 @@ def discover_exercises() -> dict[str, dict]:
     """
     Escanea el repositorio en busca de archivos de ejercicios (ej_XX_YY.py)
     y detecta automáticamente la clase de escena que hereda de AmarunExerciseScene o Scene.
+    Omite directorios virtuales (.venv, .git) para compatibilidad multiplataforma (Windows/Linux/WSL).
     """
     exercises = {}
     pattern = re.compile(r"ej_(\d+)_(\d+)\.py$")
     class_pattern = re.compile(r"class\s+(Ejercicio\w+)\s*\(")
 
-    for py_file in ROOT_DIR.rglob("ej_*.py"):
-        match = pattern.search(py_file.name)
-        if match:
-            cap_num = int(match.group(1))
-            ej_num = int(match.group(2))
-            key = f"{cap_num}.{ej_num}"
-            padded_key = f"{cap_num:02d}_{ej_num:02d}"
+    # Recorrido seguro omitiendo carpetas del sistema, entornos virtuales y binarios
+    for root, dirs, files in os.walk(ROOT_DIR, onerror=lambda err: None):
+        dirs[:] = [
+            d for d in dirs
+            if not d.startswith(".")
+            and d not in ("media", "docs", "images", "otros", "__pycache__", "build", "dist")
+        ]
+        for file_name in files:
+            match = pattern.search(file_name)
+            if match:
+                py_file = Path(root) / file_name
+                cap_num = int(match.group(1))
+                ej_num = int(match.group(2))
+                key = f"{cap_num}.{ej_num}"
+                padded_key = f"{cap_num:02d}_{ej_num:02d}"
 
-            # Detectar nombre de la clase
-            content = py_file.read_text(encoding="utf-8")
-            class_match = class_pattern.search(content)
-            class_name = class_match.group(1) if class_match else f"Ejercicio{padded_key}"
+                try:
+                    content = py_file.read_text(encoding="utf-8")
+                    class_match = class_pattern.search(content)
+                    class_name = class_match.group(1) if class_match else f"Ejercicio{padded_key}"
+                except Exception:
+                    class_name = f"Ejercicio{padded_key}"
 
-            exercises[key] = {
-                "key": key,
-                "file_path": py_file,
-                "rel_path": py_file.relative_to(ROOT_DIR),
-                "class_name": class_name,
-                "stem": f"ej_{padded_key}",
-                "chapter": cap_num,
-                "exercise": ej_num,
-            }
-            # Alias alternativos (ej: 05_02 o ej_05_02)
-            exercises[padded_key] = exercises[key]
-            exercises[f"ej_{padded_key}"] = exercises[key]
+                exercises[key] = {
+                    "key": key,
+                    "file_path": py_file,
+                    "rel_path": py_file.relative_to(ROOT_DIR),
+                    "class_name": class_name,
+                    "stem": f"ej_{padded_key}",
+                    "chapter": cap_num,
+                    "exercise": ej_num,
+                }
+                # Alias alternativos (ej: 05_02 o ej_05_02)
+                exercises[padded_key] = exercises[key]
+                exercises[f"ej_{padded_key}"] = exercises[key]
 
     return exercises
 
@@ -86,7 +98,7 @@ def render_exercise(
 ) -> bool:
     """Ejecuta la renderización con Manim y opcionalmente genera el GIF con ffmpeg."""
     profile = QUALITY_PROFILES[quality]
-    file_rel = str(info["rel_path"])
+    file_rel = info["rel_path"].as_posix()
     class_name = info["class_name"]
 
     print("\n" + "=" * 65)
@@ -95,14 +107,16 @@ def render_exercise(
     print(f"⚙️  Calidad: {profile['desc']}")
     print("=" * 65)
 
-    cmd = ["manim", profile["flag"], file_rel, class_name]
+    manim_bin = shutil.which("manim") or "manim"
+    cmd = [manim_bin, profile["flag"], file_rel, class_name]
     if preview:
         cmd.append("-p")
     if extra_flags:
         cmd.extend(extra_flags)
 
     print(f"▶️  Ejecutando: {' '.join(cmd)}")
-    result = subprocess.run(cmd, cwd=ROOT_DIR)
+    use_shell = sys.platform == "win32"
+    result = subprocess.run(cmd, cwd=ROOT_DIR, shell=use_shell)
 
     if result.returncode != 0:
         print(f"❌ Error al renderizar {class_name} con Manim.")
@@ -127,12 +141,13 @@ def render_exercise(
         gif_path = gif_dir / f"{info['stem']}.gif"
 
         print(f"🖼️  Generando GIF de previsualización en: {gif_path.relative_to(ROOT_DIR)}")
+        ffmpeg_bin = shutil.which("ffmpeg") or "ffmpeg"
         ffmpeg_cmd = [
-            "ffmpeg", "-y", "-i", str(video_path),
+            ffmpeg_bin, "-y", "-i", str(video_path),
             "-vf", "fps=10,scale=480:-1:flags=lanczos",
             str(gif_path)
         ]
-        gif_res = subprocess.run(ffmpeg_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        gif_res = subprocess.run(ffmpeg_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, shell=use_shell)
         if gif_res.returncode == 0:
             print(f"🎉 GIF guardado exitosamente: {gif_path}")
         else:
