@@ -156,6 +156,20 @@ def render_exercise(
     return True
 
 def main():
+    # Detección inteligente Windows/WSL: si manim no está en Windows pero WSL está instalado, delegar a WSL
+    if sys.platform == "win32" and not shutil.which("manim"):
+        wsl_bin = shutil.which("wsl")
+        if wsl_bin:
+            wsl_cmd = ["wsl", "python3", "render.py"] + sys.argv[1:]
+            print(f"⚡ 'manim' no está instalado en el entorno de Windows nativo.")
+            print(f"🚀 Reenviando ejecución automáticamente a WSL (Linux):\n   {' '.join(wsl_cmd)}\n")
+            res = subprocess.run(wsl_cmd)
+            sys.exit(res.returncode)
+        else:
+            print("❌ 'manim' no está instalado en el sistema ni en PATH.")
+            print("👉 Instala Manim con 'pip install manim' o utiliza el subsistema WSL (Ubuntu).")
+            sys.exit(1)
+
     parser = argparse.ArgumentParser(
         description="CLI de Automatización de Renders para Visual Precalculus (Editorial Amarun / Yachay Tech)",
         formatter_class=argparse.RawDescriptionHelpFormatter,
