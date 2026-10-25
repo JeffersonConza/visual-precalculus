@@ -4,10 +4,11 @@ Tema: Análisis Completo y Gráfica de Funciones:
       Función Racional Impar con Asíntota Oblicua: f(x) = (x^3 - 4x) / (x^2 - 1).
       Dominio, paridad impar, simetría central en el origen (0, 0), cortes coordenados,
       tabla de signos, asíntotas verticales x = ±1, asíntota oblicua y = x (con corte en (0, 0)),
-      monotonía estrictamente creciente, rango R y trazado cartesiano de 3 ramas.
+      monotonía estrictamente creciente, rango R, cuadro resumen de puntos notables
+      y trazado cartesiano de 3 ramas con su asíntota oblicua.
 
 Diseño: Metamorfosis 3B1B (Amarun Style), paleta andina institucional,
-        animación pedagógica en 7 pasos con ecuaciones en LaTeX de gran legibilidad.
+        animación pedagógica en 8 pasos con ecuaciones en LaTeX de gran legibilidad.
 """
 
 from manim import *
@@ -53,16 +54,17 @@ class EjercicioJh_05(AmarunExerciseScene):
             read_time=3.5
         )
 
-        # 3. Barra de Progreso Interactiva (7 pasos detallados)
+        # 3. Barra de Progreso Interactiva (8 pasos detallados)
         self.setup_progress_bar([
-            "1/7: Dominio y Restricciones",
-            "2/7: Paridad y Simetría Impar",
-            "3/7: Cortes con los Ejes",
-            "4/7: Tabla de Signos",
-            "5/7: Asíntotas V. y Oblicua",
-            "6/7: Monotonía y Rango",
-            "7/7: Gráfica Cartesiana y Verificación"
-        ], dot_spacing=0.92, label_font_size=14.5)
+            "1/8: Dominio y Restricciones",
+            "2/8: Paridad y Simetría Impar",
+            "3/8: Cortes con los Ejes",
+            "4/8: Tabla de Signos",
+            "5/8: Asíntotas V. y Oblicua",
+            "6/8: Monotonía y Rango",
+            "7/8: Cuadro de Puntos Notables",
+            "8/8: Gráfica Cartesiana y Verificación"
+        ], dot_spacing=0.82, label_font_size=14.0)
 
         # ==========================================================
         # PASO 1 (C2): Dominio y Restricciones del Denominador
@@ -94,7 +96,7 @@ class EjercicioJh_05(AmarunExerciseScene):
             pos=[3.35, -0.45, 0]
         )
 
-        self.morph_step(eq1, just1, box_color=THEME["highlight"], wait_time=4.1)
+        self.morph_step(eq1, just1, box_color=THEME["highlight"], wait_time=3.2)
 
         # ==========================================================
         # PASO 2: Paridad y Simetría Impar (Central)
@@ -125,7 +127,7 @@ class EjercicioJh_05(AmarunExerciseScene):
             pos=[3.35, -0.45, 0]
         )
 
-        self.morph_step(eq2, just2, box_color=THEME["highlight"], advance_to_step=1, wait_time=4.1)
+        self.morph_step(eq2, just2, box_color=THEME["highlight"], advance_to_step=1, wait_time=3.2)
 
         # ==========================================================
         # PASO 3: Intersecciones con los Ejes Coordenados
@@ -159,7 +161,7 @@ class EjercicioJh_05(AmarunExerciseScene):
             pos=[3.35, -0.45, 0]
         )
 
-        self.morph_step(eq3, just3, box_color=THEME["highlight"], advance_to_step=2, wait_time=4.1)
+        self.morph_step(eq3, just3, box_color=THEME["highlight"], advance_to_step=2, wait_time=3.2)
 
         # ==========================================================
         # PASO 4: Factorización y Tabla de Signos
@@ -193,7 +195,7 @@ class EjercicioJh_05(AmarunExerciseScene):
             pos=[3.35, -0.45, 0]
         )
 
-        self.morph_step(eq4, just4, box_color=THEME["highlight"], advance_to_step=3, wait_time=4.1)
+        self.morph_step(eq4, just4, box_color=THEME["highlight"], advance_to_step=3, wait_time=3.2)
 
         # ==========================================================
         # PASO 5: Asíntotas Verticales y Asíntota Oblicua
@@ -225,7 +227,7 @@ class EjercicioJh_05(AmarunExerciseScene):
             pos=[3.35, -0.45, 0]
         )
 
-        self.morph_step(eq5, just5, box_color=THEME["highlight"], advance_to_step=4, wait_time=4.1)
+        self.morph_step(eq5, just5, box_color=THEME["highlight"], advance_to_step=4, wait_time=3.2)
 
         # ==========================================================
         # PASO 6: Monotonía y Rango
@@ -259,14 +261,51 @@ class EjercicioJh_05(AmarunExerciseScene):
             pos=[3.35, -0.45, 0]
         )
 
-        self.morph_step(eq6, just6, box_color=THEME["highlight"], advance_to_step=5, wait_time=4.1)
+        self.morph_step(eq6, just6, box_color=THEME["highlight"], advance_to_step=5, wait_time=3.2)
 
         # ==========================================================
-        # PASO 7: Gráfica Cartesiana y Verificación Visual
+        # PASO 7: Cuadro de Puntos Críticos y Notables
+        # ==========================================================
+        eq7 = MathTex(
+            r"\begin{aligned}"
+            r"&\textbf{7. Cuadro de Puntos Críticos y Notables:} \\[5pt]"
+            r"&\begin{array}{|c|c|c|l|}"
+            r"\hline"
+            r"\mathbf{x} & \mathbf{f(x)} & \mathbf{\text{Signo } f'} & \mathbf{\text{Rol y Comportamiento Gráfico}} \\ \hline"
+            r"-2 & 0 & f' > 0 & \text{Corte horizontal } P_{x_1}(-2, 0) \text{ (crece desde } y = x) \\"
+            r"-1 & \pm\infty & \nexists & \text{Asíntota Vertical } x = -1 \text{ (discontinuidad)} \\"
+            r"0 & 0 & f' > 0 & \mathbf{\text{Origen }} {\color{amteal}P_0(0, 0)} \text{ (cruce de A.O. } y = x \text{ y simetría)} \\"
+            r"1 & \pm\infty & \nexists & \text{Asíntota Vertical } x = 1 \text{ (discontinuidad)} \\"
+            r"2 & 0 & f' > 0 & \text{Corte horizontal } P_{x_2}(2, 0) \text{ (crece hacia } y = x) \\ \hline"
+            r"\end{array} \\[6pt]"
+            r"&\bullet \text{Rama izquierda } (-\infty, -1): \text{Crece desde } y = x, \text{ corta en } (-2, 0) \text{ y sube a } +\infty. \\[3pt]"
+            r"&\bullet \text{Rama central } (-1, 1): \text{Crece de } -\infty, \text{ cruza el origen } (0, 0) \text{ y sube a } +\infty. \\[3pt]"
+            r"&\bullet \text{Rama derecha } (1, +\infty): \text{Crece de } -\infty, \text{ corta en } (2, 0) \text{ y se aproxima a } y = x."
+            r"\end{aligned}",
+            font_size=20.0,
+            color=WHITE
+        ).move_to([-3.4, -0.45, 0])
+
+        just7 = self.create_justification(
+            r"\begin{minipage}{8.2cm}\raggedright "
+            r"\textbf{7. Síntesis Pre-Graficación:}\\[6pt]"
+            r"$\bullet$ La tabla consolida los 5 puntos clave en orden creciente de abscisas.\\[5pt]"
+            r"$\bullet$ Muestra que $f'(x) > 0$ en todo su dominio (crecimiento monótono total).\\[5pt]"
+            r"$\bullet$ Destaca el origen ${\color{amteal}(0, 0)}$ como centro de simetría impar y cruce de A.O.\\[5pt]"
+            r"$\bullet$ Proporciona la guía directa para trazar las 3 ramas continuas."
+            r"\end{minipage}",
+            font_size=22.0,
+            pos=[3.35, -0.45, 0]
+        )
+
+        self.morph_step(eq7, just7, box_color=THEME["highlight"], advance_to_step=6, wait_time=3.7)
+
+        # ==========================================================
+        # PASO 8: Gráfica Cartesiana y Verificación Visual
         # ==========================================================
         left_summary = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{7. Resumen Formal de Resultados:} \\[4pt]"
+            r"&\textbf{8. Resumen Formal de Resultados:} \\[4pt]"
             r"&\bullet \mathbf{\operatorname{Dom}(f) = {\color{amgold}\mathbb{R} \setminus \{-1, 1\}}} \\[4pt]"
             r"&\bullet \mathbf{\operatorname{Ran}(f) = {\color{amgold}\mathbb{R} = (-\infty, +\infty)}} \\[4pt]"
             r"&\bullet \mathbf{\text{Paridad: }} {\color{amteal}\text{Impar }} (f(-x) = -f(x)) \implies \text{Sim. Central } (0, 0) \\[4pt]"
@@ -279,7 +318,7 @@ class EjercicioJh_05(AmarunExerciseScene):
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
-        box7 = SurroundingRectangle(left_summary, color=THEME["success"], buff=0.18, corner_radius=0.1)
+        box8 = SurroundingRectangle(left_summary, color=THEME["success"], buff=0.18, corner_radius=0.1)
 
         # Gráfico cartesiano de la función racional con asíntota oblicua
         axes, axes_labels = self.setup_axes(
@@ -350,21 +389,21 @@ class EjercicioJh_05(AmarunExerciseScene):
         dot_x2 = Dot(axes.c2p(2.0, 0.0), radius=0.065, color=THEME["secondary"])
         lbl_x2 = MathTex(r"(2, 0)", font_size=13.0, color=THEME["statement_text"]).next_to(dot_x2, UP + RIGHT, buff=0.08)
 
-        prog_anims = self.get_advance_progress_anims(6)
+        prog_anims = self.get_advance_progress_anims(7)
 
         self.play(
             FadeOut(self.active_math),
             FadeOut(self.active_just),
             FadeOut(self.active_box),
             FadeIn(left_summary),
-            Create(box7),
+            Create(box8),
             Create(axes),
             Write(axes_labels),
             Write(graph_title),
             *prog_anims,
             run_time=1.8
         )
-        self.active_box = box7
+        self.active_box = box8
         self.active_math = left_summary
         self.active_just = None
 
