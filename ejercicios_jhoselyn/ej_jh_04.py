@@ -39,15 +39,15 @@ class EjercicioJh_04(AmarunExerciseScene):
             chapter="Tutoría Jhoselyn",
             exercise="Ejercicio 4",
             topic="Función Racional de 3 Ramas",
-            font_size=16
+            font_size=16.5
         )
 
         # 2. Enunciado institucional permanente con fórmula prominente (y = 2.65)
         self.setup_statement(
             desc_text="Analice completamente y grafique la función racional de 3 ramas:",
             math_tex=r"{\color{amteal}f(x)} = \frac{{\color{amteal}x^2 - 1}}{{\color{amred}x^2 - 4}}",
-            desc_font_size=18.0,
-            math_font_size=29.0,
+            desc_font_size=18.5,
+            math_font_size=30.0,
             box_pos=np.array([0.0, 2.65, 0.0]),
             read_time=3.5
         )
@@ -61,21 +61,21 @@ class EjercicioJh_04(AmarunExerciseScene):
             "5/7: Asíntotas Verticales y Horizontal",
             "6/7: Extremos Locales y Rango",
             "7/7: Gráfica Cartesiana y Verificación"
-        ], dot_spacing=0.92, label_font_size=14.0)
+        ], dot_spacing=0.92, label_font_size=14.5)
 
         # ==========================================================
         # PASO 1 (C2): Dominio y Restricciones del Denominador
         # ==========================================================
         eq1 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{1. Dominio y Restricciones:} \\[6pt]"
-            r"&\text{Al ser una función racional, el denominador no debe anularse:} \\[5pt]"
-            r"&x^2 - 4 \neq 0 \iff (x - 2)(x + 2) \neq 0 \implies x \neq \pm 2 \\[7pt]"
-            r"&\mathbf{\operatorname{Dom}(f) = {\color{amgold}\mathbb{R} \setminus \{-2, 2\}}} \\[6pt]"
-            r"&\mathbf{\operatorname{Dom}(f) = {\color{amgreen}(-\infty, -2) \cup (-2, 2) \cup (2, +\infty)}} \\[7pt]"
-            r"&\implies \text{El plano queda dividido en } \mathbf{3 \text{ regiones continuas}}."
+            r"&\textbf{1. Dominio y Restricciones:} \\[5pt]"
+            r"&\text{Al ser una función racional, el denominador no se anula:} \\[4pt]"
+            r"&x^2 - 4 \neq 0 \iff (x - 2)(x + 2) \neq 0 \implies x \neq \pm 2 \\[6pt]"
+            r"&\mathbf{\operatorname{Dom}(f) = {\color{amgold}\mathbb{R} \setminus \{-2, 2\}}} \\[5pt]"
+            r"&\mathbf{\operatorname{Dom}(f) = {\color{amgreen}(-\infty, -2) \cup (-2, 2) \cup (2, +\infty)}} \\[6pt]"
+            r"&\implies \text{El plano queda dividido en } \mathbf{3 \text{ ramas continuas}}."
             r"\end{aligned}",
-            font_size=20.0,
+            font_size=21.5,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
@@ -89,7 +89,7 @@ class EjercicioJh_04(AmarunExerciseScene):
             r"$\bullet$ Genera tres ramas continuas en la curva:\\[3pt]"
             r"\hspace*{1.2em}${\color{amgreen}(-\infty, -2)}, \quad {\color{amgreen}(-2, 2)} \quad \text{y} \quad {\color{amgreen}(2, +\infty)}$.\\[2pt]"
             r"\end{minipage}",
-            font_size=21.0,
+            font_size=22.0,
             pos=[3.35, -0.45, 0]
         )
 
@@ -100,14 +100,14 @@ class EjercicioJh_04(AmarunExerciseScene):
         # ==========================================================
         eq2 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{2. Paridad y Simetría:} \\[6pt]"
-            r"&\text{Evaluación formal de paridad } f(-x): \\[5pt]"
-            r"&f(-x) = \frac{(-x)^2 - 1}{(-x)^2 - 4} = \frac{x^2 - 1}{x^2 - 4} = f(x) \\[7pt]"
-            r"&\implies {\color{amteal}f(-x) = f(x)} \implies \mathbf{\text{Función PAR}} \\[7pt]"
-            r"&\implies \text{Presenta } \mathbf{\text{Simetría Axial respecto al eje vertical } y} \\[6pt]"
+            r"&\textbf{2. Paridad y Simetría:} \\[5pt]"
+            r"&\text{Evaluación formal de paridad } f(-x): \\[4pt]"
+            r"&f(-x) = \frac{(-x)^2 - 1}{(-x)^2 - 4} = \frac{x^2 - 1}{x^2 - 4} = f(x) \\[6pt]"
+            r"&\implies {\color{amteal}f(-x) = f(x)} \implies \mathbf{\text{Función PAR}} \\[6pt]"
+            r"&\implies \text{Presenta } \mathbf{\text{Simetría Axial respecto al eje vertical } y} \\[5pt]"
             r"&\implies \text{La rama izquierda } (x < -2) \text{ es reflejo de la derecha } (x > 2)."
             r"\end{aligned}",
-            font_size=19.5,
+            font_size=21.5,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
@@ -120,7 +120,7 @@ class EjercicioJh_04(AmarunExerciseScene):
             r"$\bullet$ La gráfica presenta simetría axial respecto al eje ${\color{amteal}y}$.\\[5pt]"
             r"$\bullet$ Las ramas laterales son imágenes especulares mutuas."
             r"\end{minipage}",
-            font_size=21.0,
+            font_size=22.0,
             pos=[3.35, -0.45, 0]
         )
 
@@ -135,11 +135,11 @@ class EjercicioJh_04(AmarunExerciseScene):
             r"&\bullet \textbf{Intercepto vertical } (x = 0): \\[3pt]"
             r"&\quad f(0) = \frac{0^2 - 1}{0^2 - 4} = \frac{-1}{-4} = \frac{1}{4} \implies \mathbf{{\color{amteal}P_y = \left(0, \frac{1}{4}\right)}} \\[6pt]"
             r"&\bullet \textbf{Interceptos horizontales } (f(x) = 0): \\[3pt]"
-            r"&\quad \frac{x^2 - 1}{x^2 - 4} = 0 \iff x^2 - 1 = 0 \implies x = \pm 1 \\[6pt]"
-            r"&\quad \mathbf{{\color{amorange}x_1 = -1}}, \quad \mathbf{{\color{amorange}x_2 = 1}} \\[5pt]"
+            r"&\quad \frac{x^2 - 1}{x^2 - 4} = 0 \iff x^2 - 1 = 0 \implies x = \pm 1 \\[5pt]"
+            r"&\quad \mathbf{{\color{amorange}x_1 = -1}}, \quad \mathbf{{\color{amorange}x_2 = 1}} \\[4pt]"
             r"&\quad \text{Puntos: } {\color{amorange}P_{x_1}(-1, 0)}, \quad {\color{amorange}P_{x_2}(1, 0)}."
             r"\end{aligned}",
-            font_size=20.5,
+            font_size=21.5,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
@@ -153,7 +153,7 @@ class EjercicioJh_04(AmarunExerciseScene):
             r"$\bullet$ Ceros reales: ${\color{amorange}x = -1}$ y ${\color{amorange}x = 1}$.\\[5pt]"
             r"$\bullet$ Intersecciones: ${\color{amorange}P_{x_1}(-1, 0)}$ y ${\color{amorange}P_{x_2}(1, 0)}$."
             r"\end{minipage}",
-            font_size=21.0,
+            font_size=22.0,
             pos=[3.35, -0.45, 0]
         )
 
@@ -164,18 +164,15 @@ class EjercicioJh_04(AmarunExerciseScene):
         # ==========================================================
         eq4 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{4. Factorización y Tabla de Signos:} \\[3pt]"
-            r"&{\color{amteal}f(x)} = \frac{(x + 1)(x - 1)}{(x + 2)(x - 2)} \\[3pt]"
-            r"&\text{Puntos frontera ordenados: } \{{\color{amorange}-2, -1, 1, 2}\} \\[3pt]"
-            r"&\bullet \left(-\infty, -2\right): \; \frac{(+)}{(+)} = \mathbf{{\color{amgreen}(+)}} \implies {\color{amgreen}f(x) > 0} \\[2.5pt]"
-            r"&\bullet \left(-2, -1\right): \; \frac{(+)}{(-)} = \mathbf{{\color{amred}(-)}} \implies {\color{amred}f(x) < 0} \\[2.5pt]"
-            r"&\bullet \left(-1, 1\right): \; \frac{(-)}{(-)} = \mathbf{{\color{amgreen}(+)}} \implies {\color{amgreen}f(x) > 0} \\[2.5pt]"
-            r"&\bullet \left(1, 2\right): \; \frac{(+)}{(-)} = \mathbf{{\color{amred}(-)}} \implies {\color{amred}f(x) < 0} \\[2.5pt]"
-            r"&\bullet \left(2, +\infty\right): \; \frac{(+)}{(+)} = \mathbf{{\color{amgreen}(+)}} \implies {\color{amgreen}f(x) > 0} \\[3pt]"
-            r"&\mathbf{\text{Positiva en: } {\color{amgreen}\left(-\infty, -2\right) \cup (-1, 1) \cup \left(2, +\infty\right)}} \\[3pt]"
-            r"&\mathbf{\text{Negativa en: } {\color{amred}\left(-2, -1\right) \cup \left(1, 2\right)}}."
+            r"&\textbf{4. Factorización y Tabla de Signos:} \\[4pt]"
+            r"&{\color{amteal}f(x)} = \frac{(x + 1)(x - 1)}{(x + 2)(x - 2)}, \quad \text{Ceros: } \{{\color{amorange}-2, -1, 1, 2}\} \\[5pt]"
+            r"&\bullet (-\infty, -2): \; \frac{(+)}{(+)} = {\color{amgreen}\mathbf{(+)}} > 0 \quad \bullet (-2, -1): \; \frac{(+)}{(-)} = {\color{amred}\mathbf{(-)}} < 0 \\[4pt]"
+            r"&\bullet (-1, 1): \; \frac{(-)}{(-)} = {\color{amgreen}\mathbf{(+)}} > 0 \quad \bullet (1, 2): \; \frac{(+)}{(-)} = {\color{amred}\mathbf{(-)}} < 0 \\[4pt]"
+            r"&\bullet (2, +\infty): \; \frac{(+)}{(+)} = {\color{amgreen}\mathbf{(+)}} > 0 \\[5pt]"
+            r"&\mathbf{\text{Positiva: } {\color{amgreen}(-\infty, -2) \cup (-1, 1) \cup (2, +\infty)}} \\[4pt]"
+            r"&\mathbf{\text{Negativa: } {\color{amred}(-2, -1) \cup (1, 2)}}."
             r"\end{aligned}",
-            font_size=17.5,
+            font_size=21.0,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
@@ -189,7 +186,7 @@ class EjercicioJh_04(AmarunExerciseScene):
             r"$\bullet$ $(1, 2)$: $(+)/(-) = {\color{amred}(-)} \implies {\color{amred}f(x) < 0}$.\\[4pt]"
             r"$\bullet$ $(2, +\infty)$: $(+)/(+) = {\color{amgreen}(+)} \implies {\color{amgreen}f(x) > 0}$."
             r"\end{minipage}",
-            font_size=20.5,
+            font_size=22.0,
             pos=[3.35, -0.45, 0]
         )
 
@@ -200,16 +197,16 @@ class EjercicioJh_04(AmarunExerciseScene):
         # ==========================================================
         eq5 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{5. Asíntotas Verticales y Horizontal:} \\[5pt]"
+            r"&\textbf{5. Asíntotas Verticales y Horizontal:} \\[4pt]"
             r"&\bullet \textbf{Asíntotas Verticales (A.V.):} \\[3pt]"
-            r"&\quad \text{En los ceros del denominador que no se cancelan:} \\[3pt]"
+            r"&\quad \text{Ceros del denominador irreducibles:} \\[3pt]"
             r"&\quad \mathbf{{\color{amred}x = -2}} \quad \text{y} \quad \mathbf{{\color{amred}x = 2}} \\[4pt]"
-            r"&\quad \lim_{x \to 2^+} f(x) = +\infty, \quad \lim_{x \to 2^-} f(x) = -\infty \\[6pt]"
+            r"&\quad \lim_{x \to 2^+} f(x) = +\infty, \quad \lim_{x \to 2^-} f(x) = -\infty \\[5pt]"
             r"&\bullet \textbf{Asíntota Horizontal (A.H.):} \\[3pt]"
-            r"&\quad \lim_{x \to \pm\infty} \frac{x^2 - 1}{x^2 - 4} = \lim_{x \to \pm\infty} \frac{1 - 1/x^2}{1 - 4/x^2} = \mathbf{{\color{amgold}1}} \implies \mathbf{{\color{amgold}y = 1}} \\[5pt]"
+            r"&\quad \lim_{x \to \pm\infty} \frac{x^2 - 1}{x^2 - 4} = \mathbf{{\color{amgold}1}} \implies \mathbf{{\color{amgold}y = 1}} \\[4pt]"
             r"&\bullet \textbf{Corte con A.H.: } \frac{x^2 - 1}{x^2 - 4} = 1 \implies -1 = -4 \; (\text{No corta})."
             r"\end{aligned}",
-            font_size=19.5,
+            font_size=21.0,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
@@ -224,7 +221,7 @@ class EjercicioJh_04(AmarunExerciseScene):
             r"\hspace*{1.2em}$y = \frac{1}{1} = {\color{amgold}1 \implies y = 1}$.\\[5pt]"
             r"$\bullet$ La curva nunca corta su asíntota horizontal."
             r"\end{minipage}",
-            font_size=21.0,
+            font_size=22.0,
             pos=[3.35, -0.45, 0]
         )
 
@@ -243,7 +240,7 @@ class EjercicioJh_04(AmarunExerciseScene):
             r"&\quad \text{Ramas laterales viven en: } {\color{amteal}(1, +\infty)} \\[6pt]"
             r"&\quad \mathbf{\operatorname{Ran}(f) = {\color{amgold}\left(-\infty, \frac{1}{4}\right] \cup (1, +\infty)}}."
             r"\end{aligned}",
-            font_size=20.5,
+            font_size=21.5,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
@@ -256,7 +253,7 @@ class EjercicioJh_04(AmarunExerciseScene):
             r"$\bullet$ Región vacía intermedia: la curva jamás cruza $\left(\frac{1}{4}, 1\right]$.\\[5pt]"
             r"$\bullet$ Unión formal de imágenes: ${\color{amgold}\operatorname{Ran}(f) = (-\infty, 1/4] \cup (1, +\infty)}$."
             r"\end{minipage}",
-            font_size=21.0,
+            font_size=22.0,
             pos=[3.35, -0.45, 0]
         )
 
@@ -267,16 +264,16 @@ class EjercicioJh_04(AmarunExerciseScene):
         # ==========================================================
         left_summary = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{7. Resumen Formal de Resultados:} \\[5pt]"
-            r"&\bullet \mathbf{\operatorname{Dom}(f) = {\color{amgold}\mathbb{R} \setminus \{-2, 2\}}} \\[5pt]"
-            r"&\bullet \mathbf{\operatorname{Ran}(f) = {\color{amgold}\left(-\infty, \frac{1}{4}\right] \cup (1, +\infty)}} \\[5pt]"
-            r"&\bullet \mathbf{\text{Paridad: }} {\color{amteal}\text{Par }} (f(-x) = f(x)) \\[5pt]"
-            r"&\bullet \mathbf{\text{Asíntotas V.: }} {\color{amred}x = -2}, \quad {\color{amred}x = 2} \\[5pt]"
-            r"&\bullet \mathbf{\text{Asíntota H.: }} {\color{amgold}y = 1} \quad (\text{sin intersección}) \\[5pt]"
-            r"&\bullet \mathbf{\text{Máx. Local: }} {\color{amgold}M\left(0, \frac{1}{4}\right)}, \quad \mathbf{\text{Cortes: }} {\color{amorange}(\pm 1, 0)} \\[5pt]"
+            r"&\textbf{7. Resumen Formal de Resultados:} \\[4pt]"
+            r"&\bullet \mathbf{\operatorname{Dom}(f) = {\color{amgold}\mathbb{R} \setminus \{-2, 2\}}} \\[4pt]"
+            r"&\bullet \mathbf{\operatorname{Ran}(f) = {\color{amgold}\left(-\infty, \frac{1}{4}\right] \cup (1, +\infty)}} \\[4pt]"
+            r"&\bullet \mathbf{\text{Paridad: }} {\color{amteal}\text{Par }} (f(-x) = f(x)) \\[4pt]"
+            r"&\bullet \mathbf{\text{Asíntotas V.: }} {\color{amred}x = -2}, \quad {\color{amred}x = 2} \\[4pt]"
+            r"&\bullet \mathbf{\text{Asíntota H.: }} {\color{amgold}y = 1} \quad (\text{sin intersección}) \\[4pt]"
+            r"&\bullet \mathbf{\text{Máx. Local: }} {\color{amgold}M\left(0, \frac{1}{4}\right)}, \quad \mathbf{\text{Cortes: }} {\color{amorange}(\pm 1, 0)} \\[4pt]"
             r"&\bullet \mathbf{\text{Positiva: }} {\color{amgreen}(-\infty, -2) \cup (-1, 1) \cup (2, +\infty)} \quad {\color{amgreen}\blacksquare}"
             r"\end{aligned}",
-            font_size=19.5,
+            font_size=20.5,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
@@ -290,12 +287,12 @@ class EjercicioJh_04(AmarunExerciseScene):
             y_length=3.4,
             center=[3.25, -0.65, 0],
             include_numbers=True,
-            numbers_font_size=15,
-            labels_font_size=18
+            numbers_font_size=16,
+            labels_font_size=19
         )
         graph_title = Tex(
             r"Gráfica de ${\color{amteal}f(x)} = \frac{{\color{amteal}x^2 - 1}}{{\color{amred}x^2 - 4}}$",
-            font_size=21.0,
+            font_size=21.5,
             color=WHITE
         ).move_to([3.25, 1.70, 0])
 
@@ -304,20 +301,20 @@ class EjercicioJh_04(AmarunExerciseScene):
             axes.c2p(-2.0, -3.1), axes.c2p(-2.0, 3.3),
             dash_length=0.08, color=THEME["poncho_red"], stroke_width=2.0
         )
-        lbl_av1 = MathTex(r"x = -2", font_size=11.5, color=THEME["poncho_red"]).next_to(axes.c2p(-2.0, -2.5), LEFT, buff=0.06)
+        lbl_av1 = MathTex(r"x = -2", font_size=14.0, color=THEME["poncho_red"]).next_to(axes.c2p(-2.0, -2.5), LEFT, buff=0.06)
 
         asymp_v2 = DashedLine(
             axes.c2p(2.0, -3.1), axes.c2p(2.0, 3.3),
             dash_length=0.08, color=THEME["poncho_red"], stroke_width=2.0
         )
-        lbl_av2 = MathTex(r"x = 2", font_size=11.5, color=THEME["poncho_red"]).next_to(axes.c2p(2.0, -2.5), RIGHT, buff=0.06)
+        lbl_av2 = MathTex(r"x = 2", font_size=14.0, color=THEME["poncho_red"]).next_to(axes.c2p(2.0, -2.5), RIGHT, buff=0.06)
 
         # Asíntota horizontal discontinua (y = 1)
         asymp_h = DashedLine(
             axes.c2p(-4.3, 1.0), axes.c2p(4.3, 1.0),
             dash_length=0.08, color=THEME["highlight"], stroke_width=1.8
         )
-        lbl_ah = MathTex(r"y = 1", font_size=11.5, color=THEME["highlight"]).next_to(axes.c2p(-4.1, 1.0), DOWN, buff=0.06)
+        lbl_ah = MathTex(r"y = 1", font_size=14.0, color=THEME["highlight"]).next_to(axes.c2p(-4.1, 1.0), DOWN, buff=0.06)
 
         # 3 Ramas continuas de la curva
         branch_left = axes.plot(
@@ -339,17 +336,17 @@ class EjercicioJh_04(AmarunExerciseScene):
             stroke_width=2.5
         )
         curve_branches = VGroup(branch_left, branch_center, branch_right)
-        curve_lbl = MathTex(r"y = f(x)", font_size=13.5, color=THEME["curve"]).move_to(axes.c2p(3.2, 2.2))
+        curve_lbl = MathTex(r"y = f(x)", font_size=14.5, color=THEME["curve"]).move_to(axes.c2p(3.2, 2.2))
 
         # Puntos notables: M(0, 1/4), P_x1(-1, 0), P_x2(1, 0)
         dot_max = Dot(axes.c2p(0.0, 0.25), radius=0.07, color=THEME["highlight"])
-        lbl_max = MathTex(r"M\left(0, \frac{1}{4}\right)", font_size=12.0, color=THEME["highlight"]).next_to(dot_max, DOWN, buff=0.08)
+        lbl_max = MathTex(r"M\left(0, \frac{1}{4}\right)", font_size=13.5, color=THEME["highlight"]).next_to(dot_max, DOWN, buff=0.08)
 
         dot_x1 = Dot(axes.c2p(-1.0, 0.0), radius=0.065, color=THEME["secondary"])
-        lbl_x1 = MathTex(r"(-1, 0)", font_size=11.0, color=THEME["statement_text"]).next_to(dot_x1, DOWN + LEFT, buff=0.05)
+        lbl_x1 = MathTex(r"(-1, 0)", font_size=13.0, color=THEME["statement_text"]).next_to(dot_x1, UP + LEFT, buff=0.08)
 
         dot_x2 = Dot(axes.c2p(1.0, 0.0), radius=0.065, color=THEME["secondary"])
-        lbl_x2 = MathTex(r"(1, 0)", font_size=11.0, color=THEME["statement_text"]).next_to(dot_x2, DOWN + RIGHT, buff=0.05)
+        lbl_x2 = MathTex(r"(1, 0)", font_size=13.0, color=THEME["statement_text"]).next_to(dot_x2, UP + RIGHT, buff=0.08)
 
         prog_anims = self.get_advance_progress_anims(6)
 
