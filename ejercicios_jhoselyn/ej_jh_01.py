@@ -310,7 +310,7 @@ class EjercicioJh_01(AmarunExerciseScene):
             Write(lbl_y),
             run_time=2.2
         )
-        self.wait(5.2)
+        self.wait(9.2)
 
         # Cierre institucional
         graph_group = VGroup(
