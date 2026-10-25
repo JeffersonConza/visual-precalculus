@@ -26,15 +26,16 @@ class EjercicioJh_01(AmarunExerciseScene):
             book="Precálculo Universitario",
             chapter="Tutoría Jhoselyn",
             exercise="Ejercicio 1",
-            topic="Análisis y Gráfica de Función Cuadrática"
+            topic="Análisis y Gráfica de Función Cuadrática",
+            font_size=18
         )
 
         # 2. Enunciado institucional permanente con fórmula prominente (y = 2.65)
         self.setup_statement(
             desc_text="Analice completamente y grafique la función polinómica:",
             math_tex=r"f(x) = -\frac{1}{2}x^2 + \frac{3}{2}x + \frac{27}{8}",
-            desc_font_size=17.5,
-            math_font_size=28.0,
+            desc_font_size=20.0,
+            math_font_size=32.0,
             box_pos=np.array([0.0, 2.65, 0.0]),
             read_time=3.8
         )
@@ -47,33 +48,33 @@ class EjercicioJh_01(AmarunExerciseScene):
             "4/6: Factorización y Tabla de Signos",
             "5/6: Monotonía y Rango",
             "6/6: Gráfica Cartesiana y Verificación"
-        ])
+        ], label_font_size=14.5)
 
         # ==========================================================
         # PASO 1 (C2): Dominio y Concavidad
         # ==========================================================
         eq1 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{1. Dominio y Concavidad Polinómica:} \\[5pt]"
-            r"&\text{Al ser } f(x) \text{ una función polinómica cuadrática:} \\[4pt]"
-            r"&\mathbf{\operatorname{Dom}(f) = \mathbb{R} = (-\infty, +\infty)} \\[7pt]"
-            r"&\textbf{Identificación de Coeficientes:} \\[4pt]"
-            r"&a = -\frac{1}{2}, \quad b = \frac{3}{2}, \quad c = \frac{27}{8} \\[6pt]"
-            r"&\text{Como } a = -\frac{1}{2} < 0 \implies \text{Parábola cóncava hacia abajo } (\cap) \\[5pt]"
+            r"&\textbf{1. Dominio y Concavidad Polinómica:} \\[6pt]"
+            r"&\text{Al ser } f(x) \text{ una función polinómica cuadrática:} \\[5pt]"
+            r"&\mathbf{\operatorname{Dom}(f) = \mathbb{R} = (-\infty, +\infty)} \\[8pt]"
+            r"&\textbf{Identificación de Coeficientes:} \\[5pt]"
+            r"&a = -\frac{1}{2}, \quad b = \frac{3}{2}, \quad c = \frac{27}{8} \\[7pt]"
+            r"&\text{Como } a = -\frac{1}{2} < 0 \implies \text{Parábola cóncava hacia abajo } (\cap) \\[6pt]"
             r"&\implies \text{El vértice } V(x_v, y_v) \text{ es un } \mathbf{\text{Máximo Absoluto}}."
             r"\end{aligned}",
-            font_size=21.0,
+            font_size=23.0,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
         just1 = self.create_justification(
             "1. Dominio y Concavidad:\n"
             "• Toda función cuadrática está definida en ℝ.\n"
-            "• El coeficiente cuadrático es a = -1/2 < 0.\n"
+            "• Coeficiente cuadrático: a = -1/2 < 0.\n"
             "• Las ramas de la parábola abren hacia abajo.\n"
             "• El vértice alcanzará la cota superior global\n"
             "  (máximo absoluto de la función).",
-            font_size=17.0,
+            font_size=18.5,
             pos=[3.35, -0.45, 0]
         )
 
@@ -84,24 +85,25 @@ class EjercicioJh_01(AmarunExerciseScene):
         # ==========================================================
         eq2 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{2. Coordenadas del Vértice } V(x_v, y_v): \\[5pt]"
+            r"&\textbf{2. Coordenadas del Vértice } V(x_v, y_v): \\[6pt]"
             r"&x_v = -\frac{b}{2a} = -\frac{3/2}{2\left(-\frac{1}{2}\right)} = -\frac{3/2}{-1} = \mathbf{\frac{3}{2} = 1.5} \\[8pt]"
-            r"&y_v = f\left(\frac{3}{2}\right) = -\frac{1}{2}\left(\frac{3}{2}\right)^2 + \frac{3}{2}\left(\frac{3}{2}\right) + \frac{27}{8} \\[6pt]"
+            r"&y_v = f\left(\frac{3}{2}\right) = -\frac{1}{2}\left(\frac{3}{2}\right)^2 + \frac{3}{2}\left(\frac{3}{2}\right) + \frac{27}{8} \\[7pt]"
             r"&y_v = -\frac{9}{8} + \frac{18}{8} + \frac{27}{8} = \frac{36}{8} = \mathbf{\frac{9}{2} = 4.5} \\[8pt]"
             r"&\mathbf{V = \left(\frac{3}{2}, \frac{9}{2}\right) = (1.5, 4.5)} \quad (\text{Máximo Absoluto})"
             r"\end{aligned}",
-            font_size=21.0,
+            font_size=23.0,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
         just2 = self.create_justification(
             "2. Vértice y Extremo:\n"
-            "• La fórmula del eje de simetría es xv = -b / (2a).\n"
+            "• Eje de simetría: xv = -b / (2a).\n"
             "• Obtenemos xv = 3/2 = 1.5.\n"
-            "• Evaluando f(3/2): yv = -9/8 + 18/8 + 27/8 = 9/2.\n"
-            "• V(1.5, 4.5) es el punto crítico y vértice.\n"
-            "• Constituye el máximo absoluto del recorrido.",
-            font_size=17.0,
+            "• Evaluando en f(3/2):\n"
+            "  yv = -9/8 + 18/8 + 27/8 = 9/2 = 4.5.\n"
+            "• V(1.5, 4.5) es el vértice de la parábola.\n"
+            "• Constituye el máximo absoluto del rango.",
+            font_size=18.5,
             pos=[3.35, -0.45, 0]
         )
 
@@ -114,26 +116,26 @@ class EjercicioJh_01(AmarunExerciseScene):
             r"\begin{aligned}"
             r"&\textbf{3. Intersecciones con los Ejes Coordenados:} \\[5pt]"
             r"&\bullet \textbf{Intercepto vertical } (x = 0): \\[3pt]"
-            r"&\quad f(0) = \frac{27}{8} = 3.375 \implies \mathbf{P_y = \left(0, \frac{27}{8}\right)} \\[7pt]"
+            r"&\quad f(0) = \frac{27}{8} = 3.375 \implies \mathbf{P_y = \left(0, \frac{27}{8}\right)} \\[6pt]"
             r"&\bullet \textbf{Interceptos horizontales } (f(x) = 0): \\[3pt]"
             r"&\quad -\frac{1}{2}x^2 + \frac{3}{2}x + \frac{27}{8} = 0 \quad (\times -8) \\[5pt]"
             r"&\quad 4x^2 - 12x - 27 = 0 \iff (2x - 9)(2x + 3) = 0 \\[5pt]"
-            r"&\quad \mathbf{x_1 = \frac{9}{2} = 4.5}, \qquad \mathbf{x_2 = -\frac{3}{2} = -1.5} \\[6pt]"
+            r"&\quad \mathbf{x_1 = \frac{9}{2} = 4.5}, \qquad \mathbf{x_2 = -\frac{3}{2} = -1.5} \\[5pt]"
             r"&\quad \text{Puntos: } P_{x_1} = (4.5, 0), \quad P_{x_2} = (-1.5, 0)."
             r"\end{aligned}",
-            font_size=19.5,
+            font_size=21.5,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
         just3 = self.create_justification(
             "3. Puntos de Corte:\n"
-            "• Con el eje y: f(0) = 27/8 = 3.375.\n"
+            "• Corte con eje y: f(0) = 27/8 = 3.375.\n"
             "• Con el eje x: resolvemos f(x) = 0.\n"
-            "• Multiplicando por -8 para simplificar denominadores,\n"
-            "  resulta la ecuación cuadrática 4x² - 12x - 27 = 0.\n"
-            "• Factorización por aspa: (2x - 9)(2x + 3) = 0.\n"
+            "• Multiplicando por -8 para simplificar:\n"
+            "  4x² - 12x - 27 = 0.\n"
+            "• Factorización: (2x - 9)(2x + 3) = 0.\n"
             "• Raíces en x = 4.5 y x = -1.5.",
-            font_size=17.0,
+            font_size=18.5,
             pos=[3.35, -0.45, 0]
         )
 
@@ -144,26 +146,27 @@ class EjercicioJh_01(AmarunExerciseScene):
         # ==========================================================
         eq4 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{4. Factorización Canónica y Signos:} \\[5pt]"
-            r"&f(x) = -\frac{1}{2}\left(x + \frac{3}{2}\right)\left(x - \frac{9}{2}\right) \\[6pt]"
-            r"&\text{Intervalos determinados por las raíces } \{-1.5, 4.5\}: \\[4pt]"
-            r"&\bullet \left(-\infty, -\frac{3}{2}\right): \; (-) \cdot (-) \cdot (-) = \mathbf{(-)} \implies f(x) < 0 \\[4pt]"
-            r"&\bullet \left(-\frac{3}{2}, \frac{9}{2}\right): \; (-) \cdot (+) \cdot (-) = \mathbf{(+)} \implies f(x) > 0 \\[4pt]"
-            r"&\bullet \left(\frac{9}{2}, +\infty\right): \; (-) \cdot (+) \cdot (+) = \mathbf{(-)} \implies f(x) < 0 \\[6pt]"
-            r"&\mathbf{\text{Positiva en: } \left(-\frac{3}{2}, \frac{9}{2}\right)}, \quad \mathbf{\text{Negativa en: } \left(-\infty, -\frac{3}{2}\right) \cup \left(\frac{9}{2}, \infty\right)}."
+            r"&\textbf{4. Factorización Canónica y Signos:} \\[3pt]"
+            r"&f(x) = -\frac{1}{2}\left(x + \frac{3}{2}\right)\left(x - \frac{9}{2}\right) \\[3pt]"
+            r"&\text{Intervalos con raíces } \{-1.5, 4.5\}: \\[3pt]"
+            r"&\bullet \left(-\infty, -\frac{3}{2}\right): \; (-) \cdot (-) \cdot (-) = \mathbf{(-)} \implies f(x) < 0 \\[3pt]"
+            r"&\bullet \left(-\frac{3}{2}, \frac{9}{2}\right): \; (-) \cdot (+) \cdot (-) = \mathbf{(+)} \implies f(x) > 0 \\[3pt]"
+            r"&\bullet \left(\frac{9}{2}, +\infty\right): \; (-) \cdot (+) \cdot (+) = \mathbf{(-)} \implies f(x) < 0 \\[3pt]"
+            r"&\mathbf{\text{Positiva en: } \left(-\frac{3}{2}, \frac{9}{2}\right)} \\[3pt]"
+            r"&\mathbf{\text{Negativa en: } \left(-\infty, -\frac{3}{2}\right) \cup \left(\frac{9}{2}, \infty\right)}."
             r"\end{aligned}",
-            font_size=19.5,
+            font_size=20.0,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
         just4 = self.create_justification(
             "4. Intervalos de Signo:\n"
-            "• Las raíces x = -1.5 y x = 4.5 dividen la recta en 3.\n"
-            "• En (-∞, -1.5): los dos factores lineales son negativos;\n"
-            "  con el factor -1/2, el producto total es negativo (-).\n"
-            "• En (-1.5, 4.5): el signo resultante es positivo (+).\n"
-            "• En (4.5, +∞): el producto vuelve a ser negativo (-).",
-            font_size=17.0,
+            "• Las raíces dividen la recta en 3 tramos.\n"
+            "• En (-∞, -1.5): dos factores negativos\n"
+            "  más el factor -1/2 dan producto negativo (-).\n"
+            "• En (-1.5, 4.5): el producto es positivo (+).\n"
+            "• En (4.5, +∞): vuelve a ser negativo (-).",
+            font_size=18.5,
             pos=[3.35, -0.45, 0]
         )
 
@@ -174,17 +177,15 @@ class EjercicioJh_01(AmarunExerciseScene):
         # ==========================================================
         eq5 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{5. Intervalos de Monotonía y Rango:} \\[5pt]"
-            r"&\bullet \textbf{Monotonía (Crecimiento / Decrecimiento):} \\[3pt]"
-            r"&\quad \text{Hacia la izquierda del vértice } x \le \frac{3}{2}: \\[2pt]"
-            r"&\quad \mathbf{f \text{ es estrictamente creciente en } \left(-\infty, \frac{3}{2}\right]} \\[5pt]"
-            r"&\quad \text{Hacia la derecha del vértice } x \ge \frac{3}{2}: \\[2pt]"
-            r"&\quad \mathbf{f \text{ es estrictamente decreciente en } \left[\frac{3}{2}, +\infty\right)} \\[7pt]"
-            r"&\bullet \textbf{Rango (Recorrido de la Función):} \\[3pt]"
-            r"&\quad \text{Dado que } y_v = 4.5 \text{ es máximo y } f \text{ es continua en } \mathbb{R}: \\[3pt]"
+            r"&\textbf{5. Intervalos de Monotonía y Rango:} \\[6pt]"
+            r"&\bullet \textbf{Monotonía (Crecimiento / Decrecimiento):} \\[4pt]"
+            r"&\quad \mathbf{f \text{ es creciente en } \left(-\infty, \frac{3}{2}\right] = (-\infty, 1.5]} \\[5pt]"
+            r"&\quad \mathbf{f \text{ es decreciente en } \left[\frac{3}{2}, +\infty\right) = [1.5, +\infty)} \\[7pt]"
+            r"&\bullet \textbf{Rango (Recorrido de la Función):} \\[4pt]"
+            r"&\quad \text{Como } y_v = 4.5 \text{ es el máximo absoluto de } f: \\[4pt]"
             r"&\quad \mathbf{\operatorname{Ran}(f) = \left(-\infty, \frac{9}{2}\right] = (-\infty, 4.5]}."
             r"\end{aligned}",
-            font_size=20.0,
+            font_size=23.0,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
@@ -192,11 +193,11 @@ class EjercicioJh_01(AmarunExerciseScene):
             "5. Monotonía y Rango:\n"
             "• La curva asciende desde -∞ hasta alcanzar\n"
             "  la cima en x = 1.5 (crecimiento).\n"
-            "• A partir de x = 1.5, desciende hacia -∞ (decrecimiento).\n"
-            "• La imagen proyectada sobre el eje y cubre todos\n"
-            "  los reales hasta el valor máximo y = 4.5:\n"
+            "• A partir de x = 1.5, desciende hacia -∞.\n"
+            "• La imagen sobre el eje y cubre todos\n"
+            "  los valores hasta el máximo y = 4.5:\n"
             "  Ran(f) = (-∞, 9/2].",
-            font_size=17.0,
+            font_size=18.5,
             pos=[3.35, -0.45, 0]
         )
 
@@ -209,13 +210,13 @@ class EjercicioJh_01(AmarunExerciseScene):
             r"\begin{aligned}"
             r"&\textbf{6. Resumen Formal de Resultados:} \\[5pt]"
             r"&\bullet \mathbf{\operatorname{Dom}(f) = \mathbb{R}}, \quad \mathbf{\operatorname{Ran}(f) = \left(-\infty, \frac{9}{2}\right]} \\[5pt]"
-            r"&\bullet \mathbf{\text{Vértice: }} V\left(\frac{3}{2}, \frac{9}{2}\right) = (1.5, 4.5) \quad (\text{Máx. Abs.}) \\[5pt]"
+            r"&\bullet \mathbf{\text{Vértice: }} V\left(\frac{3}{2}, \frac{9}{2}\right) = (1.5, 4.5) \quad (\text{Máx.}) \\[5pt]"
             r"&\bullet \mathbf{\text{Eje de Simetría: }} x = 1.5 \\[5pt]"
             r"&\bullet \mathbf{\text{Cortes en } x: } \left(-\frac{3}{2}, 0\right) \text{ y } \left(\frac{9}{2}, 0\right) \\[5pt]"
             r"&\bullet \mathbf{\text{Corte en } y: } \left(0, \frac{27}{8}\right) = (0, 3.375) \\[5pt]"
             r"&\bullet \mathbf{\text{Positiva en: }} \left(-\frac{3}{2}, \frac{9}{2}\right) \quad \blacksquare"
             r"\end{aligned}",
-            font_size=17.5,
+            font_size=20.5,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
@@ -225,12 +226,14 @@ class EjercicioJh_01(AmarunExerciseScene):
         axes, axes_labels = self.setup_axes(
             x_range=[-3.0, 6.0, 1],
             y_range=[-3.0, 5.2, 1],
-            x_length=4.4,
-            y_length=3.2,
-            center=[3.1, -0.75, 0],
-            include_numbers=True
+            x_length=4.5,
+            y_length=3.3,
+            center=[3.15, -0.75, 0],
+            include_numbers=True,
+            numbers_font_size=17,
+            labels_font_size=20
         )
-        graph_title = Text("Gráfica de f(x) = -1/2 x² + 3/2 x + 27/8", font_size=12.5, color=WHITE).move_to([3.1, 1.65, 0])
+        graph_title = Text("Gráfica de f(x) = -1/2 x² + 3/2 x + 27/8", font_size=15.0, color=WHITE).move_to([3.15, 1.65, 0])
 
         # Parábola
         parabola = axes.plot(
@@ -239,29 +242,29 @@ class EjercicioJh_01(AmarunExerciseScene):
             color=THEME["curve"],
             stroke_width=2.5
         )
-        parabola_lbl = MathTex(r"y = f(x)", font_size=12, color=THEME["curve"]).move_to(axes.c2p(5.2, -1.2))
+        parabola_lbl = MathTex(r"y = f(x)", font_size=15.0, color=THEME["curve"]).move_to(axes.c2p(5.2, -1.2))
 
         # Eje de simetría punteado (x = 1.5)
         sym_line = DashedVMobject(
             Line(axes.c2p(1.5, -2.8), axes.c2p(1.5, 4.5), color=THEME["statement_box"], stroke_width=1.6),
             num_dashes=14
         )
-        lbl_sym = MathTex(r"x = 1.5", font_size=11.5, color=THEME["statement_box"]).next_to(axes.c2p(1.5, -2.8), DOWN, buff=0.10)
+        lbl_sym = MathTex(r"x = 1.5", font_size=15.0, color="#e57373").next_to(axes.c2p(1.5, -2.8), DOWN, buff=0.10)
 
         # Vértice
-        dot_v = Dot(axes.c2p(1.5, 4.5), radius=0.075, color=THEME["highlight"])
-        lbl_v = MathTex(r"V(1.5, 4.5)", font_size=12.5, color=THEME["highlight"]).next_to(dot_v, UP, buff=0.10)
+        dot_v = Dot(axes.c2p(1.5, 4.5), radius=0.08, color=THEME["highlight"])
+        lbl_v = MathTex(r"V(1.5, 4.5)", font_size=16.0, color=THEME["highlight"]).next_to(dot_v, UP, buff=0.10)
 
-        # Cortes en eje x: (-1.5, 0) y (4.5, 0) ubicados arriba de los puntos para no chocar con números
-        dot_x1 = Dot(axes.c2p(-1.5, 0.0), radius=0.065, color=THEME["secondary"])
-        lbl_x1 = MathTex(r"(-1.5, 0)", font_size=11.5, color=THEME["secondary"]).next_to(dot_x1, UP + LEFT, buff=0.08)
+        # Cortes en eje x: (-1.5, 0) y (4.5, 0) ubicados arriba de los puntos con máximo contraste
+        dot_x1 = Dot(axes.c2p(-1.5, 0.0), radius=0.07, color=THEME["secondary"])
+        lbl_x1 = MathTex(r"(-1.5, 0)", font_size=14.5, color=THEME["statement_text"]).next_to(dot_x1, UP + LEFT, buff=0.08)
 
-        dot_x2 = Dot(axes.c2p(4.5, 0.0), radius=0.065, color=THEME["secondary"])
-        lbl_x2 = MathTex(r"(4.5, 0)", font_size=11.5, color=THEME["secondary"]).next_to(dot_x2, UP + RIGHT, buff=0.08)
+        dot_x2 = Dot(axes.c2p(4.5, 0.0), radius=0.07, color=THEME["secondary"])
+        lbl_x2 = MathTex(r"(4.5, 0)", font_size=14.5, color=THEME["statement_text"]).next_to(dot_x2, UP + RIGHT, buff=0.08)
 
         # Corte en eje y: (0, 3.375)
-        dot_y = Dot(axes.c2p(0.0, 3.375), radius=0.065, color=THEME["amarun_teal"])
-        lbl_y = MathTex(r"P_y(0, 3.38)", font_size=11.5, color=THEME["amarun_teal"]).next_to(dot_y, LEFT, buff=0.10)
+        dot_y = Dot(axes.c2p(0.0, 3.375), radius=0.07, color=THEME["curve"])
+        lbl_y = MathTex(r"P_y(0, 3.38)", font_size=14.5, color=THEME["curve"]).next_to(dot_y, LEFT, buff=0.10)
 
         prog_anims = self.get_advance_progress_anims(5)
 

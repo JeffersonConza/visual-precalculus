@@ -41,12 +41,13 @@ class AmarunExerciseScene(Scene):
         chapter: str = "Capítulo 5",
         exercise: str = "Ejercicio 5.2",
         topic: str = "Regla del Máximo Dominio (RMD)",
-        run_time: float = 0.7
+        run_time: float = 0.7,
+        font_size: int = 18
     ) -> Text:
         """Crea el encabezado institucional en la parte superior sin la palabra '(Par)'."""
         self.header = Text(
             f"{book}  ·  {chapter}  ·  {exercise}  —  {topic}",
-            font_size=17,
+            font_size=font_size,
             color=THEME["header_color"],
             weight=BOLD
         ).to_edge(UP, buff=0.25)
@@ -90,10 +91,12 @@ class AmarunExerciseScene(Scene):
         step_labels: list[str],
         y_prog: float = -3.55,
         dot_spacing: float = 1.05,
-        run_time: float = 0.8
+        run_time: float = 0.8,
+        label_font_size: float = 14.5
     ) -> VGroup:
         """Construye la barra de progreso conectada con indicador del paso activo."""
         self.step_labels = step_labels
+        self.prog_label_font_size = label_font_size
         num_steps = len(step_labels)
         start_x = - (num_steps - 1) * dot_spacing / 2
 
@@ -107,7 +110,7 @@ class AmarunExerciseScene(Scene):
                 self.prog_track.add(seg)
 
         self.dots_grp = VGroup(*self.prog_dots)
-        self.prog_label = Text(step_labels[0], font_size=13, color=THEME["header_color"]).next_to(self.dots_grp, UP, buff=0.14)
+        self.prog_label = Text(step_labels[0], font_size=self.prog_label_font_size, color=THEME["header_color"]).next_to(self.dots_grp, UP, buff=0.14)
         self.progress_ui = VGroup(self.prog_track, self.dots_grp)
 
         # Activar el paso 0
@@ -119,7 +122,8 @@ class AmarunExerciseScene(Scene):
     def get_advance_progress_anims(self, next_idx: int) -> list:
         """Genera las animaciones necesarias para avanzar el paso en la barra de progreso."""
         current_idx = self.current_step
-        new_lbl = Text(self.step_labels[next_idx], font_size=13, color=THEME["header_color"]).next_to(self.dots_grp, UP, buff=0.14)
+        fs = getattr(self, "prog_label_font_size", 14.5)
+        new_lbl = Text(self.step_labels[next_idx], font_size=fs, color=THEME["header_color"]).next_to(self.dots_grp, UP, buff=0.14)
         anims = [
             self.prog_dots[current_idx].animate.set_color(THEME["success"]).scale(1.0 / 1.25),
             self.prog_dots[next_idx].animate.set_color(THEME["highlight"]).scale(1.25),
@@ -229,7 +233,9 @@ class AmarunExerciseScene(Scene):
         x_length: float = 5.6,
         y_length: float = 3.8,
         center: list = [2.7, -0.45, 0],
-        include_numbers: bool = True
+        include_numbers: bool = True,
+        numbers_font_size: int = 16,
+        labels_font_size: int = 20
     ) -> tuple[Axes, VGroup]:
         """Crea un sistema de ejes coordenados con el estilo y proporciones institucionales."""
         axes = Axes(
@@ -242,12 +248,12 @@ class AmarunExerciseScene(Scene):
                 "color": THEME["axes"],
                 "stroke_width": 2,
                 "include_numbers": include_numbers,
-                "font_size": 14,
+                "font_size": numbers_font_size,
             }
         ).move_to(center)
         labels = axes.get_axis_labels(
-            x_label=MathTex("x", font_size=18, color=THEME["statement_text"]),
-            y_label=MathTex("y", font_size=18, color=THEME["statement_text"])
+            x_label=MathTex("x", font_size=labels_font_size, color=THEME["statement_text"]),
+            y_label=MathTex("y", font_size=labels_font_size, color=THEME["statement_text"])
         )
         return axes, labels
 
