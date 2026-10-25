@@ -265,23 +265,21 @@ class EjercicioJh_04(AmarunExerciseScene):
         self.morph_step(eq6, just6, box_color=THEME["highlight"], advance_to_step=5, wait_time=3.3)
 
         # ==========================================================
-        # PASO 7: Cuadro de Puntos Críticos y Notables
+        # PASO 7: Cuadro Horizontal de Variación y Puntos Notables
         # ==========================================================
         eq7 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{7. Cuadro de Puntos Críticos y Notables:} \\[5pt]"
-            r"&\begin{array}{|c|c|c|l|}"
-            r"\hline"
-            r"\mathbf{x} & \mathbf{f(x)} & \mathbf{\text{Signo } f'} & \mathbf{\text{Rol y Comportamiento Gráfico}} \\ \hline"
-            r"-2 & \pm\infty & \nexists & \text{Asíntota Vertical } x = -2 \text{ (polo lateral)} \\"
-            r"-1 & 0 & f' > 0 & \text{Corte eje } X_1(-1, 0) \text{ (crece hacia } 1/4) \\"
-            r"0 & 1/4 & f' = 0 & \mathbf{\text{Máximo Local }} {\color{amgold}M(0, 1/4)} \text{ (cúspide central)} \\"
-            r"1 & 0 & f' < 0 & \text{Corte eje } X_2(1, 0) \text{ (decrece hacia } -\infty) \\"
-            r"2 & \pm\infty & \nexists & \text{Asíntota Vertical } x = 2 \text{ (polo lateral)} \\ \hline"
-            r"\end{array} \\[6pt]"
-            r"&\bullet \text{Rama izquierda } (-\infty, -2): \text{Sube de } 1 \text{ monótonamente hacia } +\infty. \\[3pt]"
-            r"&\bullet \text{Rama central } (-2, 2): \text{Campana invertida con máximo en } (0, 1/4). \\[3pt]"
-            r"&\bullet \text{Rama derecha } (2, +\infty): \text{Cae desde } +\infty \text{ monótonamente hacia } 1."
+            r"&\textbf{7. Cuadro de Variación y Puntos Notables:} \\[6pt]"
+            r"&\begin{array}{c|c|c|c|c}"
+            r"x & (-\infty, -2) & (-2, 0) & (0, 2) & (2, +\infty) \\ \hline "
+            r"-6x & + & + & - & - \\ \hline "
+            r"(x^2 - 4)^2 & + & + & + & + \\ \hline "
+            r"f'(x) & {\color{amgreen}\mathbf{+}} & {\color{amgreen}\mathbf{+}} & {\color{amred}\mathbf{-}} & {\color{amred}\mathbf{-}} \\ \hline "
+            r"f(x) & \nearrow & \nearrow & \searrow & \searrow"
+            r"\end{array} \\[8pt]"
+            r"&\bullet \mathbf{\text{Punto Crítico: }} x = 0 \implies {\color{amgold}M(0, 1/4)} \text{ (Máximo Local)}. \\[3pt]"
+            r"&\bullet \mathbf{\text{Polos (A.V.): }} x = -2 \text{ y } x = 2 \text{ con divergencia } \pm\infty. \\[3pt]"
+            r"&\bullet \mathbf{\text{Cortes } X: } P_{x_1}(-1, 0) \text{ y } P_{x_2}(1, 0) \text{ en la rama central}."
             r"\end{aligned}",
             font_size=20.0,
             color=WHITE
@@ -289,11 +287,11 @@ class EjercicioJh_04(AmarunExerciseScene):
 
         just7 = self.create_justification(
             r"\begin{minipage}{8.2cm}\raggedright "
-            r"\textbf{7. Síntesis Pre-Graficación:}\\[6pt]"
-            r"$\bullet$ La tabla resume ordenadamente los 5 hitos del análisis en la recta real.\\[5pt]"
-            r"$\bullet$ Detalla la alternancia de crecimiento ($f' > 0$) y decrecimiento ($f' < 0$).\\[5pt]"
-            r"$\bullet$ Confirma la simetría par bilateral respecto al eje vertical $y$.\\[5pt]"
-            r"$\bullet$ Establece los puntos de anclaje para el trazado cartesiano continuo."
+            r"\textbf{7. Síntesis Horizontal:}\\[6pt]"
+            r"$\bullet$ La tabla horizontal resume el signo de $f'(x)$ por factores.\\[5pt]"
+            r"$\bullet$ Flechas confirman el crecimiento ($\nearrow$) hacia ${\color{amgold}M(0, 1/4)}$ y decrecimiento ($\searrow$).\\[5pt]"
+            r"$\bullet$ Muestra los polos de discontinuidad en $x = \pm 2$ (Asíntotas Verticales).\\[5pt]"
+            r"$\bullet$ Puntos de anclaje para el trazado cartesiano continuo."
             r"\end{minipage}",
             font_size=22.0,
             pos=[3.35, -0.45, 0]

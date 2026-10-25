@@ -266,23 +266,21 @@ class EjercicioJh_06(AmarunExerciseScene):
         self.morph_step(eq6, just6, box_color=THEME["highlight"], advance_to_step=5, wait_time=3.2)
 
         # ==========================================================
-        # PASO 7: Cuadro de Puntos Críticos y Notables
+        # PASO 7: Cuadro Horizontal de Variación y Puntos Notables
         # ==========================================================
         eq7 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{7. Cuadro de Puntos Críticos y Notables:} \\[5pt]"
-            r"&\begin{array}{|c|c|c|l|}"
-            r"\hline"
-            r"\mathbf{x} & \mathbf{f(x)} & \mathbf{\text{Signo } f'} & \mathbf{\text{Rol y Comportamiento Gráfico}} \\ \hline"
-            r"-3 & 0 & f' < 0 & \text{Corte eje } X_1(-3, 0) \text{ (decrece hacia } -\infty) \\"
-            r"-1 & \pm\infty & \nexists & \text{Asíntota Vertical } x = -1 \text{ (polo lateral)} \\"
-            r"0 & 9 & f' = 0 & \mathbf{\text{Mínimo Local }} {\color{amteal}M(0, 9)} \text{ (vértice central)} \\"
-            r"1 & \pm\infty & \nexists & \text{Asíntota Vertical } x = 1 \text{ (polo lateral)} \\"
-            r"3 & 0 & f' > 0 & \text{Corte eje } X_2(3, 0) \text{ (crece hacia } 1) \\ \hline"
-            r"\end{array} \\[6pt]"
-            r"&\bullet \text{Rama izquierda } (-\infty, -1): \text{Decrece de } 1 \text{ pasando por } (-3, 0) \text{ a } -\infty. \\[3pt]"
-            r"&\bullet \text{Rama central } (-1, 1): \text{Forma de U con mínimo en } (0, 9), \text{ sube a } +\infty. \\[3pt]"
-            r"&\bullet \text{Rama derecha } (1, +\infty): \text{Sube de } -\infty \text{ pasando por } (3, 0) \text{ hacia } 1."
+            r"&\textbf{7. Cuadro de Variación y Puntos Notables:} \\[6pt]"
+            r"&\begin{array}{c|c|c|c|c}"
+            r"x & (-\infty, -1) & (-1, 0) & (0, 1) & (1, +\infty) \\ \hline "
+            r"16x & - & - & + & + \\ \hline "
+            r"(x^2 - 1)^2 & + & + & + & + \\ \hline "
+            r"f'(x) & {\color{amred}\mathbf{-}} & {\color{amred}\mathbf{-}} & {\color{amgreen}\mathbf{+}} & {\color{amgreen}\mathbf{+}} \\ \hline "
+            r"f(x) & \searrow & \searrow & \nearrow & \nearrow"
+            r"\end{array} \\[8pt]"
+            r"&\bullet \mathbf{\text{Punto Crítico: }} x = 0 \implies {\color{amteal}M(0, 9)} \text{ (Mínimo Local de rama central)}. \\[3pt]"
+            r"&\bullet \mathbf{\text{Polos (A.V.): }} x = -1 \text{ y } x = 1 \text{ con asíntotas verticales}. \\[3pt]"
+            r"&\bullet \mathbf{\text{Cortes } X: } P_{x_1}(-3, 0) \text{ y } P_{x_2}(3, 0) \text{ en las ramas laterales}."
             r"\end{aligned}",
             font_size=20.0,
             color=WHITE
@@ -290,11 +288,11 @@ class EjercicioJh_06(AmarunExerciseScene):
 
         just7 = self.create_justification(
             r"\begin{minipage}{8.2cm}\raggedright "
-            r"\textbf{7. Síntesis Pre-Graficación:}\\[6pt]"
-            r"$\bullet$ La tabla consolida en orden de izquierda a derecha todos los puntos clave.\\[5pt]"
-            r"$\bullet$ Muestra la transición de signos de $f'(x)$ y los polos de discontinuidad.\\[5pt]"
-            r"$\bullet$ Confirma la simetría par respecto al eje $Y$ entre los puntos $\pm 3$ y $\pm 1$.\\[5pt]"
-            r"$\bullet$ Proporciona las coordenadas exactas para el trazado cartesiano riguroso."
+            r"\textbf{7. Síntesis Horizontal:}\\[6pt]"
+            r"$\bullet$ La tabla horizontal muestra el cambio de signo de $f'(x)$ en $x = 0$.\\[5pt]"
+            r"$\bullet$ Flechas confirman el paso de decreciente ($\searrow$) a creciente ($\nearrow$) $\implies {\color{amteal}M(0, 9)}$.\\[5pt]"
+            r"$\bullet$ Muestra los polos de discontinuidad en $x = \pm 1$ (Asíntotas Verticales).\\[5pt]"
+            r"$\bullet$ Base de anclaje para el trazado cartesiano."
             r"\end{minipage}",
             font_size=22.0,
             pos=[3.35, -0.45, 0]
