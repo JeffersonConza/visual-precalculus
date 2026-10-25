@@ -68,15 +68,15 @@ class EjercicioJh_01(AmarunExerciseScene):
         ).move_to([-3.4, -0.45, 0])
 
         just1 = self.create_justification(
-            r"\begin{minipage}{6.2cm}\raggedright "
-            r"\textbf{1. Dominio y Concavidad:}\\[5pt]"
-            r"$\bullet$ Toda función cuadrática está definida en $\mathbb{R}$.\\[4pt]"
-            r"$\bullet$ Coeficiente cuadrático: $a = -\frac{1}{2} < 0$.\\[4pt]"
-            r"$\bullet$ Las ramas de la parábola abren hacia abajo ($\cap$).\\[4pt]"
-            r"$\bullet$ El vértice alcanzará la cota superior global\\[2pt]"
+            r"\begin{minipage}{8.2cm}\raggedright "
+            r"\textbf{1. Dominio y Concavidad:}\\[6pt]"
+            r"$\bullet$ El dominio de toda función cuadrática es $\mathbb{R}$.\\[5pt]"
+            r"$\bullet$ Coeficiente principal: $a = -\frac{1}{2} < 0$.\\[5pt]"
+            r"$\bullet$ Las ramas de la parábola abren hacia abajo ($\cap$).\\[5pt]"
+            r"$\bullet$ El vértice $V$ representa la cota superior global\\[2pt]"
             r"\hspace*{1.2em}(máximo absoluto de la función)."
             r"\end{minipage}",
-            font_size=18.5,
+            font_size=21.5,
             pos=[3.35, -0.45, 0]
         )
 
@@ -98,16 +98,15 @@ class EjercicioJh_01(AmarunExerciseScene):
         ).move_to([-3.4, -0.45, 0])
 
         just2 = self.create_justification(
-            r"\begin{minipage}{6.2cm}\raggedright "
-            r"\textbf{2. Vértice y Extremo:}\\[5pt]"
-            r"$\bullet$ Eje de simetría: $x_v = -\frac{b}{2a}$.\\[4pt]"
-            r"$\bullet$ Obtenemos $x_v = \frac{3}{2} = 1.5$.\\[4pt]"
-            r"$\bullet$ Evaluando en $f\left(\frac{3}{2}\right)$:\\[2pt]"
-            r"\hspace*{1.2em}$y_v = -\frac{9}{8} + \frac{18}{8} + \frac{27}{8} = \frac{9}{2} = 4.5$.\\[4pt]"
-            r"$\bullet$ $V(1.5, 4.5)$ es el vértice de la parábola.\\[4pt]"
-            r"$\bullet$ Constituye el máximo absoluto del rango."
+            r"\begin{minipage}{8.2cm}\raggedright "
+            r"\textbf{2. Vértice y Extremo:}\\[6pt]"
+            r"$\bullet$ Eje de simetría: $x_v = -\frac{b}{2a} = 1.5$.\\[5pt]"
+            r"$\bullet$ Evaluando la abscisa en la función:\\[3pt]"
+            r"\hspace*{1.2em}$y_v = f(1.5) = -\frac{9}{8} + \frac{18}{8} + \frac{27}{8} = \frac{9}{2} = 4.5$.\\[5pt]"
+            r"$\bullet$ El vértice es el punto $V(1.5, 4.5)$.\\[5pt]"
+            r"$\bullet$ Al ser cóncava ($\cap$), $y = 4.5$ es el máximo absoluto."
             r"\end{minipage}",
-            font_size=18.5,
+            font_size=21.5,
             pos=[3.35, -0.45, 0]
         )
 
@@ -132,16 +131,15 @@ class EjercicioJh_01(AmarunExerciseScene):
         ).move_to([-3.4, -0.45, 0])
 
         just3 = self.create_justification(
-            r"\begin{minipage}{6.2cm}\raggedright "
-            r"\textbf{3. Puntos de Corte:}\\[5pt]"
-            r"$\bullet$ Corte con eje $y$: $f(0) = \frac{27}{8} = 3.375$.\\[4pt]"
-            r"$\bullet$ Con el eje $x$: resolvemos $f(x) = 0$.\\[4pt]"
-            r"$\bullet$ Multiplicando por $-8$ para simplificar:\\[2pt]"
-            r"\hspace*{1.2em}$4x^2 - 12x - 27 = 0$.\\[4pt]"
-            r"$\bullet$ Factorización: $(2x - 9)(2x + 3) = 0$.\\[4pt]"
-            r"$\bullet$ Raíces en $x = 4.5$ y $x = -1.5$."
+            r"\begin{minipage}{8.2cm}\raggedright "
+            r"\textbf{3. Puntos de Corte:}\\[6pt]"
+            r"$\bullet$ Corte con el eje $y$ ($x = 0$): $f(0) = \frac{27}{8} = 3.375$.\\[5pt]"
+            r"$\bullet$ Cortes con el eje $x$ ($f(x) = 0$):\\[3pt]"
+            r"\hspace*{1.2em}Multiplicando por $-8$: $4x^2 - 12x - 27 = 0$.\\[5pt]"
+            r"$\bullet$ Factorización directa: $(2x - 9)(2x + 3) = 0$.\\[5pt]"
+            r"$\bullet$ Intersecciones: $P_{x_1} = (4.5, 0)$ y $P_{x_2} = (-1.5, 0)$."
             r"\end{minipage}",
-            font_size=18.5,
+            font_size=21.5,
             pos=[3.35, -0.45, 0]
         )
 
@@ -166,15 +164,14 @@ class EjercicioJh_01(AmarunExerciseScene):
         ).move_to([-3.4, -0.45, 0])
 
         just4 = self.create_justification(
-            r"\begin{minipage}{6.2cm}\raggedright "
-            r"\textbf{4. Intervalos de Signo:}\\[5pt]"
-            r"$\bullet$ Las raíces dividen la recta en 3 tramos.\\[4pt]"
-            r"$\bullet$ En $(-\infty, -1.5)$: dos factores negativos\\[2pt]"
-            r"\hspace*{1.2em}más el factor $-\frac{1}{2}$ dan producto negativo ($-$).\\[4pt]"
-            r"$\bullet$ En $(-1.5, 4.5)$: el producto es positivo ($+$).\\[4pt]"
-            r"$\bullet$ En $(4.5, +\infty)$: vuelve a ser negativo ($-$).\\[2pt]"
+            r"\begin{minipage}{8.2cm}\raggedright "
+            r"\textbf{4. Intervalos de Signo:}\\[6pt]"
+            r"$\bullet$ Las raíces dividen la recta real en 3 intervalos.\\[5pt]"
+            r"$\bullet$ $(-\infty, -1.5)$: $(-)\cdot(-)\cdot(-) = (-) \implies f(x) < 0$.\\[5pt]"
+            r"$\bullet$ $(-1.5, 4.5)$: $(-)\cdot(+)\cdot(-) = (+) \implies f(x) > 0$.\\[5pt]"
+            r"$\bullet$ $(4.5, +\infty)$: $(-)\cdot(+)\cdot(+) = (-) \implies f(x) < 0$."
             r"\end{minipage}",
-            font_size=18.5,
+            font_size=21.5,
             pos=[3.35, -0.45, 0]
         )
 
@@ -198,16 +195,16 @@ class EjercicioJh_01(AmarunExerciseScene):
         ).move_to([-3.4, -0.45, 0])
 
         just5 = self.create_justification(
-            r"\begin{minipage}{6.2cm}\raggedright "
-            r"\textbf{5. Monotonía y Rango:}\\[5pt]"
+            r"\begin{minipage}{8.2cm}\raggedright "
+            r"\textbf{5. Monotonía y Rango:}\\[6pt]"
             r"$\bullet$ La curva asciende desde $-\infty$ hasta alcanzar\\[2pt]"
-            r"\hspace*{1.2em}la cima en $x = 1.5$ (crecimiento).\\[4pt]"
-            r"$\bullet$ A partir de $x = 1.5$, desciende hacia $-\infty$.\\[4pt]"
-            r"$\bullet$ La imagen sobre el eje $y$ cubre todos\\[2pt]"
-            r"\hspace*{1.2em}los valores hasta el máximo $y = 4.5$:\\[2pt]"
-            r"\hspace*{1.2em}$\operatorname{Ran}(f) = \left(-\infty, \frac{9}{2}\right]$."
+            r"\hspace*{1.2em}la cima en el vértice $x = 1.5$ (crecimiento).\\[5pt]"
+            r"$\bullet$ A partir de $x = 1.5$, la función desciende\\[2pt]"
+            r"\hspace*{1.2em}hacia $-\infty$ (decrecimiento).\\[5pt]"
+            r"$\bullet$ Proyección vertical sobre el eje $y$ hasta $y = 4.5$:\\[3pt]"
+            r"\hspace*{1.2em}$\operatorname{Ran}(f) = \left(-\infty, \frac{9}{2}\right] = (-\infty, 4.5]$."
             r"\end{minipage}",
-            font_size=18.5,
+            font_size=21.5,
             pos=[3.35, -0.45, 0]
         )
 
