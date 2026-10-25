@@ -59,6 +59,7 @@ def discover_exercises() -> dict[str, dict]:
     """
     exercises = {}
     pattern = re.compile(r"ej_(\d+)_(\d+)\.py$")
+    jh_pattern = re.compile(r"ej_jh_(\d+)\.py$", re.IGNORECASE)
     class_pattern = re.compile(r"class\s+(Ejercicio\w+)\s*\(")
 
     # Recorrido seguro omitiendo carpetas del sistema, entornos virtuales y binarios
@@ -69,6 +70,36 @@ def discover_exercises() -> dict[str, dict]:
             and d not in ("media", "docs", "images", "otros", "__pycache__", "build", "dist")
         ]
         for file_name in files:
+            jh_match = jh_pattern.search(file_name)
+            if jh_match:
+                py_file = Path(root) / file_name
+                ej_num = int(jh_match.group(1))
+                key = f"jh.{ej_num}"
+                padded_key = f"jh_{ej_num:02d}"
+
+                try:
+                    content = py_file.read_text(encoding="utf-8")
+                    class_match = class_pattern.search(content)
+                    class_name = class_match.group(1) if class_match else f"EjercicioJh_{ej_num:02d}"
+                except Exception:
+                    class_name = f"EjercicioJh_{ej_num:02d}"
+
+                info = {
+                    "key": key,
+                    "file_path": py_file,
+                    "rel_path": py_file.relative_to(ROOT_DIR),
+                    "class_name": class_name,
+                    "stem": f"ej_jh_{ej_num:02d}",
+                    "chapter": "jhoselyn",
+                    "exercise": ej_num,
+                }
+                exercises[key] = info
+                exercises[f"jh{ej_num}"] = info
+                exercises[f"jh_{ej_num}"] = info
+                exercises[f"jh_{ej_num:02d}"] = info
+                exercises[f"ej_jh_{ej_num:02d}"] = info
+                continue
+
             match = pattern.search(file_name)
             if match:
                 py_file = Path(root) / file_name
@@ -100,8 +131,13 @@ def discover_exercises() -> dict[str, dict]:
     return exercises
 
 def normalize_key(input_str: str) -> str:
-    """Normaliza variantes como '5.2', '05.02', '05_02' a formato '5.2'."""
+    """Normaliza variantes como '5.2', '05.02', '05_02' a '5.2', o 'jh.1', 'jh1', 'jh_01' a 'jh.1'."""
     clean = input_str.strip().lower().replace("ej_", "")
+    if clean.startswith("jh"):
+        num_part = re.sub(r"[^0-9]", "", clean)
+        if num_part:
+            return f"jh.{int(num_part)}"
+        return clean
     parts = re.split(r"[._]", clean)
     if len(parts) == 2 and parts[0].isdigit() and parts[1].isdigit():
         return f"{int(parts[0])}.{int(parts[1])}"
@@ -150,7 +186,16 @@ def render_exercise(
         if candidates:
             video_path = candidates[0]
 
-    print(f"✅ Video generado: {video_path}")
+    # Copiar automáticamente a la carpeta madre unificada: videos/
+    if video_path.exists():
+        if info["chapter"] == "jhoselyn":
+            dest_dir = ROOT_DIR / "videos" / "jhoselyn"
+        else:
+            dest_dir = ROOT_DIR / "videos" / f"capitulo_{int(info['chapter']):02d}"
+        dest_dir.mkdir(parents=True, exist_ok=True)
+        final_video_dest = dest_dir / f"{class_name}.mp4"
+        shutil.copy2(video_path, final_video_dest)
+        print(f"🎬 Video listo en: {final_video_dest.relative_to(ROOT_DIR)}")
 
     # Generación opcional de GIF para previsualización
     if generate_gif and video_path.exists():
@@ -235,7 +280,13 @@ Ejemplos:
     if args.list or not args.exercise:
         print("\n📚 Ejercicios Detectados en el Repositorio:")
         print("-" * 55)
-        for key in sorted(canonical.keys(), key=lambda x: [int(p) for p in x.split(".")]):
+        def sort_key(k: str):
+            parts = k.split(".")
+            if len(parts) == 2 and parts[0].isdigit() and parts[1].isdigit():
+                return (0, int(parts[0]), int(parts[1]))
+            return (1, parts[0], int(parts[1]) if len(parts) > 1 and parts[1].isdigit() else 0)
+
+        for key in sorted(canonical.keys(), key=sort_key):
             info = canonical[key]
             gif_exists = (ROOT_DIR / "docs" / "previews" / f"{info['stem']}.gif").exists()
             status = "✅ GIF Listo" if gif_exists else "⏳ Pendiente"
@@ -249,7 +300,13 @@ Ejemplos:
     if target == "all":
         print(f"🚀 Renderizando TODOS los ejercicios ({len(canonical)}) en calidad {quality.upper()}...")
         success_count = 0
-        for key in sorted(canonical.keys(), key=lambda x: [int(p) for p in x.split(".")]):
+        def sort_key(k: str):
+            parts = k.split(".")
+            if len(parts) == 2 and parts[0].isdigit() and parts[1].isdigit():
+                return (0, int(parts[0]), int(parts[1]))
+            return (1, parts[0], int(parts[1]) if len(parts) > 1 and parts[1].isdigit() else 0)
+
+        for key in sorted(canonical.keys(), key=sort_key):
             ok = render_exercise(canonical[key], quality=quality, generate_gif=generate_gif, preview=args.preview, extra_flags=unknown)
             if ok:
                 success_count += 1
