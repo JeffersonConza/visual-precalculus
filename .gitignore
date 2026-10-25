@@ -41,6 +41,10 @@ env/
 # Source PDFs (keep local, avoid pushing heavy/copyrighted PDFs to public repo)
 *.pdf
 
+# Material de referencia personal y capturas de revisión
+WhatsApp Chat with */
+docs/capturas/
+
 # OS generated
 .DS_Store
 Thumbs.db
