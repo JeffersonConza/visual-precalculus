@@ -18,6 +18,18 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from common.base_scene import AmarunExerciseScene
 from common.styles import THEME
 
+# Configuración de Plantilla LaTeX con Paleta Andina Editorial Amarun
+AMARUN_TEX_TEMPLATE = TexTemplate()
+AMARUN_TEX_TEMPLATE.add_to_preamble(r"""
+\usepackage{xcolor}
+\definecolor{amgold}{HTML}{F6B840}
+\definecolor{amteal}{HTML}{5CE1E6}
+\definecolor{amred}{HTML}{E53E3E}
+\definecolor{amgreen}{HTML}{48BB78}
+\definecolor{amorange}{HTML}{DB5A38}
+""")
+config.tex_template = AMARUN_TEX_TEMPLATE
+
 
 class EjercicioJh_01(AmarunExerciseScene):
     def construct(self):
@@ -33,7 +45,7 @@ class EjercicioJh_01(AmarunExerciseScene):
         # 2. Enunciado institucional permanente con fórmula prominente (y = 2.65)
         self.setup_statement(
             desc_text="Analice completamente y grafique la función polinómica:",
-            math_tex=r"f(x) = -\frac{1}{2}x^2 + \frac{3}{2}x + \frac{27}{8}",
+            math_tex=r"{\color{amteal}f(x)} = {\color{amred}-\frac{1}{2}}x^2 + {\color{amteal}\frac{3}{2}}x + {\color{amgold}\frac{27}{8}}",
             desc_font_size=20.0,
             math_font_size=32.0,
             box_pos=np.array([0.0, 2.65, 0.0]),
@@ -56,12 +68,12 @@ class EjercicioJh_01(AmarunExerciseScene):
         eq1 = MathTex(
             r"\begin{aligned}"
             r"&\textbf{1. Dominio y Concavidad Polinómica:} \\[6pt]"
-            r"&\text{Al ser } f(x) \text{ una función polinómica cuadrática:} \\[5pt]"
-            r"&\mathbf{\operatorname{Dom}(f) = \mathbb{R} = (-\infty, +\infty)} \\[8pt]"
+            r"&\text{Al ser } {\color{amteal}f(x)} \text{ una función polinómica cuadrática:} \\[5pt]"
+            r"&\mathbf{\operatorname{Dom}(f) = {\color{amgold}\mathbb{R}} = {\color{amgreen}(-\infty, +\infty)}} \\[8pt]"
             r"&\textbf{Identificación de Coeficientes:} \\[5pt]"
-            r"&a = -\frac{1}{2}, \quad b = \frac{3}{2}, \quad c = \frac{27}{8} \\[7pt]"
-            r"&\text{Como } a = -\frac{1}{2} < 0 \implies \text{Parábola cóncava hacia abajo } (\cap) \\[6pt]"
-            r"&\implies \text{El vértice } V(x_v, y_v) \text{ es un } \mathbf{\text{Máximo Absoluto}}."
+            r"&{\color{amred}a = -\frac{1}{2}}, \quad {\color{amteal}b = \frac{3}{2}}, \quad {\color{amgold}c = \frac{27}{8}} \\[7pt]"
+            r"&\text{Como } {\color{amred}a = -\frac{1}{2} < 0} \implies \text{Parábola cóncava hacia abajo } (\cap) \\[6pt]"
+            r"&\implies \text{El vértice } {\color{amgold}V(x_v, y_v)} \text{ es un } \mathbf{\text{Máximo Absoluto}}."
             r"\end{aligned}",
             font_size=23.0,
             color=WHITE
@@ -70,10 +82,10 @@ class EjercicioJh_01(AmarunExerciseScene):
         just1 = self.create_justification(
             r"\begin{minipage}{8.2cm}\raggedright "
             r"\textbf{1. Dominio y Concavidad:}\\[6pt]"
-            r"$\bullet$ El dominio de toda función cuadrática es $\mathbb{R}$.\\[5pt]"
-            r"$\bullet$ Coeficiente principal: $a = -\frac{1}{2} < 0$.\\[5pt]"
+            r"$\bullet$ El dominio de toda función cuadrática es ${\color{amgold}\mathbb{R}}$.\\[5pt]"
+            r"$\bullet$ Coeficiente principal: ${\color{amred}a = -\frac{1}{2} < 0}$.\\[5pt]"
             r"$\bullet$ Las ramas de la parábola abren hacia abajo ($\cap$).\\[5pt]"
-            r"$\bullet$ El vértice $V$ representa la cota superior global\\[2pt]"
+            r"$\bullet$ El vértice ${\color{amgold}V}$ representa la cota superior global\\[2pt]"
             r"\hspace*{1.2em}(máximo absoluto de la función)."
             r"\end{minipage}",
             font_size=21.5,
@@ -87,11 +99,11 @@ class EjercicioJh_01(AmarunExerciseScene):
         # ==========================================================
         eq2 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{2. Coordenadas del Vértice } V(x_v, y_v): \\[6pt]"
-            r"&x_v = -\frac{b}{2a} = -\frac{3/2}{2\left(-\frac{1}{2}\right)} = -\frac{3/2}{-1} = \mathbf{\frac{3}{2} = 1.5} \\[8pt]"
-            r"&y_v = f\left(\frac{3}{2}\right) = -\frac{1}{2}\left(\frac{3}{2}\right)^2 + \frac{3}{2}\left(\frac{3}{2}\right) + \frac{27}{8} \\[7pt]"
-            r"&y_v = -\frac{9}{8} + \frac{18}{8} + \frac{27}{8} = \frac{36}{8} = \mathbf{\frac{9}{2} = 4.5} \\[8pt]"
-            r"&\mathbf{V = \left(\frac{3}{2}, \frac{9}{2}\right) = (1.5, 4.5)} \quad (\text{Máximo Absoluto})"
+            r"&\textbf{2. Coordenadas del Vértice } {\color{amgold}V(x_v, y_v)}: \\[6pt]"
+            r"&{\color{amteal}x_v} = -\frac{b}{2a} = -\frac{3/2}{2\left(-\frac{1}{2}\right)} = -\frac{3/2}{-1} = \mathbf{{\color{amteal}\frac{3}{2} = 1.5}} \\[8pt]"
+            r"&{\color{amgold}y_v} = f\left(\frac{3}{2}\right) = -\frac{1}{2}\left(\frac{3}{2}\right)^2 + \frac{3}{2}\left(\frac{3}{2}\right) + \frac{27}{8} \\[7pt]"
+            r"&{\color{amgold}y_v} = -\frac{9}{8} + \frac{18}{8} + \frac{27}{8} = \frac{36}{8} = \mathbf{{\color{amgold}\frac{9}{2} = 4.5}} \\[8pt]"
+            r"&\mathbf{{\color{amgold}V = \left(\frac{3}{2}, \frac{9}{2}\right) = (1.5, 4.5)}} \quad (\text{Máximo Absoluto})"
             r"\end{aligned}",
             font_size=23.0,
             color=WHITE
@@ -100,11 +112,11 @@ class EjercicioJh_01(AmarunExerciseScene):
         just2 = self.create_justification(
             r"\begin{minipage}{8.2cm}\raggedright "
             r"\textbf{2. Vértice y Extremo:}\\[6pt]"
-            r"$\bullet$ Eje de simetría: $x_v = -\frac{b}{2a} = 1.5$.\\[5pt]"
+            r"$\bullet$ Eje de simetría: ${\color{amteal}x_v = -\frac{b}{2a} = 1.5}$.\\[5pt]"
             r"$\bullet$ Evaluando la abscisa en la función:\\[3pt]"
-            r"\hspace*{1.2em}$y_v = f(1.5) = -\frac{9}{8} + \frac{18}{8} + \frac{27}{8} = \frac{9}{2} = 4.5$.\\[5pt]"
-            r"$\bullet$ El vértice es el punto $V(1.5, 4.5)$.\\[5pt]"
-            r"$\bullet$ Al ser cóncava ($\cap$), $y = 4.5$ es el máximo absoluto."
+            r"\hspace*{1.2em}$y_v = f(1.5) = -\frac{9}{8} + \frac{18}{8} + \frac{27}{8} = {\color{amgold}\frac{9}{2} = 4.5}$.\\[5pt]"
+            r"$\bullet$ El vértice es el punto ${\color{amgold}V(1.5, 4.5)}$.\\[5pt]"
+            r"$\bullet$ Al ser cóncava ($\cap$), ${\color{amgold}y = 4.5}$ es el máximo absoluto."
             r"\end{minipage}",
             font_size=21.5,
             pos=[3.35, -0.45, 0]
@@ -119,12 +131,12 @@ class EjercicioJh_01(AmarunExerciseScene):
             r"\begin{aligned}"
             r"&\textbf{3. Intersecciones con los Ejes Coordenados:} \\[5pt]"
             r"&\bullet \textbf{Intercepto vertical } (x = 0): \\[3pt]"
-            r"&\quad f(0) = \frac{27}{8} = 3.375 \implies \mathbf{P_y = \left(0, \frac{27}{8}\right)} \\[6pt]"
+            r"&\quad f(0) = \frac{27}{8} = 3.375 \implies \mathbf{{\color{amteal}P_y = \left(0, \frac{27}{8}\right)}} \\[6pt]"
             r"&\bullet \textbf{Interceptos horizontales } (f(x) = 0): \\[3pt]"
             r"&\quad -\frac{1}{2}x^2 + \frac{3}{2}x + \frac{27}{8} = 0 \quad (\times -8) \\[5pt]"
             r"&\quad 4x^2 - 12x - 27 = 0 \iff (2x - 9)(2x + 3) = 0 \\[5pt]"
-            r"&\quad \mathbf{x_1 = \frac{9}{2} = 4.5}, \qquad \mathbf{x_2 = -\frac{3}{2} = -1.5} \\[5pt]"
-            r"&\quad \text{Puntos: } P_{x_1} = (4.5, 0), \quad P_{x_2} = (-1.5, 0)."
+            r"&\quad \mathbf{{\color{amorange}x_1 = \frac{9}{2} = 4.5}}, \qquad \mathbf{{\color{amorange}x_2 = -\frac{3}{2} = -1.5}} \\[5pt]"
+            r"&\quad \text{Puntos: } {\color{amorange}P_{x_1} = (4.5, 0)}, \quad {\color{amorange}P_{x_2} = (-1.5, 0)}."
             r"\end{aligned}",
             font_size=21.5,
             color=WHITE
@@ -133,11 +145,11 @@ class EjercicioJh_01(AmarunExerciseScene):
         just3 = self.create_justification(
             r"\begin{minipage}{8.2cm}\raggedright "
             r"\textbf{3. Puntos de Corte:}\\[6pt]"
-            r"$\bullet$ Corte con el eje $y$ ($x = 0$): $f(0) = \frac{27}{8} = 3.375$.\\[5pt]"
+            r"$\bullet$ Corte con el eje $y$ ($x = 0$): ${\color{amteal}f(0) = \frac{27}{8} = 3.375}$.\\[5pt]"
             r"$\bullet$ Cortes con el eje $x$ ($f(x) = 0$):\\[3pt]"
             r"\hspace*{1.2em}Multiplicando por $-8$: $4x^2 - 12x - 27 = 0$.\\[5pt]"
             r"$\bullet$ Factorización directa: $(2x - 9)(2x + 3) = 0$.\\[5pt]"
-            r"$\bullet$ Intersecciones: $P_{x_1} = (4.5, 0)$ y $P_{x_2} = (-1.5, 0)$."
+            r"$\bullet$ Intersecciones: ${\color{amorange}P_{x_1} = (4.5, 0)}$ y ${\color{amorange}P_{x_2} = (-1.5, 0)}$."
             r"\end{minipage}",
             font_size=21.5,
             pos=[3.35, -0.45, 0]
@@ -151,13 +163,13 @@ class EjercicioJh_01(AmarunExerciseScene):
         eq4 = MathTex(
             r"\begin{aligned}"
             r"&\textbf{4. Factorización Canónica y Signos:} \\[3pt]"
-            r"&f(x) = -\frac{1}{2}\left(x + \frac{3}{2}\right)\left(x - \frac{9}{2}\right) \\[3pt]"
-            r"&\text{Intervalos con raíces } \{-1.5, 4.5\}: \\[3pt]"
-            r"&\bullet \left(-\infty, -\frac{3}{2}\right): \; (-) \cdot (-) \cdot (-) = \mathbf{(-)} \implies f(x) < 0 \\[3pt]"
-            r"&\bullet \left(-\frac{3}{2}, \frac{9}{2}\right): \; (-) \cdot (+) \cdot (-) = \mathbf{(+)} \implies f(x) > 0 \\[3pt]"
-            r"&\bullet \left(\frac{9}{2}, +\infty\right): \; (-) \cdot (+) \cdot (+) = \mathbf{(-)} \implies f(x) < 0 \\[3pt]"
-            r"&\mathbf{\text{Positiva en: } \left(-\frac{3}{2}, \frac{9}{2}\right)} \\[3pt]"
-            r"&\mathbf{\text{Negativa en: } \left(-\infty, -\frac{3}{2}\right) \cup \left(\frac{9}{2}, \infty\right)}."
+            r"&{\color{amteal}f(x)} = -\frac{1}{2}\left(x + \frac{3}{2}\right)\left(x - \frac{9}{2}\right) \\[3pt]"
+            r"&\text{Intervalos con raíces } \{{\color{amorange}-1.5, 4.5}\}: \\[3pt]"
+            r"&\bullet \left(-\infty, -\frac{3}{2}\right): \; (-) \cdot (-) \cdot (-) = \mathbf{{\color{amred}(-)}} \implies {\color{amred}f(x) < 0} \\[3pt]"
+            r"&\bullet \left(-\frac{3}{2}, \frac{9}{2}\right): \; (-) \cdot (+) \cdot (-) = \mathbf{{\color{amgreen}(+)}} \implies {\color{amgreen}f(x) > 0} \\[3pt]"
+            r"&\bullet \left(\frac{9}{2}, +\infty\right): \; (-) \cdot (+) \cdot (+) = \mathbf{{\color{amred}(-)}} \implies {\color{amred}f(x) < 0} \\[3pt]"
+            r"&\mathbf{\text{Positiva en: } {\color{amgreen}\left(-\frac{3}{2}, \frac{9}{2}\right)}} \\[3pt]"
+            r"&\mathbf{\text{Negativa en: } {\color{amred}\left(-\infty, -\frac{3}{2}\right) \cup \left(\frac{9}{2}, \infty\right)}}."
             r"\end{aligned}",
             font_size=20.0,
             color=WHITE
@@ -167,9 +179,9 @@ class EjercicioJh_01(AmarunExerciseScene):
             r"\begin{minipage}{8.2cm}\raggedright "
             r"\textbf{4. Intervalos de Signo:}\\[6pt]"
             r"$\bullet$ Las raíces dividen la recta real en 3 intervalos.\\[5pt]"
-            r"$\bullet$ $(-\infty, -1.5)$: $(-)\cdot(-)\cdot(-) = (-) \implies f(x) < 0$.\\[5pt]"
-            r"$\bullet$ $(-1.5, 4.5)$: $(-)\cdot(+)\cdot(-) = (+) \implies f(x) > 0$.\\[5pt]"
-            r"$\bullet$ $(4.5, +\infty)$: $(-)\cdot(+)\cdot(+) = (-) \implies f(x) < 0$."
+            r"$\bullet$ $(-\infty, -1.5)$: $(-)\cdot(-)\cdot(-) = {\color{amred}(-)} \implies {\color{amred}f(x) < 0}$.\\[5pt]"
+            r"$\bullet$ $(-1.5, 4.5)$: $(-)\cdot(+)\cdot(-) = {\color{amgreen}(+)} \implies {\color{amgreen}f(x) > 0}$.\\[5pt]"
+            r"$\bullet$ $(4.5, +\infty)$: $(-)\cdot(+)\cdot(+) = {\color{amred}(-)} \implies {\color{amred}f(x) < 0}$."
             r"\end{minipage}",
             font_size=21.5,
             pos=[3.35, -0.45, 0]
@@ -184,11 +196,11 @@ class EjercicioJh_01(AmarunExerciseScene):
             r"\begin{aligned}"
             r"&\textbf{5. Intervalos de Monotonía y Rango:} \\[6pt]"
             r"&\bullet \textbf{Monotonía (Crecimiento / Decrecimiento):} \\[4pt]"
-            r"&\quad \mathbf{f \text{ es creciente en } \left(-\infty, \frac{3}{2}\right] = (-\infty, 1.5]} \\[5pt]"
-            r"&\quad \mathbf{f \text{ es decreciente en } \left[\frac{3}{2}, +\infty\right) = [1.5, +\infty)} \\[7pt]"
+            r"&\quad \mathbf{{\color{amgreen}f \text{ es creciente en } \left(-\infty, \frac{3}{2}\right] = (-\infty, 1.5]}} \\[5pt]"
+            r"&\quad \mathbf{{\color{amred}f \text{ es decreciente en } \left[\frac{3}{2}, +\infty\right) = [1.5, +\infty)}} \\[7pt]"
             r"&\bullet \textbf{Rango (Recorrido de la Función):} \\[4pt]"
-            r"&\quad \text{Como } y_v = 4.5 \text{ es el máximo absoluto de } f: \\[4pt]"
-            r"&\quad \mathbf{\operatorname{Ran}(f) = \left(-\infty, \frac{9}{2}\right] = (-\infty, 4.5]}."
+            r"&\quad \text{Como } {\color{amgold}y_v = 4.5} \text{ es el máximo absoluto de } f: \\[4pt]"
+            r"&\quad \mathbf{\operatorname{Ran}(f) = {\color{amgold}\left(-\infty, \frac{9}{2}\right] = (-\infty, 4.5]}}."
             r"\end{aligned}",
             font_size=23.0,
             color=WHITE
@@ -198,11 +210,11 @@ class EjercicioJh_01(AmarunExerciseScene):
             r"\begin{minipage}{8.2cm}\raggedright "
             r"\textbf{5. Monotonía y Rango:}\\[6pt]"
             r"$\bullet$ La curva asciende desde $-\infty$ hasta alcanzar\\[2pt]"
-            r"\hspace*{1.2em}la cima en el vértice $x = 1.5$ (crecimiento).\\[5pt]"
-            r"$\bullet$ A partir de $x = 1.5$, la función desciende\\[2pt]"
-            r"\hspace*{1.2em}hacia $-\infty$ (decrecimiento).\\[5pt]"
-            r"$\bullet$ Proyección vertical sobre el eje $y$ hasta $y = 4.5$:\\[3pt]"
-            r"\hspace*{1.2em}$\operatorname{Ran}(f) = \left(-\infty, \frac{9}{2}\right] = (-\infty, 4.5]$."
+            r"\hspace*{1.2em}la cima en el vértice ${\color{amteal}x = 1.5}$ (${\color{amgreen}\text{crecimiento}}$).\\[5pt]"
+            r"$\bullet$ A partir de ${\color{amteal}x = 1.5}$, la función desciende\\[2pt]"
+            r"\hspace*{1.2em}hacia $-\infty$ (${\color{amred}\text{decrecimiento}}$).\\[5pt]"
+            r"$\bullet$ Proyección vertical sobre el eje $y$ hasta ${\color{amgold}y = 4.5}$:\\[3pt]"
+            r"\hspace*{1.2em}$\operatorname{Ran}(f) = {\color{amgold}\left(-\infty, \frac{9}{2}\right] = (-\infty, 4.5]}$."
             r"\end{minipage}",
             font_size=21.5,
             pos=[3.35, -0.45, 0]
@@ -216,12 +228,12 @@ class EjercicioJh_01(AmarunExerciseScene):
         left_summary = MathTex(
             r"\begin{aligned}"
             r"&\textbf{6. Resumen Formal de Resultados:} \\[5pt]"
-            r"&\bullet \mathbf{\operatorname{Dom}(f) = \mathbb{R}}, \quad \mathbf{\operatorname{Ran}(f) = \left(-\infty, \frac{9}{2}\right]} \\[5pt]"
-            r"&\bullet \mathbf{\text{Vértice: }} V\left(\frac{3}{2}, \frac{9}{2}\right) = (1.5, 4.5) \quad (\text{Máx.}) \\[5pt]"
-            r"&\bullet \mathbf{\text{Eje de Simetría: }} x = 1.5 \\[5pt]"
-            r"&\bullet \mathbf{\text{Cortes en } x: } \left(-\frac{3}{2}, 0\right) \text{ y } \left(\frac{9}{2}, 0\right) \\[5pt]"
-            r"&\bullet \mathbf{\text{Corte en } y: } \left(0, \frac{27}{8}\right) = (0, 3.375) \\[5pt]"
-            r"&\bullet \mathbf{\text{Positiva en: }} \left(-\frac{3}{2}, \frac{9}{2}\right) \quad \blacksquare"
+            r"&\bullet \mathbf{\operatorname{Dom}(f) = {\color{amgold}\mathbb{R}}}, \quad \mathbf{\operatorname{Ran}(f) = {\color{amgold}\left(-\infty, \frac{9}{2}\right]}} \\[5pt]"
+            r"&\bullet \mathbf{\text{Vértice: }} {\color{amgold}V\left(\frac{3}{2}, \frac{9}{2}\right) = (1.5, 4.5)} \quad (\text{Máx.}) \\[5pt]"
+            r"&\bullet \mathbf{\text{Eje de Simetría: }} {\color{amteal}x = 1.5} \\[5pt]"
+            r"&\bullet \mathbf{\text{Cortes en } x: } {\color{amorange}\left(-\frac{3}{2}, 0\right)} \text{ y } {\color{amorange}\left(\frac{9}{2}, 0\right)} \\[5pt]"
+            r"&\bullet \mathbf{\text{Corte en } y: } {\color{amteal}\left(0, \frac{27}{8}\right) = (0, 3.375)} \\[5pt]"
+            r"&\bullet \mathbf{\text{Positiva en: }} {\color{amgreen}\left(-\frac{3}{2}, \frac{9}{2}\right)} \quad {\color{amgreen}\blacksquare}"
             r"\end{aligned}",
             font_size=20.5,
             color=WHITE
@@ -241,7 +253,7 @@ class EjercicioJh_01(AmarunExerciseScene):
             labels_font_size=20
         )
         graph_title = Tex(
-            r"Gráfica de $f(x) = -\frac{1}{2}x^2 + \frac{3}{2}x + \frac{27}{8}$",
+            r"Gráfica de ${\color{amteal}f(x)} = {\color{amred}-\frac{1}{2}}x^2 + {\color{amteal}\frac{3}{2}}x + {\color{amgold}\frac{27}{8}}$",
             font_size=23.0,
             color=WHITE
         ).move_to([3.15, 1.65, 0])
