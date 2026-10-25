@@ -3,10 +3,11 @@ Ejercicio 4 - Tutorías y Preparación Quiz 4 (Jhoselyn)
 Tema: Análisis Completo y Gráfica de Funciones:
       Función Racional de 3 Ramas: f(x) = (x^2 - 1) / (x^2 - 4).
       Dominio, paridad par, simetría axial, cortes coordenados, tabla de signos,
-      asíntotas verticales y horizontal, máximo local, rango y trazado cartesiano.
+      asíntotas verticales y horizontal, monotonía, máximo local en M(0, 1/4),
+      rango (-∞, 1/4] U (1, +∞), cuadro resumen de puntos notables y trazado cartesiano.
 
 Diseño: Metamorfosis 3B1B (Amarun Style), paleta andina institucional,
-        animación pedagógica en 7 pasos con ecuaciones en LaTeX de gran legibilidad.
+        animación pedagógica en 8 pasos con ecuaciones en LaTeX de gran legibilidad.
 """
 
 from manim import *
@@ -52,16 +53,17 @@ class EjercicioJh_04(AmarunExerciseScene):
             read_time=3.5
         )
 
-        # 3. Barra de Progreso Interactiva (7 pasos detallados)
+        # 3. Barra de Progreso Interactiva (8 pasos detallados)
         self.setup_progress_bar([
-            "1/7: Dominio y Restricciones",
-            "2/7: Paridad y Simetría",
-            "3/7: Cortes con los Ejes",
-            "4/7: Tabla de Signos",
-            "5/7: Asíntotas Verticales y Horizontal",
-            "6/7: Extremos Locales y Rango",
-            "7/7: Gráfica Cartesiana y Verificación"
-        ], dot_spacing=0.92, label_font_size=14.5)
+            "1/8: Dominio y Restricciones",
+            "2/8: Paridad y Simetría",
+            "3/8: Cortes con los Ejes",
+            "4/8: Tabla de Signos",
+            "5/8: Asíntotas V. y H.",
+            "6/8: Monotonía y Extremos",
+            "7/8: Cuadro de Puntos Notables",
+            "8/8: Gráfica Cartesiana y Verificación"
+        ], dot_spacing=0.82, label_font_size=14.0)
 
         # ==========================================================
         # PASO 1 (C2): Dominio y Restricciones del Denominador
@@ -93,7 +95,7 @@ class EjercicioJh_04(AmarunExerciseScene):
             pos=[3.35, -0.45, 0]
         )
 
-        self.morph_step(eq1, just1, box_color=THEME["highlight"], wait_time=4.1)
+        self.morph_step(eq1, just1, box_color=THEME["highlight"], wait_time=3.3)
 
         # ==========================================================
         # PASO 2: Paridad y Simetría Axial
@@ -124,7 +126,7 @@ class EjercicioJh_04(AmarunExerciseScene):
             pos=[3.35, -0.45, 0]
         )
 
-        self.morph_step(eq2, just2, box_color=THEME["highlight"], advance_to_step=1, wait_time=4.1)
+        self.morph_step(eq2, just2, box_color=THEME["highlight"], advance_to_step=1, wait_time=3.3)
 
         # ==========================================================
         # PASO 3: Intersecciones con los Ejes Coordenados
@@ -157,7 +159,7 @@ class EjercicioJh_04(AmarunExerciseScene):
             pos=[3.35, -0.45, 0]
         )
 
-        self.morph_step(eq3, just3, box_color=THEME["highlight"], advance_to_step=2, wait_time=4.1)
+        self.morph_step(eq3, just3, box_color=THEME["highlight"], advance_to_step=2, wait_time=3.3)
 
         # ==========================================================
         # PASO 4: Factorización y Tabla de Signos
@@ -190,7 +192,7 @@ class EjercicioJh_04(AmarunExerciseScene):
             pos=[3.35, -0.45, 0]
         )
 
-        self.morph_step(eq4, just4, box_color=THEME["highlight"], advance_to_step=3, wait_time=4.1)
+        self.morph_step(eq4, just4, box_color=THEME["highlight"], advance_to_step=3, wait_time=3.3)
 
         # ==========================================================
         # PASO 5: Asíntotas Verticales y Horizontal
@@ -225,46 +227,86 @@ class EjercicioJh_04(AmarunExerciseScene):
             pos=[3.35, -0.45, 0]
         )
 
-        self.morph_step(eq5, just5, box_color=THEME["highlight"], advance_to_step=4, wait_time=4.1)
+        self.morph_step(eq5, just5, box_color=THEME["highlight"], advance_to_step=4, wait_time=3.3)
 
         # ==========================================================
-        # PASO 6: Extremos Locales y Rango
+        # PASO 6: Monotonía, Extremos Locales y Rango
         # ==========================================================
         eq6 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{6. Extremos Locales y Rango:} \\[5pt]"
-            r"&\bullet \textbf{Máximo Local en la rama central:} \\[3pt]"
-            r"&\quad \text{La cúspide central ocurre en: } \mathbf{{\color{amgold}M\left(0, \frac{1}{4}\right) = (0, 0.25)}} \\[6pt]"
-            r"&\bullet \textbf{Rango por ramas de la función:} \\[3pt]"
-            r"&\quad \text{Rama central vive en: } {\color{amteal}\left(-\infty, \frac{1}{4}\right]} \\[4pt]"
-            r"&\quad \text{Ramas laterales viven en: } {\color{amteal}(1, +\infty)} \\[6pt]"
-            r"&\quad \mathbf{\operatorname{Ran}(f) = {\color{amgold}\left(-\infty, \frac{1}{4}\right] \cup (1, +\infty)}}."
+            r"&\textbf{6. Monotonía, Extremos Locales y Rango:} \\[4pt]"
+            r"&\bullet \textbf{Primera derivada formal } f'(x): \\[3pt]"
+            r"&\quad f'(x) = \frac{2x(x^2 - 4) - (x^2 - 1)(2x)}{(x^2 - 4)^2} = \mathbf{\frac{-6x}{(x^2 - 4)^2}} \\[5pt]"
+            r"&\bullet \textbf{Punto Crítico } (f'(x) = 0): -6x = 0 \implies \mathbf{{\color{amteal}x = 0}} \\[4pt]"
+            r"&\quad \bullet x < 0 \; (x \neq -2): {\color{amgreen}f'(x) > 0} \implies \text{Estrictamente Creciente} \\[3pt]"
+            r"&\quad \bullet x > 0 \; (x \neq 2): {\color{amred}f'(x) < 0} \implies \text{Estrictamente Decreciente} \\[4pt]"
+            r"&\implies \mathbf{\text{Máximo Local en } {\color{amgold}M\left(0, \frac{1}{4}\right)}} \text{ (vértice central)} \\[5pt]"
+            r"&\implies \mathbf{\operatorname{Ran}(f) = {\color{amgold}\left(-\infty, \frac{1}{4}\right] \cup (1, +\infty)}}."
             r"\end{aligned}",
-            font_size=21.5,
+            font_size=20.5,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
         just6 = self.create_justification(
             r"\begin{minipage}{8.2cm}\raggedright "
-            r"\textbf{6. Extremos y Rango:}\\[6pt]"
-            r"$\bullet$ La rama central sube hasta su máximo local:\\[3pt]"
-            r"\hspace*{1.2em}${\color{amgold}M\left(0, \frac{1}{4}\right)}$ y desciende a $-\infty$ en ambos lados.\\[5pt]"
-            r"$\bullet$ Ramas laterales caen desde $+\infty$ hacia $y = 1$.\\[5pt]"
-            r"$\bullet$ Región vacía intermedia: la curva jamás cruza $\left(\frac{1}{4}, 1\right]$.\\[5pt]"
-            r"$\bullet$ Unión formal de imágenes: ${\color{amgold}\operatorname{Ran}(f) = (-\infty, 1/4] \cup (1, +\infty)}$."
+            r"\textbf{6. Monotonía y Rango:}\\[6pt]"
+            r"$\bullet$ Derivada del cociente:\\[3pt]"
+            r"\hspace*{1.2em}$f'(x) = \frac{-6x}{(x^2 - 4)^2}$.\\[5pt]"
+            r"$\bullet$ El denominador al cuadrado es positivo; el signo de $f'$ es opuesto a $x$.\\[5pt]"
+            r"$\bullet$ En $x = 0$, $f'$ cambia de $+$ a $-$:\\[3pt]"
+            r"\hspace*{1.2em}${\color{amgold}M\left(0, \frac{1}{4}\right)}$ es un ${\color{amgold}\textbf{Máximo Local}}$.\\[5pt]"
+            r"$\bullet$ Rango con franja vacía en $\left(\frac{1}{4}, 1\right]$:\\[3pt]"
+            r"\hspace*{1.2em}${\color{amgold}\operatorname{Ran}(f) = (-\infty, 1/4] \cup (1, +\infty)}$."
             r"\end{minipage}",
             font_size=22.0,
             pos=[3.35, -0.45, 0]
         )
 
-        self.morph_step(eq6, just6, box_color=THEME["highlight"], advance_to_step=5, wait_time=4.1)
+        self.morph_step(eq6, just6, box_color=THEME["highlight"], advance_to_step=5, wait_time=3.3)
 
         # ==========================================================
-        # PASO 7: Gráfica Cartesiana y Verificación Visual
+        # PASO 7: Cuadro de Puntos Críticos y Notables
+        # ==========================================================
+        eq7 = MathTex(
+            r"\begin{aligned}"
+            r"&\textbf{7. Cuadro de Puntos Críticos y Notables:} \\[5pt]"
+            r"&\begin{array}{|c|c|c|l|}"
+            r"\hline"
+            r"\mathbf{x} & \mathbf{f(x)} & \mathbf{\text{Signo } f'} & \mathbf{\text{Rol y Comportamiento Gráfico}} \\ \hline"
+            r"-2 & \pm\infty & \nexists & \text{Asíntota Vertical } x = -2 \text{ (polo lateral)} \\"
+            r"-1 & 0 & f' > 0 & \text{Corte eje } X_1(-1, 0) \text{ (crece hacia } 1/4) \\"
+            r"0 & 1/4 & f' = 0 & \mathbf{\text{Máximo Local }} {\color{amgold}M(0, 1/4)} \text{ (cúspide central)} \\"
+            r"1 & 0 & f' < 0 & \text{Corte eje } X_2(1, 0) \text{ (decrece hacia } -\infty) \\"
+            r"2 & \pm\infty & \nexists & \text{Asíntota Vertical } x = 2 \text{ (polo lateral)} \\ \hline"
+            r"\end{array} \\[6pt]"
+            r"&\bullet \text{Rama izquierda } (-\infty, -2): \text{Sube de } 1 \text{ monótonamente hacia } +\infty. \\[3pt]"
+            r"&\bullet \text{Rama central } (-2, 2): \text{Campana invertida con máximo en } (0, 1/4). \\[3pt]"
+            r"&\bullet \text{Rama derecha } (2, +\infty): \text{Cae desde } +\infty \text{ monótonamente hacia } 1."
+            r"\end{aligned}",
+            font_size=20.0,
+            color=WHITE
+        ).move_to([-3.4, -0.45, 0])
+
+        just7 = self.create_justification(
+            r"\begin{minipage}{8.2cm}\raggedright "
+            r"\textbf{7. Síntesis Pre-Graficación:}\\[6pt]"
+            r"$\bullet$ La tabla resume ordenadamente los 5 hitos del análisis en la recta real.\\[5pt]"
+            r"$\bullet$ Detalla la alternancia de crecimiento ($f' > 0$) y decrecimiento ($f' < 0$).\\[5pt]"
+            r"$\bullet$ Confirma la simetría par bilateral respecto al eje vertical $y$.\\[5pt]"
+            r"$\bullet$ Establece los puntos de anclaje para el trazado cartesiano continuo."
+            r"\end{minipage}",
+            font_size=22.0,
+            pos=[3.35, -0.45, 0]
+        )
+
+        self.morph_step(eq7, just7, box_color=THEME["highlight"], advance_to_step=6, wait_time=3.7)
+
+        # ==========================================================
+        # PASO 8: Gráfica Cartesiana y Verificación Visual
         # ==========================================================
         left_summary = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{7. Resumen Formal de Resultados:} \\[4pt]"
+            r"&\textbf{8. Resumen Formal de Resultados:} \\[4pt]"
             r"&\bullet \mathbf{\operatorname{Dom}(f) = {\color{amgold}\mathbb{R} \setminus \{-2, 2\}}} \\[4pt]"
             r"&\bullet \mathbf{\operatorname{Ran}(f) = {\color{amgold}\left(-\infty, \frac{1}{4}\right] \cup (1, +\infty)}} \\[4pt]"
             r"&\bullet \mathbf{\text{Paridad: }} {\color{amteal}\text{Par }} (f(-x) = f(x)) \\[4pt]"
@@ -277,7 +319,7 @@ class EjercicioJh_04(AmarunExerciseScene):
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
-        box7 = SurroundingRectangle(left_summary, color=THEME["success"], buff=0.18, corner_radius=0.1)
+        box8 = SurroundingRectangle(left_summary, color=THEME["success"], buff=0.18, corner_radius=0.1)
 
         # Gráfico cartesiano de la función racional de 3 ramas
         axes, axes_labels = self.setup_axes(
@@ -348,21 +390,21 @@ class EjercicioJh_04(AmarunExerciseScene):
         dot_x2 = Dot(axes.c2p(1.0, 0.0), radius=0.065, color=THEME["secondary"])
         lbl_x2 = MathTex(r"(1, 0)", font_size=13.0, color=THEME["statement_text"]).next_to(dot_x2, UP + RIGHT, buff=0.08)
 
-        prog_anims = self.get_advance_progress_anims(6)
+        prog_anims = self.get_advance_progress_anims(7)
 
         self.play(
             FadeOut(self.active_math),
             FadeOut(self.active_just),
             FadeOut(self.active_box),
             FadeIn(left_summary),
-            Create(box7),
+            Create(box8),
             Create(axes),
             Write(axes_labels),
             Write(graph_title),
             *prog_anims,
             run_time=1.8
         )
-        self.active_box = box7
+        self.active_box = box8
         self.active_math = left_summary
         self.active_just = None
 
