@@ -68,12 +68,14 @@ class EjercicioJh_01(AmarunExerciseScene):
         ).move_to([-3.4, -0.45, 0])
 
         just1 = self.create_justification(
-            "1. Dominio y Concavidad:\n"
-            "• Toda función cuadrática está definida en ℝ.\n"
-            "• Coeficiente cuadrático: a = -1/2 < 0.\n"
-            "• Las ramas de la parábola abren hacia abajo.\n"
-            "• El vértice alcanzará la cota superior global\n"
-            "  (máximo absoluto de la función).",
+            r"\begin{minipage}{6.2cm}\raggedright "
+            r"\textbf{1. Dominio y Concavidad:}\\[5pt]"
+            r"$\bullet$ Toda función cuadrática está definida en $\mathbb{R}$.\\[4pt]"
+            r"$\bullet$ Coeficiente cuadrático: $a = -\frac{1}{2} < 0$.\\[4pt]"
+            r"$\bullet$ Las ramas de la parábola abren hacia abajo ($\cap$).\\[4pt]"
+            r"$\bullet$ El vértice alcanzará la cota superior global\\[2pt]"
+            r"\hspace*{1.2em}(máximo absoluto de la función)."
+            r"\end{minipage}",
             font_size=18.5,
             pos=[3.35, -0.45, 0]
         )
@@ -96,13 +98,15 @@ class EjercicioJh_01(AmarunExerciseScene):
         ).move_to([-3.4, -0.45, 0])
 
         just2 = self.create_justification(
-            "2. Vértice y Extremo:\n"
-            "• Eje de simetría: xv = -b / (2a).\n"
-            "• Obtenemos xv = 3/2 = 1.5.\n"
-            "• Evaluando en f(3/2):\n"
-            "  yv = -9/8 + 18/8 + 27/8 = 9/2 = 4.5.\n"
-            "• V(1.5, 4.5) es el vértice de la parábola.\n"
-            "• Constituye el máximo absoluto del rango.",
+            r"\begin{minipage}{6.2cm}\raggedright "
+            r"\textbf{2. Vértice y Extremo:}\\[5pt]"
+            r"$\bullet$ Eje de simetría: $x_v = -\frac{b}{2a}$.\\[4pt]"
+            r"$\bullet$ Obtenemos $x_v = \frac{3}{2} = 1.5$.\\[4pt]"
+            r"$\bullet$ Evaluando en $f\left(\frac{3}{2}\right)$:\\[2pt]"
+            r"\hspace*{1.2em}$y_v = -\frac{9}{8} + \frac{18}{8} + \frac{27}{8} = \frac{9}{2} = 4.5$.\\[4pt]"
+            r"$\bullet$ $V(1.5, 4.5)$ es el vértice de la parábola.\\[4pt]"
+            r"$\bullet$ Constituye el máximo absoluto del rango."
+            r"\end{minipage}",
             font_size=18.5,
             pos=[3.35, -0.45, 0]
         )
@@ -128,13 +132,15 @@ class EjercicioJh_01(AmarunExerciseScene):
         ).move_to([-3.4, -0.45, 0])
 
         just3 = self.create_justification(
-            "3. Puntos de Corte:\n"
-            "• Corte con eje y: f(0) = 27/8 = 3.375.\n"
-            "• Con el eje x: resolvemos f(x) = 0.\n"
-            "• Multiplicando por -8 para simplificar:\n"
-            "  4x² - 12x - 27 = 0.\n"
-            "• Factorización: (2x - 9)(2x + 3) = 0.\n"
-            "• Raíces en x = 4.5 y x = -1.5.",
+            r"\begin{minipage}{6.2cm}\raggedright "
+            r"\textbf{3. Puntos de Corte:}\\[5pt]"
+            r"$\bullet$ Corte con eje $y$: $f(0) = \frac{27}{8} = 3.375$.\\[4pt]"
+            r"$\bullet$ Con el eje $x$: resolvemos $f(x) = 0$.\\[4pt]"
+            r"$\bullet$ Multiplicando por $-8$ para simplificar:\\[2pt]"
+            r"\hspace*{1.2em}$4x^2 - 12x - 27 = 0$.\\[4pt]"
+            r"$\bullet$ Factorización: $(2x - 9)(2x + 3) = 0$.\\[4pt]"
+            r"$\bullet$ Raíces en $x = 4.5$ y $x = -1.5$."
+            r"\end{minipage}",
             font_size=18.5,
             pos=[3.35, -0.45, 0]
         )
@@ -160,12 +166,14 @@ class EjercicioJh_01(AmarunExerciseScene):
         ).move_to([-3.4, -0.45, 0])
 
         just4 = self.create_justification(
-            "4. Intervalos de Signo:\n"
-            "• Las raíces dividen la recta en 3 tramos.\n"
-            "• En (-∞, -1.5): dos factores negativos\n"
-            "  más el factor -1/2 dan producto negativo (-).\n"
-            "• En (-1.5, 4.5): el producto es positivo (+).\n"
-            "• En (4.5, +∞): vuelve a ser negativo (-).",
+            r"\begin{minipage}{6.2cm}\raggedright "
+            r"\textbf{4. Intervalos de Signo:}\\[5pt]"
+            r"$\bullet$ Las raíces dividen la recta en 3 tramos.\\[4pt]"
+            r"$\bullet$ En $(-\infty, -1.5)$: dos factores negativos\\[2pt]"
+            r"\hspace*{1.2em}más el factor $-\frac{1}{2}$ dan producto negativo ($-$).\\[4pt]"
+            r"$\bullet$ En $(-1.5, 4.5)$: el producto es positivo ($+$).\\[4pt]"
+            r"$\bullet$ En $(4.5, +\infty)$: vuelve a ser negativo ($-$).\\[2pt]"
+            r"\end{minipage}",
             font_size=18.5,
             pos=[3.35, -0.45, 0]
         )
@@ -190,13 +198,15 @@ class EjercicioJh_01(AmarunExerciseScene):
         ).move_to([-3.4, -0.45, 0])
 
         just5 = self.create_justification(
-            "5. Monotonía y Rango:\n"
-            "• La curva asciende desde -∞ hasta alcanzar\n"
-            "  la cima en x = 1.5 (crecimiento).\n"
-            "• A partir de x = 1.5, desciende hacia -∞.\n"
-            "• La imagen sobre el eje y cubre todos\n"
-            "  los valores hasta el máximo y = 4.5:\n"
-            "  Ran(f) = (-∞, 9/2].",
+            r"\begin{minipage}{6.2cm}\raggedright "
+            r"\textbf{5. Monotonía y Rango:}\\[5pt]"
+            r"$\bullet$ La curva asciende desde $-\infty$ hasta alcanzar\\[2pt]"
+            r"\hspace*{1.2em}la cima en $x = 1.5$ (crecimiento).\\[4pt]"
+            r"$\bullet$ A partir de $x = 1.5$, desciende hacia $-\infty$.\\[4pt]"
+            r"$\bullet$ La imagen sobre el eje $y$ cubre todos\\[2pt]"
+            r"\hspace*{1.2em}los valores hasta el máximo $y = 4.5$:\\[2pt]"
+            r"\hspace*{1.2em}$\operatorname{Ran}(f) = \left(-\infty, \frac{9}{2}\right]$."
+            r"\end{minipage}",
             font_size=18.5,
             pos=[3.35, -0.45, 0]
         )
@@ -233,7 +243,11 @@ class EjercicioJh_01(AmarunExerciseScene):
             numbers_font_size=17,
             labels_font_size=20
         )
-        graph_title = Text("Gráfica de f(x) = -1/2 x² + 3/2 x + 27/8", font_size=15.0, color=WHITE).move_to([3.15, 1.65, 0])
+        graph_title = Tex(
+            r"Gráfica de $f(x) = -\frac{1}{2}x^2 + \frac{3}{2}x + \frac{27}{8}$",
+            font_size=23.0,
+            color=WHITE
+        ).move_to([3.15, 1.65, 0])
 
         # Parábola
         parabola = axes.plot(

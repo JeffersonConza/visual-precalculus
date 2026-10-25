@@ -142,9 +142,16 @@ class AmarunExerciseScene(Scene):
         text_str: str,
         font_size: int = 16,
         pos: list = [3.1, 0.2, 0],
-        line_spacing: float = 1.35
-    ) -> Text:
-        """Crea el bloque de justificación a la derecha con formato uniforme."""
+        line_spacing: float = 1.35,
+        use_latex: bool = False
+    ) -> VMobject:
+        """Crea el bloque de justificación a la derecha con formato uniforme (soporta Tex para fórmulas)."""
+        if use_latex or text_str.strip().startswith(r"\begin{"):
+            return Tex(
+                text_str,
+                font_size=font_size,
+                color=THEME["statement_text"]
+            ).move_to(pos)
         return Text(
             text_str,
             font_size=font_size,
