@@ -60,17 +60,39 @@ class AmarunExerciseScene(Scene):
     def setup_statement(
         self,
         desc_text: str,
-        math_tex: str,
+        math_tex: str = "",
         read_time: float = 4.5,
-        math_font_size: int = 26,
-        desc_font_size: int = 18,
-        box_pos: np.ndarray = np.array([0.0, 2.5, 0.0])
+        math_font_size: int = 28,
+        desc_font_size: int = 20,
+        box_pos: np.ndarray = np.array([0.0, 2.5, 0.0]),
+        arrange_direction: np.ndarray = None,
+        buff: float = 0.22
     ) -> VGroup:
-        """Presenta el enunciado permanente en un recuadro rojo poncho en la parte superior."""
-        stmt_desc = Text(desc_text, font_size=desc_font_size, color=THEME["statement_text"])
-        stmt_math = MathTex(math_tex, font_size=math_font_size, color=THEME["highlight"])
-        stmt_content = VGroup(stmt_desc, stmt_math).arrange(RIGHT, buff=0.3)
+        """
+        Presenta el enunciado permanente en un recuadro rojo poncho en la parte superior.
+        Soporta disposición en una sola línea (RIGHT) o en múltiples líneas (DOWN)
+        para preservar un tamaño de fuente generoso y altamente legible en cualquier dispositivo.
+        """
+        stmt_desc = Text(desc_text, font_size=desc_font_size, color=THEME["statement_text"], line_spacing=1.2)
         
+        if math_tex:
+            stmt_math = MathTex(math_tex, font_size=math_font_size, color=THEME["highlight"])
+            
+            # Si no se especifica dirección, auto-detectar si en una línea excede el ancho seguro (11.6)
+            if arrange_direction is None:
+                test_group = VGroup(stmt_desc, stmt_math).arrange(RIGHT, buff=0.3)
+                if test_group.width > 11.6 or "\n" in desc_text:
+                    arrange_direction = DOWN
+                else:
+                    arrange_direction = RIGHT
+            
+            if np.array_equal(arrange_direction, DOWN):
+                stmt_content = VGroup(stmt_desc, stmt_math).arrange(DOWN, buff=buff)
+            else:
+                stmt_content = VGroup(stmt_desc, stmt_math).arrange(RIGHT, buff=buff)
+        else:
+            stmt_content = VGroup(stmt_desc)
+
         stmt_box = SurroundingRectangle(
             stmt_content,
             color=THEME["statement_box"],
