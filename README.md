@@ -94,6 +94,11 @@ visual-precalculus/
 │   └── __init__.py
 ├── docs/                               # Previews y material de documentación
 │   └── previews/                      # GIFs optimizados para README
+├── ejercicios_jhoselyn/                 # Serie de tutoría universitaria personalizada (Ejercicios 01 al 09)
+├── videos/                             # Videos finales compilados en alta resolución (1080p60)
+│   └── jhoselyn/                      # Masters en 1080p60 de la serie Jhoselyn
+├── EJERCICIOS_DOCS_JHOSELYN.md         # Compendio formal de ejercicios resueltos y de examen
+├── GUIA_EJERCICIOS_JHOSELYN.md         # Protocolo de examen, trampas frecuentes y plan de estudio
 ├── images/                             # Activos gráficos institucionales
 │   ├── Fondo_Poncho.jpg               # Muestra textil del poncho Yachay Tech
 │   └── logo_Amarun.jpg                # Isotipo oficial de Editorial Amarun
@@ -214,3 +219,26 @@ Consulta [TRACKING.md](TRACKING.md) para ver la lista completa de ejercicios par
 > **Comportamiento Gráfico:** Superposición cartesiana de $f(x) = x$ y $g(x) = x^3$ generando la curva más inclinada $(f+g)(x) = x + x^3$, evaluada en $x = 1$.
 
 ![Ejercicio 5.14](docs/previews/ej_05_14.gif)
+
+---
+
+## 🎓 Serie Especial: Tutoría Universitaria para Jhoselyn (Nivelación Yachay Tech)
+
+Serie de animaciones matemáticas en alta definición (**1080p60**) con duración pedagógica calibrada ($55-65\text{ s}$), tipografía legible garantizada ($\ge 21.0\text{ pt}$ en fórmulas) y maquetación de 8 pasos, basada en sus guías de estudio (`Grafica de funciones.pdf`, `2.6.pdf` y `2.5.pdf`):
+
+| Ejercicio | Guía / Tema | Función de Estudio | Código Manim | Video 1080p60 | Vista Previa |
+| :---: | :---: | :--- | :---: | :---: | :---: |
+| **Jh 01** | Quiz 4 | $f(x) = -\frac{1}{2}x^2 + \frac{3}{2}x + \frac{27}{8}$ | [`ej_jh_01.py`](ejercicios_jhoselyn/ej_jh_01.py) | [`EjercicioJh_01.mp4`](videos/jhoselyn/EjercicioJh_01.mp4) | [GIF](docs/previews/ej_jh_01.gif) |
+| **Jh 02** | Quiz 4 | $f(x) = \frac{1}{2}x^3 - \frac{3}{2}x$ | [`ej_jh_02.py`](ejercicios_jhoselyn/ej_jh_02.py) | [`EjercicioJh_02.mp4`](videos/jhoselyn/EjercicioJh_02.mp4) | [GIF](docs/previews/ej_jh_02.gif) |
+| **Jh 03** | Quiz 4 | $f(x) = \frac{1}{4}x^4 - \frac{3}{2}x^2 + \frac{5}{4}$ | [`ej_jh_03.py`](ejercicios_jhoselyn/ej_jh_03.py) | [`EjercicioJh_03.mp4`](videos/jhoselyn/EjercicioJh_03.mp4) | [GIF](docs/previews/ej_jh_03.gif) |
+| **Jh 04** | Quiz 4 | $f(x) = \frac{x^2 - 1}{x^2 - 4}$ | [`ej_jh_04.py`](ejercicios_jhoselyn/ej_jh_04.py) | [`EjercicioJh_04.mp4`](videos/jhoselyn/EjercicioJh_04.mp4) | [GIF](docs/previews/ej_jh_04.gif) |
+| **Jh 05** | Quiz 4 | $f(x) = \frac{x^3 - 4x}{x^2 - 1}$ | [`ej_jh_05.py`](ejercicios_jhoselyn/ej_jh_05.py) | [`EjercicioJh_05.mp4`](videos/jhoselyn/EjercicioJh_05.mp4) | [GIF](docs/previews/ej_jh_05.gif) |
+| **Jh 06** | Quiz 4 | $f(x) = \frac{x^2 - 9}{x^2 - 1}$ | [`ej_jh_06.py`](ejercicios_jhoselyn/ej_jh_06.py) | [`EjercicioJh_06.mp4`](videos/jhoselyn/EjercicioJh_06.mp4) | [GIF](docs/previews/ej_jh_06.gif) |
+| **Jh 07** | Quiz 4 | $f(x) = \sqrt{\frac{x^2 - 1}{x^2 - 4}}$ | [`ej_jh_07.py`](ejercicios_jhoselyn/ej_jh_07.py) | [`EjercicioJh_07.mp4`](videos/jhoselyn/EjercicioJh_07.mp4) | [GIF](docs/previews/ej_jh_07.gif) |
+| **Jh 08** | Guía 2.6 | $f: [0, \infty) \to [1, \infty), \; f(x) = x^2 + 1$ | [`ej_jh_08.py`](ejercicios_jhoselyn/ej_jh_08.py) | [`EjercicioJh_08.mp4`](videos/jhoselyn/EjercicioJh_08.mp4) | [GIF](docs/previews/ej_jh_08.gif) |
+| **Jh 09** | Guía 2.5 | $g(x) = -\frac{3}{2}(2x + 4)^2 + 5$ | [`ej_jh_09.py`](ejercicios_jhoselyn/ej_jh_09.py) | [`EjercicioJh_09.mp4`](videos/jhoselyn/EjercicioJh_09.mp4) | [GIF](docs/previews/ej_jh_09.gif) |
+
+### Muestra Destacada: Transformaciones Cuadráticas Canónicas (Ejercicio Jh 09)
+> **Tema:** Factorización de argumento $2(x+2)$, forma canónica $g(x) = -6(x+2)^2 + 5$, vértice $V(-2, 5)$ y gráfica cartesiana dual.
+
+![Ejercicio Jh 09](docs/previews/ej_jh_09.gif)

@@ -164,9 +164,27 @@ Una transformación de $f(x) = |x|$ tiene vértice en $(-3, 4)$ y pasa por $(-1,
 
 ---
 
-## 🎥 Videos Animados Recomendados del Repositorio
+## 🎥 Videos Animados Dedicados para Jhoselyn (Full HD 1080p60)
 
-Todos estos videos ya están renderizados y listos en tu carpeta [`videos_compilados/capitulo_05/`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos_compilados/capitulo_05) para compartirle:
+Esta colección de animaciones ha sido desarrollada a medida, siguiendo estrictamente los ejercicios de sus guías de clase y cumpliendo con el estándar pedagógico y tipográfico de alta legibilidad:
+
+| Video | Guía de Origen | Ejercicio y Función | Enfoque Pedagógico | Vista Previa |
+| :--- | :---: | :--- | :--- | :---: |
+| [`EjercicioJh_01.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_01.mp4) | **Quiz 4** | $f(x) = -\frac{1}{2}x^2 + \frac{3}{2}x + \frac{27}{8}$ | Protocolo de 7 pasos, vértice $V(1.5, 4.5)$, cortes y parábola completa. | [Ver GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_01.gif) |
+| [`EjercicioJh_02.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_02.mp4) | **Quiz 4** | $f(x) = \frac{1}{2}x^3 - \frac{3}{2}x$ | Polinomio cúbico impar, simetría central al origen y monotonía. | [Ver GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_02.gif) |
+| [`EjercicioJh_03.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_03.mp4) | **Quiz 4** | $f(x) = \frac{1}{4}x^4 - \frac{3}{2}x^2 + \frac{5}{4}$ | Polinomio bicuadrático par, simetría axial y 2 mínimos absolutos. | [Ver GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_03.gif) |
+| [`EjercicioJh_04.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_04.mp4) | **Quiz 4** | $f(x) = \frac{x^2 - 1}{x^2 - 4}$ | **Ejercicio Estrella de Quiz**: Racional de 3 ramas, asíntotas $x=\pm 2$, $y=1$ y tabla de signos. | [Ver GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_04.gif) |
+| [`EjercicioJh_05.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_05.mp4) | **Quiz 4** | $f(x) = \frac{x^3 - 4x}{x^2 - 1}$ | División polinomial, asíntota oblicua $y = x$, simetría impar y 3 ramas. | [Ver GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_05.gif) |
+| [`EjercicioJh_06.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_06.mp4) | **Quiz 4** | $f(x) = \frac{x^2 - 9}{x^2 - 1}$ | Racional simétrica con mínimo en $(0, 9)$ y determinación estricta de rango. | [Ver GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_06.gif) |
+| [`EjercicioJh_07.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_07.mp4) | **Quiz 4** | $f(x) = \sqrt{\frac{x^2 - 1}{x^2 - 4}}$ | Restricción del radical par, dominio discontinuo y asíntotas en semirrectas. | [Ver GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_07.gif) |
+| [`EjercicioJh_08.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_08.mp4) | **Guía 2.6** | $f: [0, \infty) \to [1, \infty), \; f(x) = x^2 + 1$ | Demostración formal de biyectividad, cálculo de $f^{-1}(x) = \sqrt{x-1}$ y simetría $y = x$. | [Ver GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_08.gif) |
+| [`EjercicioJh_09.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_09.mp4) | **Guía 2.5** | $g(x) = -\frac{3}{2}(2x + 4)^2 + 5$ | Factorización $2(x+2)$, forma canónica $-6(x+2)^2 + 5$, vértice $V(-2, 5)$ y 4 transformaciones. | [Ver GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_09.gif) |
+
+---
+
+### 🎥 Videos Complementarios del Repositorio Central
+
+Adicionalmente, los siguientes videos en [`videos_compilados/capitulo_05/`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos_compilados/capitulo_05) ofrecen sustento teórico adicional:
 
 | Archivo de Video | Tema que Refuerza | Para qué Guía sirve |
 | :--- | :--- | :---: |
@@ -183,6 +201,6 @@ Todos estos videos ya están renderizados y listos en tu carpeta [`videos_compil
 ---
 
 ### 📅 Plan Sugerido de 3 Días para Salvar el Quiz 4
-* **Día 1:** Repasar el *Ejercicio Clave 1* de esta guía y ver los videos `Ejercicio05_10.mp4` y `Ejercicio05_54.mp4`. Resolver 2 ejercicios de inyectividad de la Guía 2.6.
-* **Día 2:** Repasar las transformaciones de la Guía 2.5 (reconstrucción de $g(x) = a|x-h|+k$) y ver `Ejercicio05_62.mp4`.
-* **Día 3:** Hacer simulacro del Quiz 4 con la función racional $f(x) = \frac{x^2 - 1}{x^2 - 4}$ ejecutando los 7 pasos sin ver la respuesta. Contrastar con el video `Ejercicio05_60.mp4`.
+* **Día 1 (Graficación y Racionales):** Repasar el protocolo de 7 pasos con los videos [`EjercicioJh_04.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_04.mp4) y [`EjercicioJh_05.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_05.mp4). Resolver por cuenta propia la función racional $f(x) = \frac{x^2 - 1}{x^2 - 4}$.
+* **Día 2 (Inyectividad e Inversa):** Estudiar la demostración por definición con [`EjercicioJh_08.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_08.mp4) y [`Ejercicio05_54.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos_compilados/capitulo_05/Ejercicio05_54.mp4). Practicar la trampa de valor absoluto $|x - h| = \sqrt{y - k}$.
+* **Día 3 (Transformaciones y Simulacro Completo):** Visualizar [`EjercicioJh_09.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_09.mp4) para dominar la factorización del argumento y la forma canónica. Realizar un simulacro cronometrado del Quiz 4 y contrastar con [`EjercicioJh_06.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_06.mp4) y [`EjercicioJh_07.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_07.mp4).

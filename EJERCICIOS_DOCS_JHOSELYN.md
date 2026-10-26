@@ -5,7 +5,8 @@
 ---
 
 ## 📑 Índice de Contenidos
-1. [PARTE 1: Guía de Graficación y Análisis Completo (Preparación para Quiz 4)](#parte-1-guía-de-graficación-y-análisis-completo-preparación-para-quiz-4)
+1. [🎬 Directorio de Animaciones Manim Renderizadas (Full HD 1080p60)](#-directorio-de-animaciones-manim-renderizadas-full-hd-1080p60)
+2. [PARTE 1: Guía de Graficación y Análisis Completo (Preparación para Quiz 4)](#parte-1-guía-de-graficación-y-análisis-completo-preparación-para-quiz-4)
    - Ejercicio 1: Parábola Cuadrática Completa
    - Ejercicio 2: Polinomio Cúbico Impar
    - Ejercicio 3: Polinomio Bicuadrático Par (Grado 4)
@@ -13,11 +14,29 @@
    - Ejercicio 5: Función Racional de 3 Ramas con Asíntota Oblicua
    - Ejercicio 6: Función Racional con Rango Determinado por Extremos
    - Ejercicio 7: Función con Raíz Cuadrada y 3 Ramas
-2. [PARTE 2: Guía 2.6: Inyectividad, Sobreyectividad y Biyectividad](#parte-2-guía-26-inyectividad-sobreyectividad-y-biyectividad)
+3. [PARTE 2: Guía 2.6: Inyectividad, Sobreyectividad y Biyectividad](#parte-2-guía-26-inyectividad-sobreyectividad-y-biyectividad)
    - Ejercicios 1 a 12 de Clase Resueltos con Justificación Formal
-3. [PARTE 3: Guía 2.5: Transformaciones de Funciones](#parte-3-guía-25-transformaciones-de-funciones)
+4. [PARTE 3: Guía 2.5: Transformaciones de Funciones](#parte-3-guía-25-transformaciones-de-funciones)
    - Ejercicios 1 a 8 de Transformaciones y Reconstrucción Canónica
-4. [PARTE 4: Banco de Práctica Rápida para Jhoselyn](#parte-4-banco-de-práctica-rápida-para-jhoselyn)
+5. [PARTE 4: Banco de Práctica Rápida para Jhoselyn](#parte-4-banco-de-práctica-rápida-para-jhoselyn)
+
+---
+
+## 🎬 Directorio de Animaciones Manim Renderizadas (Full HD 1080p60)
+
+Todos los videos cuentan con el estándar tipográfico de alta legibilidad (piso mínimo $\ge 21.0\text{ pt}$ en ecuaciones, $28.0\text{ pt}$ en enunciado), duración optimizada ($55-65\text{ s}$) y gráfica cartesiana final:
+
+| Ejercicio | Origen | Función / Problema | Código Python | Video 1080p60 | Vista Previa |
+| :---: | :---: | :--- | :---: | :---: | :---: |
+| **01** | Quiz 4 | $f(x) = -\frac{1}{2}x^2 + \frac{3}{2}x + \frac{27}{8}$ | [`ej_jh_01.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_01.py) | [`EjercicioJh_01.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_01.mp4) | [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_01.gif) |
+| **02** | Quiz 4 | $f(x) = \frac{1}{2}x^3 - \frac{3}{2}x$ | [`ej_jh_02.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_02.py) | [`EjercicioJh_02.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_02.mp4) | [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_02.gif) |
+| **03** | Quiz 4 | $f(x) = \frac{1}{4}x^4 - \frac{3}{2}x^2 + \frac{5}{4}$ | [`ej_jh_03.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_03.py) | [`EjercicioJh_03.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_03.mp4) | [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_03.gif) |
+| **04** | Quiz 4 | $f(x) = \frac{x^2 - 1}{x^2 - 4}$ | [`ej_jh_04.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_04.py) | [`EjercicioJh_04.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_04.mp4) | [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_04.gif) |
+| **05** | Quiz 4 | $f(x) = \frac{x^3 - 4x}{x^2 - 1}$ | [`ej_jh_05.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_05.py) | [`EjercicioJh_05.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_05.mp4) | [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_05.gif) |
+| **06** | Quiz 4 | $f(x) = \frac{x^2 - 9}{x^2 - 1}$ | [`ej_jh_06.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_06.py) | [`EjercicioJh_06.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_06.mp4) | [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_06.gif) |
+| **07** | Quiz 4 | $f(x) = \sqrt{\frac{x^2 - 1}{x^2 - 4}}$ | [`ej_jh_07.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_07.py) | [`EjercicioJh_07.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_07.mp4) | [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_07.gif) |
+| **08** | Guía 2.6 | $f: [0, \infty) \to [1, \infty), \; f(x) = x^2 + 1$ | [`ej_jh_08.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_08.py) | [`EjercicioJh_08.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_08.mp4) | [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_08.gif) |
+| **09** | Guía 2.5 | $g(x) = -\frac{3}{2}(2x + 4)^2 + 5$ | [`ej_jh_09.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_09.py) | [`EjercicioJh_09.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_09.mp4) | [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_09.gif) |
 
 ---
 
@@ -26,6 +45,8 @@
 ---
 
 ### 📌 Ejercicio 1 (Guía Quiz 4 — Pág. 6)
+> 🎬 **Animación 1080p60:** [`EjercicioJh_01.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_01.mp4) · **Código:** [`ej_jh_01.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_01.py) · **Vista Previa:** [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_01.gif)
+
 **Enunciado:** Analice completamente y grafique:
 $$f(x) = -\frac{1}{2}x^2 + \frac{3}{2}x + \frac{27}{8}$$
 
@@ -49,6 +70,8 @@ $$f(x) = -\frac{1}{2}x^2 + \frac{3}{2}x + \frac{27}{8}$$
 ---
 
 ### 📌 Ejercicio 2 (Guía Quiz 4 — Pág. 8)
+> 🎬 **Animación 1080p60:** [`EjercicioJh_02.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_02.mp4) · **Código:** [`ej_jh_02.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_02.py) · **Vista Previa:** [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_02.gif)
+
 **Enunciado:** Analice y grafique:
 $$f(x) = \frac{1}{2}x^3 - \frac{3}{2}x$$
 *(Datos dados: Máximo local en $(-1, 1)$, Mínimo local en $(1, -1)$).*
@@ -73,6 +96,8 @@ $$f(x) = \frac{1}{2}x^3 - \frac{3}{2}x$$
 ---
 
 ### 📌 Ejercicio 3 (Guía Quiz 4 — Pág. 10)
+> 🎬 **Animación 1080p60:** [`EjercicioJh_03.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_03.mp4) · **Código:** [`ej_jh_03.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_03.py) · **Vista Previa:** [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_03.gif)
+
 **Enunciado:** Analice y grafique el polinomio bicuadrático:
 $$f(x) = \frac{1}{4}x^4 - \frac{3}{2}x^2 + \frac{5}{4}$$
 *(Datos dados: Máximo local en $\left(0, \frac{5}{4}\right)$, Mínimos absolutos en $(-\sqrt{3}, -1)$ y $(\sqrt{3}, -1)$).*
@@ -94,6 +119,8 @@ $$f(x) = \frac{1}{4}x^4 - \frac{3}{2}x^2 + \frac{5}{4}$$
 ---
 
 ### 📌 Ejercicio 4 (Guía Quiz 4 — Pág. 12 — ¡EJERCICIO ESTRELLA DE QUIZ!)
+> 🎬 **Animación 1080p60:** [`EjercicioJh_04.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_04.mp4) · **Código:** [`ej_jh_04.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_04.py) · **Vista Previa:** [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_04.gif)
+
 **Enunciado:** Analice y grafique la función racional de 3 ramas:
 $$f(x) = \frac{x^2 - 1}{x^2 - 4}$$
 *(Dato dado: la rama central tiene un máximo local en $\left(0, \frac{1}{4}\right)$).*
@@ -123,6 +150,8 @@ $$f(x) = \frac{x^2 - 1}{x^2 - 4}$$
 ---
 
 ### 📌 Ejercicio 5 (Guía Quiz 4 — Pág. 14 — Asíntota Oblicua)
+> 🎬 **Animación 1080p60:** [`EjercicioJh_05.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_05.mp4) · **Código:** [`ej_jh_05.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_05.py) · **Vista Previa:** [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_05.gif)
+
 **Enunciado:** Analice y grafique:
 $$f(x) = \frac{x^3 - 4x}{x^2 - 1}$$
 *(Dato dado: la función es monótona creciente en cada intervalo de su dominio).*
@@ -143,6 +172,8 @@ $$f(x) = \frac{x^3 - 4x}{x^2 - 1}$$
 ---
 
 ### 📌 Ejercicio 6 (Guía Quiz 4 — Pág. 16)
+> 🎬 **Animación 1080p60:** [`EjercicioJh_06.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_06.mp4) · **Código:** [`ej_jh_06.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_06.py) · **Vista Previa:** [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_06.gif)
+
 **Enunciado:** Analice y grafique:
 $$f(x) = \frac{x^2 - 9}{x^2 - 1}$$
 *(Dato dado: la rama central tiene un mínimo absoluto en $(0, 9)$).*
@@ -157,6 +188,8 @@ $$f(x) = \frac{x^2 - 9}{x^2 - 1}$$
 ---
 
 ### 📌 Ejercicio 7 (Guía Quiz 4 — Pág. 18 — Función con Radical)
+> 🎬 **Animación 1080p60:** [`EjercicioJh_07.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_07.mp4) · **Código:** [`ej_jh_07.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_07.py) · **Vista Previa:** [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_07.gif)
+
 **Enunciado:** Analice y grafique:
 $$f(x) = \sqrt{\frac{x^2 - 1}{x^2 - 4}}$$
 *(Dato dado: la rama central tiene un máximo en $\left(0, \frac{1}{2}\right)$).*
@@ -202,6 +235,8 @@ $$f(x) = \sqrt{\frac{x^2 - 1}{x^2 - 4}}$$
 ---
 
 ### 📌 Ejercicio 4 (Guía 2.6 — Pág. 15 — Parábola Biyectiva e Inversa)
+> 🎬 **Animación 1080p60:** [`EjercicioJh_08.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_08.mp4) · **Código:** [`ej_jh_08.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_08.py) · **Vista Previa:** [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_08.gif)
+
 **Enunciado:** Considere $f: [0, +\infty[ \to [1, +\infty[$, con $f(x) = x^2 + 1$. Determine si es biyectiva y halle $f^{-1}$.
 * **Inyectividad:** Sean $x_1, x_2 \in [0, +\infty[$ con $f(x_1) = f(x_2)$:
   $$x_1^2 + 1 = x_2^2 + 1 \implies x_1^2 = x_2^2 \implies |x_1| = |x_2|$$
@@ -259,6 +294,8 @@ $$\mathbf{f^{-1}(x) = \frac{x + 3}{x - 2}, \qquad \operatorname{Dom}(f^{-1}) = \
 ---
 
 ### 📌 Ejercicio 1 (Guía 2.5 — Pág. 1)
+> 🎬 **Animación 1080p60:** [`EjercicioJh_09.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_09.mp4) · **Código:** [`ej_jh_09.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_09.py) · **Vista Previa:** [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_09.gif)
+
 **Enunciado:** A partir de $f(x) = x^2$, determine las transformaciones para obtener:
 $$g(x) = -\frac{3}{2}(2x + 4)^2 + 5$$
 Exprese en la forma $a(x - h)^2 + k$ y determine su vértice.
