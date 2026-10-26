@@ -179,28 +179,29 @@ Esta colección de animaciones ha sido desarrollada a medida, siguiendo estricta
 | [`EjercicioJh_07.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_07.mp4) | **Quiz 4** | $f(x) = \sqrt{\frac{x^2 - 1}{x^2 - 4}}$ | Restricción del radical par, dominio discontinuo y asíntotas en semirrectas. | [Ver GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_07.gif) |
 | [`EjercicioJh_08.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_08.mp4) | **Guía 2.6** | $f: [0, \infty) \to [1, \infty), \; f(x) = x^2 + 1$ | Demostración formal de biyectividad, cálculo de $f^{-1}(x) = \sqrt{x-1}$ y simetría $y = x$. | [Ver GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_08.gif) |
 | [`EjercicioJh_09.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_09.mp4) | **Guía 2.5** | $g(x) = -\frac{3}{2}(2x + 4)^2 + 5$ | Factorización $2(x+2)$, forma canónica $-6(x+2)^2 + 5$, vértice $V(-2, 5)$ y 4 transformaciones. | [Ver GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_09.gif) |
+| [`EjercicioJh_10.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_10.mp4) | **Guía 2.5** | $g(x) = -2f(x - 3) + 4$ vs $h(x) = f(-2(x - 3)) + 4$ | Comparación deductiva de operadores exteriores vs interiores, reflexión $X$ vs $Y$ y prototipo $f=\sqrt{x}$. | [Ver GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_10.gif) |
 
 ---
 
 ### 🎥 Videos Complementarios del Repositorio Central
 
-Adicionalmente, los siguientes videos en [`videos_compilados/capitulo_05/`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos_compilados/capitulo_05) ofrecen sustento teórico adicional:
+Adicionalmente, los siguientes videos en [`videos/capitulo_05/`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/capitulo_05) ofrecen sustento teórico adicional:
 
 | Archivo de Video | Tema que Refuerza | Para qué Guía sirve |
 | :--- | :--- | :---: |
-| [`Ejercicio05_60.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos_compilados/capitulo_05/Ejercicio05_60.mp4) | Análisis completo de 4 funciones reales (dominio, rango, sobreyectividad, monotonía y gráfica) | **Quiz 4** |
-| [`Ejercicio05_58.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos_compilados/capitulo_05/Ejercicio05_58.mp4) | Función racional homográfica, asíntotas e hipérbola equilátera | **Quiz 4** |
-| [`Ejercicio05_70.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos_compilados/capitulo_05/Ejercicio05_70.mp4) | Dominio estricto, tabla de signos por factores y asíntotas verticales | **Quiz 4** |
-| [`Ejercicio05_10.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos_compilados/capitulo_05/Ejercicio05_10.mp4) | Demostración formal de inyectividad y prueba de la recta horizontal | **Guía 2.6** |
-| [`Ejercicio05_16.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos_compilados/capitulo_05/Ejercicio05_16.mp4) | Monotonía estricta como garantía analítica de inyectividad | **Guía 2.6** |
-| [`Ejercicio05_54.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos_compilados/capitulo_05/Ejercicio05_54.mp4) | Redefinición biyectiva y cálculo paso a paso de la función inversa | **Guía 2.6** |
-| [`Ejercicio05_62.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos_compilados/capitulo_05/Ejercicio05_62.mp4) | Inversa de función acotada y demostración de simetría respecto a $y = x$ | **Guía 2.6** |
-| [`Ejercicio05_64.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos_compilados/capitulo_05/Ejercicio05_64.mp4) | Biyectividad e inversa en intervalo cerrado acotado $[3, 5]$ | **Guía 2.6** |
-| [`Ejercicio05_50.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos_compilados/capitulo_05/Ejercicio05_50.mp4) | Paridad, imparidad y condiciones de simetría | **Guía 2.5 / Quiz 4** |
+| [`Ejercicio05_60.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/capitulo_05/Ejercicio05_60.mp4) | Análisis completo de 4 funciones reales (dominio, rango, sobreyectividad, monotonía y gráfica) | **Quiz 4** |
+| [`Ejercicio05_58.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/capitulo_05/Ejercicio05_58.mp4) | Función racional homográfica, asíntotas e hipérbola equilátera | **Quiz 4** |
+| [`Ejercicio05_70.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/capitulo_05/Ejercicio05_70.mp4) | Dominio estricto, tabla de signos por factores y asíntotas verticales | **Quiz 4** |
+| [`Ejercicio05_10.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/capitulo_05/Ejercicio05_10.mp4) | Demostración formal de inyectividad y prueba de la recta horizontal | **Guía 2.6** |
+| [`Ejercicio05_16.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/capitulo_05/Ejercicio05_16.mp4) | Monotonía estricta como garantía analítica de inyectividad | **Guía 2.6** |
+| [`Ejercicio05_54.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/capitulo_05/Ejercicio05_54.mp4) | Redefinición biyectiva y cálculo paso a paso de la función inversa | **Guía 2.6** |
+| [`Ejercicio05_62.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/capitulo_05/Ejercicio05_62.mp4) | Inversa de función acotada y demostración de simetría respecto a $y = x$ | **Guía 2.6** |
+| [`Ejercicio05_64.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/capitulo_05/Ejercicio05_64.mp4) | Biyectividad e inversa en intervalo cerrado acotado $[3, 5]$ | **Guía 2.6** |
+| [`Ejercicio05_50.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/capitulo_05/Ejercicio05_50.mp4) | Paridad, imparidad y condiciones de simetría | **Guía 2.5 / Quiz 4** |
 
 ---
 
 ### 📅 Plan Sugerido de 3 Días para Salvar el Quiz 4
 * **Día 1 (Graficación y Racionales):** Repasar el protocolo de 7 pasos con los videos [`EjercicioJh_04.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_04.mp4) y [`EjercicioJh_05.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_05.mp4). Resolver por cuenta propia la función racional $f(x) = \frac{x^2 - 1}{x^2 - 4}$.
-* **Día 2 (Inyectividad e Inversa):** Estudiar la demostración por definición con [`EjercicioJh_08.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_08.mp4) y [`Ejercicio05_54.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos_compilados/capitulo_05/Ejercicio05_54.mp4). Practicar la trampa de valor absoluto $|x - h| = \sqrt{y - k}$.
+* **Día 2 (Inyectividad e Inversa):** Estudiar la demostración por definición con [`EjercicioJh_08.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_08.mp4) y [`Ejercicio05_54.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/capitulo_05/Ejercicio05_54.mp4). Practicar la trampa de valor absoluto $|x - h| = \sqrt{y - k}$.
 * **Día 3 (Transformaciones y Simulacro Completo):** Visualizar [`EjercicioJh_09.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_09.mp4) para dominar la factorización del argumento y la forma canónica. Realizar un simulacro cronometrado del Quiz 4 y contrastar con [`EjercicioJh_06.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_06.mp4) y [`EjercicioJh_07.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_07.mp4).

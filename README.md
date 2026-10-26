@@ -10,10 +10,16 @@ El objetivo de este repositorio es resolver y visualizar los **ejercicios pares*
 
 Las animaciones siguen un estándar pedagógico y estético unificado mediante la clase base [`AmarunExerciseScene`](common/base_scene.py):
 
-* **Enunciado Permanente:** Fijado en la parte superior en un recuadro institucional rojo poncho (`#a32f30`), visible durante todo el video sin desaparecer.
+* **Enunciado Permanente y Legibilidad en Dos Líneas (`arrange_direction=DOWN`):** Fijado en la parte superior en un recuadro institucional rojo poncho (`#a32f30`), visible durante todo el video. Cuando el enunciado es extenso, la arquitectura lo distribuye automáticamente en dos líneas verticales (descripción arriba y expresión matemática abajo), garantizando que las fuentes nunca se compriman ni se reduzcan indebidamente.
+* **Estándar Tipográfico de Alta Visibilidad:**
+  * **Texto descriptivo de enunciado:** $\ge 20.0\text{ pt}$ (o $28.0\text{ pt}$ en enunciados directos).
+  * **Expresiones matemáticas de enunciado:** $25.0 - 30.0\text{ pt}$.
+  * **Panel izquierdo (mutación algebraica):** $\ge 24.5 - 25.0\text{ pt}$.
+  * **Panel derecho (justificaciones teóricas con `minipage`):** $\ge 22.5\text{ pt}$.
+  * **Gráfica cartesiana:** Números de ejes a $15.0\text{ pt}$, nombres de ejes a $21.0\text{ pt}$ y etiquetas de curvas a $\ge 18.0\text{ pt}$.
 * **Metamorfosis Algebraica (Estilo 3Blue1Brown):** En el panel izquierdo, las expresiones matemáticas mutan directamente en su lugar (`ReplacementTransform`), mientras el panel derecho actualiza la justificación teórica paso a paso.
 * **Tachado Explícito:** Al simplificar factores fraccionarios, se trazan líneas diagonales en rojo poncho sobre los términos cancelados, con pausas de asimilación antes de la reducción.
-* **Estructura Pedagógica (Preferencia de ~6 Pasos):** De preferencia, se procura estructurar la resolución en torno a un desglose de 6 etapas progresivas bien delimitadas, adaptándose con flexibilidad según la naturaleza y complejidad del problema sin forzar pasos artificiales ni omitir justificaciones deductivas.
+* **Estructura Pedagógica (Preferencia de ~6 a 8 Pasos):** Desglose estructurado de etapas progresivas bien delimitadas, adaptándose con flexibilidad según la naturaleza del problema sin forzar pasos artificiales ni omitir justificaciones deductivas.
 * **Barra de Progreso Interactiva:** En la parte inferior ($y = -3.55$), una línea con nodos dinámicos indica la etapa activa (amarillo inca), las etapas superadas (verde andino) y el rótulo de la fase actual.
 * **Interpretación Gráfica Cartesiana:** Cada ejercicio concluye con la visualización de la curva en el plano cartesiano, destacando puntos abiertos (discontinuidades evitables), asíntotas, vértices y cortes con los ejes.
 * **Paleta Andina Institucional ([common/styles.py](common/styles.py)):**
@@ -39,25 +45,40 @@ Manim permite compilar cualquier ejercicio en 5 niveles de resolución y tasa de
 
 ### ⚡ Automatización con `render.py` (Recomendado)
 
-El repositorio incluye un script CLI inteligente (`render.py`) que detecta automáticamente los ejercicios, ejecuta Manim en la resolución deseada y genera de forma inmediata la vista previa GIF optimizada:
+El repositorio incluye un script CLI inteligente (`render.py`) que detecta automáticamente todos los ejercicios del repositorio (Capítulos 5 y 6, y la serie personalizada de Jhoselyn), compila con Manim en la resolución deseada y genera de forma inmediata la vista previa GIF optimizada:
 
 ```bash
 # 1. Previsualización rápida (480p15 + GIF automático):
 python render.py 5.2
-python render.py 5.4
+python render.py 6.2
+python render.py jh.1
 
 # 2. Renderizado en Alta Calidad (Full HD 1080p a 60 fps):
 python render.py 5.2 --high
+python render.py 6.4 --high
+python render.py jh.9 --high
 
 # 3. Renderizado en Máxima Calidad (4K Ultra HD a 60 fps):
 python render.py 5.4 --4k
 
-# 4. Listar todos los ejercicios disponibles y su estado:
+# 4. Listar los 51 ejercicios disponibles y su estado de render/GIF:
 python render.py --list
 
-# 5. Renderizar todos los ejercicios en bloque:
+# 5. Renderizar todos los ejercicios en bloque (batch):
 python render.py all --low
 ```
+
+### 📁 Organización y Exportación de Videos (`organizar_videos.py`)
+
+Para mantener el directorio limpio y estructurado sin depender de los directorios internos de Manim (`media/`), el script `organizar_videos.py` escanea y sincroniza automáticamente las versiones en mayor resolución hacia la carpeta raíz `videos/`:
+
+```bash
+python organizar_videos.py
+```
+Estructura resultante de distribución:
+* `videos/capitulo_05/`: 39 videos Full HD 1080p60 / 4K.
+* `videos/capitulo_06/`: 3 videos Full HD 1080p60.
+* `videos/jhoselyn/`: 9 videos Full HD 1080p60.
 
 ### Comandos Manuales de Manim
 
@@ -93,46 +114,40 @@ visual-precalculus/
 │   ├── styles.py                      # Paleta de colores andina e identitaria
 │   └── __init__.py
 ├── docs/                               # Previews y material de documentación
-│   └── previews/                      # GIFs optimizados para README
+│   └── previews/                      # GIFs optimizados para README (51 previews)
 ├── ejercicios_jhoselyn/                 # Serie de tutoría universitaria personalizada (Ejercicios 01 al 09)
+│   ├── ej_jh_01.py                    # Ejercicio Jh 01 (Parábola cuadrática completa)
+│   ├── ej_jh_02.py                    # Ejercicio Jh 02 (Polinomio cúbico impar)
+│   ├── ...
+│   └── ej_jh_09.py                    # Ejercicio Jh 09 (Transformaciones canónicas)
 ├── videos/                             # Videos finales compilados en alta resolución (1080p60)
-│   └── jhoselyn/                      # Masters en 1080p60 de la serie Jhoselyn
+│   ├── capitulo_05/                   # 39 videos finales del Capítulo 5
+│   ├── capitulo_06/                   # 3 videos finales del Capítulo 6
+│   └── jhoselyn/                      # 9 videos finales de la serie Jhoselyn
 ├── EJERCICIOS_DOCS_JHOSELYN.md         # Compendio formal de ejercicios resueltos y de examen
 ├── GUIA_EJERCICIOS_JHOSELYN.md         # Protocolo de examen, trampas frecuentes y plan de estudio
 ├── images/                             # Activos gráficos institucionales
 │   ├── Fondo_Poncho.jpg               # Muestra textil del poncho Yachay Tech
 │   └── logo_Amarun.jpg                # Isotipo oficial de Editorial Amarun
 ├── libro2_precalculo/                 # Libro 2: Precálculo 2
-│   ├── cap05_funciones_reales/        # Capítulo 5: Funciones reales
+│   ├── cap05_funciones_reales/        # Capítulo 5: Funciones reales (39 ejercicios)
 │   │   ├── ej_05_02.py                # Ejercicio 5.2 (RMD, dominio y gráfico)
-│   │   ├── ej_05_04.py                # Ejercicio 5.4 (Paridad de funciones y simetría)
-│   │   ├── ej_05_06.py                # Ejercicio 5.6 (Propiedades del valor absoluto y dilatación)
-│   │   ├── ej_05_08.py                # Ejercicio 5.8 (Desigualdad triangular y función distancia)
-│   │   ├── ej_05_10.py                # Ejercicio 5.10 (Inyectividad y prueba de recta horizontal)
-│   │   ├── ej_05_12.py                # Ejercicio 5.12 (Paridad de la función inversa y simetría)
-│   │   ├── ej_05_14.py                # Ejercicio 5.14 (Monotonía de la suma y tasa de variación)
-│   │   ├── ej_05_16.py                # Ejercicio 5.16 (Monotonía e inyectividad de x³ + 1)
-│   │   ├── ej_05_18.py                # Ejercicio 5.18 (Propiedades de logaritmos e isomorfismo)
-│   │   ├── ej_05_20.py                # Ejercicio 5.20 (Inecuación racional y conjunto solución)
-│   │   ├── ej_05_22.py                # Ejercicio 5.22 (Ecuaciones con valor absoluto)
-│   │   ├── ej_05_24.py                # Ejercicio 5.24 (Inecuación con valor absoluto anidado)
-│   │   ├── ej_05_26.py                # Ejercicio 5.26 (Inecuación de doble acotación |3|x|-1| ≤ 5)
-│   │   ├── ej_05_28.py                # Ejercicio 5.28 (Desigualdad triangular inversa)
-│   │   ├── ej_05_30.py                # Ejercicio 5.30 (Inecuaciones con radicales y método integrador)
-│   │   ├── ej_05_32.py                # Ejercicio 5.32 (Ecuación con radicales simétricos y conjugado)
-│   │   ├── ej_05_34.py                # Ejercicio 5.34 (Ecuación con radicales de distinto orden ⁵√ y ⁴√)
-│   │   ├── ej_05_36.py                # Ejercicio 5.36 (Inecuaciones cuadráticas y fraccionarias con valor absoluto)
-│   │   ├── ej_05_38.py                # Ejercicio 5.38 (Inecuación con cociente de valores absolutos y polinomios)
-│   │   ├── ej_05_40.py                # Ejercicio 5.40 (Inecuaciones cuadráticas y racionales variadas)
-│   │   ├── ej_05_42.py                # Ejercicio 5.42 (Sistemas de ecuaciones reales y clasificación en ℝ³)
-│   │   └── ej_05_44.py                # Ejercicio 5.44 (Regla del Máximo Dominio en funciones racionales y radicales)
-│   ├── cap06_funciones_trigonometricas/
+│   │   ├── ...
+│   │   ├── ej_05_44.py                # Ejercicio 5.44 (RMD en racionales y radicales)
+│   │   ├── ej_05_46.py                # Ejercicio 5.46 (Composición de funciones reales)
+│   │   ├── ...
+│   │   └── ej_05_78.py                # Ejercicio 5.78 (Ecuaciones logarítmicas y raíces extrañas)
+│   ├── cap06_funciones_trigonometricas/ # Capítulo 6: Funciones trigonométricas
+│   │   ├── ej_06_02.py                # Ejercicio 6.2 (Paridad de la función coseno)
+│   │   ├── ej_06_04.py                # Ejercicio 6.4 (Coseno del ángulo doble)
+│   │   └── ej_06_06.py                # Ejercicio 6.6 (Identidades del seno y ángulo doble)
 │   ├── cap07_numeros_complejos/
 │   ├── cap08_polinomios_racionales/
 │   └── cap09_sucesiones_reales/
 ├── TRACKING.md                         # Hoja de ruta y checklist de ejercicios pares
 ├── requirements.txt                   # Dependencias de Python
 ├── render.py                          # CLI inteligente de automatización de renders
+├── organizar_videos.py                # Sincronizador de videos a la carpeta videos/
 └── .gitignore                         # Exclusión de renders pesados locales
 ```
 
@@ -163,6 +178,13 @@ pip install -r requirements.txt
 ## 📋 Catálogo y Progreso de Ejercicios
 
 Consulta [TRACKING.md](TRACKING.md) para ver la lista completa de ejercicios pares cubiertos, en desarrollo y planificados.
+
+| Módulo / Colección | Ejercicios Implementados | Estado de Videos (1080p60) | Vistas Previas GIF | Cobertura |
+| :--- | :---: | :---: | :---: | :---: |
+| **Capítulo 5: Funciones Reales** | **39** (Ej. 5.2 al 5.78) | ✅ 39/39 en `videos/capitulo_05/` | ✅ 39/39 en `docs/previews/` | **100%** |
+| **Capítulo 6: Funciones Trigonométricas** | **3** (Ej. 6.2, 6.4, 6.6) | ✅ 3/3 en `videos/capitulo_06/` | ✅ 3/3 en `docs/previews/` | **100%** |
+| **Serie Tutoría Jhoselyn (Quiz 4 / Nivelación)** | **9** (Jh 01 al Jh 09) | ✅ 9/9 en `videos/jhoselyn/` | ✅ 9/9 en `docs/previews/` | **100%** |
+| **TOTAL GENERAL** | **51 Ejercicios** | **✅ 51 Videos Full HD** | **✅ 51 GIFs Optimizados** | **100%** |
 
 ### Muestra 1: Capítulo 5 · Ejercicio 5.2
 > **Tema:** Regla del Máximo Dominio (RMD)  
@@ -220,11 +242,27 @@ Consulta [TRACKING.md](TRACKING.md) para ver la lista completa de ejercicios par
 
 ![Ejercicio 5.14](docs/previews/ej_05_14.gif)
 
+### Muestra 8: Capítulo 6 · Ejercicio 6.2
+> **Tema:** Paridad de la Función Coseno (Teorema 6.3)  
+> **Problema:** Demostración axiomática a partir de los postulados P1–P4: $\forall x \in \mathbb{R}: \cos(-x) = \cos(x)$.  
+> **Resultado:** Simetría axial respecto al eje $y$ con visualización trigonométrica rigurosa.  
+> **Comportamiento Gráfico:** Curva cosenoidal simétrica con corte en $(0, 1)$ y raíces en $\pm\frac{\pi}{2}$.
+
+![Ejercicio 6.2](docs/previews/ej_06_02.gif)
+
+### Muestra 9: Capítulo 6 · Ejercicio 6.4
+> **Tema:** Coseno del Ángulo Doble (Corolario 6.9)  
+> **Problema:** Demostrar $\forall x \in \mathbb{R}: \cos(2x) = \cos^2(x) - \operatorname{sen}^2(x)$ a partir de la identidad del coseno de la suma.  
+> **Resultado:** Deducción deductiva mediante sustitución simétrica $y = x$.  
+> **Comportamiento Gráfico:** Curva resultante con duplicación de frecuencia y periodo $T = \pi$.
+
+![Ejercicio 6.4](docs/previews/ej_06_04.gif)
+
 ---
 
 ## 🎓 Serie Especial: Tutoría Universitaria para Jhoselyn (Nivelación Yachay Tech)
 
-Serie de animaciones matemáticas en alta definición (**1080p60**) con duración pedagógica calibrada ($55-65\text{ s}$), tipografía legible garantizada ($\ge 21.0\text{ pt}$ en fórmulas) y maquetación de 8 pasos, basada en sus guías de estudio (`Grafica de funciones.pdf`, `2.6.pdf` y `2.5.pdf`):
+Serie de animaciones matemáticas en alta definición (**1080p60**) con duración pedagógica calibrada ($55-65\text{ s}$), tipografía legible garantizada ($\ge 20.0\text{ pt}$ en enunciado multilínea, $\ge 21.0 - 25.0\text{ pt}$ en fórmulas y $\ge 22.5\text{ pt}$ en justificaciones) y maquetación estructurada, basada en sus guías de estudio (`Grafica de funciones.pdf`, `2.6.pdf` y `2.5.pdf`):
 
 | Ejercicio | Guía / Tema | Función de Estudio | Código Manim | Video 1080p60 | Vista Previa |
 | :---: | :---: | :--- | :---: | :---: | :---: |
@@ -237,6 +275,7 @@ Serie de animaciones matemáticas en alta definición (**1080p60**) con duració
 | **Jh 07** | Quiz 4 | $f(x) = \sqrt{\frac{x^2 - 1}{x^2 - 4}}$ | [`ej_jh_07.py`](ejercicios_jhoselyn/ej_jh_07.py) | [`EjercicioJh_07.mp4`](videos/jhoselyn/EjercicioJh_07.mp4) | [GIF](docs/previews/ej_jh_07.gif) |
 | **Jh 08** | Guía 2.6 | $f: [0, \infty) \to [1, \infty), \; f(x) = x^2 + 1$ | [`ej_jh_08.py`](ejercicios_jhoselyn/ej_jh_08.py) | [`EjercicioJh_08.mp4`](videos/jhoselyn/EjercicioJh_08.mp4) | [GIF](docs/previews/ej_jh_08.gif) |
 | **Jh 09** | Guía 2.5 | $g(x) = -\frac{3}{2}(2x + 4)^2 + 5$ | [`ej_jh_09.py`](ejercicios_jhoselyn/ej_jh_09.py) | [`EjercicioJh_09.mp4`](videos/jhoselyn/EjercicioJh_09.mp4) | [GIF](docs/previews/ej_jh_09.gif) |
+| **Jh 10** | Guía 2.5 | $g(x) = -2f(x - 3) + 4$ vs $h(x) = f(-2(x - 3)) + 4$ | [`ej_jh_10.py`](ejercicios_jhoselyn/ej_jh_10.py) | [`EjercicioJh_10.mp4`](videos/jhoselyn/EjercicioJh_10.mp4) | [GIF](docs/previews/ej_jh_10.gif) |
 
 ### Muestra Destacada: Transformaciones Cuadráticas Canónicas (Ejercicio Jh 09)
 > **Tema:** Factorización de argumento $2(x+2)$, forma canónica $g(x) = -6(x+2)^2 + 5$, vértice $V(-2, 5)$ y gráfica cartesiana dual.

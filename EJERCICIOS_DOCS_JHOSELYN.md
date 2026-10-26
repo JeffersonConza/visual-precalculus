@@ -24,7 +24,7 @@
 
 ## 🎬 Directorio de Animaciones Manim Renderizadas (Full HD 1080p60)
 
-Todos los videos cuentan con el estándar tipográfico de alta legibilidad (piso mínimo $\ge 21.0\text{ pt}$ en ecuaciones, $28.0\text{ pt}$ en enunciado), duración optimizada ($55-65\text{ s}$) y gráfica cartesiana final:
+Todos los videos cuentan con el estándar tipográfico de alta legibilidad (piso mínimo $\ge 21.0\text{ pt}$ a $25.0\text{ pt}$ en ecuaciones, $\ge 20.0\text{ pt}$ a $28.0\text{ pt}$ en enunciados maquetados en 2 líneas con `arrange_direction=DOWN`, y $\ge 22.5\text{ pt}$ en justificaciones), duración pedagógica calibrada ($55-65\text{ s}$) y gráfica cartesiana final:
 
 | Ejercicio | Origen | Función / Problema | Código Python | Video 1080p60 | Vista Previa |
 | :---: | :---: | :--- | :---: | :---: | :---: |
@@ -37,6 +37,7 @@ Todos los videos cuentan con el estándar tipográfico de alta legibilidad (piso
 | **07** | Quiz 4 | $f(x) = \sqrt{\frac{x^2 - 1}{x^2 - 4}}$ | [`ej_jh_07.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_07.py) | [`EjercicioJh_07.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_07.mp4) | [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_07.gif) |
 | **08** | Guía 2.6 | $f: [0, \infty) \to [1, \infty), \; f(x) = x^2 + 1$ | [`ej_jh_08.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_08.py) | [`EjercicioJh_08.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_08.mp4) | [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_08.gif) |
 | **09** | Guía 2.5 | $g(x) = -\frac{3}{2}(2x + 4)^2 + 5$ | [`ej_jh_09.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_09.py) | [`EjercicioJh_09.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_09.mp4) | [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_09.gif) |
+| **10** | Guía 2.5 | $g(x) = -2f(x - 3) + 4$ vs $h(x) = f(-2(x - 3)) + 4$ | [`ej_jh_10.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_10.py) | [`EjercicioJh_10.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_10.mp4) | [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_10.gif) |
 
 ---
 
@@ -339,6 +340,8 @@ $$g(x) = -\frac{3}{2} \cdot 4(x + 2)^2 + 5 = -6(x + 2)^2 + 5$$
 ---
 
 ### 📌 Ejercicio 4 (Guía 2.5 — Pág. 3 — Comparación de Operadores)
+> 🎬 **Animación 1080p60:** [`EjercicioJh_10.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_10.mp4) · **Código:** [`ej_jh_10.py`](file:///mnt/c/Users/jconza/Documents/PreCalculus/ejercicios_jhoselyn/ej_jh_10.py) · **Vista Previa:** [GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_10.gif)
+
 **Enunciado:** Compare las transformaciones de:
 $$g(x) = -2f(x - 3) + 4 \qquad \text{vs} \qquad h(x) = f(-2(x - 3)) + 4$$
 
