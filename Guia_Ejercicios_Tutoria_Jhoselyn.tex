@@ -1,4 +1,4 @@
-\documentclass[10pt,a4paper]{article}
+\documentclass[11pt,a4paper]{article}
 
 % --- Paquetes de Tipografía, Geometría y Matemáticas ---
 \usepackage[utf8]{inputenc}
@@ -8,10 +8,10 @@
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{geometry}
 \geometry{
-    top=1.6cm,
-    bottom=1.6cm,
-    left=1.6cm,
-    right=1.6cm,
+    top=1.5cm,
+    bottom=1.5cm,
+    left=1.5cm,
+    right=1.5cm,
     headheight=14pt
 }
 
@@ -37,73 +37,73 @@
 \usepackage{tabularx}
 \usepackage{array}
 \usepackage{enumitem}
-\setlist[itemize]{leftmargin=1.2em, itemsep=1.5pt, topsep=1.5pt}
-\setlist[enumerate]{leftmargin=1.2em, itemsep=1.5pt, topsep=1.5pt}
+\setlist[itemize]{leftmargin=1.2em, itemsep=2pt, topsep=2pt}
+\setlist[enumerate]{leftmargin=1.2em, itemsep=2pt, topsep=2pt}
 
 % --- Encabezados y Pies de Página Minimalistas ---
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\textcolor{slateMuted}{\footnotesize\sffamily TUTORÍA PRE-CÁLCULO $\cdot$ PREPARACIÓN QUIZ 4}}
-\fancyhead[R]{\textcolor{amarunTeal}{\footnotesize\sffamily\bfseries COMPENDIO DE EJERCICIOS RESUELTOS}}
-\fancyfoot[L]{\textcolor{slateMuted}{\scriptsize\sffamily Guía de Estudio Personalizada para Jhoselyn $\cdot$ Editorial Amarun}}
-\fancyfoot[R]{\textcolor{slateMuted}{\scriptsize\sffamily Página \thepage\ de 10}}
+\fancyhead[L]{\textcolor{slateMuted}{\small\sffamily TUTORÍA PRE-CÁLCULO $\cdot$ PREPARACIÓN QUIZ 4}}
+\fancyhead[R]{\textcolor{amarunTeal}{\small\sffamily\bfseries COMPENDIO DE EJERCICIOS RESUELTOS}}
+\fancyfoot[L]{\textcolor{slateMuted}{\footnotesize\sffamily Guía de Estudio Personalizada para Jhoselyn $\cdot$ Editorial Amarun}}
+\fancyfoot[R]{\textcolor{slateMuted}{\footnotesize\sffamily Página \thepage\ de 10}}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.3pt}
 
-% --- Cajas Minimalistas con tcolorbox ---
+% --- Cajas Minimalistas con tcolorbox (Tipografía Ampliada \normalsize) ---
 \usepackage{tcolorbox}
 \tcbuselibrary{skins}
 
-% Caja para ENUNCIADO (Minimalista con acento izquierdo)
+% Caja para ENUNCIADO (Acento izquierdo Teal)
 \newtcolorbox{enunciadobox}[1][]{
     enhanced,
     colback=tealTint,
     colframe=amarunTeal,
     boxrule=0pt,
-    leftrule=3.2pt,
+    leftrule=3.5pt,
     arc=1.5mm,
     top=5pt,
     bottom=5pt,
-    left=8pt,
-    right=8pt,
-    fontupper=\small,
+    left=9pt,
+    right=9pt,
+    fontupper=\normalsize,
     before skip=3pt,
     after skip=5pt,
     #1
 }
 
-% Caja para SOLUCIÓN (Borde fino, fondo blanco)
+% Caja para SOLUCIÓN (Borde fino, fondo blanco, texto \normalsize)
 \newtcolorbox{solucionbox}[1][]{
     enhanced,
     colback=white,
     colframe=cardBorder,
-    boxrule=0.6pt,
+    boxrule=0.7pt,
     arc=2mm,
-    top=5pt,
-    bottom=5pt,
-    left=8pt,
-    right=8pt,
-    fontupper=\small,
+    top=6pt,
+    bottom=6pt,
+    left=9pt,
+    right=9pt,
+    fontupper=\normalsize,
     before skip=2pt,
     after skip=4pt,
     #1
 }
 
-% Caja para RESULTADO FINAL
+% Caja para RESULTADO FINAL (Acento verde)
 \newtcolorbox{resultadobox}[1][]{
     enhanced,
     colback=cardBg,
     colframe=emeraldGreen,
     boxrule=0pt,
-    leftrule=2.6pt,
-    arc=1mm,
-    top=3pt,
-    bottom=3pt,
-    left=7pt,
-    right=7pt,
-    fontupper=\small,
-    before skip=3pt,
+    leftrule=3pt,
+    arc=1.2mm,
+    top=4pt,
+    bottom=4pt,
+    left=8pt,
+    right=8pt,
+    fontupper=\normalsize,
+    before skip=4pt,
     after skip=2pt,
     #1
 }
@@ -112,7 +112,7 @@
 \newcommand{\ejerciciopage}[3]{%
     \noindent{\large\bfseries\color{amarunTeal}#1}\hfill
     \colorbox{amarunTeal!10}{\footnotesize\bfseries\color{amarunTeal}#3}\par\vspace{1pt}
-    {\footnotesize\color{slateMuted}\textit{#2}}\par\vspace{3pt}
+    {\small\color{slateMuted}\textit{#2}}\par\vspace{3pt}
 }
 
 % Hipervínculos
@@ -129,7 +129,7 @@
 % =========================================================================
 % PÁGINA 1: EJERCICIO JH 01
 % =========================================================================
-\ejerciciopage{Ejercicio Jh 01 \textbar\ Parábola Cuadrática, Vértice y Cortes}{Quiz 4 $\cdot$ Pág. 1}{7 Pasos}
+\ejerciciopage{Ejercicio Jh 01 \textbar\ Parábola Cuadrática, Vértice y Cortes}{Quiz 4 $\cdot$ Pág. 1}{Forma Canónica}
 
 \begin{enunciadobox}
 \textbf{\color{amarunTeal}ENUNCIADO:} Analice completamente y determine el vértice canónico, cortes axiales, simetría y rango de la función cuadrática:
@@ -143,13 +143,13 @@
     \begin{align*}
         h &= -\frac{b}{2a} = -\frac{3/2}{2(-1/2)} = \frac{3}{2} = 1.5 \\
         k &= f(1.5) = -\frac{1}{2}\left(\frac{3}{2}\right)^2 + \frac{3}{2}\left(\frac{3}{2}\right) + \frac{27}{8} \\
-        &= -\frac{9}{8} + \frac{18}{8} + \frac{27}{8} = \frac{36}{8} = \frac{9}{2} = 4.5
+        &= -\frac{9}{8} + \frac{18}{8} + \frac{27}{8} = \frac{36}{8} = 4.5
     \end{align*}
-    El vértice canónico es $\mathbf{V\left(\frac{3}{2}, \frac{9}{2}\right)}$ con eje de simetría vertical en $x = \frac{3}{2}$.
+    El vértice canónico es $\mathbf{V\left(\frac{3}{2}, \frac{9}{2}\right)}$ con eje de simetría vertical en la recta $x = \frac{3}{2}$.
     \item \textbf{Cortes Axiales Exactos:}
     \begin{align*}
-        \text{Corte } Y (x = 0): \quad f(0) &= \frac{27}{8} = 3.375 \implies \mathbf{\left(0, \frac{27}{8}\right)} \\
-        \text{Cortes } X (f(x) = 0): \quad x^2 - 3x - \frac{27}{4} &= 0 \implies \left(x - \frac{9}{2}\right)\left(x + \frac{3}{2}\right) = 0 \\
+        \text{Corte con Eje } Y (x = 0): \quad f(0) &= \frac{27}{8} = 3.375 \implies \mathbf{\left(0, \frac{27}{8}\right)} \\
+        \text{Cortes con Eje } X (f(x) = 0): \quad x^2 - 3x - \frac{27}{4} &= 0 \implies \left(x - \frac{9}{2}\right)\left(x + \frac{3}{2}\right) = 0 \\
         x_1 = \frac{9}{2} = 4.5, \quad x_2 &= -\frac{3}{2} = -1.5 \implies \mathbf{\left(\frac{9}{2}, 0\right)}, \; \mathbf{\left(-\frac{3}{2}, 0\right)}
     \end{align*}
 \end{enumerate}
@@ -160,41 +160,41 @@
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=-3, xmax=6, ymin=-2, ymax=5.5,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
     grid=both, grid style={line width=.2pt, draw=gray!20},
-    tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$}
+    tick label style={font=\footnotesize}, xlabel={$x$}, ylabel={$y$}
 ]
-    \addplot[domain=-2.2:5.2, color=amarunTeal, very thick, samples=60] {-0.5*x^2 + 1.5*x + 3.375};
+    \addplot[domain=-2.2:5.2, color=amarunTeal, very thick, samples=50] {-0.5*x^2 + 1.5*x + 3.375};
     \draw[dashed, ponchoRed, thick] (1.5, -2) -- (1.5, 5.5);
-    \filldraw[ponchoRed] (1.5, 4.5) circle (1.8pt) node[above, font=\tiny\bfseries] {$V(1.5, 4.5)$};
-    \filldraw[amarunTeal] (0, 3.375) circle (1.5pt) node[left, font=\tiny] {$(0, \frac{27}{8})$};
+    \filldraw[ponchoRed] (1.5, 4.5) circle (2pt) node[above, font=\footnotesize\bfseries] {$V(1.5, 4.5)$};
+    \filldraw[amarunTeal] (0, 3.375) circle (1.8pt) node[left, font=\scriptsize] {$(0, \frac{27}{8})$};
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 1A:} Vértice canónico y eje de simetría $x = 1.5$.}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 1A:} Vértice canónico y eje de simetría $x = 1.5$.}
 \end{minipage}\hfill
 \begin{minipage}{0.485\textwidth}
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=-3, xmax=6, ymin=-2, ymax=5.5,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
     grid=both, grid style={line width=.2pt, draw=gray!20},
-    tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$}
+    tick label style={font=\footnotesize}, xlabel={$x$}, ylabel={$y$}
 ]
     \addplot[domain=-1.5:4.5, fill=tealTint, opacity=0.8] {-0.5*x^2 + 1.5*x + 3.375} \closedcycle;
-    \addplot[domain=-2.2:5.2, color=amarunTeal, very thick, samples=60] {-0.5*x^2 + 1.5*x + 3.375};
-    \filldraw[ponchoRed] (-1.5, 0) circle (1.8pt) node[below left, font=\tiny] {$(-1.5, 0)$};
-    \filldraw[ponchoRed] (4.5, 0) circle (1.8pt) node[below right, font=\tiny] {$(4.5, 0)$};
+    \addplot[domain=-2.2:5.2, color=amarunTeal, very thick, samples=50] {-0.5*x^2 + 1.5*x + 3.375};
+    \filldraw[ponchoRed] (-1.5, 0) circle (2pt) node[below left, font=\footnotesize] {$(-1.5, 0)$};
+    \filldraw[ponchoRed] (4.5, 0) circle (2pt) node[below right, font=\footnotesize] {$(4.5, 0)$};
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 1B:} Raíces reales y región positiva $f(x) \ge 0$.}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 1B:} Raíces reales y región positiva $f(x) \ge 0$.}
 \end{minipage}
 
 \begin{resultadobox}
-\textbf{Resultado Final:} Dominio $\mathbb{R}$, Vértice $V(1.5, 4.5)$, Cortes en $(-1.5, 0), (4.5, 0), (0, 3.375)$ y $\mathbf{\operatorname{Ran}(f) = \left(-\infty, \frac{9}{2}\right]}$.
+\textbf{Resultado Final:} Dominio $\mathbb{R}$, Vértice $V(1.5, 4.5)$, Cortes en $(-1.5, 0), (4.5, 0), (0, 3.375)$ y Rango $\mathbf{\operatorname{Ran}(f) = \left(-\infty, \frac{9}{2}\right]}$.
 \end{resultadobox}
 \end{solucionbox}
 
@@ -215,8 +215,7 @@
 \begin{enumerate}
     \item \textbf{Simetría Analítica (Paridad):}
     \begin{align*}
-        f(-x) &= \frac{1}{2}(-x)^3 - \frac{3}{2}(-x) \\
-        &= -\frac{1}{2}x^3 + \frac{3}{2}x \\
+        f(-x) &= \frac{1}{2}(-x)^3 - \frac{3}{2}(-x) = -\frac{1}{2}x^3 + \frac{3}{2}x \\
         &= -\left(\frac{1}{2}x^3 - \frac{3}{2}x\right) = -f(x) \quad \implies \text{\textbf{Función Impar}}
     \end{align*}
     Posee simetría central respecto al origen de coordenadas $(0, 0)$.
@@ -235,38 +234,38 @@
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=-2.8, xmax=2.8, ymin=-2.5, ymax=2.5,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
     grid=both, grid style={line width=.2pt, draw=gray!20},
-    tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$}
+    tick label style={font=\footnotesize}, xlabel={$x$}, ylabel={$y$}
 ]
-    \addplot[domain=-2.4:2.4, color=amarunTeal, very thick, samples=60] {0.5*x^3 - 1.5*x};
-    \filldraw[ponchoRed] (0, 0) circle (1.8pt) node[below right, font=\tiny] {$(0, 0)$};
-    \filldraw[amarunTeal] (-1.732, 0) circle (1.5pt) node[above left, font=\tiny] {$-\sqrt{3}$};
-    \filldraw[amarunTeal] (1.732, 0) circle (1.5pt) node[below right, font=\tiny] {$\sqrt{3}$};
+    \addplot[domain=-2.4:2.4, color=amarunTeal, very thick, samples=50] {0.5*x^3 - 1.5*x};
+    \filldraw[ponchoRed] (0, 0) circle (2pt) node[below right, font=\footnotesize] {$(0, 0)$};
+    \filldraw[amarunTeal] (-1.732, 0) circle (1.8pt) node[above left, font=\scriptsize] {$-\sqrt{3}$};
+    \filldraw[amarunTeal] (1.732, 0) circle (1.8pt) node[below right, font=\scriptsize] {$\sqrt{3}$};
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 2A:} Curva cúbica completa y cortes con el eje $X$.}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 2A:} Curva cúbica completa y cortes con el eje $X$.}
 \end{minipage}\hfill
 \begin{minipage}{0.485\textwidth}
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=-2.8, xmax=2.8, ymin=-2.5, ymax=2.5,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
     grid=both, grid style={line width=.2pt, draw=gray!20},
-    tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$}
+    tick label style={font=\footnotesize}, xlabel={$x$}, ylabel={$y$}
 ]
-    \addplot[domain=-2.4:2.4, color=amarunTeal, very thick, samples=60] {0.5*x^3 - 1.5*x};
+    \addplot[domain=-2.4:2.4, color=amarunTeal, very thick, samples=50] {0.5*x^3 - 1.5*x};
     \draw[dashed, incaGold, thick] (-1, 1) -- (1, -1);
-    \filldraw[ponchoRed] (1, -1) circle (1.8pt) node[below right, font=\tiny\bfseries] {$(1, -1)$};
-    \filldraw[ponchoRed] (-1, 1) circle (1.8pt) node[above left, font=\tiny\bfseries] {$(-1, 1)$};
-    \filldraw[incaGold] (0, 0) circle (1.8pt);
+    \filldraw[ponchoRed] (1, -1) circle (2pt) node[below right, font=\footnotesize\bfseries] {$(1, -1)$};
+    \filldraw[ponchoRed] (-1, 1) circle (2pt) node[above left, font=\footnotesize\bfseries] {$(-1, 1)$};
+    \filldraw[incaGold] (0, 0) circle (2pt);
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 2B:} Simetría impar central respecto al origen $(0, 0)$.}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 2B:} Simetría impar central respecto al origen $(0, 0)$.}
 \end{minipage}
 
 \begin{resultadobox}
@@ -297,8 +296,7 @@
     \end{align*}
     \item \textbf{Mínimo Absoluto por Completación de Cuadrados:}
     \begin{align*}
-        f(x) &= \frac{1}{4}\left[(x^2 - 3)^2 - 9 + 5\right] \\
-        &= \frac{1}{4}\left(x^2 - 3\right)^2 - 1 \\
+        f(x) &= \frac{1}{4}\left[(x^2 - 3)^2 - 9 + 5\right] = \frac{1}{4}\left(x^2 - 3\right)^2 - 1 \\
         \implies \min f(x) &= -1 \quad \text{cuando } x^2 = 3 \iff x = \pm\sqrt{3} \approx \pm 1.732
     \end{align*}
 \end{enumerate}
@@ -309,37 +307,37 @@
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=-3.2, xmax=3.2, ymin=-1.8, ymax=3.5,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
     grid=both, grid style={line width=.2pt, draw=gray!20},
-    tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$}
+    tick label style={font=\footnotesize}, xlabel={$x$}, ylabel={$y$}
 ]
-    \addplot[domain=-2.6:2.6, color=amarunTeal, very thick, samples=60] {0.25*x^4 - 1.5*x^2 + 1.25};
-    \filldraw[ponchoRed] (0, 1.25) circle (1.8pt) node[above right, font=\tiny] {$(0, 1.25)$};
-    \filldraw[amarunTeal] (-1, 0) circle (1.5pt) node[below left, font=\tiny] {$-1$};
-    \filldraw[amarunTeal] (1, 0) circle (1.5pt) node[below right, font=\tiny] {$1$};
+    \addplot[domain=-2.6:2.6, color=amarunTeal, very thick, samples=50] {0.25*x^4 - 1.5*x^2 + 1.25};
+    \filldraw[ponchoRed] (0, 1.25) circle (2pt) node[above right, font=\footnotesize] {$(0, 1.25)$};
+    \filldraw[amarunTeal] (-1, 0) circle (1.8pt) node[below left, font=\scriptsize] {$-1$};
+    \filldraw[amarunTeal] (1, 0) circle (1.8pt) node[below right, font=\scriptsize] {$1$};
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 3A:} Vista general con 4 cortes reales $\{\pm 1, \pm\sqrt{5}\}$.}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 3A:} Vista general con 4 cortes reales $\{\pm 1, \pm\sqrt{5}\}$.}
 \end{minipage}\hfill
 \begin{minipage}{0.485\textwidth}
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=-3.2, xmax=3.2, ymin=-1.8, ymax=3.5,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
     grid=both, grid style={line width=.2pt, draw=gray!20},
-    tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$}
+    tick label style={font=\footnotesize}, xlabel={$x$}, ylabel={$y$}
 ]
-    \addplot[domain=-2.6:2.6, color=amarunTeal, very thick, samples=60] {0.25*x^4 - 1.5*x^2 + 1.25};
-    \draw[dashed, ponchoRed, thick] (-3.2, -1) -- (3.2, -1) node[pos=0.88, above, font=\tiny\bfseries] {$y = -1$};
-    \filldraw[ponchoRed] (-1.732, -1) circle (1.8pt) node[below, font=\tiny] {$(-\sqrt{3}, -1)$};
-    \filldraw[ponchoRed] (1.732, -1) circle (1.8pt) node[below, font=\tiny] {$(\sqrt{3}, -1)$};
+    \addplot[domain=-2.6:2.6, color=amarunTeal, very thick, samples=50] {0.25*x^4 - 1.5*x^2 + 1.25};
+    \draw[dashed, ponchoRed, thick] (-3.2, -1) -- (3.2, -1) node[pos=0.88, above, font=\footnotesize\bfseries] {$y = -1$};
+    \filldraw[ponchoRed] (-1.732, -1) circle (2pt) node[below, font=\scriptsize] {$(-\sqrt{3}, -1)$};
+    \filldraw[ponchoRed] (1.732, -1) circle (2pt) node[below, font=\scriptsize] {$(\sqrt{3}, -1)$};
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 3B:} Mínimos simétricos absolutos en $y = -1$.}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 3B:} Mínimos simétricos absolutos en $y = -1$.}
 \end{minipage}
 
 \begin{resultadobox}
@@ -381,11 +379,11 @@
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=-4.2, xmax=4.2, ymin=-3.2, ymax=4.2,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
     grid=both, grid style={line width=.2pt, draw=gray!20},
-    tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$},
+    tick label style={font=\footnotesize}, xlabel={$x$}, ylabel={$y$},
     restrict y to domain=-5.5:5.5
 ]
     \draw[dashed, thick, ponchoRed] (-2, -3.2) -- (-2, 4.2);
@@ -396,30 +394,30 @@
     \addplot[domain=2.08:4.2, color=amarunTeal, very thick, samples=50] {(x^2 - 1)/(x^2 - 4)};
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 4A:} Vista global: 3 ramas y asíntotas $x = \pm 2, y = 1$.}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 4A:} Vista global: 3 ramas y asíntotas $x = \pm 2, y = 1$.}
 \end{minipage}\hfill
 \begin{minipage}{0.485\textwidth}
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=-2.2, xmax=2.2, ymin=-0.8, ymax=1.8,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
     grid=both, grid style={line width=.2pt, draw=gray!20},
-    tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$}
+    tick label style={font=\footnotesize}, xlabel={$x$}, ylabel={$y$}
 ]
-    \draw[dashed, thick, incaGold] (-2.2, 1) -- (2.2, 1) node[pos=0.85, above, font=\tiny\bfseries] {$y=1$};
+    \draw[dashed, thick, incaGold] (-2.2, 1) -- (2.2, 1) node[pos=0.85, above, font=\footnotesize\bfseries] {$y=1$};
     \addplot[domain=-1.8:1.8, color=amarunTeal, very thick, samples=50] {(x^2 - 1)/(x^2 - 4)};
-    \filldraw[ponchoRed] (0, 0.25) circle (1.8pt) node[above, font=\tiny\bfseries] {$(0, 1/4)$};
-    \filldraw[amarunTeal] (-1, 0) circle (1.5pt) node[below left, font=\tiny] {$(-1, 0)$};
-    \filldraw[amarunTeal] (1, 0) circle (1.5pt) node[below right, font=\tiny] {$(1, 0)$};
+    \filldraw[ponchoRed] (0, 0.25) circle (2pt) node[above, font=\footnotesize\bfseries] {$(0, 1/4)$};
+    \filldraw[amarunTeal] (-1, 0) circle (1.8pt) node[below left, font=\scriptsize] {$(-1, 0)$};
+    \filldraw[amarunTeal] (1, 0) circle (1.8pt) node[below right, font=\scriptsize] {$(1, 0)$};
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 4B:} Detalle de la rama central y hueco de rango en $(1/4, 1]$.}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 4B:} Detalle de la rama central y hueco de rango en $(1/4, 1]$.}
 \end{minipage}
 
 \begin{resultadobox}
-\textbf{Resultado Final:} Asíntotas en $x = \pm 2$, $y = 1$; simetría par y rango $\mathbf{\operatorname{Ran}(f) = \left(-\infty, \frac{1}{4}\right] \cup (1, +\infty)}$.
+\textbf{Resultado Final:} Asíntotas $x = \pm 2$, $y = 1$, simetría par y $\mathbf{\operatorname{Ran}(f) = \left(-\infty, \frac{1}{4}\right] \cup (1, +\infty)}$.
 \end{resultadobox}
 \end{solucionbox}
 
@@ -457,39 +455,39 @@
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=-4.2, xmax=4.2, ymin=-5.2, ymax=5.2,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
     grid=both, grid style={line width=.2pt, draw=gray!20},
-    tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$},
+    tick label style={font=\footnotesize}, xlabel={$x$}, ylabel={$y$},
     restrict y to domain=-7:7
 ]
     \draw[dashed, thick, ponchoRed] (-1, -5.2) -- (-1, 5.2);
     \draw[dashed, thick, ponchoRed] (1, -5.2) -- (1, 5.2);
-    \draw[dashed, thick, incaGold] (-4.2, -4.2) -- (4.2, 4.2) node[pos=0.88, above left, font=\tiny\bfseries] {$y=x$};
+    \draw[dashed, thick, incaGold] (-4.2, -4.2) -- (4.2, 4.2) node[pos=0.88, above left, font=\footnotesize\bfseries] {$y=x$};
     \addplot[domain=-4.2:-1.08, color=amarunTeal, very thick, samples=50] {(x^3 - 4*x)/(x^2 - 1)};
     \addplot[domain=-0.92:0.92, color=amarunTeal, very thick, samples=50] {(x^3 - 4*x)/(x^2 - 1)};
     \addplot[domain=1.08:4.2, color=amarunTeal, very thick, samples=50] {(x^3 - 4*x)/(x^2 - 1)};
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 5A:} Vista global con asíntota oblicua $y = x$.}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 5A:} Vista global con asíntota oblicua $y = x$.}
 \end{minipage}\hfill
 \begin{minipage}{0.485\textwidth}
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=-1.5, xmax=1.5, ymin=-2.5, ymax=2.5,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
     grid=both, grid style={line width=.2pt, draw=gray!20},
-    tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$}
+    tick label style={font=\footnotesize}, xlabel={$x$}, ylabel={$y$}
 ]
     \draw[dashed, thick, incaGold] (-1.5, -1.5) -- (1.5, 1.5);
     \addplot[domain=-0.88:0.88, color=amarunTeal, very thick, samples=50] {(x^3 - 4*x)/(x^2 - 1)};
-    \filldraw[ponchoRed] (0, 0) circle (1.8pt) node[below right, font=\tiny\bfseries] {$(0, 0)$};
+    \filldraw[ponchoRed] (0, 0) circle (2pt) node[below right, font=\footnotesize\bfseries] {$(0, 0)$};
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 5B:} Rama central intersectando a la oblicua en $(0, 0)$.}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 5B:} Rama central intersectando a la oblicua en $(0, 0)$.}
 \end{minipage}
 
 \begin{resultadobox}
@@ -532,42 +530,42 @@
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=-5, xmax=5, ymin=-2, ymax=12,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
     grid=both, grid style={line width=.2pt, draw=gray!20},
-    tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$},
+    tick label style={font=\footnotesize}, xlabel={$x$}, ylabel={$y$},
     restrict y to domain=-5:15
 ]
     \draw[dashed, thick, ponchoRed] (-1, -2) -- (-1, 12);
     \draw[dashed, thick, ponchoRed] (1, -2) -- (1, 12);
-    \draw[dashed, thick, incaGold] (-5, 1) -- (5, 1) node[pos=0.88, above, font=\tiny\bfseries] {$y=1$};
+    \draw[dashed, thick, incaGold] (-5, 1) -- (5, 1) node[pos=0.88, above, font=\footnotesize\bfseries] {$y=1$};
     \addplot[domain=-4.5:-1.08, color=amarunTeal, very thick, samples=50] {(x^2 - 9)/(x^2 - 1)};
     \addplot[domain=-0.92:0.92, color=amarunTeal, very thick, samples=50] {(x^2 - 9)/(x^2 - 1)};
     \addplot[domain=1.08:4.5, color=amarunTeal, very thick, samples=50] {(x^2 - 9)/(x^2 - 1)};
-    \filldraw[ponchoRed] (0, 9) circle (1.8pt) node[above, font=\tiny\bfseries] {$(0, 9)$};
+    \filldraw[ponchoRed] (0, 9) circle (2pt) node[above, font=\footnotesize\bfseries] {$(0, 9)$};
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 6A:} Vista panorámica con mínimo en $(0, 9)$ y asíntota $y=1$.}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 6A:} Vista panorámica con mínimo en $(0, 9)$ y asíntota $y=1$.}
 \end{minipage}\hfill
 \begin{minipage}{0.485\textwidth}
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=-5, xmax=5, ymin=0, ymax=11,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
     grid=both, grid style={line width=.2pt, draw=gray!20},
-    tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$}
+    tick label style={font=\footnotesize}, xlabel={$x$}, ylabel={$y$}
 ]
     \fill[red!10] (-5, 1) rectangle (5, 9);
-    \node[ponchoRed, font=\tiny\bfseries] at (axis cs:0, 5) {Hueco Prohibido: $y \in [1, 9)$};
+    \node[ponchoRed, font=\footnotesize\bfseries] at (axis cs:0, 5) {Hueco Prohibido: $y \in [1, 9)$};
     \draw[dashed, incaGold, thick] (-5, 1) -- (5, 1);
     \draw[dashed, ponchoRed, thick] (-5, 9) -- (5, 9);
     \addplot[domain=-0.85:0.85, color=amarunTeal, very thick, samples=40] {(x^2 - 9)/(x^2 - 1)};
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 6B:} Detalle del intervalo vertical sin preimagen real.}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 6B:} Detalle del intervalo vertical sin preimagen real.}
 \end{minipage}
 
 \begin{resultadobox}
@@ -592,15 +590,13 @@
 \begin{enumerate}
     \item \textbf{Condición de Existencia del Radical:}
     \begin{align*}
-        \frac{x^2 - 1}{x^2 - 4} &\ge 0 \quad \text{con } x \ne \pm 2 \\
-        \frac{(x - 1)(x + 1)}{(x - 2)(x + 2)} &\ge 0 \\
+        \frac{x^2 - 1}{x^2 - 4} &\ge 0 \quad \text{con } x \ne \pm 2 \iff \frac{(x - 1)(x + 1)}{(x - 2)(x + 2)} \ge 0 \\
         \implies \operatorname{Dom}(f) &= \mathbf{(-\infty, -2) \cup [-1, 1] \cup (2, +\infty)}
     \end{align*}
     \item \textbf{Cálculo del Rango a partir del Radicando:}
     \begin{align*}
-        \text{Dado } g(x) &= \frac{x^2 - 1}{x^2 - 4} \in \left(-\infty, \frac{1}{4}\right] \cup (1, +\infty) \\
-        \text{Al exigir } g(x) \ge 0: \quad \operatorname{Ran}(f) &= \left[0, \sqrt{\tfrac{1}{4}}\right] \cup (\sqrt{1}, +\infty) \\
-        &= \mathbf{\left[0, \frac{1}{2}\right] \cup (1, +\infty)}
+        \text{Dado } g(x) &= \frac{x^2 - 1}{x^2 - 4} \in \left(-\infty, \frac{1}{4}\right] \cup (1, +\infty) \quad \text{y } f(x) = \sqrt{g(x)} \ge 0: \\
+        \operatorname{Ran}(f) &= \left[0, \sqrt{\tfrac{1}{4}}\right] \cup (\sqrt{1}, +\infty) = \mathbf{\left[0, \frac{1}{2}\right] \cup (1, +\infty)}
     \end{align*}
 \end{enumerate}
 
@@ -610,32 +606,32 @@
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=-4, xmax=4, ymin=-1, ymax=2,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
-    tick label style={font=\tiny}, xlabel={$x$}, ytick=\empty
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
+    tick label style={font=\footnotesize}, xlabel={$x$}, ytick=\empty
 ]
     \draw[line width=3.5pt, amarunTeal] (-4, 0) -- (-2, 0);
     \draw[line width=3.5pt, amarunTeal] (-1, 0) -- (1, 0);
     \draw[line width=3.5pt, amarunTeal] (2, 0) -- (4, 0);
-    \draw[fill=white, draw=ponchoRed, thick] (-2, 0) circle (2.2pt) node[below, font=\tiny] {$-2$};
-    \draw[fill=white, draw=ponchoRed, thick] (2, 0) circle (2.2pt) node[below, font=\tiny] {$2$};
-    \filldraw[emeraldGreen] (-1, 0) circle (2.2pt) node[below, font=\tiny] {$-1$};
-    \filldraw[emeraldGreen] (1, 0) circle (2.2pt) node[below, font=\tiny] {$1$};
-    \node[amarunTeal, font=\tiny\bfseries] at (axis cs:0, 0.8) {Intervalos Admisibles en $\mathbb{R}$};
+    \draw[fill=white, draw=ponchoRed, thick] (-2, 0) circle (2.2pt) node[below, font=\footnotesize] {$-2$};
+    \draw[fill=white, draw=ponchoRed, thick] (2, 0) circle (2.2pt) node[below, font=\footnotesize] {$2$};
+    \filldraw[emeraldGreen] (-1, 0) circle (2.2pt) node[below, font=\footnotesize] {$-1$};
+    \filldraw[emeraldGreen] (1, 0) circle (2.2pt) node[below, font=\footnotesize] {$1$};
+    \node[amarunTeal, font=\footnotesize\bfseries] at (axis cs:0, 0.8) {Dominio en $\mathbb{R}$};
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 7A:} Representación del dominio maximal en la recta real.}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 7A:} Representación del dominio maximal en la recta real.}
 \end{minipage}\hfill
 \begin{minipage}{0.485\textwidth}
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=-4.2, xmax=4.2, ymin=-0.3, ymax=3.5,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
     grid=both, grid style={line width=.2pt, draw=gray!20},
-    tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$}
+    tick label style={font=\footnotesize}, xlabel={$x$}, ylabel={$y$}
 ]
     \draw[dashed, thick, ponchoRed] (-2, 0) -- (-2, 3.5);
     \draw[dashed, thick, ponchoRed] (2, 0) -- (2, 3.5);
@@ -643,10 +639,10 @@
     \addplot[domain=-4.2:-2.08, color=amarunTeal, very thick, samples=50] {sqrt((x^2 - 1)/(x^2 - 4))};
     \addplot[domain=-1:1, color=amarunTeal, very thick, samples=50] {sqrt((x^2 - 1)/(x^2 - 4))};
     \addplot[domain=2.08:4.2, color=amarunTeal, very thick, samples=50] {sqrt((x^2 - 1)/(x^2 - 4))};
-    \filldraw[ponchoRed] (0, 0.5) circle (1.8pt) node[above, font=\tiny] {$(0, 1/2)$};
+    \filldraw[ponchoRed] (0, 0.5) circle (2pt) node[above, font=\footnotesize] {$(0, 1/2)$};
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 7B:} Curva radical $f(x)$ con rama central acotada en $[0, 1/2]$.}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 7B:} Curva radical $f(x)$ con rama central acotada en $[0, 1/2]$.}
 \end{minipage}
 
 \begin{resultadobox}
@@ -677,9 +673,8 @@ Demuestre formalmente que es inyectiva y sobreyectiva, halle $f^{-1}(x)$ y verif
     \end{align*}
     \item \textbf{Deducción de la Función Inversa $f^{-1}(x)$:}
     \begin{align*}
-        y &= x^2 + 1 \quad (x \ge 0, \; y \ge 1) \\
-        x^2 &= y - 1 \implies x = \sqrt{y - 1} \\
-        \implies \mathbf{f^{-1}(x)} &= \mathbf{\sqrt{x - 1}} \quad \text{con } \operatorname{Dom}(f^{-1}) = [1, +\infty), \; \operatorname{Ran}(f^{-1}) = [0, +\infty)
+        y &= x^2 + 1 \quad (x \ge 0, \; y \ge 1) \implies x^2 = y - 1 \implies x = \sqrt{y - 1} \\
+        \implies \mathbf{f^{-1}(x)} &= \mathbf{\sqrt{x - 1}}, \quad \operatorname{Dom}(f^{-1}) = [1, +\infty), \; \operatorname{Ran}(f^{-1}) = [0, +\infty)
     \end{align*}
 \end{enumerate}
 
@@ -689,42 +684,42 @@ Demuestre formalmente que es inyectiva y sobreyectiva, halle $f^{-1}(x)$ y verif
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=-0.5, xmax=4.5, ymin=-0.5, ymax=6.5,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
     grid=both, grid style={line width=.2pt, draw=gray!20},
-    tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$}
+    tick label style={font=\footnotesize}, xlabel={$x$}, ylabel={$y$}
 ]
     \addplot[domain=0:2.34, color=amarunTeal, very thick, samples=50] {x^2 + 1};
-    \draw[dashed, ponchoRed, thick] (0, 3) -- (4, 3) node[pos=0.85, above, font=\tiny\bfseries] {Recta Horizontal};
-    \filldraw[ponchoRed] (1.414, 3) circle (1.8pt);
-    \node[amarunTeal, font=\tiny\bfseries] at (axis cs:1.2, 5.0) {$f(x) = x^2 + 1$};
+    \draw[dashed, ponchoRed, thick] (0, 3) -- (4, 3) node[pos=0.85, above, font=\footnotesize\bfseries] {Recta Horizontal};
+    \filldraw[ponchoRed] (1.414, 3) circle (2pt);
+    \node[amarunTeal, font=\footnotesize\bfseries] at (axis cs:1.2, 5.0) {$f(x) = x^2 + 1$};
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 8A:} Prueba de la recta horizontal: corta a lo sumo en un punto.}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 8A:} Prueba de la recta horizontal: corta a lo sumo en un punto.}
 \end{minipage}\hfill
 \begin{minipage}{0.485\textwidth}
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=-0.5, xmax=6.2, ymin=-0.5, ymax=6.2,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
     grid=both, grid style={line width=.2pt, draw=gray!20},
-    tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$}
+    tick label style={font=\footnotesize}, xlabel={$x$}, ylabel={$y$}
 ]
-    \draw[dashed, thick, gray!70] (0, 0) -- (5.8, 5.8) node[pos=0.88, above left, font=\tiny\bfseries] {$y=x$};
+    \draw[dashed, thick, gray!70] (0, 0) -- (5.8, 5.8) node[pos=0.88, above left, font=\footnotesize\bfseries] {$y=x$};
     \addplot[domain=0:2.25, color=amarunTeal, very thick, samples=50] {x^2 + 1};
     \addplot[domain=1:6.0, color=ponchoRed, very thick, samples=50] {sqrt(x - 1)};
     \draw[dotted, thick, incaGold] (0, 1) -- (1, 0);
     \draw[dotted, thick, incaGold] (1, 2) -- (2, 1);
     \draw[dotted, thick, incaGold] (2, 5) -- (5, 2);
-    \filldraw[amarunTeal] (0, 1) circle (1.5pt); \filldraw[ponchoRed] (1, 0) circle (1.5pt);
-    \filldraw[amarunTeal] (1, 2) circle (1.5pt); \filldraw[ponchoRed] (2, 1) circle (1.5pt);
-    \filldraw[amarunTeal] (2, 5) circle (1.5pt); \filldraw[ponchoRed] (5, 2) circle (1.5pt);
+    \filldraw[amarunTeal] (0, 1) circle (1.8pt); \filldraw[ponchoRed] (1, 0) circle (1.8pt);
+    \filldraw[amarunTeal] (1, 2) circle (1.8pt); \filldraw[ponchoRed] (2, 1) circle (1.8pt);
+    \filldraw[amarunTeal] (2, 5) circle (1.8pt); \filldraw[ponchoRed] (5, 2) circle (1.8pt);
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 8B:} Reflexión axial simétrica respecto a la diagonal $y = x$.}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 8B:} Reflexión axial simétrica respecto a la diagonal $y = x$.}
 \end{minipage}
 
 \begin{resultadobox}
@@ -768,36 +763,36 @@ Demuestre formalmente que es inyectiva y sobreyectiva, halle $f^{-1}(x)$ y verif
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=-5, xmax=3, ymin=-1, ymax=7,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
     grid=both, grid style={line width=.2pt, draw=gray!20},
-    tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$}
+    tick label style={font=\footnotesize}, xlabel={$x$}, ylabel={$y$}
 ]
     \addplot[domain=-2.4:2.4, color=gray!60, dashed, thick, samples=40] {x^2};
-    \node[color=gray!60, font=\tiny] at (axis cs:1.8, 4.5) {$x^2$};
+    \node[color=gray!60, font=\footnotesize] at (axis cs:1.8, 4.5) {$x^2$};
     \addplot[domain=-4.4:0.4, color=amarunTeal, very thick, samples=40] {(x + 2)^2};
-    \filldraw[amarunTeal] (-2, 0) circle (1.8pt) node[below, font=\tiny\bfseries] {$(-2, 0)$};
+    \filldraw[amarunTeal] (-2, 0) circle (2pt) node[below, font=\footnotesize\bfseries] {$(-2, 0)$};
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 9A:} Desplazamiento inicial a la izquierda: $x^2 \to (x + 2)^2$.}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 9A:} Desplazamiento inicial a la izquierda: $x^2 \to (x + 2)^2$.}
 \end{minipage}\hfill
 \begin{minipage}{0.485\textwidth}
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=-5, xmax=1, ymin=-4, ymax=6.5,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
     grid=both, grid style={line width=.2pt, draw=gray!20},
-    tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$}
+    tick label style={font=\footnotesize}, xlabel={$x$}, ylabel={$y$}
 ]
     \addplot[domain=-3.2:-0.8, color=ponchoRed, very thick, samples=50] {-6*(x + 2)^2 + 5};
-    \filldraw[ponchoRed] (-2, 5) circle (1.8pt) node[above, font=\tiny\bfseries] {$V(-2, 5)$};
+    \filldraw[ponchoRed] (-2, 5) circle (2pt) node[above, font=\footnotesize\bfseries] {$V(-2, 5)$};
     \draw[dashed, ponchoRed] (-2, -4) -- (-2, 5);
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 9B:} Curva final invertida y dilatada con vértice $V(-2, 5)$.}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 9B:} Curva final invertida y dilatada con vértice $V(-2, 5)$.}
 \end{minipage}
 
 \begin{resultadobox}
@@ -839,38 +834,38 @@ Ilustre la diferencia evaluando ambas transformaciones sobre la función prototi
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=0, xmax=8, ymin=-3, ymax=5.5,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
     grid=both, grid style={line width=.2pt, draw=gray!20},
-    tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$}
+    tick label style={font=\footnotesize}, xlabel={$x$}, ylabel={$y$}
 ]
     \addplot[domain=0:6, dashed, color=gray!60, thick, samples=40] {sqrt(x)};
     \addplot[domain=3:7.5, color=amarunTeal, very thick, samples=40] {-2*sqrt(x - 3) + 4};
-    \filldraw[ponchoRed] (3, 4) circle (1.8pt) node[above right, font=\tiny\bfseries] {$(3, 4)$};
-    \node[amarunTeal, font=\tiny\bfseries] at (axis cs:5.5, 0.2) {$g(x) = -2f(x-3)+4$};
+    \filldraw[ponchoRed] (3, 4) circle (2pt) node[above right, font=\footnotesize\bfseries] {$(3, 4)$};
+    \node[amarunTeal, font=\footnotesize\bfseries] at (axis cs:5.5, 0.2) {$g(x) = -2f(x-3)+4$};
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 10A:} Operador exterior: afecta alturas $Y$ (proyección abajo-derecha).}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 10A:} Operador exterior: afecta alturas $Y$ (proyección abajo-derecha).}
 \end{minipage}\hfill
 \begin{minipage}{0.485\textwidth}
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-    width=7.4cm, height=4.5cm,
+    width=7.5cm, height=4.3cm,
     xmin=-1, xmax=6, ymin=0, ymax=7.5,
-    axis lines=middle, axis line style={-stealth, color=slateMuted},
+    axis lines=middle, axis line style={-stealth, thick, color=slateMuted},
     grid=both, grid style={line width=.2pt, draw=gray!20},
-    tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$},
+    tick label style={font=\footnotesize}, xlabel={$x$}, ylabel={$y$},
     unbounded coords=discard
 ]
     \addplot[domain=0:5, dashed, color=gray!60, thick, samples=40] {sqrt(x)};
     \addplot[domain=0:3, color=ponchoRed, very thick, samples=40] {sqrt(max(0, -2*(x - 3))) + 4};
-    \filldraw[incaGold] (3, 4) circle (1.8pt) node[above right, font=\tiny\bfseries] {$(3, 4)$};
-    \node[ponchoRed, font=\tiny\bfseries] at (axis cs:1.2, 6.2) {$h(x) = f(-2(x-3))+4$};
+    \filldraw[incaGold] (3, 4) circle (2pt) node[above right, font=\footnotesize\bfseries] {$(3, 4)$};
+    \node[ponchoRed, font=\footnotesize\bfseries] at (axis cs:1.2, 6.2) {$h(x) = f(-2(x-3))+4$};
 \end{axis}
 \end{tikzpicture}\\[-3pt]
-{\tiny\color{slateMuted}\textbf{Gráfico 10B:} Operador interior: afecta ancho $X$ (proyección arriba-izquierda).}
+{\footnotesize\color{slateMuted}\textbf{Gráfico 10B:} Operador interior: afecta ancho $X$ (proyección arriba-izquierda).}
 \end{minipage}
 
 \begin{resultadobox}
