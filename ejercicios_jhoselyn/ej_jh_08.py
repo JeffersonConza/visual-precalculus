@@ -43,15 +43,15 @@ class EjercicioJh_08(AmarunExerciseScene):
             chapter="Tutoría Jhoselyn",
             exercise="Ejercicio 8",
             topic="Inyectividad, Biyectividad y Función Inversa",
-            font_size=16.5
+            font_size=17.0
         )
 
         # 2. Enunciado institucional permanente con fórmula prominente (y = 2.65)
         self.setup_statement(
             desc_text="Analice la biyectividad y halle la inversa de:",
-            math_tex=r"{\color{amteal}f: [0, +\infty) \to [1, +\infty)}, \quad {\color{amteal}f(x)} = {\color{amteal}x^2 + 1}",
-            desc_font_size=18.0,
-            math_font_size=23.5,
+            math_tex=r"{\color{amteal}f: [0, +\infty) \to [1, +\infty)}, \quad {\color{amteal}f(x) = x^2 + 1}",
+            desc_font_size=18.5,
+            math_font_size=28.0,
             box_pos=np.array([0.0, 2.65, 0.0]),
             read_time=3.8
         )
@@ -66,21 +66,21 @@ class EjercicioJh_08(AmarunExerciseScene):
             "6/8: Verificación Composición",
             "7/8: Simetría y Puntos Homólogos",
             "8/8: Gráfica Dual y Resumen"
-        ], dot_spacing=0.82, label_font_size=14.0)
+        ], dot_spacing=0.82, label_font_size=14.5)
 
         # ==========================================================
         # PASO 1: Dominio, Codominio y Definición Formal
         # ==========================================================
         eq1 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{1. Definición Formal de la Función:} \\[5pt]"
+            r"&\textbf{1. Definición Formal de la Función:} \\[4pt]"
             r"&\text{Una función está completamente definida por su terna } (A, B, f): \\[4pt]"
-            r"&{\color{amteal}f: [0, +\infty) \longrightarrow [1, +\infty)}, \qquad {\color{amteal}f(x) = x^2 + 1} \\[6pt]"
+            r"&{\color{amteal}f: [0, +\infty) \longrightarrow [1, +\infty)}, \qquad {\color{amteal}f(x) = x^2 + 1} \\[5pt]"
             r"&\bullet \mathbf{\operatorname{Dom}(f) = A = {\color{amgold}[0, +\infty)}} \quad (\text{reales no negativos}) \\[4pt]"
             r"&\bullet \mathbf{\operatorname{Cod}(f) = B = {\color{amgold}[1, +\infty)}} \quad (\text{conjunto de llegada}) \\[5pt]"
             r"&\implies \text{La restricción a } x \ge 0 \text{ evita la pérdida de inyectividad.}"
             r"\end{aligned}",
-            font_size=20.5,
+            font_size=21.5,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
@@ -106,15 +106,15 @@ class EjercicioJh_08(AmarunExerciseScene):
         # ==========================================================
         eq2 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{2. Demostración Formal de Inyectividad:} \\[5pt]"
-            r"&\text{Definición: } \forall \, x_1, x_2 \in [0, +\infty), \; f(x_1) = f(x_2) \implies x_1 = x_2. \\[5pt]"
+            r"&\textbf{2. Demostración Formal de Inyectividad:} \\[4pt]"
+            r"&\text{Definición: } \forall \, x_1, x_2 \in [0, +\infty), \; f(x_1) = f(x_2) \implies x_1 = x_2. \\[4pt]"
             r"&\text{Sean } x_1, x_2 \in [0, +\infty) \text{ tales que } f(x_1) = f(x_2): \\[4pt]"
-            r"&x_1^2 + 1 = x_2^2 + 1 \implies x_1^2 = x_2^2 \implies \sqrt{x_1^2} = \sqrt{x_2^2} \\[5pt]"
-            r"&\implies |x_1| = |x_2| \\[5pt]"
-            r"&\text{Como } x_1 \ge 0 \text{ y } x_2 \ge 0 \implies |x_1| = x_1 \quad \text{y} \quad |x_2| = x_2 \\[5pt]"
+            r"&x_1^2 + 1 = x_2^2 + 1 \implies x_1^2 = x_2^2 \implies \sqrt{x_1^2} = \sqrt{x_2^2} \\[4pt]"
+            r"&\implies |x_1| = |x_2| \\[4pt]"
+            r"&\text{Como } x_1 \ge 0 \text{ y } x_2 \ge 0 \implies |x_1| = x_1 \quad \text{y} \quad |x_2| = x_2 \\[4pt]"
             r"&\implies \mathbf{{\color{amgreen}x_1 = x_2}} \implies \mathbf{f \text{ es estrictamente INYECTIVA}.}"
             r"\end{aligned}",
-            font_size=20.0,
+            font_size=21.5,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
@@ -140,16 +140,16 @@ class EjercicioJh_08(AmarunExerciseScene):
         # ==========================================================
         eq3 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{3. Demostración Formal de Sobreyectividad:} \\[5pt]"
-            r"&\text{Definición: } \forall \, y \in [1, +\infty), \; \exists \, x \in [0, +\infty) \text{ tal que } f(x) = y. \\[5pt]"
+            r"&\textbf{3. Demostración Formal de Sobreyectividad:} \\[4pt]"
+            r"&\text{Definición: } \forall \, y \in [1, +\infty), \; \exists \, x \in [0, +\infty) \text{ tal que } f(x) = y. \\[4pt]"
             r"&\text{Sea } y \in [1, +\infty) \text{ arbitrario. Resolvemos para } x: \\[4pt]"
-            r"&y = x^2 + 1 \iff x^2 = y - 1 \implies |x| = \sqrt{y - 1} \\[5pt]"
-            r"&\text{Dado que } x \in [0, +\infty) \implies \mathbf{x = {\color{amteal}+\sqrt{y - 1}}} \\[5pt]"
-            r"&\text{Existencia real: } y \ge 1 \implies y - 1 \ge 0 \implies \sqrt{y - 1} \in \mathbb{R} \\[4pt]"
-            r"&\text{Además, } \sqrt{y - 1} \ge 0 \implies x \in [0, +\infty) = A \\[5pt]"
+            r"&y = x^2 + 1 \iff x^2 = y - 1 \implies |x| = \sqrt{y - 1} \\[4pt]"
+            r"&\text{Dado que } x \in [0, +\infty) \implies \mathbf{x = {\color{amteal}+\sqrt{y - 1}}} \\[4pt]"
+            r"&\text{Existencia real: } y \ge 1 \implies y - 1 \ge 0 \implies \sqrt{y - 1} \in \mathbb{R} \\[3pt]"
+            r"&\text{Además, } \sqrt{y - 1} \ge 0 \implies x \in [0, +\infty) = A \\[4pt]"
             r"&\implies \operatorname{Ran}(f) = B \implies \mathbf{f \text{ es SOBREYECTIVA}.}"
             r"\end{aligned}",
-            font_size=19.5,
+            font_size=21.0,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
@@ -174,17 +174,17 @@ class EjercicioJh_08(AmarunExerciseScene):
         # ==========================================================
         eq4 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{4. Conclusión de Biyectividad e Invertibilidad:} \\[5pt]"
+            r"&\textbf{4. Conclusión de Biyectividad e Invertibilidad:} \\[4pt]"
             r"&\bullet \mathbf{f \text{ es Inyectiva}} \quad (\text{unívoca, pasa prueba recta horizontal}) \\[4pt]"
-            r"&\bullet \mathbf{f \text{ es Sobreyectiva}} \quad (\text{su imagen coincide con } [1, +\infty)) \\[6pt]"
-            r"&\implies \mathbf{f \text{ es una Función BIYECTIVA}} \\[6pt]"
+            r"&\bullet \mathbf{f \text{ es Sobreyectiva}} \quad (\text{su imagen coincide con } [1, +\infty)) \\[5pt]"
+            r"&\implies \mathbf{f \text{ es una Función BIYECTIVA}} \\[5pt]"
             r"&\bullet \textbf{Teorema de Existencia de Función Inversa:} \\[3pt]"
-            r"&\quad f \text{ admite inversa } f^{-1} \iff f \text{ es biyectiva.} \\[6pt]"
+            r"&\quad f \text{ admite inversa } f^{-1} \iff f \text{ es biyectiva.} \\[5pt]"
             r"&\bullet \textbf{Intercambio Canónico de Conjuntos:} \\[4pt]"
-            r"&\quad \mathbf{\operatorname{Dom}(f^{-1}) = \operatorname{Ran}(f) = {\color{amgold}[1, +\infty)}} \\[4pt]"
+            r"&\quad \mathbf{\operatorname{Dom}(f^{-1}) = \operatorname{Ran}(f) = {\color{amgold}[1, +\infty)}} \\[3pt]"
             r"&\quad \mathbf{\operatorname{Ran}(f^{-1}) = \operatorname{Dom}(f) = {\color{amgold}[0, +\infty)}}"
             r"\end{aligned}",
-            font_size=20.0,
+            font_size=21.5,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
@@ -209,16 +209,16 @@ class EjercicioJh_08(AmarunExerciseScene):
         # ==========================================================
         eq5 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{5. Cálculo Canónico de la Función Inversa } f^{-1}: \\[5pt]"
-            r"&\text{Por definición, } y = f(x) \iff x = f^{-1}(y). \\[5pt]"
-            r"&\text{Partimos de la relación: } y = x^2 + 1 \quad (x \ge 0, \; y \ge 1) \\[5pt]"
+            r"&\textbf{5. Cálculo Canónico de la Función Inversa } f^{-1}: \\[4pt]"
+            r"&\text{Por definición, } y = f(x) \iff x = f^{-1}(y). \\[4pt]"
+            r"&\text{Partimos de la relación: } y = x^2 + 1 \quad (x \ge 0, \; y \ge 1) \\[4pt]"
             r"&\text{Intercambiamos formalmente los roles de variables } x \leftrightarrow y: \\[4pt]"
-            r"&x = y^2 + 1 \implies y^2 = x - 1 \\[5pt]"
-            r"&\text{Como } y \in [0, +\infty) \implies \mathbf{y = {\color{amgreen}+\sqrt{x - 1}}} \\[6pt]"
-            r"&\mathbf{f^{-1}: [1, +\infty) \longrightarrow [0, +\infty)} \\[5pt]"
+            r"&x = y^2 + 1 \implies y^2 = x - 1 \\[4pt]"
+            r"&\text{Como } y \in [0, +\infty) \implies \mathbf{y = {\color{amgreen}+\sqrt{x - 1}}} \\[5pt]"
+            r"&\mathbf{f^{-1}: [1, +\infty) \longrightarrow [0, +\infty)} \\[4pt]"
             r"&\mathbf{{\color{amgreen}f^{-1}(x) = \sqrt{x - 1}}}"
             r"\end{aligned}",
-            font_size=20.0,
+            font_size=21.5,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
@@ -244,16 +244,16 @@ class EjercicioJh_08(AmarunExerciseScene):
         # ==========================================================
         eq6 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{6. Verificación de la Composición (Identidad):} \\[5pt]"
-            r"&\text{La teoría exige: } f^{-1} \circ f = I_A \quad \text{y} \quad f \circ f^{-1} = I_B. \\[5pt]"
+            r"&\textbf{6. Verificación de la Composición (Identidad):} \\[4pt]"
+            r"&\text{La teoría exige: } f^{-1} \circ f = I_A \quad \text{y} \quad f \circ f^{-1} = I_B. \\[4pt]"
             r"&\bullet \mathbf{(f^{-1} \circ f)(x) = f^{-1}(f(x))}: \\[3pt]"
-            r"&\quad = \sqrt{(x^2 + 1) - 1} = \sqrt{x^2} = |x| = \mathbf{{\color{amgreen}x}} \quad (\text{pues } x \ge 0) \\[4pt]"
-            r"&\quad \implies \mathbf{f^{-1} \circ f = I_{[0, +\infty)}} \\[6pt]"
+            r"&\quad = \sqrt{(x^2 + 1) - 1} = \sqrt{x^2} = |x| = \mathbf{{\color{amgreen}x}} \quad (\text{pues } x \ge 0) \\[3pt]"
+            r"&\quad \implies \mathbf{f^{-1} \circ f = I_{[0, +\infty)}} \\[5pt]"
             r"&\bullet \mathbf{(f \circ f^{-1})(x) = f(f^{-1}(x))}: \\[3pt]"
-            r"&\quad = (\sqrt{x - 1})^2 + 1 = (x - 1) + 1 = \mathbf{{\color{amgreen}x}} \quad (\text{pues } x \ge 1) \\[4pt]"
+            r"&\quad = (\sqrt{x - 1})^2 + 1 = (x - 1) + 1 = \mathbf{{\color{amgreen}x}} \quad (\text{pues } x \ge 1) \\[3pt]"
             r"&\quad \implies \mathbf{f \circ f^{-1} = I_{[1, +\infty)}}"
             r"\end{aligned}",
-            font_size=19.5,
+            font_size=21.0,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
@@ -279,16 +279,16 @@ class EjercicioJh_08(AmarunExerciseScene):
         # ==========================================================
         eq7 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{7. Cuadro de Puntos Homólogos y Simetría:} \\[6pt]"
+            r"&\textbf{7. Cuadro de Puntos Homólogos y Simetría:} \\[5pt]"
             r"&\begin{array}{c|c|c|c|c}"
             r"\textbf{Punto en } f(x) & P_0(0, 1) & P_1(1, 2) & P_2(\sqrt{3}, 4) & P_3(2, 5) \\ \hline "
             r"\textbf{Punto en } f^{-1}(x) & P_0'(1, 0) & P_1'(2, 1) & P_2'(4, \sqrt{3}) & P_3'(5, 2)"
-            r"\end{array} \\[8pt]"
-            r"&\bullet \mathbf{\text{Propiedad Geométrica: }} (a, b) \in f \iff (b, a) \in f^{-1}. \\[4pt]"
-            r"&\bullet \mathbf{\text{Eje de Simetría Especular: }} \text{La recta identidad } {\color{amgold}y = x}. \\[4pt]"
-            r"&\bullet \mathbf{\text{Segmentos Conectores: }} \text{Unen } P_k \text{ con } P_k' \text{ perpendicularmente a } y = x."
+            r"\end{array} \\[6pt]"
+            r"&\bullet \mathbf{\text{Propiedad: }} (a, b) \in f \iff (b, a) \in f^{-1}. \\[4pt]"
+            r"&\bullet \mathbf{\text{Eje de Simetría: }} \text{La recta identidad } {\color{amgold}y = x}. \\[4pt]"
+            r"&\bullet \mathbf{\text{Conectores: }} \text{Unen } P_k \text{ con } P_k' \text{ perpendicularmente a } y = x."
             r"\end{aligned}",
-            font_size=18.5,
+            font_size=21.0,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
@@ -311,21 +311,21 @@ class EjercicioJh_08(AmarunExerciseScene):
         # ==========================================================
         left_summary = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{8. Resumen Formal de Resultados:} \\[4pt]"
-            r"&\bullet \mathbf{\operatorname{Dom}(f) = [0, +\infty)}, \quad \mathbf{\operatorname{Cod}(f) = [1, +\infty)} \\[4pt]"
-            r"&\bullet \mathbf{\text{Inyectiva: }} x_1^2 + 1 = x_2^2 + 1 \implies x_1 = x_2 \\[4pt]"
-            r"&\bullet \mathbf{\text{Sobreyectiva: }} \forall y \ge 1, \; x = \sqrt{y - 1} \in [0, +\infty) \\[4pt]"
-            r"&\bullet \mathbf{\text{Biyectiva: }} \text{Inyectiva } \land \text{ Sobreyectiva} \\[4pt]"
-            r"&\bullet \mathbf{\text{Función Inversa: }} {\color{amgreen}f^{-1}(x) = \sqrt{x - 1}} \\[4pt]"
-            r"&\bullet \mathbf{\operatorname{Dom}(f^{-1}) = {\color{amgold}[1, +\infty)}}, \quad \mathbf{\operatorname{Ran}(f^{-1}) = {\color{amgold}[0, +\infty)}} \\[4pt]"
-            r"&\bullet \mathbf{\text{Composición: }} f^{-1} \circ f = I_A, \quad f \circ f^{-1} = I_B \\[4pt]"
+            r"&\textbf{8. Resumen Formal de Resultados:} \\[3pt]"
+            r"&\bullet \mathbf{\operatorname{Dom}(f) = [0, +\infty)}, \quad \mathbf{\operatorname{Cod}(f) = [1, +\infty)} \\[3pt]"
+            r"&\bullet \mathbf{\text{Inyectiva: }} x_1^2 + 1 = x_2^2 + 1 \implies x_1 = x_2 \\[3pt]"
+            r"&\bullet \mathbf{\text{Sobreyectiva: }} \forall y \ge 1, \; x = \sqrt{y - 1} \in [0, +\infty) \\[3pt]"
+            r"&\bullet \mathbf{\text{Biyectiva: }} \text{Inyectiva } \land \text{ Sobreyectiva} \\[3pt]"
+            r"&\bullet \mathbf{\text{Función Inversa: }} {\color{amgreen}f^{-1}(x) = \sqrt{x - 1}} \\[3pt]"
+            r"&\bullet \mathbf{\operatorname{Dom}(f^{-1}) = {\color{amgold}[1, +\infty)}}, \quad \mathbf{\operatorname{Ran}(f^{-1}) = {\color{amgold}[0, +\infty)}} \\[3pt]"
+            r"&\bullet \mathbf{\text{Composición: }} f^{-1} \circ f = I_A, \quad f \circ f^{-1} = I_B \\[3pt]"
             r"&\bullet \mathbf{\text{Simetría: }} \text{Reflejo especular en } {\color{amgold}y = x} \quad {\color{amgreen}\blacksquare}"
             r"\end{aligned}",
-            font_size=19.5,
+            font_size=21.0,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
-        box8 = SurroundingRectangle(left_summary, color=THEME["success"], buff=0.18, corner_radius=0.1)
+        box8 = SurroundingRectangle(left_summary, color=THEME["success"], buff=0.16, corner_radius=0.1)
 
         # Gráfico cartesiano ortonormal (escala 1:1)
         axes = Axes(
@@ -339,19 +339,19 @@ class EjercicioJh_08(AmarunExerciseScene):
                 "stroke_width": 2,
                 "include_numbers": True,
                 "numbers_to_include": [2, 3, 4, 5],
-                "font_size": 14,
+                "font_size": 16,
                 "tip_width": 0.12,
                 "tip_height": 0.12,
             }
         ).move_to([3.3, -0.55, 0])
 
-        x_lbl = MathTex("x", font_size=16, color=THEME["statement_text"]).next_to(axes.x_axis.get_end(), RIGHT, buff=0.10)
-        y_lbl = MathTex("y", font_size=16, color=THEME["statement_text"]).next_to(axes.y_axis.get_end(), LEFT, buff=0.12)
+        x_lbl = MathTex("x", font_size=19, color=THEME["statement_text"]).next_to(axes.x_axis.get_end(), RIGHT, buff=0.10)
+        y_lbl = MathTex("y", font_size=19, color=THEME["statement_text"]).next_to(axes.y_axis.get_end(), LEFT, buff=0.12)
         axes_labels = VGroup(x_lbl, y_lbl)
 
         graph_title = Tex(
             r"Gráfica de ${\color{amteal}f(x)}$ y su Inversa ${\color{amgreen}f^{-1}(x)}$",
-            font_size=18.5,
+            font_size=20.0,
             color=WHITE
         ).move_to([3.4, 2.15, 0])
 
@@ -360,7 +360,7 @@ class EjercicioJh_08(AmarunExerciseScene):
             axes.c2p(-0.4, -0.4), axes.c2p(5.2, 5.2),
             dash_length=0.08, color=THEME["highlight"], stroke_width=1.8
         )
-        lbl_diag = MathTex(r"y = x", font_size=13.5, color=THEME["highlight"]).next_to(axes.c2p(4.8, 4.8), UP + LEFT, buff=0.06)
+        lbl_diag = MathTex(r"y = x", font_size=15.0, color=THEME["highlight"]).next_to(axes.c2p(4.8, 4.8), UP + LEFT, buff=0.06)
 
         # Curva f(x) = x^2 + 1 (x in [0, 2.1])
         curve_f = axes.plot(
@@ -369,7 +369,7 @@ class EjercicioJh_08(AmarunExerciseScene):
             color=THEME["curve"],
             stroke_width=2.5
         )
-        lbl_f = MathTex(r"f(x) = x^2 + 1", font_size=13.5, color=THEME["curve"]).move_to(axes.c2p(1.1, 4.0))
+        lbl_f = MathTex(r"f(x) = x^2 + 1", font_size=15.0, color=THEME["curve"]).move_to(axes.c2p(1.1, 4.0))
 
         # Curva f^-1(x) = sqrt(x - 1) (x in [1, 5.4])
         curve_finv = axes.plot(
@@ -378,20 +378,20 @@ class EjercicioJh_08(AmarunExerciseScene):
             color=THEME["success"],
             stroke_width=2.5
         )
-        lbl_finv = MathTex(r"f^{-1}(x) = \sqrt{x - 1}", font_size=13.5, color=THEME["success"]).move_to(axes.c2p(3.8, 1.1))
+        lbl_finv = MathTex(r"f^{-1}(x) = \sqrt{x - 1}", font_size=15.0, color=THEME["success"]).move_to(axes.c2p(3.8, 1.1))
 
         # Puntos homólogos
         dot_p0 = Dot(axes.c2p(0.0, 1.0), radius=0.065, color=THEME["curve"])
-        lbl_p0 = MathTex(r"(0, 1)", font_size=12.5, color=THEME["curve"]).next_to(dot_p0, LEFT, buff=0.10)
+        lbl_p0 = MathTex(r"(0, 1)", font_size=13.5, color=THEME["curve"]).next_to(dot_p0, LEFT, buff=0.10)
 
         dot_p0_inv = Dot(axes.c2p(1.0, 0.0), radius=0.065, color=THEME["success"])
-        lbl_p0_inv = MathTex(r"(1, 0)", font_size=12.5, color=THEME["success"]).next_to(dot_p0_inv, DOWN, buff=0.10)
+        lbl_p0_inv = MathTex(r"(1, 0)", font_size=13.5, color=THEME["success"]).next_to(dot_p0_inv, DOWN, buff=0.10)
 
         dot_p1 = Dot(axes.c2p(1.0, 2.0), radius=0.065, color=THEME["curve"])
-        lbl_p1 = MathTex(r"(1, 2)", font_size=12.5, color=THEME["curve"]).next_to(dot_p1, LEFT, buff=0.08)
+        lbl_p1 = MathTex(r"(1, 2)", font_size=13.5, color=THEME["curve"]).next_to(dot_p1, LEFT, buff=0.08)
 
         dot_p1_inv = Dot(axes.c2p(2.0, 1.0), radius=0.065, color=THEME["success"])
-        lbl_p1_inv = MathTex(r"(2, 1)", font_size=12.5, color=THEME["success"]).next_to(dot_p1_inv, DOWN, buff=0.08)
+        lbl_p1_inv = MathTex(r"(2, 1)", font_size=13.5, color=THEME["success"]).next_to(dot_p1_inv, DOWN, buff=0.08)
 
         # Segmentos de conexión punteados entre puntos simétricos
         seg0 = DashedLine(axes.c2p(0.0, 1.0), axes.c2p(1.0, 0.0), dash_length=0.05, color=GRAY, stroke_width=1.2)
