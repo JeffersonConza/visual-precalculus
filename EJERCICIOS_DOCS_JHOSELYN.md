@@ -24,7 +24,11 @@
 
 ## 🎬 Directorio de Animaciones Manim Renderizadas (Full HD 1080p60)
 
-Todos los videos cuentan con el estándar tipográfico de alta legibilidad (piso mínimo $\ge 21.0\text{ pt}$ a $25.0\text{ pt}$ en ecuaciones, $\ge 20.0\text{ pt}$ a $28.0\text{ pt}$ en enunciados maquetados en 2 líneas con `arrange_direction=DOWN`, y $\ge 22.5\text{ pt}$ en justificaciones), duración pedagógica calibrada ($55-65\text{ s}$) y gráfica cartesiana final:
+Todos los videos cuentan con el estándar tipográfico de alta legibilidad (piso mínimo $\ge 21.0\text{ pt}$ a $25.0\text{ pt}$ en ecuaciones, $\ge 20.0\text{ pt}$ a $28.0\text{ pt}$ en enunciados maquetados en 2 líneas con `arrange_direction=DOWN`, y $\ge 22.5\text{ pt}$ en justificaciones), duración pedagógica calibrada ($55-65\text{ s}$) y gráfica cartesiana final.
+
+> 💡 **Criterios Metodológicos de Resolución:**
+> 1. **Flexibilidad en el Número de Pasos (Más de 6 Pasos):** La resolución no está limitada rígidamente a 6 pasos. Se pueden y deben emplear **más de 6 pasos** (frecuentemente 7 u 8 pasos) según la naturaleza deductiva del ejercicio (por ejemplo, el protocolo canónico de 7 pasos para graficación completa de racionales, las 8 etapas de reconstrucción cuadrática y transformaciones en vértice, o la verificación integral de biyectividad).
+> 2. **Uso Obligatorio de Colores:** En la resolución de los ejercicios es mandatorio utilizar colores pedagógicos para diferenciar el rol matemático de cada término: **Oro Inca (`amgold`)** para la expresión o caso principal, **Turquesa (`amteal`)** para desarrollos auxiliares y cotas, **Rojo Poncho (`amred`)** para restricciones, cancelaciones o casos imposibles, y **Verde Esmeralda (`amgreen`)** para el conjunto solución final ($CS$) y veredictos verdaderos.
 
 | Ejercicio | Origen | Función / Problema | Código Python | Video 1080p60 | Vista Previa |
 | :---: | :---: | :--- | :---: | :---: | :---: |

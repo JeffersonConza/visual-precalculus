@@ -19,7 +19,14 @@ Las animaciones siguen un estándar pedagógico y estético unificado mediante l
   * **Gráfica cartesiana:** Números de ejes a $15.0\text{ pt}$, nombres de ejes a $21.0\text{ pt}$ y etiquetas de curvas a $\ge 18.0\text{ pt}$.
 * **Metamorfosis Algebraica (Estilo 3Blue1Brown):** En el panel izquierdo, las expresiones matemáticas mutan directamente en su lugar (`ReplacementTransform`), mientras el panel derecho actualiza la justificación teórica paso a paso.
 * **Tachado Explícito:** Al simplificar factores fraccionarios, se trazan líneas diagonales en rojo poncho sobre los términos cancelados, con pausas de asimilación antes de la reducción.
-* **Estructura Pedagógica (Preferencia de ~6 a 8 Pasos):** Desglose estructurado de etapas progresivas bien delimitadas, adaptándose con flexibilidad según la naturaleza del problema sin forzar pasos artificiales ni omitir justificaciones deductivas.
+* **Estructura Pedagógica Flexible (Más de 6 Pasos Permitidos y Recomendados):** Desglose estructurado de etapas progresivas bien delimitadas. La resolución de ejercicios no está restringida a un máximo de 6 pasos: **se pueden y deben emplear más de 6 pasos** (frecuentemente 7, 8 o más pasos) cuando la densidad matemática del problema lo amerite (como análisis de funciones racionales completas con asíntotas y tablas de signos, transformaciones canónicas por etapas, o pruebas completas de inyectividad, sobreyectividad e inversa). La barra de progreso interactiva inferior se adapta dinámicamente a cualquier número de fases ($N$ nodos con espaciado calibrado).
+* **Uso Obligatorio de Colores en la Resolución Matemática:** Es un requisito indispensable **emplear colores pedagógicos de forma sistemática en todas las ecuaciones y deducciones algebraicas**, utilizando la plantilla `AMARUN_TEX_TEMPLATE` vinculada a la paleta andina institucional:
+  * **Oro Inca (`amgold` / `#F6B840`):** Expresión principal analizada, hipótesis de partida y casos primarios.
+  * **Turquesa Amarun (`amteal` / `#5CE1E6`):** Términos secundarios, desgloses algebraicos activos y rectas de referencia.
+  * **Verde Esmeralda (`amgreen` / `#48BB78`):** Conjuntos solución finales ($CS$), resultados corroborados y veredictos verdaderos.
+  * **Rojo Poncho Yachay (`amred` / `#E53E3E` o `#A32F30`):** Restricciones de dominio, exclusiones, contradicciones, líneas de tachado y veredictos falsos.
+  * **Terracota (`amorange` / `#DB5A38`):** Factores críticos y alertas metodológicas.
+  * **Blanco Alpaca (`amwhite` / `#FDFBF7`):** Texto base y operadores estándar.
 * **Barra de Progreso Interactiva:** En la parte inferior ($y = -3.55$), una línea con nodos dinámicos indica la etapa activa (amarillo inca), las etapas superadas (verde andino) y el rótulo de la fase actual.
 * **Interpretación Gráfica Cartesiana:** Cada ejercicio concluye con la visualización de la curva en el plano cartesiano, destacando puntos abiertos (discontinuidades evitables), asíntotas, vértices y cortes con los ejes.
 * **Paleta Andina Institucional ([common/styles.py](common/styles.py)):**

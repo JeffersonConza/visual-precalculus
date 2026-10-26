@@ -168,6 +168,10 @@ Una transformación de $f(x) = |x|$ tiene vértice en $(-3, 4)$ y pasa por $(-1,
 
 Esta colección de animaciones ha sido desarrollada a medida, siguiendo estrictamente los ejercicios de sus guías de clase y cumpliendo con el estándar pedagógico y tipográfico de alta legibilidad:
 
+> 📌 **Norma de Resolución en los Ejercicios:**
+> * **Más de 6 Pasos Habilitados y Recomendados:** No se restringe la resolución a 6 pasos; se pueden y deben utilizar **más de 6 pasos** (frecuentemente 7 u 8 pasos) para desglosar con total holgura matemática demostraciones de inyectividad, tablas de signos de múltiples factores, transformaciones canónicas de funciones o sistemas con radicales.
+> * **Uso Obligatorio de Colores:** Cada paso de la resolución debe incorporar colores contrastantes para maximizar la comprensión: **Oro Inca (`amgold`)** para la expresión base y casos primarios, **Turquesa (`amteal`)** para transformaciones intermedias y cotas, **Rojo Poncho (`amred`)** para restricciones de dominio, tachados y contradicciones, y **Verde Esmeralda (`amgreen`)** para el conjunto solución final ($CS$) y veredictos válidos.
+
 | Video | Guía de Origen | Ejercicio y Función | Enfoque Pedagógico | Vista Previa |
 | :--- | :---: | :--- | :--- | :---: |
 | [`EjercicioJh_01.mp4`](file:///mnt/c/Users/jconza/Documents/PreCalculus/videos/jhoselyn/EjercicioJh_01.mp4) | **Quiz 4** | $f(x) = -\frac{1}{2}x^2 + \frac{3}{2}x + \frac{27}{8}$ | Protocolo de 7 pasos, vértice $V(1.5, 4.5)$, cortes y parábola completa. | [Ver GIF](file:///mnt/c/Users/jconza/Documents/PreCalculus/docs/previews/ej_jh_01.gif) |
