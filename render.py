@@ -60,7 +60,7 @@ def discover_exercises() -> dict[str, dict]:
     exercises = {}
     pattern = re.compile(r"ej_(\d+)_(\d+)\.py$")
     jh_pattern = re.compile(r"ej_jh_(\d+)\.py$", re.IGNORECASE)
-    ann_pattern = re.compile(r"ej_ann_(\d+)\.py$", re.IGNORECASE)
+    ann_pattern = re.compile(r"ej_ann_(\d+)([a-zA-Z]?)\.py$", re.IGNORECASE)
     class_pattern = re.compile(r"class\s+(Ejercicio\w+)\s*\(")
 
     # Recorrido seguro omitiendo carpetas del sistema, entornos virtuales y binarios
@@ -75,30 +75,36 @@ def discover_exercises() -> dict[str, dict]:
             if ann_match:
                 py_file = Path(root) / file_name
                 ej_num = int(ann_match.group(1))
-                key = f"ann.{ej_num}"
-                padded_key = f"ann_{ej_num:02d}"
+                letter = ann_match.group(2).lower()
+                suffix = letter if letter else ""
+                key = f"ann.{ej_num}{suffix}"
+                padded_key = f"ann_{ej_num:02d}{suffix}"
 
                 try:
                     content = py_file.read_text(encoding="utf-8")
                     class_match = class_pattern.search(content)
-                    class_name = class_match.group(1) if class_match else f"EjercicioAnn_{ej_num:02d}"
+                    class_name = class_match.group(1) if class_match else f"EjercicioAnn_{ej_num:02d}{suffix}"
                 except Exception:
-                    class_name = f"EjercicioAnn_{ej_num:02d}"
+                    class_name = f"EjercicioAnn_{ej_num:02d}{suffix}"
 
                 info = {
                     "key": key,
                     "file_path": py_file,
                     "rel_path": py_file.relative_to(ROOT_DIR),
                     "class_name": class_name,
-                    "stem": f"ej_ann_{ej_num:02d}",
+                    "stem": f"ej_ann_{ej_num:02d}{suffix}",
                     "chapter": "annelisse",
                     "exercise": ej_num,
                 }
                 exercises[key] = info
-                exercises[f"ann{ej_num}"] = info
-                exercises[f"ann_{ej_num}"] = info
-                exercises[f"ann_{ej_num:02d}"] = info
-                exercises[f"ej_ann_{ej_num:02d}"] = info
+                exercises[f"ann{ej_num}{suffix}"] = info
+                exercises[f"ann_{ej_num}{suffix}"] = info
+                exercises[f"ann_{ej_num:02d}{suffix}"] = info
+                exercises[f"ej_ann_{ej_num:02d}{suffix}"] = info
+                if suffix:
+                    exercises[f"ann.{ej_num}.{suffix}"] = info
+                    exercises[f"ann_{ej_num}_{suffix}"] = info
+                    exercises[f"ann_{ej_num:02d}_{suffix}"] = info
                 continue
 
             jh_match = jh_pattern.search(file_name)
@@ -165,9 +171,11 @@ def normalize_key(input_str: str) -> str:
     """Normaliza variantes como '5.2', '05.02', '05_02' a '5.2', o 'jh.1', 'jh1', 'jh_01' a 'jh.1'."""
     clean = input_str.strip().lower().replace("ej_", "")
     if clean.startswith("ann") or clean.startswith("an"):
-        num_part = re.sub(r"[^0-9]", "", clean)
-        if num_part:
-            return f"ann.{int(num_part)}"
+        m = re.match(r"(?:ann|an)[._]?(\d+)([a-z]?)", clean)
+        if m:
+            num = int(m.group(1))
+            letter = m.group(2)
+            return f"ann.{num}{letter}"
         return clean
     if clean.startswith("jh"):
         num_part = re.sub(r"[^0-9]", "", clean)
