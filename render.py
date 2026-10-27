@@ -60,6 +60,7 @@ def discover_exercises() -> dict[str, dict]:
     exercises = {}
     pattern = re.compile(r"ej_(\d+)_(\d+)\.py$")
     jh_pattern = re.compile(r"ej_jh_(\d+)\.py$", re.IGNORECASE)
+    ann_pattern = re.compile(r"ej_ann_(\d+)\.py$", re.IGNORECASE)
     class_pattern = re.compile(r"class\s+(Ejercicio\w+)\s*\(")
 
     # Recorrido seguro omitiendo carpetas del sistema, entornos virtuales y binarios
@@ -70,6 +71,36 @@ def discover_exercises() -> dict[str, dict]:
             and d not in ("media", "docs", "images", "otros", "__pycache__", "build", "dist")
         ]
         for file_name in files:
+            ann_match = ann_pattern.search(file_name)
+            if ann_match:
+                py_file = Path(root) / file_name
+                ej_num = int(ann_match.group(1))
+                key = f"ann.{ej_num}"
+                padded_key = f"ann_{ej_num:02d}"
+
+                try:
+                    content = py_file.read_text(encoding="utf-8")
+                    class_match = class_pattern.search(content)
+                    class_name = class_match.group(1) if class_match else f"EjercicioAnn_{ej_num:02d}"
+                except Exception:
+                    class_name = f"EjercicioAnn_{ej_num:02d}"
+
+                info = {
+                    "key": key,
+                    "file_path": py_file,
+                    "rel_path": py_file.relative_to(ROOT_DIR),
+                    "class_name": class_name,
+                    "stem": f"ej_ann_{ej_num:02d}",
+                    "chapter": "annelisse",
+                    "exercise": ej_num,
+                }
+                exercises[key] = info
+                exercises[f"ann{ej_num}"] = info
+                exercises[f"ann_{ej_num}"] = info
+                exercises[f"ann_{ej_num:02d}"] = info
+                exercises[f"ej_ann_{ej_num:02d}"] = info
+                continue
+
             jh_match = jh_pattern.search(file_name)
             if jh_match:
                 py_file = Path(root) / file_name
@@ -133,6 +164,11 @@ def discover_exercises() -> dict[str, dict]:
 def normalize_key(input_str: str) -> str:
     """Normaliza variantes como '5.2', '05.02', '05_02' a '5.2', o 'jh.1', 'jh1', 'jh_01' a 'jh.1'."""
     clean = input_str.strip().lower().replace("ej_", "")
+    if clean.startswith("ann") or clean.startswith("an"):
+        num_part = re.sub(r"[^0-9]", "", clean)
+        if num_part:
+            return f"ann.{int(num_part)}"
+        return clean
     if clean.startswith("jh"):
         num_part = re.sub(r"[^0-9]", "", clean)
         if num_part:
@@ -190,6 +226,8 @@ def render_exercise(
     if video_path.exists():
         if info["chapter"] == "jhoselyn":
             dest_dir = ROOT_DIR / "videos" / "jhoselyn"
+        elif info["chapter"] == "annelisse":
+            dest_dir = ROOT_DIR / "videos" / "annelisse"
         else:
             dest_dir = ROOT_DIR / "videos" / f"capitulo_{int(info['chapter']):02d}"
         dest_dir.mkdir(parents=True, exist_ok=True)
