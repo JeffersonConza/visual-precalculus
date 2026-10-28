@@ -1,0 +1,453 @@
+r"""
+Precálculo Universitario · Tutorías Annelisse / Editorial Amarun
+Capítulo: Funciones Reales y Gráficas
+Ejercicio 3.c: Rango de Función Cuadrática con Dominio Restringido
+               f(x) = x² - 6x + 5,  Dom(f) = [3, 9/2[
+
+Estructura de la Demostración (8 Pasos):
+      1. Coeficientes y concavidad: a = 1 > 0 (parábola cóncava hacia arriba ∪).
+      2. Localización analítica del vértice: xv = 3 ∈ [3, 9/2[ (vértice en extremo izquierdo cerrado).
+      3. Ordenada del vértice: y_min = f(3) = -4 (mínimo absoluto global de la función en D).
+      4. Monotonía en el dominio: al ser x ≥ 3, f es estrictamente creciente en todo D.
+      5. Evaluación en el extremo derecho: f(9/2) = -7/4 = -1.75 (extremo abierto, supremo no alcanzable).
+      6. Deducción formal del rango: Ran(f) = [-4, -7/4[.
+      7. Ausencia de raíces en D y tabla de valores notables.
+      8. Trazado cartesiano riguroso: arco de curva, vértice mínimo cerrado, extremo abierto y rango en Y.
+
+Diseño: Metamorfosis 3B1B (Amarun Style), paleta andina institucional,
+        animación pedagógica en 8 pasos con tipografía LaTeX HD generosa y legible.
+"""
+
+from manim import *
+import numpy as np
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from common.base_scene import AmarunExerciseScene
+from common.styles import THEME
+
+# Configuración de Plantilla LaTeX con Paleta Andina Editorial Amarun
+AMARUN_TEX_TEMPLATE = TexTemplate()
+AMARUN_TEX_TEMPLATE.add_to_preamble(r"""
+\usepackage{xcolor}
+\usepackage{cancel}
+\definecolor{amgold}{HTML}{F6B840}
+\definecolor{amteal}{HTML}{5CE1E6}
+\definecolor{amred}{HTML}{E53E3E}
+\definecolor{amgreen}{HTML}{48BB78}
+\definecolor{amorange}{HTML}{DB5A38}
+\definecolor{amwhite}{HTML}{FDFBF7}
+""")
+config.tex_template = AMARUN_TEX_TEMPLATE
+
+
+class EjercicioAnn_03c(AmarunExerciseScene):
+    def construct(self):
+        # ==========================================================
+        # 1. Encabezado Institucional Permanente
+        # ==========================================================
+        self.setup_header(
+            book="Precálculo Universitario",
+            chapter="Tutoría Annelisse",
+            exercise="Ejercicio 3.c",
+            topic="Rango con Vértice en Extremo Izquierdo [3, 9/2[",
+            font_size=17.0
+        )
+
+        # ==========================================================
+        # 2. Enunciado Institucional en Dos Líneas (Alta Legibilidad)
+        # ==========================================================
+        self.setup_statement(
+            desc_text="Ejercicio 3.c: Determine el rango de la función cuadrática en el dominio acotado:",
+            math_tex=r"{\color{amgold}f(x) = x^2 - 6x + 5}, \quad \operatorname{Dom}(f) = \left[3, \frac{9}{2}\right[",
+            desc_font_size=20.0,
+            math_font_size=24.0,
+            arrange_direction=DOWN,
+            buff=0.18,
+            box_pos=np.array([0.0, 2.45, 0.0]),
+            read_time=3.5
+        )
+
+        # ==========================================================
+        # 3. Barra de Progreso Inferior (8 pasos unificados)
+        # ==========================================================
+        self.setup_progress_bar([
+            "1/8: Coeficientes y Concavidad",
+            "2/8: Vértice en Extremo Izquierdo",
+            "3/8: Mínimo Absoluto Global",
+            "4/8: Monotonía Estricta en D",
+            "5/8: Extremo Derecho Abierto",
+            "6/8: Deducción Formal del Rango",
+            "7/8: Tabla y Signos en D",
+            "8/8: Trazado Cartesiano y Rango"
+        ], dot_spacing=0.82, label_font_size=14.0)
+
+        # ==========================================================
+        # PASO 1: Coeficientes y Concavidad
+        # ==========================================================
+        eq1 = MathTex(
+            r"\begin{aligned}"
+            r"&\textbf{1. Coeficientes y Concavidad Polinómica:} \\[6pt]"
+            r"&\text{Dada la regla de correspondencia en el dominio } D = \left[3, \frac{9}{2}\right[: \\[4pt]"
+            r"&\quad f(x) = {\color{amgreen}1}x^2 + ({\color{amteal}-6})x + {\color{amgold}5} \\[6pt]"
+            r"&\textbf{Identificación de Parámetros:} \\[4pt]"
+            r"&\quad {\color{amgreen}a = 1}, \quad {\color{amteal}b = -6}, \quad {\color{amgold}c = 5} \\[6pt]"
+            r"&\text{Como } {\color{amgreen}a = 1 > 0} \implies \text{Parábola cóncava hacia arriba } (\cup). \\[4pt]"
+            r"&\implies \text{El vértice } V \text{ constituye un } \mathbf{\text{Mínimo Absoluto}}."
+            r"\end{aligned}",
+            font_size=21.0,
+            color=WHITE
+        ).move_to([-3.4, -0.45, 0])
+
+        just1 = self.create_justification(
+            r"\begin{minipage}{7.6cm}\raggedright "
+            r"\textbf{1. Coeficientes y Concavidad:}\\[6pt]"
+            r"$\bullet$ Función cuadrática con dominio acotado $D = [3, 9/2[ = [3, 4.5[$.\\[5pt]"
+            r"$\bullet$ Coeficiente cuadrático positivo: ${\color{amgreen}a = 1 > 0}$.\\[5pt]"
+            r"$\bullet$ Concavidad hacia arriba ($\cup$): las ramas se abren hacia $+\infty$.\\[5pt]"
+            r"$\bullet$ El vértice de la parábola representará el punto más bajo posible de la curva."
+            r"\end{minipage}",
+            font_size=18.5,
+            pos=[3.35, -0.45, 0]
+        )
+        self.morph_step(eq1, just1, box_color=THEME["highlight"], wait_time=3.6)
+
+        # ==========================================================
+        # PASO 2: Vértice en Extremo Izquierdo
+        # ==========================================================
+        eq2 = MathTex(
+            r"\begin{aligned}"
+            r"&\textbf{2. Localización de la Abscisa del Vértice } x_v: \\[6pt]"
+            r"&\text{Cálculo analítico de la coordenada horizontal:} \\[4pt]"
+            r"&\quad x_v = -\frac{b}{2a} = -\frac{-6}{2(1)} = \mathbf{{\color{amgold}3}} \\[6pt]"
+            r"&\textbf{Comparación con el dominio acotado } D = \left[3, \frac{9}{2}\right[: \\[4pt]"
+            r"&\quad \mathbf{{\color{amgold}x_v = 3}} \in \left[3, \frac{9}{2}\right[ \quad (\text{Extremo Izquierdo Cerrado}) \\[6pt]"
+            r"&\therefore \quad \textbf{El vértice coincide exactamente con el punto de inicio de } D."
+            r"\end{aligned}",
+            font_size=21.0,
+            color=WHITE
+        ).move_to([-3.4, -0.45, 0])
+
+        just2 = self.create_justification(
+            r"\begin{minipage}{7.6cm}\raggedright "
+            r"\textbf{2. Vértice en Extremo Izquierdo:}\\[6pt]"
+            r"$\bullet$ La abscisa del vértice es exactamente $x_v = 3$.\\[5pt]"
+            r"$\bullet$ El dominio comienza justamente en $x = 3$ con corchete cerrado.\\[5pt]"
+            r"$\bullet$ El vértice pertenece plenamente al dominio como punto inicial de frontera.\\[5pt]"
+            r"$\bullet$ A partir de $x = 3$, la curva solo recorrerá su rama ascendente derecha."
+            r"\end{minipage}",
+            font_size=18.5,
+            pos=[3.35, -0.45, 0]
+        )
+        self.morph_step(eq2, just2, box_color=THEME["secondary"], advance_to_step=1, wait_time=3.6)
+
+        # ==========================================================
+        # PASO 3: Mínimo Absoluto Global
+        # ==========================================================
+        eq3 = MathTex(
+            r"\begin{aligned}"
+            r"&\textbf{3. Determinación del Mínimo Absoluto Global } y_{\min}: \\[6pt]"
+            r"&\text{Evaluando la función en el vértice } x = 3: \\[4pt]"
+            r"&\quad y_v = f(3) = (3)^2 - 6(3) + 5 = 9 - 18 + 5 = \mathbf{{\color{amred}-4}} \\[6pt]"
+            r"&\text{Forma canónica de traslación:} \\[4pt]"
+            r"&\quad f(x) = (x - 3)^2 - 4 \\[6pt]"
+            r"&\therefore \quad \mathbf{\text{Vértice: }} \mathbf{{\color{amgold}V(3, -4)}} \implies \mathbf{{\color{amgreen}y_{\min} = -4}} \quad (\text{Alcanzado en } \bullet)"
+            r"\end{aligned}",
+            font_size=21.0,
+            color=WHITE
+        ).move_to([-3.4, -0.45, 0])
+
+        just3 = self.create_justification(
+            r"\begin{minipage}{7.6cm}\raggedright "
+            r"\textbf{3. Mínimo Absoluto:}\\[6pt]"
+            r"$\bullet$ En el vértice $x = 3$, la función toma el valor $y = -4$.\\[5pt]"
+            r"$\bullet$ Como $3 \in D$, este punto pertenece a la gráfica como frontera cerrada ($\bullet$).\\[5pt]"
+            r"$\bullet$ Al ser $a > 0$, ningún punto en todo $\mathbb{R}$ está por debajo de $-4$.\\[5pt]"
+            r"$\bullet$ Representa la cota inferior estricta y cerrada del rango."
+            r"\end{minipage}",
+            font_size=18.5,
+            pos=[3.35, -0.45, 0]
+        )
+        self.morph_step(eq3, just3, box_color=THEME["statement_box"], advance_to_step=2, wait_time=3.6)
+
+        # ==========================================================
+        # PASO 4: Monotonía Estricta en D
+        # ==========================================================
+        eq4 = MathTex(
+            r"\begin{aligned}"
+            r"&\textbf{4. Monotonía Estricta en el Dominio } D: \\[6pt]"
+            r"&\text{Para una parábola cóncava hacia arriba } (a = 1 > 0): \\[4pt]"
+            r"&\bullet \ \text{Es estrictamente decreciente en } ]-\infty, 3]. \\[4pt]"
+            r"&\bullet \ \text{Es estrictamente creciente en } [3, +\infty[. \\[6pt]"
+            r"&\text{Dado que } D = \left[3, \frac{9}{2}\right[ \subset [3, +\infty[: \\[5pt]"
+            r"&\therefore \quad \mathbf{{\color{amgreen}f(x) \text{ es ESTRICTAMENTE CRECIENTE en todo } D}} \\[6pt]"
+            r"&\implies \forall x_1 < x_2 \in D: \quad f(x_1) < f(x_2)."
+            r"\end{aligned}",
+            font_size=20.5,
+            color=WHITE
+        ).move_to([-3.4, -0.45, 0])
+
+        just4 = self.create_justification(
+            r"\begin{minipage}{7.6cm}\raggedright "
+            r"\textbf{4. Monotonía Creciente:}\\[6pt]"
+            r"$\bullet$ Toda la región $D$ se sitúa a la derecha del vértice ($x \ge 3$).\\[5pt]"
+            r"$\bullet$ La función es monótona estrictamente creciente en todo su trayecto.\\[5pt]"
+            r"$\bullet$ El valor mínimo se ubica en el vértice $x = 3$.\\[5pt]"
+            r"$\bullet$ El valor máximo se aproxima hacia el extremo derecho $x \to 9/2^-$."
+            r"\end{minipage}",
+            font_size=18.5,
+            pos=[3.35, -0.45, 0]
+        )
+        self.morph_step(eq4, just4, box_color=THEME["curve"], advance_to_step=3, wait_time=3.6)
+
+        # ==========================================================
+        # PASO 5: Extremo Derecho Abierto
+        # ==========================================================
+        eq5 = MathTex(
+            r"\begin{aligned}"
+            r"&\textbf{5. Evaluación en el Extremo Derecho Abierto } (x \to 9/2^-): \\[6pt]"
+            r"&\text{Sustituyendo } x = \frac{9}{2} = 4.5 \text{ en la regla de correspondencia:} \\[4pt]"
+            r"&\quad f\left(\frac{9}{2}\right) = \left(\frac{9}{2}\right)^2 - 6\left(\frac{9}{2}\right) + 5 = \frac{81}{4} - \frac{54}{2} + 5 \\[5pt]"
+            r"&\quad = \frac{81}{4} - \frac{108}{4} + \frac{20}{4} = \frac{81 - 108 + 20}{4} = \mathbf{{\color{amred}-\frac{7}{4}}} = \mathbf{-1.75} \\[6pt]"
+            r"&\therefore \quad \mathbf{\text{Punto de Frontera Abierto: }} \mathbf{{\color{amteal}P_2\left(\frac{9}{2}, -\frac{7}{4}\right)}} \quad (\text{En } \circ)"
+            r"\end{aligned}",
+            font_size=20.0,
+            color=WHITE
+        ).move_to([-3.4, -0.45, 0])
+
+        just5 = self.create_justification(
+            r"\begin{minipage}{7.6cm}\raggedright "
+            r"\textbf{5. Cota Superior Abierta:}\\[6pt]"
+            r"$\bullet$ Al evaluar en $x = 9/2 = 4.5$, se obtiene $y = -7/4 = -1.75$.\\[5pt]"
+            r"$\bullet$ Dado que el intervalo es abierto en $9/2$ ($x < 9/2$), este valor no se alcanza.\\[5pt]"
+            r"$\bullet$ Representa el supremo estricto (cota superior abierta en $\circ$).\\[5pt]"
+            r"$\bullet$ Los valores de $f(x)$ ascienden desde $-4$ hasta acercarse a $-1.75$."
+            r"\end{minipage}",
+            font_size=18.5,
+            pos=[3.35, -0.45, 0]
+        )
+        self.morph_step(eq5, just5, box_color=THEME["error"], advance_to_step=4, wait_time=3.6)
+
+        # ==========================================================
+        # PASO 6: Deducción Formal del Rango
+        # ==========================================================
+        eq6 = MathTex(
+            r"\begin{aligned}"
+            r"&\textbf{6. Deducción Formal del Rango:} \\[6pt]"
+            r"&\text{Por la monotonía estrictamente creciente y continuidad en } D: \\[4pt]"
+            r"&\quad \forall x \in \left[3, \frac{9}{2}\right[: \quad 3 \le x < \frac{9}{2} \\[6pt]"
+            r"&\text{Aplicando } f(x) \ (\text{al ser creciente, preserva el orden}): \\[4pt]"
+            r"&\quad f(3) \le f(x) < f\left(\frac{9}{2}\right) \\[6pt]"
+            r"&\text{Sustituyendo los valores extremos hallados:} \\[4pt]"
+            r"&\quad \mathbf{{\color{amgreen}-4}} \le f(x) < \mathbf{{\color{amred}-\frac{7}{4}}} \\[6pt]"
+            r"&\therefore \quad \mathbf{\operatorname{Ran}(f) = {\color{amgreen}\left[-4, -\frac{7}{4}\right[}} = \mathbf{{\color{amgreen}\left[-4, -1.75\right[}}"
+            r"\end{aligned}",
+            font_size=21.0,
+            color=WHITE
+        ).move_to([-3.4, -0.45, 0])
+
+        just6 = self.create_justification(
+            r"\begin{minipage}{7.6cm}\raggedright "
+            r"\textbf{6. Conclusión Formal del Rango:}\\[6pt]"
+            r"$\bullet$ Por el Teorema del Valor Intermedio sobre una función continua estrictamente monótona:\\[5pt]"
+            r"$\bullet$ La imagen cubre continuamente todos los reales entre $-4$ y $-7/4$.\\[5pt]"
+            r"$\bullet$ Extremo inferior cerrado en $-4$ porque $3 \in D$.\\[5pt]"
+            r"$\bullet$ Extremo superior abierto en $-7/4$ porque $9/2 \notin D$.\\[5pt]"
+            r"$\bullet$ Rango final: ${\color{amgreen}\operatorname{Ran}(f) = \left[-4, -\frac{7}{4}\right[}$."
+            r"\end{minipage}",
+            font_size=18.5,
+            pos=[3.35, -0.45, 0]
+        )
+        self.morph_step(eq6, just6, box_color=THEME["success"], advance_to_step=5, wait_time=3.6)
+
+        # ==========================================================
+        # PASO 7: Tabla y Signos en D
+        # ==========================================================
+        eq7 = MathTex(
+            r"\begin{aligned}"
+            r"&\textbf{7. Puntos Notables y Tabla de Valores en } D: \\[6pt]"
+            r"&\begin{array}{|c|c|c|c|c|} \hline "
+            r"x & \mathbf{3} & 7/2 = 3.5 & 4 & \mathbf{9/2 = 4.5} \\ \hline "
+            r"f(x) & \mathbf{{\color{amgreen}-4}} & -15/4 = -3.75 & -3 & \mathbf{{\color{amred}-7/4 = -1.75}} \\ \hline "
+            r"\text{Rol} & \mathbf{\text{Vértice } \bullet} & \text{Punto} & \text{Punto} & \text{Abierto } \circ \\ \hline "
+            r"\end{array} \\[8pt]"
+            r"&\textbf{Propiedades Analíticas en } D = [3, 4.5[: \\[5pt]"
+            r"&\bullet \ \text{Raíces en } \mathbb{R}: x = 1 \notin D, \ x = 5 \notin D \implies \mathbf{\text{Sin cortes con el eje } X} \\[4pt]"
+            r"&\bullet \ \text{Signos: } \mathbf{{\color{amred}\forall x \in D: \ f(x) < 0}} \quad (\text{Estrictamente Negativa en } D)"
+            r"\end{aligned}",
+            font_size=19.5,
+            color=WHITE
+        ).move_to([-3.4, -0.45, 0])
+
+        just7 = self.create_justification(
+            r"\begin{minipage}{7.6cm}\raggedright "
+            r"\textbf{7. Síntesis y Signos en D:}\\[6pt]"
+            r"$\bullet$ Las raíces reales son $x = 1$ y $x = 5$, ambas exteriores a $D = [3, 4.5[$.\\[5pt]"
+            r"$\bullet$ Como el rango está contenido en $[-4, -1.75[$, la función es $100\%$ negativa en $D$.\\[5pt]"
+            r"$\bullet$ La tabla confirma el ascenso monótono: $-4 < -3.75 < -3 < -1.75$.\\[5pt]"
+            r"$\bullet$ Parámetros listos para el trazado gráfico."
+            r"\end{minipage}",
+            font_size=18.5,
+            pos=[3.35, -0.45, 0]
+        )
+        self.morph_step(eq7, just7, box_color=THEME["statement_box"], advance_to_step=6, wait_time=3.6)
+
+        # ==========================================================
+        # PASO 8: Trazado Cartesiano y Verificación Gráfica
+        # ==========================================================
+        prog_anims = self.get_advance_progress_anims(7)
+
+        # Panel izquierdo: Resumen geométrico
+        t_card = Tex(
+            r"\begin{minipage}{5.8cm}\raggedright "
+            r"\textbf{{\color{amteal}Verificación Cartesiana:}}\\[6pt]"
+            r"$\bullet$ \textbf{Arco de Parábola:}\\[2pt]"
+            r"\hspace*{0.8em}$f(x) = x^2 - 6x + 5$.\\[6pt]"
+            r"$\bullet$ \textbf{Vértice Mínimo:}\\[2pt]"
+            r"\hspace*{0.8em}$V(3, -4)$ \textbf{Punto Cerrado} ($\bullet$).\\[6pt]"
+            r"$\bullet$ \textbf{Frontera Derecha:}\\[2pt]"
+            r"\hspace*{0.8em}$(4.5, -1.75)$ \textbf{Punto Abierto} ($\circ$).\\[6pt]"
+            r"$\bullet$ \textbf{Sin cortes con el eje } $X$.\\[6pt]"
+            r"$\bullet$ \textbf{Rango Proyectado:}\\[2pt]"
+            r"\hspace*{0.8em}$\left[-4, -1.75\right[$ en el eje vertical $Y$."
+            r"\end{minipage}",
+            font_size=17.5,
+            color=WHITE
+        )
+        info_box = SurroundingRectangle(
+            t_card,
+            color=THEME["statement_box"],
+            buff=0.20,
+            stroke_width=1.8,
+            corner_radius=0.1
+        )
+        info_grp = VGroup(info_box, t_card).move_to([-3.4, -0.45, 0])
+
+        # Panel derecho: Ejes cartesianos
+        axes, axes_labels = self.setup_axes(
+            x_range=[2.2, 5.2, 1],
+            y_range=[-4.8, 0.8, 1],
+            x_length=5.6,
+            y_length=3.8,
+            center=[2.9, -0.45, 0],
+            include_numbers=True,
+            numbers_font_size=13,
+            labels_font_size=19
+        )
+
+        def f_val(x):
+            return x**2 - 6.0 * x + 5.0
+
+        # Parábola completa referencial tenue
+        curve_ref = axes.plot(
+            f_val,
+            x_range=[2.4, 5.0],
+            color=THEME["statement_box"],
+            stroke_width=1.5,
+            stroke_opacity=0.45
+        )
+
+        # Arco de curva restringido en [3.0, 4.5]
+        curve_dom = axes.plot(
+            f_val,
+            x_range=[3.0, 4.5],
+            color=THEME["amarun_teal"],
+            stroke_width=4.0
+        )
+        lbl_curve = MathTex(
+            r"f(x) \text{ en } D",
+            font_size=14.0,
+            color=THEME["amarun_teal"]
+        ).next_to(axes.c2p(3.8, -3.2), DR, buff=0.08)
+
+        # Vértice / Extremo izquierdo cerrado V(3, -4)
+        v_pt = axes.c2p(3.0, -4.0)
+        dot_v = Dot(v_pt, radius=0.08, color=THEME["success"])
+        lbl_v = MathTex(
+            r"V(3, -4)",
+            font_size=13.0,
+            color=THEME["success"]
+        ).next_to(v_pt, DOWN, buff=0.10)
+
+        # Extremo derecho abierto (4.5, -1.75): círculo hueco
+        p_right = axes.c2p(4.5, -1.75)
+        dot_right = Circle(
+            radius=0.07,
+            color=THEME["error"],
+            stroke_width=2.5,
+            fill_color=THEME["bg_color"],
+            fill_opacity=1.0
+        ).move_to(p_right)
+        lbl_right = MathTex(
+            r"\left(\frac{9}{2}, -\frac{7}{4}\right)",
+            font_size=12.5,
+            color=THEME["error"]
+        ).next_to(p_right, UR, buff=0.08)
+
+        # Proyección del rango sobre el eje Y: [-4, -1.75[
+        range_line = Line(
+            axes.c2p(2.2, -4.0),
+            axes.c2p(2.2, -1.75),
+            color=THEME["success"],
+            stroke_width=5.0
+        )
+        dot_r_closed = Dot(axes.c2p(2.2, -4.0), radius=0.065, color=THEME["success"])
+        dot_r_open = Circle(
+            radius=0.06,
+            color=THEME["error"],
+            stroke_width=2.2,
+            fill_color=THEME["bg_color"],
+            fill_opacity=1.0
+        ).move_to(axes.c2p(2.2, -1.75))
+        lbl_range = MathTex(
+            r"\operatorname{Ran}(f) = \left[-4, -\frac{7}{4}\right[",
+            font_size=12.5,
+            color=THEME["success"]
+        ).next_to(axes.c2p(2.2, -2.85), RIGHT, buff=0.10)
+
+        # Transición hacia el paso 8
+        self.play(
+            FadeOut(self.active_box),
+            FadeOut(self.active_math, shift=DOWN * 0.2),
+            FadeOut(self.active_just, shift=DOWN * 0.2),
+            FadeIn(info_grp, shift=DOWN * 0.2),
+            Create(axes),
+            Write(axes_labels),
+            Create(curve_ref),
+            *prog_anims,
+            run_time=1.8
+        )
+        self.active_box = None
+        self.active_math = None
+        self.active_just = None
+
+        # Trazado del arco restringido y proyección del rango
+        self.play(
+            Create(curve_dom), Write(lbl_curve),
+            Create(range_line),
+            FadeIn(dot_r_closed), FadeIn(dot_r_open), Write(lbl_range),
+            run_time=2.2
+        )
+
+        # Marcado del vértice y extremo derecho
+        self.play(
+            FadeIn(dot_v), Write(lbl_v),
+            FadeIn(dot_right), Write(lbl_right),
+            run_time=1.8
+        )
+        self.wait(4.5)
+
+        # ==========================================================
+        # Cierre suave usando el helper de la clase base
+        # ==========================================================
+        graph_mobs = [
+            info_grp, axes, axes_labels,
+            curve_ref,
+            curve_dom, lbl_curve,
+            range_line, dot_r_closed, dot_r_open, lbl_range,
+            dot_v, lbl_v,
+            dot_right, lbl_right
+        ]
+        self.finish_exercise(extra_mobjects=graph_mobs)
+        self.wait(0.5)
