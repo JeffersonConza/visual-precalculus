@@ -51,7 +51,7 @@ a) f(x) = |x − 2| − 3
 
 b) f(x) = |x + 1| + |x − 3|
 
-c) f(x) = ||x + 1| + 2| − √(…), con Dom f: \[−7, −3\] *(parte poco legible en la foto; revisar el enunciado original)*
+c) f(x) = ||x + 1| + 2|, con Dom f: [-7, -3]
 
 d) f(x) = √(x² + 10x + 25), con Dom f: \[−10, −7\]
 
