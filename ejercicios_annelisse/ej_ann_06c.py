@@ -7,7 +7,7 @@ Ejercicio 6.c: Rango de Valor Absoluto Anidado con Dominio Acotado
 Estructura de la Demostración (8 Pasos):
       1. Estructura de valor absoluto anidado y análisis del argumento interior: x + 1 en [-7, -3].
       2. Desanidamiento y reducción analítica: x + 1 < 0 ⟹ |x + 1| = -x - 1, |-x + 1| = -x + 1.
-      3. Monotonía decreciente: pendiente m = -1 < 0 ⟹ f'(x) = -1 < 0 (invierte el orden).
+      3. Monotonía decreciente: pendiente afín m = -1 < 0 ⟹ x₁ < x₂ ⟹ f(x₁) > f(x₂) (invierte el orden).
       4. Evaluación en extremo izquierdo cerrado: f(-7) = 8 (máximo absoluto en punto cerrado •).
       5. Evaluación en extremo derecho cerrado: f(-3) = 4 (mínimo absoluto en punto cerrado •).
       6. Deducción formal del rango: -7 ≤ x ≤ -3 ⟹ 4 ≤ -x + 1 ≤ 8 ⟹ Ran(f) = [4, 8] (intervalo compacto).
@@ -150,31 +150,34 @@ class EjercicioAnn_06c(AmarunExerciseScene):
         self.morph_step(eq2, just2, box_color=THEME["secondary"], advance_to_step=1, wait_time=3.6)
 
         # ==========================================================
-        # PASO 3: Monotonía Decreciente
+        # PASO 3: Monotonía Decreciente por Inecuaciones
         # ==========================================================
         eq3 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{3. Monotonía Estricta y Pendiente Negativa:} \\[6pt]"
-            r"&\text{Para la forma afín reducida } f(x) = -x + 1 \text{ en } D = [-7, -3]: \\[4pt]"
-            r"&\quad f'(x) = \frac{d}{dx}(-x + 1) = \mathbf{{\color{amred}-1 < 0}}, \quad \forall x \in [-7, -3] \\[6pt]"
-            r"&\textbf{Comportamiento de la Función Lineal:} \\[4pt]"
-            r"&\bullet \ \text{Pendiente } m = -1 < 0 \implies \mathbf{{\color{amred}\text{ESTRICTAMENTE DECRECIENTE}}} \\[6pt]"
-            r"&\implies \forall x_1 < x_2 \in [-7, -3]: \quad \mathbf{f(x_1) > f(x_2)} \\[6pt]"
+            r"&\textbf{3. Monotonía Estricta por Pendiente e Inecuaciones:} \\[6pt]"
+            r"&\text{Para la función afín } f(x) = -x + 1 \text{ en } D = [-7, -3]: \\[4pt]"
+            r"&\quad \text{Pendiente afín constante: } \mathbf{{\color{amred}m = -1 < 0}} \\[6pt]"
+            r"&\textbf{Demostración por Definición de Monotonía:} \\[4pt]"
+            r"&\quad \text{Sean } x_1, x_2 \in D \text{ tales que } x_1 < x_2: \\[4pt]"
+            r"&\quad x_1 < x_2 \iff -x_1 > -x_2 \iff \mathbf{{\color{amred}-x_1 + 1 > -x_2 + 1}} \\[6pt]"
+            r"&\implies \mathbf{f(x_1) > f(x_2)} \quad (\mathbf{{\color{amred}\text{ESTRICTAMENTE DECRECIENTE}}}) \\[6pt]"
             r"&\therefore \quad \text{La función invierte estrictamente el orden de los extremos de } D."
             r"\end{aligned}",
-            font_size=20.5,
+            font_size=20.0,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
         just3 = self.create_justification(
             r"\begin{minipage}{7.6cm}\raggedright "
-            r"\textbf{3. Monotonía Decreciente:}\\[6pt]"
-            r"$\bullet$ La función reducida $f(x) = -x + 1$ tiene pendiente constante negativa $m = -1$.\\[5pt]"
-            r"$\bullet$ Su tasa de cambio es $f'(x) = -1 < 0$ en todo punto interior del dominio.\\[5pt]"
+            r"\textbf{3. Monotonía en Precálculo:}\\[6pt]"
+            r"$\bullet$ Se demuestra directamente por la definición algebraica formal:\\[3pt]"
+            r"\hspace*{1.0em}$x_1 < x_2 \implies -x_1 > -x_2$.\\[3pt]"
+            r"\hspace*{1.0em}$-x_1 + 1 > -x_2 + 1 \implies f(x_1) > f(x_2)$.\\[5pt]"
+            r"$\bullet$ Su pendiente constante es negativa: $m = -1 < 0$.\\[5pt]"
             r"$\bullet$ Al ser estrictamente decreciente:\\[3pt]"
-            r"\hspace*{1.0em}El valor máximo se ubica en el extremo inferior ($x = -7$).\\[3pt]"
-            r"\hspace*{1.0em}El valor mínimo se ubica en el extremo superior ($x = -3$).\\[5pt]"
-            r"$\bullet$ El orden de las cotas se invierte ordenadamente."
+            r"\hspace*{1.0em}El valor máximo ocurre al inicio ($x = -7$).\\[3pt]"
+            r"\hspace*{1.0em}El valor mínimo ocurre al final ($x = -3$).\\[5pt]"
+            r"$\bullet$ Sin cálculo diferencial: $100\%$ álgebra de desigualdades."
             r"\end{minipage}",
             font_size=18.5,
             pos=[3.35, -0.45, 0]
