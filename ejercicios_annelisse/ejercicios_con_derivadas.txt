@@ -1,0 +1,161 @@
+================================================================================
+REPORTE DE EJERCICIOS CON DERIVADAS (NO PERMITIDAS EN PRECÁLCULO)
+Editorial Amarun / Yachay Tech - Curso de Precálculo Universitario
+Normativa: GEMINI.md (Prohibición Estricta de Cálculo Diferencial)
+Última Actualización: 2026-10-29
+================================================================================
+
+RESUMEN EJECUTIVO:
+--------------------------------------------------------------------------------
+Total de scripts analizados en 'ejercicios_annelisse/': 22 archivos .py
+- Archivos que CONTIENEN derivadas: 9 archivos
+- Archivos LIMPIOS (Precálculo puro): 13 archivos (incluye ej_ann_02b.py refactorizado)
+- Archivos .md de documentación: 100% limpios
+
+REGLA INSTITUCIONAL VULNERADA (GEMINI.md):
+"Este repositorio corresponde exclusivamente al curso de Precálculo Universitario.
+Bajo ninguna circunstancia se deben emplear herramientas de Cálculo Diferencial
+en la resolución de ejercicios, guías, documentación o animaciones Manim."
+
+================================================================================
+DETALLE DE EJERCICIOS QUE CONTIENEN DERIVADAS PENDIENTES DE REFACTORIZAR
+================================================================================
+
+1. EJERCICIO 2.a: f(x) = 5x^2 + 2x + 1
+   - Archivos:
+     * ejercicios_annelisse/ej_ann_02a.py
+     * ejercicios_annelisse/ej_ann_02.py
+   - Líneas afectadas: 323-324, 334
+   - Elementos detectados:
+     * f'(x) = 10x + 2 = 10(x + 0.2)
+     * Criterio de primera derivada: f'(x) < 0 en (-inf, -0.2), f'(x) > 0 en (-0.2, +inf)
+     * Pendiente de recta tangente f'(-0.2) = 0
+   - Corrección oficial de Precálculo:
+     Completación canónica de cuadrados: f(x) = 5(x + 0.2)^2 + 0.8.
+     Vértice en V(-0.2, 0.8). Como a = 5 > 0, decrece en (-inf, -0.2] y crece
+     en [-0.2, +inf) por propiedades de desigualdades en forma canónica.
+
+--------------------------------------------------------------------------------
+
+2. EJERCICIO 4.a: f(x) = sqrt(-x^2 + 6x + 5)
+   - Archivos:
+     * ejercicios_annelisse/ej_ann_04a.py
+   - Líneas afectadas: 369, 379-380
+   - Elementos detectados:
+     * "Criterio de la Derivada: f'(x) = (3 - x) / sqrt(14 - (x - 3)^2)"
+     * Signo de f'(x) y análisis de tangentes verticales (divergencia a -/+ infinito).
+   - Corrección oficial de Precálculo:
+     El radicando es u(x) = 14 - (x - 3)^2.
+     Dado que la raíz cuadrada g(u) = sqrt(u) es estrictamente creciente para u >= 0,
+     la monotonía de f(x) es idéntica a la del radicando cuadrático u(x):
+     creciente en [3 - sqrt(14), 3] y decreciente en [3, 3 + sqrt(14)].
+
+--------------------------------------------------------------------------------
+
+3. EJERCICIO 4.b: g(x) = sqrt(x^2 + 4x + 13)
+   - Archivos:
+     * ejercicios_annelisse/ej_ann_04b.py
+   - Líneas afectadas: 365, 375
+   - Elementos detectados:
+     * "Criterio de la Derivada: g'(x) = (x + 2) / sqrt(x^2 + 4x + 13)"
+     * Signo de g'(x) < 0 para x < -2 y g'(x) > 0 para x > -2.
+   - Corrección oficial de Precálculo:
+     Radicando cuadrático u(x) = (x + 2)^2 + 9 >= 9.
+     Por ser sqrt(u) monótona creciente, g hereda la monotonía de u:
+     decreciente en (-inf, -2] y creciente en [-2, +inf), con mínimo absoluto
+     directo en el vértice x = -2 (donde (x + 2)^2 = 0).
+
+--------------------------------------------------------------------------------
+
+4. EJERCICIO 5.a: f(x) = 1/(x - 2) en [3, 5)
+   - Archivos:
+     * ejercicios_annelisse/ej_ann_05a.py
+     * ejercicios_annelisse/ej_ann_05.py
+   - Líneas afectadas: 9, 125, 127, 138-139
+   - Elementos detectados:
+     * f'(x) = -(x - 2)^(-2) = -1 / (x - 2)^2 < 0
+     * Justificación de decrecimiento mediante el signo de f'(x).
+   - Corrección oficial de Precálculo:
+     Propiedad de inversión del recíproco sobre reales positivos:
+     Para 3 <= x1 < x2 < 5:
+     ==> 1 <= x1 - 2 < x2 - 2
+     ==> 1/(x1 - 2) > 1/(x2 - 2)
+     ==> f(x1) > f(x2)  (estrictamente decreciente).
+
+--------------------------------------------------------------------------------
+
+5. EJERCICIO 5.b: f(x) = (x^2 - 1)/(x - 1) en [9, 17]
+   - Archivos:
+     * ejercicios_annelisse/ej_ann_05b.py
+   - Líneas afectadas: 10, 156, 170
+   - Elementos detectados:
+     * f'(x) = d/dx(x + 1) = 1 > 0
+   - Corrección oficial de Precálculo:
+     Simplificación algebraica para x != 1: f(x) = x + 1.
+     Función lineal afín con pendiente m = 1 > 0:
+     x1 < x2 ==> x1 + 1 < x2 + 1 ==> f(x1) < f(x2) (estrictamente creciente).
+
+--------------------------------------------------------------------------------
+
+6. EJERCICIO 5.c: f(x) = (3x - 1)/(2x + 4) en [-8, -5]
+   - Archivos:
+     * ejercicios_annelisse/ej_ann_05c.py
+   - Líneas afectadas: 9, 125, 129, 139, 141, 305
+   - Elementos detectados:
+     * f'(x) = 14 / (2x + 4)^2 > 0
+     * Segunda derivada f''(x) = -56 / (2x + 4)^3 > 0
+   - Corrección oficial de Precálculo:
+     Descomposición canónica homográfica: f(x) = 3/2 - 7/(2x + 4).
+     En [-8, -5], el denominador 2x + 4 es estrictamente negativo.
+     Para -8 <= x1 < x2 <= -5:
+     ==> 2x1 + 4 < 2x2 + 4 < 0
+     ==> 1/(2x1 + 4) > 1/(2x2 + 4)
+     ==> -7/(2x1 + 4) < -7/(2x2 + 4)
+     ==> f(x1) < f(x2)  (estrictamente creciente).
+
+--------------------------------------------------------------------------------
+
+7. EJERCICIO 6.a: f(x) = |x - 2| - 3 en [-1, 5]
+   - Archivos:
+     * ejercicios_annelisse/ej_ann_06a.py
+   - Líneas afectadas: 278, 294
+   - Elementos detectados:
+     * Derivadas laterales f'_-(2) = -1 != f'_+(2) = +1
+     * Mención a "discontinuidad en la derivada" en el vértice angular.
+   - Corrección oficial de Precálculo:
+     Propiedad de no negatividad del valor absoluto: |x - 2| >= 0.
+     Mínimo absoluto natural en x = 2 donde |x - 2| = 0 ==> f(2) = -3.
+     Tramos lineales: f(x) = -x - 1 (m = -1 < 0, decreciente en [-1, 2])
+     y f(x) = x - 5 (m = 1 > 0, creciente en [2, 5]).
+
+--------------------------------------------------------------------------------
+
+8. EJERCICIO 6.d: f(x) = -|x + 5| - 3 en [-10, -7] (o sqrt(x^2 + 10x + 25))
+   - Archivos:
+     * ejercicios_annelisse/ej_ann_06d.py
+   - Líneas afectadas: 10, 158, 172
+   - Elementos detectados:
+     * f'(x) = d/dx(-x - 5) = -1 < 0
+   - Corrección oficial de Precálculo:
+     Identidad modular: sqrt((x + 5)^2) = |x + 5|.
+     Para todo x en [-10, -7], se cumple x <= -7 < -5, luego x + 5 < 0.
+     Por definición modular: |x + 5| = -(x + 5) = -x - 5.
+     Pendiente afín m = -1 < 0 ==> x1 < x2 ==> -x1 - 5 > -x2 - 5 (estrictamente decreciente).
+
+================================================================================
+EJERCICIOS AUDITADOS Y CONFIRMADOS 100% LIMPIOS (SIN DERIVADAS)
+================================================================================
+- Ejercicio 1 (todos sus incisos):
+  * ej_ann_01a.py, ej_ann_01b.py, ej_ann_01c.py, ej_ann_01.py
+- Ejercicio 2 (inciso b refactorizado):
+  * ej_ann_02b.py
+- Ejercicio 3 (todos sus incisos):
+  * ej_ann_03a.py, ej_ann_03b.py, ej_ann_03c.py, ej_ann_03.py
+- Ejercicio 4 (versión combinada):
+  * ej_ann_04.py
+- Ejercicio 6 (incisos b y c):
+  * ej_ann_06b.py, ej_ann_06c.py
+- Documentación Markdown:
+  * EJERCICIOS_DOCS_ANNELISSE.md
+  * ejercicios_annelisse/Ejercicios de funciones vértice, rango, dominio y gráficas.md
+================================================================================
