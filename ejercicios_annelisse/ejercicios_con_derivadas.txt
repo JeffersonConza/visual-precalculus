@@ -8,8 +8,8 @@ Normativa: GEMINI.md (Prohibición Estricta de Cálculo Diferencial)
 RESUMEN EJECUTIVO:
 --------------------------------------------------------------------------------
 Total de scripts analizados en 'ejercicios_annelisse/': 22 archivos .py
-- Archivos que CONTIENEN derivadas: 9 archivos
-- Archivos LIMPIOS (Precálculo puro): 13 archivos (incluye ej_ann_02b.py refactorizado)
+- Archivos que CONTIENEN derivadas: 8 archivos
+- Archivos LIMPIOS (Precálculo puro): 14 archivos (incluye ej_ann_02b.py y ej_ann_04b.py refactorizados)
 - Archivos .md de documentación: 100% limpios
 
 REGLA INSTITUCIONAL VULNERADA (GEMINI.md):
@@ -37,37 +37,7 @@ DETALLE DE EJERCICIOS QUE CONTIENEN DERIVADAS PENDIENTES DE REFACTORIZAR
 
 --------------------------------------------------------------------------------
 
-2. EJERCICIO 4.a: f(x) = sqrt(-x^2 + 6x + 5)
-   - Archivos:
-     * ejercicios_annelisse/ej_ann_04a.py
-   - Líneas afectadas: 369, 379-380
-   - Elementos detectados:
-     * "Criterio de la Derivada: f'(x) = (3 - x) / sqrt(14 - (x - 3)^2)"
-     * Signo de f'(x) y análisis de tangentes verticales (divergencia a -/+ infinito).
-   - Corrección oficial de Precálculo:
-     El radicando es u(x) = 14 - (x - 3)^2.
-     Dado que la raíz cuadrada g(u) = sqrt(u) es estrictamente creciente para u >= 0,
-     la monotonía de f(x) es idéntica a la del radicando cuadrático u(x):
-     creciente en [3 - sqrt(14), 3] y decreciente en [3, 3 + sqrt(14)].
-
---------------------------------------------------------------------------------
-
-3. EJERCICIO 4.b: g(x) = sqrt(x^2 + 4x + 13)
-   - Archivos:
-     * ejercicios_annelisse/ej_ann_04b.py
-   - Líneas afectadas: 365, 375
-   - Elementos detectados:
-     * "Criterio de la Derivada: g'(x) = (x + 2) / sqrt(x^2 + 4x + 13)"
-     * Signo de g'(x) < 0 para x < -2 y g'(x) > 0 para x > -2.
-   - Corrección oficial de Precálculo:
-     Radicando cuadrático u(x) = (x + 2)^2 + 9 >= 9.
-     Por ser sqrt(u) monótona creciente, g hereda la monotonía de u:
-     decreciente en (-inf, -2] y creciente en [-2, +inf), con mínimo absoluto
-     directo en el vértice x = -2 (donde (x + 2)^2 = 0).
-
---------------------------------------------------------------------------------
-
-4. EJERCICIO 5.a: f(x) = 1/(x - 2) en [3, 5)
+2. EJERCICIO 5.a: f(x) = 1/(x - 2) en [3, 5)
    - Archivos:
      * ejercicios_annelisse/ej_ann_05a.py
      * ejercicios_annelisse/ej_ann_05.py
@@ -84,7 +54,7 @@ DETALLE DE EJERCICIOS QUE CONTIENEN DERIVADAS PENDIENTES DE REFACTORIZAR
 
 --------------------------------------------------------------------------------
 
-5. EJERCICIO 5.b: f(x) = (x^2 - 1)/(x - 1) en [9, 17]
+4. EJERCICIO 5.b: f(x) = (x^2 - 1)/(x - 1) en [9, 17]
    - Archivos:
      * ejercicios_annelisse/ej_ann_05b.py
    - Líneas afectadas: 10, 156, 170
@@ -97,7 +67,7 @@ DETALLE DE EJERCICIOS QUE CONTIENEN DERIVADAS PENDIENTES DE REFACTORIZAR
 
 --------------------------------------------------------------------------------
 
-6. EJERCICIO 5.c: f(x) = (3x - 1)/(2x + 4) en [-8, -5]
+5. EJERCICIO 5.c: f(x) = (3x - 1)/(2x + 4) en [-8, -5]
    - Archivos:
      * ejercicios_annelisse/ej_ann_05c.py
    - Líneas afectadas: 9, 125, 129, 139, 141, 305
@@ -115,7 +85,7 @@ DETALLE DE EJERCICIOS QUE CONTIENEN DERIVADAS PENDIENTES DE REFACTORIZAR
 
 --------------------------------------------------------------------------------
 
-7. EJERCICIO 6.a: f(x) = |x - 2| - 3 en [-1, 5]
+6. EJERCICIO 6.a: f(x) = |x - 2| - 3 en [-1, 5]
    - Archivos:
      * ejercicios_annelisse/ej_ann_06a.py
    - Líneas afectadas: 278, 294
@@ -130,7 +100,7 @@ DETALLE DE EJERCICIOS QUE CONTIENEN DERIVADAS PENDIENTES DE REFACTORIZAR
 
 --------------------------------------------------------------------------------
 
-8. EJERCICIO 6.d: f(x) = -|x + 5| - 3 en [-10, -7] (o sqrt(x^2 + 10x + 25))
+7. EJERCICIO 6.d: f(x) = -|x + 5| - 3 en [-10, -7] (o sqrt(x^2 + 10x + 25))
    - Archivos:
      * ejercicios_annelisse/ej_ann_06d.py
    - Líneas afectadas: 10, 158, 172
@@ -147,12 +117,12 @@ EJERCICIOS AUDITADOS Y CONFIRMADOS 100% LIMPIOS (SIN DERIVADAS)
 ================================================================================
 - Ejercicio 1 (todos sus incisos):
   * ej_ann_01a.py, ej_ann_01b.py, ej_ann_01c.py, ej_ann_01.py
-- Ejercicio 2 (inciso b refactorizado):
-  * ej_ann_02b.py
+- Ejercicio 2 (incisos a y b):
+  * ej_ann_02.py, ej_ann_02a.py, ej_ann_02b.py
 - Ejercicio 3 (todos sus incisos):
   * ej_ann_03a.py, ej_ann_03b.py, ej_ann_03c.py, ej_ann_03.py
-- Ejercicio 4 (versión combinada):
-  * ej_ann_04.py
+- Ejercicio 4 (todos sus incisos):
+  * ej_ann_04.py, ej_ann_04a.py, ej_ann_04b.py
 - Ejercicio 6 (incisos b y c):
   * ej_ann_06b.py, ej_ann_06c.py
 - Documentación Markdown:
