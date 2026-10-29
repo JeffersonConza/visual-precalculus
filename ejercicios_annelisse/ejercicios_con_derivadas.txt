@@ -8,8 +8,8 @@ Normativa: GEMINI.md (Prohibición Estricta de Cálculo Diferencial)
 RESUMEN EJECUTIVO:
 --------------------------------------------------------------------------------
 Total de scripts analizados en 'ejercicios_annelisse/': 22 archivos .py
-- Archivos que CONTIENEN derivadas: 8 archivos
-- Archivos LIMPIOS (Precálculo puro): 14 archivos (incluye ej_ann_02b.py y ej_ann_04b.py refactorizados)
+- Archivos que CONTIENEN derivadas: 2 archivos (ej_ann_06a.py, ej_ann_06d.py)
+- Archivos LIMPIOS (Precálculo puro): 20 archivos (incluye 2.a, 2.b, 4.a, 4.b, 5.a, 5.b, 5.c refactorizados)
 - Archivos .md de documentación: 100% limpios
 
 REGLA INSTITUCIONAL VULNERADA (GEMINI.md):
@@ -21,71 +21,7 @@ en la resolución de ejercicios, guías, documentación o animaciones Manim."
 DETALLE DE EJERCICIOS QUE CONTIENEN DERIVADAS PENDIENTES DE REFACTORIZAR
 ================================================================================
 
-1. EJERCICIO 2.a: f(x) = 5x^2 + 2x + 1
-   - Archivos:
-     * ejercicios_annelisse/ej_ann_02a.py
-     * ejercicios_annelisse/ej_ann_02.py
-   - Líneas afectadas: 323-324, 334
-   - Elementos detectados:
-     * f'(x) = 10x + 2 = 10(x + 0.2)
-     * Criterio de primera derivada: f'(x) < 0 en (-inf, -0.2), f'(x) > 0 en (-0.2, +inf)
-     * Pendiente de recta tangente f'(-0.2) = 0
-   - Corrección oficial de Precálculo:
-     Completación canónica de cuadrados: f(x) = 5(x + 0.2)^2 + 0.8.
-     Vértice en V(-0.2, 0.8). Como a = 5 > 0, decrece en (-inf, -0.2] y crece
-     en [-0.2, +inf) por propiedades de desigualdades en forma canónica.
-
---------------------------------------------------------------------------------
-
-2. EJERCICIO 5.a: f(x) = 1/(x - 2) en [3, 5)
-   - Archivos:
-     * ejercicios_annelisse/ej_ann_05a.py
-     * ejercicios_annelisse/ej_ann_05.py
-   - Líneas afectadas: 9, 125, 127, 138-139
-   - Elementos detectados:
-     * f'(x) = -(x - 2)^(-2) = -1 / (x - 2)^2 < 0
-     * Justificación de decrecimiento mediante el signo de f'(x).
-   - Corrección oficial de Precálculo:
-     Propiedad de inversión del recíproco sobre reales positivos:
-     Para 3 <= x1 < x2 < 5:
-     ==> 1 <= x1 - 2 < x2 - 2
-     ==> 1/(x1 - 2) > 1/(x2 - 2)
-     ==> f(x1) > f(x2)  (estrictamente decreciente).
-
---------------------------------------------------------------------------------
-
-4. EJERCICIO 5.b: f(x) = (x^2 - 1)/(x - 1) en [9, 17]
-   - Archivos:
-     * ejercicios_annelisse/ej_ann_05b.py
-   - Líneas afectadas: 10, 156, 170
-   - Elementos detectados:
-     * f'(x) = d/dx(x + 1) = 1 > 0
-   - Corrección oficial de Precálculo:
-     Simplificación algebraica para x != 1: f(x) = x + 1.
-     Función lineal afín con pendiente m = 1 > 0:
-     x1 < x2 ==> x1 + 1 < x2 + 1 ==> f(x1) < f(x2) (estrictamente creciente).
-
---------------------------------------------------------------------------------
-
-5. EJERCICIO 5.c: f(x) = (3x - 1)/(2x + 4) en [-8, -5]
-   - Archivos:
-     * ejercicios_annelisse/ej_ann_05c.py
-   - Líneas afectadas: 9, 125, 129, 139, 141, 305
-   - Elementos detectados:
-     * f'(x) = 14 / (2x + 4)^2 > 0
-     * Segunda derivada f''(x) = -56 / (2x + 4)^3 > 0
-   - Corrección oficial de Precálculo:
-     Descomposición canónica homográfica: f(x) = 3/2 - 7/(2x + 4).
-     En [-8, -5], el denominador 2x + 4 es estrictamente negativo.
-     Para -8 <= x1 < x2 <= -5:
-     ==> 2x1 + 4 < 2x2 + 4 < 0
-     ==> 1/(2x1 + 4) > 1/(2x2 + 4)
-     ==> -7/(2x1 + 4) < -7/(2x2 + 4)
-     ==> f(x1) < f(x2)  (estrictamente creciente).
-
---------------------------------------------------------------------------------
-
-6. EJERCICIO 6.a: f(x) = |x - 2| - 3 en [-1, 5]
+1. EJERCICIO 6.a: f(x) = |x - 2| - 3 en [-1, 5]
    - Archivos:
      * ejercicios_annelisse/ej_ann_06a.py
    - Líneas afectadas: 278, 294
@@ -100,7 +36,7 @@ DETALLE DE EJERCICIOS QUE CONTIENEN DERIVADAS PENDIENTES DE REFACTORIZAR
 
 --------------------------------------------------------------------------------
 
-7. EJERCICIO 6.d: f(x) = -|x + 5| - 3 en [-10, -7] (o sqrt(x^2 + 10x + 25))
+2. EJERCICIO 6.d: f(x) = -|x + 5| - 3 en [-10, -7] (o sqrt(x^2 + 10x + 25))
    - Archivos:
      * ejercicios_annelisse/ej_ann_06d.py
    - Líneas afectadas: 10, 158, 172
@@ -117,13 +53,15 @@ EJERCICIOS AUDITADOS Y CONFIRMADOS 100% LIMPIOS (SIN DERIVADAS)
 ================================================================================
 - Ejercicio 1 (todos sus incisos):
   * ej_ann_01a.py, ej_ann_01b.py, ej_ann_01c.py, ej_ann_01.py
-- Ejercicio 2 (incisos a y b):
-  * ej_ann_02.py, ej_ann_02a.py, ej_ann_02b.py
+- Ejercicio 2 (todos sus incisos refactorizados con precálculo puro):
+  * ej_ann_02a.py, ej_ann_02b.py, ej_ann_02.py
 - Ejercicio 3 (todos sus incisos):
   * ej_ann_03a.py, ej_ann_03b.py, ej_ann_03c.py, ej_ann_03.py
-- Ejercicio 4 (todos sus incisos):
-  * ej_ann_04.py, ej_ann_04a.py, ej_ann_04b.py
-- Ejercicio 6 (incisos b y c):
+- Ejercicio 4 (todos sus incisos refactorizados con precálculo puro):
+  * ej_ann_04a.py, ej_ann_04b.py, ej_ann_04.py
+- Ejercicio 5 (todos sus incisos refactorizados con precálculo puro):
+  * ej_ann_05a.py, ej_ann_05b.py, ej_ann_05c.py, ej_ann_05.py
+- Ejercicio 6 (incisos limpios auditados):
   * ej_ann_06b.py, ej_ann_06c.py
 - Documentación Markdown:
   * EJERCICIOS_DOCS_ANNELISSE.md

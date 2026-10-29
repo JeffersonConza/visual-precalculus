@@ -4,11 +4,11 @@ Capítulo: Funciones Reales y Gráficas
 Ejercicio 5.a: Rango de Función Racional con Dominio Acotado
                f(x) = 1/(x - 2),  Dom(f) = [3, 5[
 
-Estructura de la Demostración (8 Pasos):
-      1. Dominio restringido y singularidad: denominador x - 2 = 0 ⟹ x = 2 ∉ [3, 5[ (función continua y suave en D).
-      2. Monotonía decreciente: primera derivada f'(x) = -1/(x - 2)² < 0 en todo D (invierte el orden).
+Estructura de la Demostración (100% Precálculo Universitario - Sin Derivadas):
+      1. Dominio restringido y singularidad: denominador x - 2 = 0 ⟹ x = 2 ∉ [3, 5[ (función continua en D).
+      2. Monotonía decreciente: propiedad de orden del recíproco sobre reales positivos (invierte el orden).
       3. Extremo izquierdo cerrado: f(3) = 1 (máximo absoluto global alcanzado en punto cerrado •).
-      4. Extremo derecho abierto: lim x→5⁻ f(x) = 1/3 (ínfimo no alcanzable en punto abierto ∘).
+      4. Extremo derecho abierto: cota inferior f(5) = 1/3 (ínfimo no alcanzable en punto abierto ∘).
       5. Deducción formal del rango: 3 ≤ x < 5 ⟹ 1 ≤ x - 2 < 3 ⟹ 1/3 < f(x) ≤ 1 ⟹ Ran(f) = ]1/3, 1].
       6. Ausencia de raíces y positividad universal: f(x) > 0 en todo D, sin cortes con los ejes coordenados.
       7. Tabla de valores notables y síntesis institucional de propiedades.
@@ -95,7 +95,7 @@ class EjercicioAnn_05(AmarunExerciseScene):
             r"&\quad x - 2 = 0 \iff {\color{amred}x = 2} \quad (\text{Asíntota Vertical}) \\[6pt]"
             r"&\textbf{Posición de la Singularidad respecto al Dominio } D: \\[4pt]"
             r"&\quad 2 < 3 \le x < 5 \implies \mathbf{{\color{amgreen}2 \notin [3, 5[}} \\[6pt]"
-            r"&\therefore \quad x - 2 \ge 1 > 0 \implies \mathbf{f(x) \text{ es continua y suave en todo } D.}"
+            r"&\therefore \quad x - 2 \ge 1 > 0 \implies \mathbf{f(x) \text{ es continua en todo el dominio } D.}"
             r"\end{aligned}",
             font_size=21.0,
             color=WHITE
@@ -108,7 +108,7 @@ class EjercicioAnn_05(AmarunExerciseScene):
             r"$\bullet$ El dominio asignado es el intervalo acotado $D = [3, 5[$.\\[5pt]"
             r"$\bullet$ Como $x = 2 < 3$, la asíntota vertical queda completamente fuera de $D$.\\[5pt]"
             r"$\bullet$ En consecuencia, el denominador nunca se anula y es estrictamente positivo en $D$.\\[5pt]"
-            r"$\bullet$ $f(x)$ es continua y diferenciable en todo su dominio."
+            r"$\bullet$ $f(x)$ es continua en todo su dominio restringido."
             r"\end{minipage}",
             font_size=18.5,
             pos=[3.35, -0.45, 0]
@@ -116,31 +116,30 @@ class EjercicioAnn_05(AmarunExerciseScene):
         self.morph_step(eq1, just1, box_color=THEME["highlight"], wait_time=3.6)
 
         # ==========================================================
-        # PASO 2: Monotonía Decreciente
+        # PASO 2: Monotonía Decreciente por Propiedad del Recíproco
         # ==========================================================
         eq2 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{2. Análisis de Monotonía (Primera Derivada):} \\[6pt]"
-            r"&\text{Diferenciando } f(x) = (x - 2)^{-1} \text{ para } x \in [3, 5[: \\[4pt]"
-            r"&\quad f'(x) = -(x - 2)^{-2} = \mathbf{{\color{amred}-\frac{1}{(x - 2)^2}}} \\[6pt]"
-            r"&\textbf{Evaluación del Signo en } D: \\[4pt]"
-            r"&\quad (x - 2)^2 \ge 1^2 = 1 > 0 \implies \mathbf{{\color{amred}f'(x) < 0, \quad \forall x \in [3, 5[}} \\[6pt]"
-            r"&\therefore \quad \mathbf{{\color{amgreen}f(x) \text{ es ESTRICTAMENTE DECRECIENTE en } D}} \\[6pt]"
-            r"&\implies \forall x_1 < x_2 \in D: \quad \mathbf{f(x_1) > f(x_2)} \quad (\text{Invierte el orden})"
+            r"&\textbf{2. Monotonía Formal por Inversión del Recíproco (Precálculo):} \\[6pt]"
+            r"&\text{Propiedad de orden en } \mathbb{R}^+: \quad \mathbf{0 < u < v \iff \frac{1}{u} > \frac{1}{v}} \\[6pt]"
+            r"&\text{Sean } x_1, x_2 \in D = [3, 5[ \text{ tales que } 3 \le x_1 < x_2 < 5: \\[4pt]"
+            r"&\quad \text{Restando } 2: \quad \mathbf{{\color{amgold}0 < 1 \le x_1 - 2 < x_2 - 2 < 3}} \\[6pt]"
+            r"&\text{Aplicando el recíproco a ambos términos estrictamente positivos:} \\[4pt]"
+            r"&\quad \mathbf{{\color{amteal}\frac{1}{x_1 - 2} > \frac{1}{x_2 - 2}}} \iff \mathbf{f(x_1) > f(x_2)} \\[6pt]"
+            r"&\therefore \quad \mathbf{{\color{amgreen}f(x) \text{ es ESTRICTAMENTE DECRECIENTE en } [3, 5[}} \\[4pt]"
+            r"&\implies \text{La función invierte estrictamente el orden de los extremos de } D."
             r"\end{aligned}",
-            font_size=20.5,
+            font_size=19.5,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
         just2 = self.create_justification(
             r"\begin{minipage}{7.6cm}\raggedright "
-            r"\textbf{2. Monotonía Decreciente:}\\[6pt]"
-            r"$\bullet$ La derivada $f'(x) = -1/(x-2)^2$ tiene numerador negativo y denominador positivo.\\[5pt]"
-            r"$\bullet$ Al ser $f'(x) < 0$ para todo $x \in D$, la función decrece monótonamente sin oscilaciones.\\[5pt]"
-            r"$\bullet$ La monotonía estricta garantiza que:\\[3pt]"
-            r"\hspace*{1.0em}El mayor valor se alcanza en la frontera izquierda ($x = 3$).\\[3pt]"
-            r"\hspace*{1.0em}El menor valor se aproxima en la frontera derecha ($x \to 5^-$).\\[5pt]"
-            r"$\bullet$ El orden de las desigualdades se invierte ordenadamente."
+            r"\textbf{2. Monotonía en Precálculo:}\\[6pt]"
+            r"$\bullet$ En Precálculo, la monotonía de las funciones racionales homográficas se demuestra mediante las propiedades de orden del recíproco.\\[5pt]"
+            r"$\bullet$ Al ser $x_1 - 2$ y $x_2 - 2$ positivos, la inversión voltea la desigualdad ($u < v \implies 1/u > 1/v$).\\[5pt]"
+            r"$\bullet$ Se comprueba que $\forall x_1 < x_2 \implies f(x_1) > f(x_2)$.\\[5pt]"
+            r"$\bullet$ Sin derivadas: demostración $100\%$ algebraica por desigualdades."
             r"\end{minipage}",
             font_size=18.5,
             pos=[3.35, -0.45, 0]
@@ -184,13 +183,13 @@ class EjercicioAnn_05(AmarunExerciseScene):
         # ==========================================================
         eq4 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{4. Evaluación en el Extremo Derecho Abierto } (x \to 5^-): \\[6pt]"
+            r"&\textbf{4. Evaluación en el Extremo Derecho Abierto } (x = 5 \notin D): \\[6pt]"
             r"&\text{Dado que } 5 \notin D \text{ (corchete abierto } 5[\text{):} \\[4pt]"
-            r"&\quad \lim_{x \to 5^-} f(x) = \frac{1}{5 - 2} = \mathbf{{\color{amred}\frac{1}{3}}} \approx \mathbf{0.3333} \\[6pt]"
+            r"&\quad f(5) = \frac{1}{5 - 2} = \mathbf{{\color{amred}\frac{1}{3}}} \approx \mathbf{0.3333} \\[6pt]"
             r"&\textbf{Naturaleza del Extremo:} \\[4pt]"
-            r"&\text{Al decrecer continuamente hacia } x = 5, \text{ los valores de } f(x) \\[4pt]"
-            r"&\text{se aproximan por arriba a } 1/3, \text{ sin llegar jamás a tocarlo:} \\[4pt]"
-            r"&\quad \mathbf{{\color{amgreen}m = \inf_{x \in D} f(x) = \frac{1}{3}}} \quad (\text{Ínfimo no alcanzable}) \\[6pt]"
+            r"&\text{Al decrecer continuamente en } [3, 5[, \text{ para todo } x < 5: \\[4pt]"
+            r"&\quad x < 5 \iff x - 2 < 3 \iff \mathbf{{\color{amgreen}f(x) > \frac{1}{3}}} \\[6pt]"
+            r"&\quad \mathbf{{\color{amgreen}m = \inf_{x \in D} f(x) = \frac{1}{3}}} \quad (\text{Ínfimo no alcanzable en } D) \\[6pt]"
             r"&\therefore \quad \mathbf{\text{Punto de Frontera Abierto: }} \mathbf{{\color{amteal}P_{\inf}\left(5, \frac{1}{3}\right)}} \quad (\text{Punto } \circ)"
             r"\end{aligned}",
             font_size=20.0,
@@ -200,11 +199,11 @@ class EjercicioAnn_05(AmarunExerciseScene):
         just4 = self.create_justification(
             r"\begin{minipage}{7.6cm}\raggedright "
             r"\textbf{4. Cota Inferior e Ínfimo:}\\[6pt]"
-            r"$\bullet$ En $x \to 5^-$, el denominador alcanza su valor máximo: $5 - 2 = 3$.\\[5pt]"
-            r"$\bullet$ La función desciende hasta aproximarse al valor límite $1/3$.\\[5pt]"
-            r"$\bullet$ Dado que $x = 5 \notin D$, el valor $1/3$ no es parte de la imagen.\\[5pt]"
+            r"$\bullet$ En la frontera derecha $x = 5$, el denominador alcanza su valor superior: $5 - 2 = 3$.\\[5pt]"
+            r"$\bullet$ La función desciende aproximándose a $1/3$, pero como $x < 5$, $f(x) > 1/3$.\\[5pt]"
+            r"$\bullet$ Dado que $x = 5 \notin D$, el valor $1/3$ no es alcanzable en la imagen.\\[5pt]"
             r"$\bullet$ Constituye el ínfimo estricto (cota inferior abierta en $\circ$).\\[5pt]"
-            r"$\bullet$ Todo valor de la función satisface $f(x) > 1/3$."
+            r"$\bullet$ Todo valor en el dominio cumple $1/3 < f(x) \le 1$."
             r"\end{minipage}",
             font_size=18.5,
             pos=[3.35, -0.45, 0]
