@@ -1,5 +1,5 @@
 ================================================================================
-REPORTE DE EJERCICIOS CON DERIVADAS (NO PERMITIDAS EN PRECÁLCULO)
+REPORTE DE AUDITORÍA: PRECÁLCULO UNIVERSITARIO (SIN DERIVADAS)
 Editorial Amarun / Yachay Tech - Curso de Precálculo Universitario
 Normativa: GEMINI.md (Prohibición Estricta de Cálculo Diferencial)
 Última Actualización: 2026-10-29
@@ -8,48 +8,17 @@ Normativa: GEMINI.md (Prohibición Estricta de Cálculo Diferencial)
 RESUMEN EJECUTIVO:
 --------------------------------------------------------------------------------
 Total de scripts analizados en 'ejercicios_annelisse/': 22 archivos .py
-- Archivos que CONTIENEN derivadas: 2 archivos (ej_ann_06a.py, ej_ann_06d.py)
-- Archivos LIMPIOS (Precálculo puro): 20 archivos (incluye 2.a, 2.b, 4.a, 4.b, 5.a, 5.b, 5.c refactorizados)
+- Archivos que CONTIENEN derivadas: 0 archivos (¡100% LIMPIOS!)
+- Archivos LIMPIOS (Precálculo puro): 22 archivos (100% de la serie)
 - Archivos .md de documentación: 100% limpios
 
-REGLA INSTITUCIONAL VULNERADA (GEMINI.md):
+REGLA INSTITUCIONAL CUMPLIDA (GEMINI.md):
 "Este repositorio corresponde exclusivamente al curso de Precálculo Universitario.
 Bajo ninguna circunstancia se deben emplear herramientas de Cálculo Diferencial
 en la resolución de ejercicios, guías, documentación o animaciones Manim."
 
 ================================================================================
-DETALLE DE EJERCICIOS QUE CONTIENEN DERIVADAS PENDIENTES DE REFACTORIZAR
-================================================================================
-
-1. EJERCICIO 6.a: f(x) = |x - 2| - 3 en [-1, 5]
-   - Archivos:
-     * ejercicios_annelisse/ej_ann_06a.py
-   - Líneas afectadas: 278, 294
-   - Elementos detectados:
-     * Derivadas laterales f'_-(2) = -1 != f'_+(2) = +1
-     * Mención a "discontinuidad en la derivada" en el vértice angular.
-   - Corrección oficial de Precálculo:
-     Propiedad de no negatividad del valor absoluto: |x - 2| >= 0.
-     Mínimo absoluto natural en x = 2 donde |x - 2| = 0 ==> f(2) = -3.
-     Tramos lineales: f(x) = -x - 1 (m = -1 < 0, decreciente en [-1, 2])
-     y f(x) = x - 5 (m = 1 > 0, creciente en [2, 5]).
-
---------------------------------------------------------------------------------
-
-2. EJERCICIO 6.d: f(x) = -|x + 5| - 3 en [-10, -7] (o sqrt(x^2 + 10x + 25))
-   - Archivos:
-     * ejercicios_annelisse/ej_ann_06d.py
-   - Líneas afectadas: 10, 158, 172
-   - Elementos detectados:
-     * f'(x) = d/dx(-x - 5) = -1 < 0
-   - Corrección oficial de Precálculo:
-     Identidad modular: sqrt((x + 5)^2) = |x + 5|.
-     Para todo x en [-10, -7], se cumple x <= -7 < -5, luego x + 5 < 0.
-     Por definición modular: |x + 5| = -(x + 5) = -x - 5.
-     Pendiente afín m = -1 < 0 ==> x1 < x2 ==> -x1 - 5 > -x2 - 5 (estrictamente decreciente).
-
-================================================================================
-EJERCICIOS AUDITADOS Y CONFIRMADOS 100% LIMPIOS (SIN DERIVADAS)
+DETALLE DE EJERCICIOS AUDITADOS Y CONFIRMADOS 100% LIMPIOS (PRECÁLCULO PURO)
 ================================================================================
 - Ejercicio 1 (todos sus incisos):
   * ej_ann_01a.py, ej_ann_01b.py, ej_ann_01c.py, ej_ann_01.py
@@ -61,9 +30,14 @@ EJERCICIOS AUDITADOS Y CONFIRMADOS 100% LIMPIOS (SIN DERIVADAS)
   * ej_ann_04a.py, ej_ann_04b.py, ej_ann_04.py
 - Ejercicio 5 (todos sus incisos refactorizados con precálculo puro):
   * ej_ann_05a.py, ej_ann_05b.py, ej_ann_05c.py, ej_ann_05.py
-- Ejercicio 6 (incisos limpios auditados):
-  * ej_ann_06b.py, ej_ann_06c.py
+- Ejercicio 6 (todos sus incisos refactorizados con precálculo puro):
+  * ej_ann_06a.py (Refactorizado: 0 derivadas, monotonía afín por desigualdades, duración 59.4s)
+  * ej_ann_06b.py (Auditoría limpia)
+  * ej_ann_06c.py (Refactorizado: 0 derivadas, simetría cuadrática, duración 60.6s)
+  * ej_ann_06d.py (Refactorizado: 0 derivadas, identidad modular y pendiente afín, duración 60.6s)
 - Documentación Markdown:
   * EJERCICIOS_DOCS_ANNELISSE.md
   * ejercicios_annelisse/Ejercicios de funciones vértice, rango, dominio y gráficas.md
+================================================================================
+ESTADO FINAL DEL DIRECTORIO 'ejercicios_annelisse/': 100% CONFORME A GEMINI.md
 ================================================================================

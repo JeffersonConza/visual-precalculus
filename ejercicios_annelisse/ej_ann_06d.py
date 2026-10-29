@@ -4,10 +4,10 @@ Capítulo: Funciones Reales y Gráficas
 Ejercicio 6.d: Rango de Función Radical con Trinomio Cuadrado y Dominio Acotado
                f(x) = √(x² + 10x + 25),  Dom(f) = [-10, -7]
 
-Estructura de la Demostración (8 Pasos):
+Estructura de la Demostración (100% Precálculo Universitario - Sin Derivadas):
       1. Radicando y trinomio cuadrado perfecto: x² + 10x + 25 = (x + 5)².
       2. Identidad modular y reducción analítica: √(u²) = |u| ⟹ f(x) = |x + 5| = -x - 5 en [-10, -7].
-      3. Monotonía decreciente: pendiente m = -1 < 0 ⟹ f'(x) = -1 < 0 (invierte el orden).
+      3. Monotonía decreciente: función afín con pendiente m = -1 < 0 (invierte el orden por desigualdades).
       4. Evaluación en extremo izquierdo cerrado: f(-10) = 5 (máximo absoluto en punto cerrado •).
       5. Evaluación en extremo derecho cerrado: f(-7) = 2 (mínimo absoluto en punto cerrado •).
       6. Deducción formal del rango: -10 ≤ x ≤ -7 ⟹ 2 ≤ -x - 5 ≤ 5 ⟹ Ran(f) = [2, 5] (intervalo compacto).
@@ -149,31 +149,33 @@ class EjercicioAnn_06d(AmarunExerciseScene):
         self.morph_step(eq2, just2, box_color=THEME["secondary"], advance_to_step=1, wait_time=3.6)
 
         # ==========================================================
-        # PASO 3: Monotonía Decreciente
+        # PASO 3: Monotonía Decreciente por Propiedades de Orden (Precálculo)
         # ==========================================================
         eq3 = MathTex(
             r"\begin{aligned}"
-            r"&\textbf{3. Monotonía Estricta y Pendiente Negativa:} \\[6pt]"
-            r"&\text{Para la forma lineal reducida } f(x) = -x - 5 \text{ en } D = [-10, -7]: \\[4pt]"
-            r"&\quad f'(x) = \frac{d}{dx}(-x - 5) = \mathbf{{\color{amred}-1 < 0}}, \quad \forall x \in [-10, -7] \\[6pt]"
-            r"&\textbf{Comportamiento de la Función Afín:} \\[4pt]"
-            r"&\bullet \ \text{Pendiente } m = -1 < 0 \implies \mathbf{{\color{amred}\text{ESTRICTAMENTE DECRECIENTE}}} \\[6pt]"
-            r"&\implies \forall x_1 < x_2 \in [-10, -7]: \quad \mathbf{f(x_1) > f(x_2)} \\[6pt]"
-            r"&\therefore \quad \text{La función invierte estrictamente el orden de los extremos.}"
+            r"&\textbf{3. Monotonía Formal por Desigualdades (Precálculo):} \\[6pt]"
+            r"&\text{Forma lineal afín reducida: } f(x) = mx + b = \mathbf{{\color{amteal}-x - 5}} \\[6pt]"
+            r"&\textbf{Criterio de la Pendiente Afín } (m = -1): \\[4pt]"
+            r"&\quad \mathbf{{\color{amgold}m = -1 < 0 \implies \text{Función Estrictamente Decreciente}}} \\[6pt]"
+            r"&\textbf{Demostración Directa por Desigualdades:} \\[4pt]"
+            r"&\text{Sean } x_1, x_2 \in [-10, -7] \text{ tales que } x_1 < x_2: \\[4pt]"
+            r"&\quad \text{Multiplicando por } -1 \ (\text{invierte el orden}): \quad \mathbf{-x_1 > -x_2} \\[4pt]"
+            r"&\quad \text{Restando } 5: \quad \mathbf{{\color{amgreen}-x_1 - 5 > -x_2 - 5}} \iff \mathbf{f(x_1) > f(x_2)} \\[6pt]"
+            r"&\therefore \quad \mathbf{{\color{amgreen}f(x) \text{ es ESTRICTAMENTE DECRECIENTE en } [-10, -7]}} \\[4pt]"
+            r"&\implies \text{La función invierte estrictamente el orden de los extremos de } D."
             r"\end{aligned}",
-            font_size=20.5,
+            font_size=19.5,
             color=WHITE
         ).move_to([-3.4, -0.45, 0])
 
         just3 = self.create_justification(
             r"\begin{minipage}{7.6cm}\raggedright "
-            r"\textbf{3. Monotonía Decreciente:}\\[6pt]"
-            r"$\bullet$ La función reducida $f(x) = -x - 5$ posee pendiente negativa constante $m = -1$.\\[5pt]"
-            r"$\bullet$ Su derivada es $f'(x) = -1 < 0$ en todo punto del dominio.\\[5pt]"
-            r"$\bullet$ Al ser monótona estrictamente decreciente:\\[3pt]"
-            r"\hspace*{1.0em}El valor máximo ocurre en el inicio ($x = -10$).\\[3pt]"
-            r"\hspace*{1.0em}El valor mínimo ocurre en el final ($x = -7$).\\[5pt]"
-            r"$\bullet$ El orden de las desigualdades se invierte ordenadamente."
+            r"\textbf{3. Monotonía en Precálculo:}\\[6pt]"
+            r"$\bullet$ En Precálculo, la monotonía de una función afín $f(x) = mx + b$ se rige por el signo de su pendiente $m$.\\[5pt]"
+            r"$\bullet$ Al ser $m = -1 < 0$, la función es estrictamente decreciente.\\[5pt]"
+            r"$\bullet$ Demostración directa por propiedades de orden: multiplicar por un número negativo invierte la desigualdad:\\[3pt]"
+            r"\hspace*{1.0em}$x_1 < x_2 \implies -x_1 > -x_2 \implies f(x_1) > f(x_2)$.\\[5pt]"
+            r"$\bullet$ Sin derivadas: demostración $100\%$ algebraica elemental."
             r"\end{minipage}",
             font_size=18.5,
             pos=[3.35, -0.45, 0]
